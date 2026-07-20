@@ -1,0 +1,92 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  openapi/kitchenstories-internal-openapi.json plus live probes of
+  https://api.kitchenstories.io/api/ on 2026-07-19
+docs: https://api.kitchenstories.io/api/
+summary:
+  model: bearer-token
+  types:
+  - http
+  - apiKey
+  api_key_in:
+  - header
+  oauth2: false
+  scopes: false
+  public_program: false
+  notes: >-
+    The Kitchen Stories Internal API is a first-party backend with no public developer program,
+    no self-service key issuance and no OAuth 2.0 authorization server. Credentials are minted by
+    the API's own /authenticate/ endpoints, which return a JWT bearer token that is presented on
+    every subsequent call. Security is declared globally in the spec (top-level `security`), so
+    all 157 operations require a credential; no operation opts out with an empty security array.
+    Because there is no oauth2 securityScheme and no scope surface, no scopes/ artifact is
+    produced for this provider.
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  in: header
+  parameter: Authorization
+  applied: global
+  sources:
+  - openapi/kitchenstories-internal-openapi.json
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-Ultron-User
+  applied: global
+  notes: >-
+    Vendor-specific user-identity header used alongside or in place of the bearer token; not a
+    self-service API key and not documented publicly.
+  sources:
+  - openapi/kitchenstories-internal-openapi.json
+flows:
+- name: email-and-password
+  operationId: autenticate-credentials
+  method: POST
+  path: /authenticate/credentials/
+  returns: access_token
+- name: anonymous-or-device
+  operationId: autenticate
+  method: POST
+  path: /authenticate/
+  returns: access_token
+- name: sign-in-with-apple
+  operationId: autenticate-appleid
+  method: POST
+  path: /authenticate/appleid/
+  returns: access_token
+- name: google
+  operationId: autenticate-google
+  method: POST
+  path: /authenticate/google/
+  returns: access_token
+- name: facebook
+  operationId: autenticate-facebook
+  method: POST
+  path: /authenticate/facebook/
+  returns: access_token
+registration:
+- operationId: register-credentials
+  method: POST
+  path: /register/
+  description: Create a new user with email and password.
+- operationId: validate-email
+  method: GET
+  path: /users/validate/email
+  description: Validate the email link generated on account creation (no trailing slash).
+- operationId: password-forgot
+  method: POST
+  path: /password/forgot/
+- operationId: password-reset
+  method: GET
+  path: /password/reset/
+observed:
+  unauthenticated_request:
+    url: https://api.kitchenstories.io/api/recipes/{slug}/
+    status: 401
+    www_authenticate: Bearer
+    content_type: application/vnd.ajns.kitchenstories+json
+    body: '{"detail":"Authentication credentials were not provided."}'
