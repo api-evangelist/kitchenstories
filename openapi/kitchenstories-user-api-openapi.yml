@@ -1,0 +1,271 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin User API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: User
+paths:
+  /users/{uuid-or-slug}/:
+    get:
+      summary: Details of given Public User
+      operationId: user-public-detail
+      tags:
+      - User
+      parameters:
+      - name: uuid-or-slug
+        in: path
+        description: User uuid or slug
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Get user by uuid or slug
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/user_public'
+        '404':
+          description: User not found
+  /users/me/:
+    get:
+      summary: Details on currently authenticated user
+      operationId: user-me
+      tags:
+      - User
+      responses:
+        '200':
+          description: Returns the currently authenticated user details
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/user'
+        '403':
+          description: Forbidden. When user is not logged in
+    put:
+      summary: Update currently authenticated user
+      operationId: user-update
+      tags:
+      - User
+      requestBody:
+        description: You can choose to update the user base information using a JSON Schema or update the user profile image using a multipart/form-data request containing the "image" object. Image validations include being square sized (width and height are equal), at least 300px or bigger, and being less than 5MB in size.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_public_update_json'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/user_public_update_image'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/user'
+        '403':
+          description: Forbidden. When user is not logged in
+    delete:
+      summary: Delete currently authenticated user
+      operationId: user-delete
+      tags:
+      - User
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: Forbidden. When user is KS user or not logged in
+components:
+  schemas:
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    user_public_update_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
+    user_public:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+      required:
+      - type
+      - new_type
+      - name
+      - id
+    user_public_update_json:
+      type: object
+      properties:
+        username:
+          type: string
+        description:
+          type: string
+        website:
+          type: string
+          format: uri
+        gender:
+          type: string
+        birthday:
+          type: string
+        newsletter:
+          type: string
+    user:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        email:
+          type: string
+          format: email
+        gender:
+          type: string
+        birthday:
+          type: string
+          format: date-time
+        is_premium:
+          type: boolean
+        newsletter_opt_in:
+          type: string
+        preferences_set:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        onboarding_completed:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+      required:
+      - type
+      - newsletter_opt_in
+      - new_type
+      - name
+      - id
+      - email
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

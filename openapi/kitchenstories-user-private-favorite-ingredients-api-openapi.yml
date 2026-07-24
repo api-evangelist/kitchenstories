@@ -1,0 +1,209 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin User Private Favorite Ingredients API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: User Private Favorite Ingredients
+paths:
+  /users/me/favorite-ingredients/:
+    get:
+      summary: List all Favorite Ingredients from currently authenticated user
+      operationId: user-me-list-favorite-ingredients
+      tags:
+      - User Private Favorite Ingredients
+      responses:
+        '200':
+          description: Get all Favorite Ingredients from current user
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/ingredient_pagination'
+        '403':
+          description: Forbidden. When user is not logged in-
+    post:
+      summary: Add Favorite Ingredients
+      operationId: user-favorite-ingredients-create
+      tags:
+      - User Private Favorite Ingredients
+      requestBody:
+        description: 'Add Favorite Ingredients to the currently authenticated user. The `ingredients` field is required and must be list of valid ingredient UUID. Operation will fail if any of the passed ingredients is not valid.
+
+          '
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ingredient_favorite_add_json'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/ingredient_pagination'
+        '403':
+          description: Forbidden. When user is not logged in
+        '404':
+          description: NotFound. When Ingredient does not exists
+    delete:
+      summary: Delete Favorite Ingredients
+      description: 'Use DELETE `/api/users/me/favorite-ingrediets/all/` to delete every ingredient in the user''s favorite list.
+
+        '
+      operationId: user-favorite-ingredients-delete
+      tags:
+      - User Private Favorite Ingredients
+      parameters:
+      - name: uuid
+        in: query
+        description: Ingredient uuid
+        required: false
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: Forbidden. When user is not logged in
+        '404':
+          description: NotFound. When Ingredient does not exists
+components:
+  schemas:
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    ingredient_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ingredient'
+      required:
+      - data
+      - links
+      - meta
+    ingredient_favorite_add_json:
+      type: object
+      properties:
+        ingredients:
+          type: array
+          items:
+            type: string
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+    ingredient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - one
+          additionalProperties: false
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/characteristic'
+        is_partner:
+          type: boolean
+        is_searcheable:
+          type: boolean
+      required:
+      - id
+      - name
+      - is_partner
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

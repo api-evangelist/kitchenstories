@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Reports API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Reports
+paths:
+  /report/abuse/:
+    post:
+      summary: Report abuse for Comment or User
+      operationId: abuse-create
+      tags:
+      - Reports
+      requestBody:
+        description: installation.id + (comment.id or user.id) + reason
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/report_abuse_json'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/errors'
+components:
+  schemas:
+    errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    report_abuse_json:
+      type: object
+      properties:
+        installation:
+          type: string
+        comment:
+          type: string
+        user:
+          type: string
+        reason:
+          type: string
+          enum:
+          - porn
+          - attacks
+          - violence
+          - hateful-speech
+          - self-harm
+          - spam
+          - other
+      required:
+      - installation
+      - reason
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

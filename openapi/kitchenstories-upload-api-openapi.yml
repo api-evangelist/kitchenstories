@@ -1,0 +1,216 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Upload API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Upload
+paths:
+  /upload/image/:
+    post:
+      summary: Upload an JPEG image for the currently authenticated user
+      operationId: upload-image
+      tags:
+      - Upload
+      requestBody:
+        description: An `JPG` image-binary with form-data. Other formats will be rejected. No validation for dimensions or sizes.
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/user_public_upload_image'
+      responses:
+        '200':
+          description: Operation successful or errors-list
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/image'
+                - $ref: '#/components/schemas/errors'
+        '403':
+          description: Forbidden. When user is not logged in
+  /upload/video/:
+    post:
+      summary: Upload a video for the currently authenticated user
+      operationId: upload-video
+      tags:
+      - Upload
+      requestBody:
+        description: Any binary with form-data less than 500MB. No other validations.
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/user_public_upload_video'
+      responses:
+        '200':
+          description: Operation successful or errors-list
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/video'
+                - $ref: '#/components/schemas/errors'
+        '403':
+          description: Forbidden. When user is not logged in
+components:
+  schemas:
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    user_public_upload_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
+    video:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        remote_id:
+          type: string
+        url:
+          type: string
+          format: uri
+        recipe_url:
+          type: string
+          format: uri
+        width:
+          type: number
+        height:
+          type: number
+        duration:
+          type: number
+        image:
+          $ref: '#/components/schemas/image'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+            playback-state:
+              type: string
+              enum:
+              - not-playable
+              - processing
+              - ready
+          required:
+          - created
+          - updated
+          - state
+          - playback-state
+        user_reactions:
+          type: object
+          properties:
+            view_count:
+              type: number
+          required:
+          - view_count
+      required:
+      - content_id
+      - duration
+      - title
+      - id
+      - slug
+      - meta
+    errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    user_public_upload_video:
+      type: object
+      properties:
+        video:
+          $ref: '#/components/schemas/video'
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

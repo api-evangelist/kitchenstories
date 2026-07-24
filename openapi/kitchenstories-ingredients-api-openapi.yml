@@ -1,0 +1,365 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Ingredients API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Ingredients
+paths:
+  /ingredients/:
+    get:
+      summary: List Ingredients
+      operationId: ingredient-list
+      tags:
+      - Ingredients
+      parameters:
+      - name: is_partner
+        in: query
+        description: Set to 1 or true to filter by partner ingredients, 0 or false to filter by non-partner ingredients, or leave empty to get all ingredients
+        required: false
+        schema:
+          type: string
+      - name: is_searcheable
+        in: query
+        description: Set to 1 or true to filter by ingredients explictily marked as searcheable, 0 or false to explicityl exclude them from the results, or leave empty to get all ingredients
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Get all ingredients
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/ingredient_pagination'
+  /ingredients/{uuid}/:
+    get:
+      summary: Details of given ingredient
+      operationId: ingredient-detail
+      tags:
+      - Ingredients
+      parameters:
+      - name: uuid
+        in: path
+        description: Ingredient uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Get ingredient details for the given uuid
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/ingredient'
+        '404':
+          description: Ingredient not found
+  /ingredients/additional-information/:
+    get:
+      summary: List Additional Information entries for all Ingredients
+      operationId: ingredient-additional-information-list
+      tags:
+      - Ingredients
+      responses:
+        '200':
+          description: Get all ingredients additional information
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/ingredient_additionalinformation_pagination'
+  /ingredients/additional-information/{uuid}/:
+    get:
+      summary: Details for given Ingredients additional Information
+      operationId: ingredient-additionalinformation-detail
+      tags:
+      - Ingredients
+      parameters:
+      - name: uuid
+        in: path
+        description: Ingredient Additional Information uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Ingredients additional Information Detail
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/additional_information'
+        '404':
+          description: Ingredient Additional information not found
+  /ingredients/units/:
+    get:
+      summary: List ingredient units
+      operationId: ingredient-units-list
+      tags:
+      - Ingredients
+      responses:
+        '200':
+          description: Get all ingredients units. If Many does not exists, one is filled instead.
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/ingredient_unit_pagination'
+  /ingredients/units/{uuid}/:
+    get:
+      summary: Details on the given Ingredients Unit
+      operationId: ingredient-unit-detail
+      tags:
+      - Ingredients
+      parameters:
+      - name: uuid
+        in: path
+        description: Ingredient Unit uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Ingredient Unit Details. If Many does not exists, one is filled instead.
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/unit'
+        '404':
+          description: Ingredient Unit not found
+  /ingredients/promoted/:
+    get:
+      summary: Obtains the list of top promoted ingredients
+      operationId: ingredient-promoted-list
+      tags:
+      - Ingredients
+      responses:
+        '200':
+          description: Get all promoted ingredients
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/ingredient_promoted_list'
+components:
+  schemas:
+    unit:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        featured_order:
+          type: number
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+            rendered:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+      required:
+      - id
+      - name
+      - ingredient_pluralizable
+      - type
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    ingredient_additionalinformation_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/additional_information'
+      required:
+      - data
+      - links
+      - meta
+    ingredient_promoted_list:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ingredient_promoted'
+      required:
+      - data
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    ingredient_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ingredient'
+      required:
+      - data
+      - links
+      - meta
+    ingredient_promoted:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - one
+          additionalProperties: false
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/characteristic'
+        is_partner:
+          type: boolean
+        is_searcheable:
+          type: boolean
+      required:
+      - id
+      - name
+      - is_partner
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    ingredient_unit_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/unit'
+      required:
+      - data
+      - links
+      - meta
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+    ingredient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - one
+          additionalProperties: false
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/characteristic'
+        is_partner:
+          type: boolean
+        is_searcheable:
+          type: boolean
+      required:
+      - id
+      - name
+      - is_partner
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

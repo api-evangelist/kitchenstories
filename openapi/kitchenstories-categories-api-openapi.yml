@@ -1,0 +1,405 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Categories API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Categories
+paths:
+  /categories/:
+    get:
+      summary: List Categories
+      operationId: category-list
+      tags:
+      - Categories
+      parameters:
+      - name: slug
+        in: query
+        description: Category Slug
+        schema:
+          type: string
+      - name: simplified
+        in: query
+        description: Get simplified category schema
+        schema:
+          type: boolean
+      - name: children_of
+        in: query
+        description: Get all children of the category with this uuid. Use root for root category
+        schema:
+          type: string
+          format: uuid
+      - name: embed_children
+        in: query
+        description: When this is set to 1 the children (simplified) of each category is embedded
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Get all categories
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/category_pagination'
+  /categories/{uuid-or-slug}/:
+    get:
+      summary: Details of given Category
+      operationId: category-detail
+      tags:
+      - Categories
+      parameters:
+      - name: uuid-or-slug
+        in: path
+        description: Category id or slug
+        required: true
+        schema:
+          type: string
+      - name: simplified
+        in: query
+        description: Get simplified category schema
+        schema:
+          type: boolean
+      - name: embed_children
+        in: query
+        description: When this is 1 the children (simplified) of the category is embedded
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Get Category with the specific uuid
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/category'
+        '404':
+          description: Category not found
+  /categories/{uuid-or-slug}/content-meta/:
+    get:
+      summary: Content meta of given Category
+      operationId: category-detail-content-meta
+      tags:
+      - Categories
+      parameters:
+      - name: uuid-or-slug
+        in: path
+        description: id or slug of the category
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Get content meta for Category with the specific uuid
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/content_meta_list'
+        '404':
+          description: Category not found
+components:
+  schemas:
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
+    child_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        slug:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - id
+      - slug
+      - title
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    content_meta:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
+    content_meta_list:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+      required:
+      - data
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    category_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/category'
+      required:
+      - data
+      - links
+      - meta
+    category:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        content_id:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        url:
+          type: string
+          format: uri
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+              enum:
+              - draft
+              - submitted
+              - rejected
+              - live
+              - expired
+              - scheduled
+          required:
+          - created
+          - updated
+          - state
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        content_meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+      required:
+      - slug
+      - content_id
+      - publishing
+      - title
+      - id
+      - url
+      - meta
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
+    path_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+      required:
+      - id
+      - slug
+      - title
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

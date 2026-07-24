@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin UserCookbooksRecipes API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: UserCookbooksRecipes
+paths:
+  /users/me/cookbooks/{cookbook-uuid}/recipes/:
+    get:
+      deprecated: true
+      summary: 'See `/users/me/cookbooks/cookbook-uuid/items/`. This endpoints return internal recipes and articles only)
+
+        '
+      operationId: cookbook-get-recipes-list
+      parameters:
+      - name: cookbook-uuid
+        in: path
+        description: Cookbook uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      tags:
+      - UserCookbooksRecipes
+      responses:
+        '200':
+          description: See `/users/me/cookbooks/cookbook-uuid/items/`
+    post:
+      deprecated: true
+      summary: 'See `/users/me/cookbooks/{cookbook-uuid}/items/` this endpoint adds internal recipes and articles only
+
+        '
+      operationId: cookbook-create-ecipes-list
+      parameters:
+      - name: cookbook-uuid
+        in: path
+        description: Cookbook uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      tags:
+      - UserCookbooksRecipes
+      responses:
+        '200':
+          description: See `/users/me/cookbooks/{cookbook-uuid}/items/`
+  /users/me/cookbooks/{cookbook-uuid}/recipes/{feeditem-uuid}/:
+    put:
+      deprecated: true
+      summary: 'See `/users/me/cookbooks/cookbook-uuid/items/feeditem-uuid`. Move an internal recipe or article from one cookbook to another
+
+        '
+      operationId: cookbook-recipe-move
+      tags:
+      - UserCookbooksRecipes
+      parameters:
+      - name: cookbook-uuid
+        in: path
+        description: Cookbook uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: feeditem-uuid
+        in: path
+        description: Internal Article or Recipe uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: The returned id is the new cookbook-uuid
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cookbook_update_json'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: Forbidden. When user is not logged in
+    delete:
+      deprecated: true
+      summary: 'See `/users/me/cookbooks/cookbook-uuid/items/feeditem-uuid`. Delete an internal recipe or article from a cookbook
+
+        '
+      operationId: cookbook-recipe-delete
+      tags:
+      - UserCookbooksRecipes
+      parameters:
+      - name: cookbook-uuid
+        in: path
+        description: Cookbook uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: feeditem-uuid
+        in: path
+        description: Internal Recipe or Article uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: Forbidden. When user is not logged in
+        '404':
+          description: NotFound. When Cookbook does not exists
+components:
+  schemas:
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    cookbook_update_json:
+      type: object
+      properties:
+        id:
+          type: string
+      required:
+      - id
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

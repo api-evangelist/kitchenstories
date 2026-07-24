@@ -1,0 +1,238 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Search Categories API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Search Categories
+paths:
+  /search/featured/:
+    get:
+      summary: List all featured search categories
+      operationId: search-category-list
+      tags:
+      - Search Categories
+      parameters:
+      - name: slug
+        in: query
+        description: Get category by slug
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Get all featured search categories
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/search_pagination'
+  /search/featured/{uuid-or-slug}/:
+    get:
+      summary: Details for given Search Category
+      operationId: search-category-detail
+      tags:
+      - Search Categories
+      parameters:
+      - name: uuid-or-slug
+        in: path
+        description: Category uuid or slug
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Get featured search categories with the specified uuid or slug
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/search_category'
+        '404':
+          description: Category not found
+components:
+  schemas:
+    search_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/search_category'
+      required:
+      - data
+      - links
+      - meta
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    search_category:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        content_id:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        icon:
+          $ref: '#/components/schemas/image'
+        description:
+          type: string
+        search:
+          type: object
+          properties:
+            query:
+              type: string
+            filters:
+              type: string
+            index:
+              type: string
+        url:
+          type: string
+          format: uri
+        publishing:
+          $ref: '#/components/schemas/publishing'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+      required:
+      - content_id
+      - publishing
+      - title
+      - url
+      - slug
+      - meta
+      - description
+      - id
+      - image
+      - icon
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    publishing:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        state:
+          type: string
+      required:
+      - created
+      - updated
+      - state
+      additionalProperties: false
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

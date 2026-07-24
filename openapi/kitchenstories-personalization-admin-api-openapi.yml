@@ -1,0 +1,335 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Personalization Admin API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Personalization Admin
+paths:
+  /personalization/options/:
+    post:
+      summary: Insert a new personalization option
+      operationId: personalizationoptions-post
+      tags:
+      - Personalization Admin
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/personalization_option_body'
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: NotAuthorized. When user does not have permsission for this operation (editor only)
+  /personalization/options/{uuid}/:
+    put:
+      summary: Globally update an option information
+      operationId: personalizationoptions-put-by-uuid
+      tags:
+      - Personalization Admin
+      parameters:
+      - name: uuid
+        in: path
+        description: Unique identifier for option
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/personalization_option_body'
+      responses:
+        '200':
+          description: Operation successful or detailed errors in case of failure
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: NotFound. When option does not exist
+        '403':
+          description: NotAuthorized. When user does not have permission for this operation (only editor)
+    delete:
+      summary: Globally delete an option
+      operationId: personalizationoptions-delete-by-uuid
+      tags:
+      - Personalization Admin
+      parameters:
+      - name: uuid
+        in: path
+        description: Unique identifier for option
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: NotFound. When option does not exist
+        '403':
+          description: NotAuthorized. When user does not have permission for this operation (only editor)
+  /personalization/options/{uuid}/values/:
+    post:
+      summary: Create a new value for an option
+      operationId: personalizationoptions-values-post
+      tags:
+      - Personalization Admin
+      parameters:
+      - name: uuid
+        in: path
+        description: Unique identifier for option
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/personalization_option_value_body'
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/personalization_option_value'
+        '404':
+          description: NotFound. When option does not exist
+        '403':
+          description: NotAuthorized. When user does not have permission for this operation (only editor)
+  /personalization/options/{option-uuid}/values/{value-uuid}/:
+    put:
+      summary: Globally update a value for an option
+      operationId: personalizationoptions-values-put-by-uuid
+      tags:
+      - Personalization Admin
+      parameters:
+      - name: option-uuid
+        in: path
+        description: Unique identifier for option
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: value-uuid
+        in: path
+        description: Unique identifier for value
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/personalization_option_value_body'
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: NotFound. When value or option do not exist
+        '403':
+          description: NotAuthorized. When user does not have permission for this operation (only editor)
+    delete:
+      summary: Globally delete a value for an option
+      operationId: personalizationoptions-values-delete-by-uuid
+      tags:
+      - Personalization Admin
+      parameters:
+      - name: option-uuid
+        in: path
+        description: Unique identifier for option
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: value-uuid
+        in: path
+        description: Unique identifier for value
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Operation successful
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: NotFound. When value or option do not exist
+        '403':
+          description: NotAuthorized. When user does not have permission for this operation (only editor)
+components:
+  schemas:
+    personalization_option_body:
+      type: object
+      properties:
+        key:
+          type: string
+        option_type:
+          type: string
+          enum:
+          - inclusive
+          - exclusive
+        value_type:
+          type: string
+          enum:
+          - single
+          - multi
+        title:
+          type: string
+        description:
+          type: string
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option_translation_body'
+      required:
+      - value_type
+      - key
+      - option_type
+    personalization_option_translation_body:
+      type: object
+      properties:
+        language:
+          type: string
+          enum:
+          - de
+          - en
+          - zh
+        title:
+          type: string
+        description:
+          type: string
+      required:
+      - language
+      - description
+      - title
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    personalization_option_value_body:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        value:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        translation_status:
+          type: string
+          enum:
+          - original
+          - fully_translated
+          - partially_translated
+          - auto_translated
+          - not_translated
+        native_language:
+          type: string
+          enum:
+          - en
+          - de
+          - zh
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+      required:
+      - value
+    personalization_option_value:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        value:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        translation_status:
+          type: string
+          enum:
+          - original
+          - fully_translated
+          - partially_translated
+          - auto_translated
+          - not_translated
+        native_language:
+          type: string
+          enum:
+          - en
+          - de
+          - zh
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+      required:
+      - value
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

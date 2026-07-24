@@ -1,0 +1,1377 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Content Collections Admin API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Content Collections Admin
+paths:
+  /content-collections/:
+    post:
+      summary: Add a new content collection
+      operationId: content-collection-create
+      tags:
+      - Content Collections Admin
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/content_collection_body'
+      responses:
+        '200':
+          description: Returns successfully created content collection
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/content_collection'
+        '403':
+          description: NotAuthorized. When user does not have permsission for this operation (editor only)
+  /content-collections/{uuid}/:
+    delete:
+      summary: Delete a content collection
+      operationId: content-collection-delete
+      tags:
+      - Content Collections Admin
+      parameters:
+      - name: uuid
+        in: path
+        description: Unique identifier for content collection
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Returns a message that deleting the object has succeeded
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: Content collection item not found
+    put:
+      summary: Edit a content collection
+      operationId: content-collection-edit
+      tags:
+      - Content Collections Admin
+      parameters:
+      - name: uuid
+        in: path
+        description: Unique identifier for content collection
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/content_collection_body'
+      responses:
+        '200':
+          description: Returns successfully created content collection
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/content_collection'
+        '403':
+          description: NotAuthorized. When user does not have permsission for this operation (editor only)
+  /content-collections/{uuid}/items/:
+    post:
+      summary: Add a new content collection item
+      operationId: content-collection-item-create
+      tags:
+      - Content Collections Admin
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/content_collection_item_body'
+      parameters:
+      - name: uuid
+        in: path
+        description: Unique identifier for a collection
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Returns successfully created content collection item
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/content_collection_item'
+        '403':
+          description: NotAuthorized. When user does not have permsission for this operation (editor only)
+  /content-collections/{collection-uuid}/items/{item-uuid}/:
+    delete:
+      summary: Remove a single content collection item from its associated collection
+      operationId: content-collection-item-delete
+      tags:
+      - Content Collections Admin
+      parameters:
+      - name: collection-uuid
+        in: path
+        description: Unique identifier for content collection
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: item-uuid
+        in: path
+        description: Unique identifier for a single content item
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Returns a message that deleting the object has succeeded
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: NotAuthorized. When user does not have permsission for this operation (editor only)
+        '404':
+          description: NotFound. Collection or item does not exist
+components:
+  schemas:
+    article_image_gallery:
+      type: object
+      properties:
+        type:
+          type: string
+        image_collection:
+          type: object
+          properties:
+            images:
+              type: array
+              items:
+                type: object
+                properties:
+                  image:
+                    $ref: '#/components/schemas/image'
+                  link:
+                    type: string
+                  subtitle:
+                    type: string
+                required:
+                - image
+          required:
+          - images
+      required:
+      - type
+      - image_collection
+    legacy_unit:
+      type: object
+      properties:
+        id:
+          type: string
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+      required:
+      - name
+    category_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - slug
+      - title
+      - id
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
+    step:
+      type: object
+      properties:
+        headline:
+          type: string
+        text:
+          type: string
+        tip:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            video:
+              $ref: '#/components/schemas/video'
+          required:
+          - description
+          - title
+        image:
+          $ref: '#/components/schemas/image'
+        video:
+          $ref: '#/components/schemas/video'
+        utensils:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe_utensil'
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe_ingredient'
+      required:
+      - text
+    recipe_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        difficulty:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        duration:
+          type: object
+          properties:
+            preparation:
+              type: number
+            baking:
+              type: number
+            resting:
+              type: number
+          required:
+          - preparation
+          - resting
+          - baking
+          nullable: true
+        user_reactions:
+          type: object
+          properties:
+            rating:
+              type: number
+            rating_count:
+              type: number
+            images:
+              type: array
+              items:
+                $ref: '#/components/schemas/comment_image'
+              maxItems: 4
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+              enum:
+              - draft
+              - submitted
+              - rejected
+              - live
+              - expired
+              - scheduled
+          required:
+          - created
+          - updated
+          - state
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
+      required:
+      - content_id
+      - type
+      - publishing
+      - title
+      - slug
+      - url
+      - user_reactions
+      - author
+      - id
+    article_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        publishing:
+          $ref: '#/components/schemas/publishing'
+        user_reactions:
+          type: object
+          properties:
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+      required:
+      - content_id
+      - type
+      - publishing
+      - title
+      - slug
+      - url
+      - subtitle
+      - user_reactions
+      - author
+      - id
+      - image
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    article:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        publishing:
+          $ref: '#/components/schemas/publishing'
+        user_reactions:
+          type: object
+          properties:
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+        content:
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/article_headline'
+            - $ref: '#/components/schemas/article_quote'
+            - $ref: '#/components/schemas/article_text'
+            - $ref: '#/components/schemas/article_recipes'
+            - $ref: '#/components/schemas/article_shopping_tips'
+            - $ref: '#/components/schemas/article_image_gallery'
+            - $ref: '#/components/schemas/article_video'
+            - $ref: '#/components/schemas/content_meta_carousel'
+            - $ref: '#/components/schemas/article_proscons'
+            - $ref: '#/components/schemas/article_cta_button'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
+        content_meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+        categories:
+          type: object
+          properties:
+            main:
+              $ref: '#/components/schemas/category_simplified'
+            additional:
+              type: array
+              items:
+                $ref: '#/components/schemas/category_simplified'
+      required:
+      - content_id
+      - type
+      - publishing
+      - title
+      - content
+      - slug
+      - url
+      - subtitle
+      - meta
+      - user_reactions
+      - author
+      - id
+      - image
+    size:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        metric:
+          type: string
+        imperial:
+          type: string
+      required:
+      - id
+      additionalProperties: false
+    unit:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        featured_order:
+          type: number
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+            rendered:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+      required:
+      - id
+      - name
+      - ingredient_pluralizable
+      - type
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    article_cta_button:
+      type: object
+      properties:
+        type:
+          type: string
+        cta_button:
+          type: object
+          properties:
+            text:
+              type: string
+            link:
+              type: string
+          required:
+          - text
+          - link
+      required:
+      - cta_button
+      - type
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    article_headline:
+      type: object
+      properties:
+        type:
+          type: string
+        headline:
+          type: object
+          properties:
+            level:
+              type: number
+            text:
+              type: string
+          required:
+          - level
+          - text
+      required:
+      - type
+      - headline
+      additionalProperties: false
+    content_collection_item:
+      type: object
+      properties:
+        uuid:
+          type: string
+        type:
+          type: string
+          enum:
+          - article
+          - recipe
+        collections:
+          type: array
+          items:
+            type: string
+        data:
+          oneOf:
+          - $ref: '#/components/schemas/article'
+          - $ref: '#/components/schemas/recipe'
+      required:
+      - content_type
+      - uuid
+    recipe_utensil:
+      type: object
+      properties:
+        id:
+          type: string
+        amount:
+          type: number
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        size:
+          $ref: '#/components/schemas/size'
+      required:
+      - name
+    content_collection_body:
+      type: object
+      properties:
+        title:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+      required:
+      - title
+    comment_image:
+      type: object
+      properties:
+        comment:
+          type: string
+        author:
+          $ref: '#/components/schemas/user_public'
+        original_location:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        created:
+          type: string
+          format: date-time
+      required:
+      - author
+      - created
+      - image
+      - original_location
+      - comment
+    article_proscons:
+      type: object
+      properties:
+        type:
+          type: string
+        proscons:
+          type: object
+          properties:
+            pros_title:
+              type: string
+            pros:
+              type: string
+            cons_title:
+              type: string
+            cons:
+              type: string
+          required:
+          - pros
+          - pros_title
+          - cons
+          - cons_title
+      required:
+      - type
+      - proscons
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
+    child_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        slug:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - id
+      - slug
+      - title
+    article_text:
+      type: object
+      properties:
+        type:
+          type: string
+        text:
+          type: object
+          properties:
+            text:
+              type: string
+          required:
+          - text
+      required:
+      - text
+      - type
+      additionalProperties: false
+    article_recipes:
+      type: object
+      properties:
+        type:
+          type: string
+        recipes:
+          type: object
+          properties:
+            recipes:
+              type: array
+              items:
+                $ref: '#/components/schemas/recipe_simplified'
+          required:
+          - recipes
+      required:
+      - recipes
+      - type
+    content_collection_item_body:
+      type: object
+      properties:
+        content_page:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+      required:
+      - content_page
+    video:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        remote_id:
+          type: string
+        url:
+          type: string
+          format: uri
+        recipe_url:
+          type: string
+          format: uri
+        width:
+          type: number
+        height:
+          type: number
+        duration:
+          type: number
+        image:
+          $ref: '#/components/schemas/image'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+            playback-state:
+              type: string
+              enum:
+              - not-playable
+              - processing
+              - ready
+          required:
+          - created
+          - updated
+          - state
+          - playback-state
+        user_reactions:
+          type: object
+          properties:
+            view_count:
+              type: number
+          required:
+          - view_count
+      required:
+      - content_id
+      - duration
+      - title
+      - id
+      - slug
+      - meta
+    recipe_ingredient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        measurement:
+          type: object
+          properties:
+            imperial:
+              type: object
+              properties:
+                amount:
+                  type: number
+                unit:
+                  oneOf:
+                  - $ref: '#/components/schemas/legacy_unit'
+                  - $ref: '#/components/schemas/unit'
+              additionalProperties: false
+            metric:
+              type: object
+              properties:
+                amount:
+                  type: number
+                unit:
+                  oneOf:
+                  - $ref: '#/components/schemas/legacy_unit'
+                  - $ref: '#/components/schemas/unit'
+              additionalProperties: false
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        is_divided:
+          type: boolean
+        is_partner:
+          type: boolean
+        is_searcheable:
+          type: boolean
+        url:
+          type: string
+      required:
+      - name
+    user_public:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+      required:
+      - type
+      - new_type
+      - name
+      - id
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
+    content_meta:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
+    tag:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        is_hidden:
+          type: boolean
+    recipe:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        difficulty:
+          type: string
+        chefs_note:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        duration:
+          type: object
+          properties:
+            preparation:
+              type: number
+            baking:
+              type: number
+            resting:
+              type: number
+          required:
+          - preparation
+          - resting
+          - baking
+          nullable: true
+        user_reactions:
+          type: object
+          properties:
+            rating:
+              type: number
+            rating_count:
+              type: number
+            images:
+              type: array
+              items:
+                $ref: '#/components/schemas/comment_image'
+              maxItems: 4
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+        servings:
+          type: object
+          properties:
+            amount:
+              type: number
+            type:
+              type: string
+          required:
+          - amount
+          - type
+        nutrition:
+          type: object
+          properties:
+            calories:
+              type: number
+            fat:
+              type: number
+            protein:
+              type: number
+            carbohydrate:
+              type: number
+          required:
+          - protein
+          - fat
+          - calories
+          - carbohydrate
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+              enum:
+              - draft
+              - submitted
+              - rejected
+              - live
+              - expired
+              - scheduled
+          required:
+          - created
+          - updated
+          - state
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
+        content_meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+        categories:
+          type: object
+          properties:
+            main:
+              $ref: '#/components/schemas/category_simplified'
+            additional:
+              type: array
+              items:
+                $ref: '#/components/schemas/category_simplified'
+        video:
+          $ref: '#/components/schemas/video'
+        howto_videos:
+          type: array
+          items:
+            $ref: '#/components/schemas/video'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/step'
+        utensils:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe_utensil'
+        ingredients:
+          type: array
+          items:
+            type: object
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: '#/components/schemas/recipe_ingredient'
+            required:
+            - list
+            additionalProperties: false
+      required:
+      - content_id
+      - type
+      - publishing
+      - title
+      - steps
+      - slug
+      - url
+      - user_reactions
+      - author
+      - servings
+      - ingredients
+      - id
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+    publishing:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        state:
+          type: string
+      required:
+      - created
+      - updated
+      - state
+      additionalProperties: false
+    content_meta_carousel:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        content_meta_carousel:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+      required:
+      - type
+      - content_meta_carousel
+    article_quote:
+      type: object
+      properties:
+        type:
+          type: string
+        quote:
+          type: object
+          properties:
+            text:
+              type: string
+            author:
+              type: string
+          required:
+          - text
+      required:
+      - type
+      - quote
+      additionalProperties: false
+    content_collection:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        title:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
+      required:
+      - uuid
+      - title
+    path_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+      required:
+      - id
+      - slug
+      - title
+    article_video:
+      type: object
+      properties:
+        type:
+          type: string
+        video:
+          type: object
+          properties:
+            video:
+              $ref: '#/components/schemas/video'
+            subtitle:
+              type: string
+          required:
+          - video
+      required:
+      - type
+      - video
+    article_shopping_tips:
+      type: object
+      properties:
+        type:
+          type: string
+        shopping_tips:
+          type: object
+          properties:
+            shopping_tips:
+              type: array
+              items:
+                $ref: '#/components/schemas/article_simplified'
+          required:
+          - shopping_tips
+      required:
+      - type
+      - shopping_tips
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

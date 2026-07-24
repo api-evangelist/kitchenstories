@@ -1,0 +1,186 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin User Ratings API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: User Ratings
+paths:
+  /users/me/rating/:
+    get:
+      summary: List all ratings for currently authenticated user
+      operationId: rating-list
+      tags:
+      - User Ratings
+      responses:
+        '200':
+          description: Get all Ratings
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/rating_pagination'
+    post:
+      summary: Create a Rating on the given feed-item for the currently authenticated user
+      operationId: rating-create
+      tags:
+      - User Ratings
+      requestBody:
+        description: feed_items-uuid and rating (normalized) from 0-1
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rating_add_json'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: Forbidden. When user is not logged in
+        '404':
+          description: NotFound. When user feed-item does not exists
+  /users/me/rating/{feeditem-uuid}/:
+    put:
+      summary: Updates a given feed-item rating for the currently authenticated user
+      operationId: rating-update
+      tags:
+      - User Ratings
+      parameters:
+      - name: feeditem-uuid
+        in: path
+        description: Feed Item uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: feed_items-uuid and rating (normalized) from 0-1
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rating_add_json'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '403':
+          description: Forbidden. When user is not logged in
+        '404':
+          description: NotFound. When user feed-item does not exists
+components:
+  schemas:
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    rating_add_json:
+      type: object
+      properties:
+        rating:
+          type: number
+      required:
+      - rating
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    rating_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/rating'
+      required:
+      - data
+      - links
+      - meta
+    rating:
+      type: object
+      properties:
+        id:
+          type: string
+        rating:
+          type: number
+          maximum: 1
+        feed_item:
+          type: string
+      required:
+      - id
+      - rating
+      - feed_item
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

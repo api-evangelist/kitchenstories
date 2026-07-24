@@ -1,0 +1,922 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin User External Recipes API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: User External Recipes
+paths:
+  /users/me/external-recipes/:
+    get:
+      summary: List all external recipes saved by the user
+      operationId: external-recipes-list
+      tags:
+      - User External Recipes
+      responses:
+        '200':
+          description: Get all items (external recipes) from the logged in user
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/recipe_pagination'
+    post:
+      summary: Add saved-external-recipe uuid or url into the user's external recipes
+      operationId: external-recipes-create
+      tags:
+      - User External Recipes
+      requestBody:
+        description: The saved-external-recipe uuid or url of recipe to extract and save - if url or id is already saved, it will be returned
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/cookbook_recipes_add_json'
+              - $ref: '#/components/schemas/cookbook_externalrecipes_add_json'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/recipe'
+        '403':
+          description: Forbidden. When user is not logged in
+  /users/me/external-recipes/{external-recipe-id}/:
+    get:
+      summary: Get saved external recipe data from the user's external recipes list
+      operationId: external-recipes-get
+      tags:
+      - User External Recipes
+      parameters:
+      - name: external-recipe-id
+        in: path
+        description: External Recipe ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/recipe'
+        '404':
+          description: Not Found. When recipe is not found
+        '403':
+          description: Forbidden. When user is not logged in
+    delete:
+      summary: Remove saved external recipe from the user's external recipes
+      operationId: external-recipes-delete
+      tags:
+      - User External Recipes
+      parameters:
+      - name: external-recipe-id
+        in: path
+        description: External Recipe ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/recipe'
+        '404':
+          description: Not Found. When recipe is not found
+        '403':
+          description: Forbidden. When user is not logged in
+  /users/me/external-recipe-preview/:
+    get:
+      summary: Previews an external recipe by providing an URL
+      description: '*Returns:*
+
+        * On URL Error: `{''errors'': [''previewexternalrecipeform.url.is_not_valid'', ''previewexternalrecipeform.url.is_empty'']}`
+
+        * On Recipe-Not-Exists in the page: `{}`
+
+        * On Recipe Exists: `RECIPE-Vx-OBJECT`
+
+        '
+      operationId: user-recipe-external-preview
+      tags:
+      - User External Recipes
+      parameters:
+      - name: url
+        in: query
+        description: URL to the external Recipe
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Get Recipe with the specific uuid
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/recipe'
+        '202':
+          description: Recipe needs time to be processed. Retry after some time
+        '403':
+          description: Forbidden. When user is not logged in or does not have permission to run this operation
+        '404':
+          description: NotFound. When User Recipe does not exists
+components:
+  schemas:
+    legacy_unit:
+      type: object
+      properties:
+        id:
+          type: string
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+      required:
+      - name
+    category_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - slug
+      - title
+      - id
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
+    step:
+      type: object
+      properties:
+        headline:
+          type: string
+        text:
+          type: string
+        tip:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            video:
+              $ref: '#/components/schemas/video'
+          required:
+          - description
+          - title
+        image:
+          $ref: '#/components/schemas/image'
+        video:
+          $ref: '#/components/schemas/video'
+        utensils:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe_utensil'
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe_ingredient'
+      required:
+      - text
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    size:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        metric:
+          type: string
+        imperial:
+          type: string
+      required:
+      - id
+      additionalProperties: false
+    unit:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        featured_order:
+          type: number
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+            rendered:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+      required:
+      - id
+      - name
+      - ingredient_pluralizable
+      - type
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    recipe_utensil:
+      type: object
+      properties:
+        id:
+          type: string
+        amount:
+          type: number
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        size:
+          $ref: '#/components/schemas/size'
+      required:
+      - name
+    comment_image:
+      type: object
+      properties:
+        comment:
+          type: string
+        author:
+          $ref: '#/components/schemas/user_public'
+        original_location:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        created:
+          type: string
+          format: date-time
+      required:
+      - author
+      - created
+      - image
+      - original_location
+      - comment
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
+    child_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        slug:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - id
+      - slug
+      - title
+    recipe_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe'
+      required:
+      - data
+      - links
+      - meta
+    cookbook_externalrecipes_add_json:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+    video:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        remote_id:
+          type: string
+        url:
+          type: string
+          format: uri
+        recipe_url:
+          type: string
+          format: uri
+        width:
+          type: number
+        height:
+          type: number
+        duration:
+          type: number
+        image:
+          $ref: '#/components/schemas/image'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+            playback-state:
+              type: string
+              enum:
+              - not-playable
+              - processing
+              - ready
+          required:
+          - created
+          - updated
+          - state
+          - playback-state
+        user_reactions:
+          type: object
+          properties:
+            view_count:
+              type: number
+          required:
+          - view_count
+      required:
+      - content_id
+      - duration
+      - title
+      - id
+      - slug
+      - meta
+    recipe_ingredient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        measurement:
+          type: object
+          properties:
+            imperial:
+              type: object
+              properties:
+                amount:
+                  type: number
+                unit:
+                  oneOf:
+                  - $ref: '#/components/schemas/legacy_unit'
+                  - $ref: '#/components/schemas/unit'
+              additionalProperties: false
+            metric:
+              type: object
+              properties:
+                amount:
+                  type: number
+                unit:
+                  oneOf:
+                  - $ref: '#/components/schemas/legacy_unit'
+                  - $ref: '#/components/schemas/unit'
+              additionalProperties: false
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        is_divided:
+          type: boolean
+        is_partner:
+          type: boolean
+        is_searcheable:
+          type: boolean
+        url:
+          type: string
+      required:
+      - name
+    cookbook_recipes_add_json:
+      type: object
+      properties:
+        id:
+          type: string
+      required:
+      - id
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
+    user_public:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+      required:
+      - type
+      - new_type
+      - name
+      - id
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
+    content_meta:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
+    tag:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        is_hidden:
+          type: boolean
+    recipe:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        difficulty:
+          type: string
+        chefs_note:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        duration:
+          type: object
+          properties:
+            preparation:
+              type: number
+            baking:
+              type: number
+            resting:
+              type: number
+          required:
+          - preparation
+          - resting
+          - baking
+          nullable: true
+        user_reactions:
+          type: object
+          properties:
+            rating:
+              type: number
+            rating_count:
+              type: number
+            images:
+              type: array
+              items:
+                $ref: '#/components/schemas/comment_image'
+              maxItems: 4
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+        servings:
+          type: object
+          properties:
+            amount:
+              type: number
+            type:
+              type: string
+          required:
+          - amount
+          - type
+        nutrition:
+          type: object
+          properties:
+            calories:
+              type: number
+            fat:
+              type: number
+            protein:
+              type: number
+            carbohydrate:
+              type: number
+          required:
+          - protein
+          - fat
+          - calories
+          - carbohydrate
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+              enum:
+              - draft
+              - submitted
+              - rejected
+              - live
+              - expired
+              - scheduled
+          required:
+          - created
+          - updated
+          - state
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
+        content_meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+        categories:
+          type: object
+          properties:
+            main:
+              $ref: '#/components/schemas/category_simplified'
+            additional:
+              type: array
+              items:
+                $ref: '#/components/schemas/category_simplified'
+        video:
+          $ref: '#/components/schemas/video'
+        howto_videos:
+          type: array
+          items:
+            $ref: '#/components/schemas/video'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/step'
+        utensils:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe_utensil'
+        ingredients:
+          type: array
+          items:
+            type: object
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: '#/components/schemas/recipe_ingredient'
+            required:
+            - list
+            additionalProperties: false
+      required:
+      - content_id
+      - type
+      - publishing
+      - title
+      - steps
+      - slug
+      - url
+      - user_reactions
+      - author
+      - servings
+      - ingredients
+      - id
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+    path_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+      required:
+      - id
+      - slug
+      - title
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

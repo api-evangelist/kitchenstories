@@ -1,0 +1,476 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Authentication API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Authentication
+paths:
+  /authenticate/:
+    post:
+      deprecated: true
+      summary: Authenticate and get a bearer token for the subsequent calls to the api
+      operationId: autenticate
+      tags:
+      - Authentication
+      requestBody:
+        description: This endpoint can be called also without a requestBody. Then an access Token will be returned.
+        required: false
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/apple_auth'
+              - $ref: '#/components/schemas/google_auth'
+              - $ref: '#/components/schemas/facebook_auth'
+              - $ref: '#/components/schemas/email_auth'
+      responses:
+        '200':
+          description: 'On success for `apple_auth`, `google_auth`, `facebook_auth` and `email_auth` an `user_token` schema will be returned. On empty body an `access_token` schema will be returned. If where is an error `errors` schema will be returned.
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/user_token'
+                - $ref: '#/components/schemas/access_token'
+                - $ref: '#/components/schemas/errors'
+  /authenticate/appleid/:
+    post:
+      summary: Authenticate using Apple ID, get a bearer token for subsequent calls
+      operationId: autenticate-appleid
+      tags:
+      - Authentication
+      requestBody:
+        description: This endpoint can be called also without a requestBody. Then an access Token will be returned.
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apple_auth'
+      responses:
+        '200':
+          description: 'On success an `user_token` schema will be returned. If where is an error `errors` schema will be returned.
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/user_token'
+                - $ref: '#/components/schemas/errors'
+  /authenticate/google/:
+    post:
+      summary: Authenticate using Google Account, get a bearer token for subsequent calls
+      operationId: autenticate-google
+      tags:
+      - Authentication
+      requestBody:
+        description: This endpoint can be called also without a requestBody. Then an access Token will be returned.
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/google_auth'
+      responses:
+        '200':
+          description: 'On success an `user_token` schema will be returned. If where is an error `errors` schema will be returned.
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/user_token'
+                - $ref: '#/components/schemas/errors'
+  /authenticate/facebook/:
+    post:
+      summary: Authenticate using Facebook Account, get a bearer token for the subsequent calls
+      operationId: autenticate-facebook
+      tags:
+      - Authentication
+      requestBody:
+        description: This endpoint can be called also without a requestBody. Then an access Token will be returned.
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/facebook_auth'
+      responses:
+        '200':
+          description: 'On success an `user_token` schema will be returned. If where is an error `errors` schema will be returned.
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/user_token'
+                - $ref: '#/components/schemas/errors'
+  /authenticate/credentials/:
+    post:
+      summary: authenticate and get a bearer token for the subsequent calls to the api
+      operationId: autenticate-credentials
+      tags:
+      - Authentication
+      requestBody:
+        description: This endpoint can be called also without a requestBody. Then an access Token will be returned.
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/email_auth'
+      responses:
+        '200':
+          description: 'On success an `user_token` schema will be returned. If where is an error `errors` schema will be returned.
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/user_token'
+                - $ref: '#/components/schemas/errors'
+  /register/:
+    post:
+      summary: Create a new user with email and password
+      operationId: register-credentials
+      tags:
+      - Authentication
+      requestBody:
+        description: 'although `installation_id` is a required field, this can be set to a dummy value if not used (ie for web registration)
+
+          '
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/email_registration'
+      responses:
+        '200':
+          description: 'On success an `user_token` schema will be returned. If where is an error `errors` schema will be returned.
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/user_token'
+                - $ref: '#/components/schemas/errors'
+  /users/validate/email:
+    get:
+      summary: validate email link - generated by ultron on account creation (note no trailing slash on this endpoint)
+      operationId: validate-email
+      tags:
+      - Authentication
+      parameters:
+      - name: email
+        in: query
+        description: email of the user
+        required: true
+        schema:
+          type: string
+      - name: hash
+        in: query
+        description: hash created by ultron with email and secret key to compare
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 'On success empty error schema is returned, otherwise error is given
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/errors'
+  /password/forgot/:
+    post:
+      summary: Send out a password forgot e-mail if the account exists
+      operationId: password-forgot
+      tags:
+      - Authentication
+      requestBody:
+        description: email
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/forgot_password'
+      responses:
+        '200':
+          description: 'On success empty error schema is returned, otherwise error is given
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/errors'
+  /password/reset/:
+    get:
+      summary: Reset the user password (needs password forgot payload token)
+      operationId: password-reset
+      tags:
+      - Authentication
+      parameters:
+      - name: new_password
+        in: query
+        description: new password
+        required: true
+        schema:
+          type: string
+      - name: password_token
+        in: query
+        description: password token generated by ultron when sending reset link
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 'On success empty error schema is returned, otherwise error is given
+
+            '
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/errors'
+  /installations/:
+    post:
+      summary: Create a new installation in the database
+      operationId: create-installation
+      tags:
+      - Authentication
+      requestBody:
+        description: Only id is required
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_installation'
+      responses:
+        '200':
+          description: On success Installation schema is returned, otherwise error is given. For compatibility reasons, errors key is always present in the response, and might be "Null" when there are no errors.
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/errors'
+                - $ref: '#/components/schemas/installation'
+components:
+  schemas:
+    access_token:
+      type: object
+      properties:
+        access_token:
+          type: string
+      required:
+      - access_token
+    apple_auth:
+      type: object
+      properties:
+        name:
+          type: string
+        apple_token:
+          type: string
+        installation_id:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - name
+      - apple_token
+      - installation_id
+    email_auth:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        installation_id:
+          type: string
+        token_type:
+          type: string
+      required:
+      - email
+      - password
+    user_token:
+      type: object
+      properties:
+        user_token:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - is_new
+      - user_token
+    errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    facebook_auth:
+      type: object
+      properties:
+        facebook_token:
+          type: string
+        installation_id:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - facebook_token
+      - installation_id
+    installation:
+      type: object
+      properties:
+        id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        advertising_id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        amplitude_id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        app_version:
+          type: string
+        app_build:
+          type: number
+        device_type:
+          type: string
+        software_version:
+          type: string
+        hardware_version:
+          type: string
+        push_type:
+          type: string
+        push_token:
+          type: string
+        push_settings:
+          type: string
+        app_language:
+          type: string
+        device_language:
+          type: string
+        timezone:
+          type: string
+        push_settings_weekly_updates:
+          type: boolean
+        push_settings_replies_to_comments:
+          type: boolean
+        push_settings_replies_to_replies:
+          type: boolean
+      required:
+      - id
+    forgot_password:
+      type: object
+      properties:
+        email:
+          type: string
+      required:
+      - email
+    google_auth:
+      type: object
+      properties:
+        google_token:
+          type: string
+        installation_id:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - google_token
+      - installation_id
+    create_installation:
+      type: object
+      properties:
+        id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        advertising_id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        amplitude_id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        app_version:
+          type: string
+        app_build:
+          type: number
+        device_type:
+          type: string
+        software_version:
+          type: string
+        hardware_version:
+          type: string
+        push_type:
+          type: string
+        push_token:
+          type: string
+        push_settings:
+          type: string
+        app_language:
+          type: string
+        device_language:
+          type: string
+        timezone:
+          type: string
+        push_settings_weekly_updates:
+          type: boolean
+        push_settings_replies_to_comments:
+          type: boolean
+        push_settings_replies_to_replies:
+          type: boolean
+      required:
+      - id
+    email_registration:
+      type: object
+      properties:
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        installation_id:
+          type: string
+        device:
+          type: string
+        newsletter:
+          type: boolean
+      required:
+      - email
+      - username
+      - password
+      - installation_id
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Stats API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Stats
+paths:
+  /stats/community-recipes/:
+    get:
+      summary: Get stats on current state of UGC Recipes
+      operationId: stats-community-recipes
+      tags:
+      - Stats
+      parameters:
+      - name: language
+        in: query
+        description: Filter by language (en, de, zh only)
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Get stats
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/stats'
+components:
+  schemas:
+    stats:
+      type: object
+      properties:
+        community-stats:
+          type: object
+          properties:
+            created:
+              type: number
+            submitted:
+              type: number
+            rejected:
+              type: number
+            accepted:
+              type: number
+            accepted-video-steps:
+              type: number
+            accepted-quality:
+              type: object
+              properties:
+                high:
+                  type: number
+                partner:
+                  type: number
+                low:
+                  type: number
+              required:
+              - high
+              - partner
+              - low
+          required:
+          - accepted-video-steps
+          - rejected
+          - accepted
+          - submitted
+          - created
+          - accepted-quality
+      required:
+      - community-stats
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

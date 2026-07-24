@@ -1,0 +1,240 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Utensils API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Utensils
+paths:
+  /utensils/:
+    get:
+      summary: List Utensils
+      operationId: utensil-list
+      tags:
+      - Utensils
+      responses:
+        '200':
+          description: Get all utensils
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/utensil_pagination'
+  /utensils/{uuid}/:
+    get:
+      summary: Details for given Utensil
+      operationId: utensil-detail
+      tags:
+      - Utensils
+      parameters:
+      - name: uuid
+        in: path
+        description: Utensil uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Get utensil with the specified uuid
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/utensil'
+        '404':
+          description: Utensil not found
+  /utensils/additional-information/:
+    get:
+      summary: List Additional Information for all Utensils
+      operationId: utensil-additional-information-list
+      tags:
+      - Utensils
+      responses:
+        '200':
+          description: Get all utensils additional information
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/utensil_additionalinformation_pagination'
+  /utensils/additional-information/{uuid}/:
+    get:
+      summary: Details for given Utensil's Additional Information
+      operationId: utensil-additionalinformation-detail
+      tags:
+      - Utensils
+      parameters:
+      - name: uuid
+        in: path
+        description: Utensil Additional Information uuid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Utensils Additional Information Detail
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/additional_information'
+        '404':
+          description: Utensil Additional Information not found
+components:
+  schemas:
+    size:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        metric:
+          type: string
+        imperial:
+          type: string
+      required:
+      - id
+      additionalProperties: false
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    utensil:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - one
+          additionalProperties: false
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/characteristic'
+        sizes:
+          type: array
+          items:
+            $ref: '#/components/schemas/size'
+        is_partner:
+          type: boolean
+      required:
+      - id
+      - name
+      - is_partner
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    utensil_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/utensil'
+      required:
+      - data
+      - links
+      - meta
+    utensil_additionalinformation_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/additional_information'
+      required:
+      - data
+      - links
+      - meta
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

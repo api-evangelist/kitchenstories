@@ -1,0 +1,185 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Categories Admin API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Categories Admin
+paths:
+  /categories/{uuid-or-slug}/content-meta/:
+    post:
+      summary: Add a new content meta
+      operationId: category-content-meta-create
+      tags:
+      - Categories Admin
+      parameters:
+      - name: uuid-or-slug
+        in: path
+        description: id or slug of the category
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The authenticated user must be of the type "editor" and have CMS access
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/content_meta_body'
+      responses:
+        '200':
+          description: Get content meta for Category with the specific uuid
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/content_meta'
+        '403':
+          description: Forbidden — user does not have editor permissions
+        '404':
+          description: Category not found
+    delete:
+      summary: Delete a content meta by key
+      operationId: category-content-meta-delete
+      tags:
+      - Categories Admin
+      parameters:
+      - name: uuid-or-slug
+        in: path
+        description: id or slug of the category
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: unique key of Content Meta to delete
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A confirmation or error deleting the target content meta
+        '403':
+          description: Forbidden — user does not have editor permissions
+        '404':
+          description: Category or Content Meta key not found
+components:
+  schemas:
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
+    content_meta:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
+    content_meta_body:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

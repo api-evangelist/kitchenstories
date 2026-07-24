@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin Indexer API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Indexer
+paths:
+  /indexer/recipe/{uuid}/:
+    get:
+      summary: Index the given recipe in algolia
+      operationId: indexer-recipe
+      tags:
+      - Indexer
+      parameters:
+      - name: uuid
+        in: path
+        description: Recipe uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Note that this endpoint triggers an async request to the indexer - it returns without error even if the indexation fails
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/errors'
+  /indexer/article/{uuid}/:
+    get:
+      summary: Index the given Article in algolia
+      operationId: indexer-article
+      tags:
+      - Indexer
+      parameters:
+      - name: uuid
+        in: path
+        description: Article uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Note that this endpoint triggers an async request to the indexer - it returns without error even if the indexation fails
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/errors'
+  /indexer/video/{uuid}/:
+    get:
+      summary: Index the given video in algolia
+      operationId: indexer-video
+      tags:
+      - Indexer
+      parameters:
+      - name: uuid
+        in: path
+        description: Video uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Note that this endpoint triggers an async request to indexer - it returns without error even if the indexation fails
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/errors'
+components:
+  schemas:
+    errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User

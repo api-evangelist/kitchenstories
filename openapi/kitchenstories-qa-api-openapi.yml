@@ -1,0 +1,271 @@
+openapi: 3.0.0
+info:
+  version: '3'
+  title: Kitchen Stories Internal Articles Admin QA API
+  description: ''
+  contact:
+    email: hello@kitchenstories.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.kitchenstories.io/api
+  description: LIVE Environment
+- url: https://api.dev.kitchenstories.io/api
+  description: Development Environment
+- url: http://localhost:8000/api
+  description: Local Environment
+security:
+- bearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: QA
+paths:
+  /qa/users/me/:
+    put:
+      summary: Update currently authenticated user
+      operationId: qa-user-update
+      tags:
+      - QA
+      requestBody:
+        description: desc
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/qa_user_update_json'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/qa_user_public_update_image'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/user'
+        '403':
+          description: Forbidden. When user is not logged in
+  /qa/users/me/{pk}/:
+    delete:
+      summary: Delete a given User
+      operationId: qa-user-me-delete
+      tags:
+      - QA
+      parameters:
+      - name: pk
+        in: path
+        description: delete an user by uuid , email or name
+        required: true
+        schema:
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: NotFound. When User does not exists
+  /qa/ugc/recipe/{pk}/accept/:
+    post:
+      summary: Accept / Approve given UGC recipe
+      operationId: qa-ugc-accept
+      tags:
+      - QA
+      parameters:
+      - name: pk
+        in: path
+        description: Accept an ugc recipe by uuid
+        required: true
+        schema:
+          type: string
+          format: string
+      requestBody:
+        description: desc
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/qa_ugc_recipe_accept'
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: NotFound. When Ugc recipe does not exists
+  /qa/ugc/recipe/{pk}/reject/:
+    post:
+      summary: Reject given UGC recipe
+      operationId: qa-ugc-reject
+      tags:
+      - QA
+      parameters:
+      - name: pk
+        in: path
+        description: Reject an ugc recipe by uuid
+        required: true
+        schema:
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Operation successfull
+          content:
+            application/vnd.ajns.kitchenstories+json; version=3:
+              schema:
+                $ref: '#/components/schemas/form_response'
+        '404':
+          description: NotFound. When Ugc recipe does not exists
+components:
+  schemas:
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    qa_user_update_json:
+      type: object
+      properties:
+        username:
+          type: string
+        description:
+          type: string
+        website:
+          type: string
+          format: uri
+        gender:
+          type: string
+        birthday:
+          type: string
+        newsletter:
+          type: string
+        type:
+          type: string
+        occupation:
+          type: number
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    qa_ugc_recipe_accept:
+      type: object
+      properties:
+        quality:
+          type: number
+        main_category:
+          type: number
+        additional_categories:
+          type: array
+          items:
+            type: number
+        tags:
+          type: array
+          items:
+            type: string
+    user:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+          nullable: true
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        email:
+          type: string
+          format: email
+        gender:
+          type: string
+        birthday:
+          type: string
+          format: date-time
+        is_premium:
+          type: boolean
+        newsletter_opt_in:
+          type: string
+        preferences_set:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        onboarding_completed:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+      required:
+      - type
+      - newsletter_opt_in
+      - new_type
+      - name
+      - id
+      - email
+    qa_user_public_update_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Ultron-User
