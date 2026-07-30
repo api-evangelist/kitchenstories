@@ -1,25 +1,992 @@
 aid: kitchenstories
-name: kitchenstories
-description: kitchenstories is a company surfaced as a portfolio company of point-nine and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: Kitchen Stories
+description: Kitchen Stories is a Berlin-based, video-first cooking and recipe platform founded in 2013
+  by Verena Hubertz and Mengting Boensch, and majority-owned by the BSH Group (Bosch Siemens Hausgeraete)
+  since 2017. The company publishes roughly 15,000 recipes and articles with HD step-by-step video
+  tutorials across its iOS and Android apps, website, smart TVs, and Amazon Echo Show, reaching more than
+  6 million unique users from over 22 million app downloads. Alongside the consumer product it runs
+  Kitchen Stories Business, a branded-content and native-advertising arm working with around 300 brand
+  partners, and an online shop for its own organic spice mixes. Its content platform is served by the
+  Kitchen Stories Internal API (Ultron), a bearer-token REST API at api.kitchenstories.io covering
+  recipes, articles, videos, ingredients, utensils, categories, user cookbooks, meal plans, comments,
+  ratings, and personalization.
 url: https://raw.githubusercontent.com/api-evangelist/kitchenstories/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.kitchenstories.com/favicon/apple-touch-icon.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - point-nine
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: openapi-published
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Food and Beverage
+- Recipes
+- Cooking
+- Media
+- Content
+- Consumer
+- Mobile
+- Video
+- Germany
+apis:
+- aid: kitchenstories:kitchenstories-articles-admin-api
+  name: Kitchen Stories Articles Admin API
+  description: The Articles Admin API from Kitchen Stories — 1 operation(s) for articles admin.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Articles Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-articles-admin-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-articles-api
+  name: Kitchen Stories Articles API
+  description: The Articles API from Kitchen Stories — 4 operation(s) for articles.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Articles
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-articles-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-authentication-api
+  name: Kitchen Stories Authentication API
+  description: The Authentication API from Kitchen Stories — 10 operation(s) for authentication.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-authentication-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-categories-admin-api
+  name: Kitchen Stories Categories Admin API
+  description: The Categories Admin API from Kitchen Stories — 1 operation(s) for categories admin.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Categories Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-categories-admin-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-categories-api
+  name: Kitchen Stories Categories API
+  description: The Categories API from Kitchen Stories — 3 operation(s) for categories.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-categories-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-content-collections-admin-api
+  name: Kitchen Stories Content Collections Admin API
+  description: >-
+    The Content Collections Admin API from Kitchen Stories — 4 operation(s) for content collections admin.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Content Collections Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-content-collections-admin-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-content-collections-api
+  name: Kitchen Stories Content Collections API
+  description: >-
+    The Content Collections API from Kitchen Stories — 4 operation(s) for content collections.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Content Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-content-collections-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-feed-api
+  name: Kitchen Stories Feed API
+  description: The Feed API from Kitchen Stories — 2 operation(s) for feed.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Feed
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-feed-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-indexer-api
+  name: Kitchen Stories Indexer API
+  description: The Indexer API from Kitchen Stories — 3 operation(s) for indexer.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Indexer
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-indexer-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-ingredients-api
+  name: Kitchen Stories Ingredients API
+  description: The Ingredients API from Kitchen Stories — 7 operation(s) for ingredients.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Ingredients
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-ingredients-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-other-api
+  name: Kitchen Stories Other API
+  description: The Other API from Kitchen Stories — 5 operation(s) for other.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Other
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-other-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-personalization-admin-api
+  name: Kitchen Stories Personalization Admin API
+  description: >-
+    The Personalization Admin API from Kitchen Stories — 4 operation(s) for personalization admin.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Personalization Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-personalization-admin-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-personalization-api
+  name: Kitchen Stories Personalization API
+  description: The Personalization API from Kitchen Stories — 8 operation(s) for personalization.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Personalization
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-personalization-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-qa-api
+  name: Kitchen Stories QA API
+  description: The QA API from Kitchen Stories — 4 operation(s) for qa.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - QA
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-qa-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-recipes-admin-api
+  name: Kitchen Stories Recipes Admin API
+  description: The Recipes Admin API from Kitchen Stories — 1 operation(s) for recipes admin.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Recipes Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-recipes-admin-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-recipes-api
+  name: Kitchen Stories Recipes API
+  description: The Recipes API from Kitchen Stories — 6 operation(s) for recipes.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Recipes
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-recipes-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-reports-api
+  name: Kitchen Stories Reports API
+  description: The Reports API from Kitchen Stories — 1 operation(s) for reports.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-reports-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-search-categories-api
+  name: Kitchen Stories Search Categories API
+  description: The Search Categories API from Kitchen Stories — 2 operation(s) for search categories.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Search Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-search-categories-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-shopping-tips-affiliate-pages-api
+  name: Kitchen Stories Shopping Tips (Affiliate Pages) API
+  description: >-
+    The Shopping Tips (Affiliate Pages) API from Kitchen Stories — 3 operation(s) for shopping tips (affiliate
+    pages).
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Shopping Tips (Affiliate Pages)
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-shopping-tips-affiliate-pages-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-stats-api
+  name: Kitchen Stories Stats API
+  description: The Stats API from Kitchen Stories — 1 operation(s) for stats.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-stats-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-tags-api
+  name: Kitchen Stories Tags API
+  description: The Tags API from Kitchen Stories — 2 operation(s) for tags.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-tags-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-upload-api
+  name: Kitchen Stories Upload API
+  description: The Upload API from Kitchen Stories — 2 operation(s) for upload.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-upload-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-api
+  name: Kitchen Stories User API
+  description: The User API from Kitchen Stories — 2 operation(s) for user.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-comment-likes-api
+  name: Kitchen Stories User Comment Likes API
+  description: The User Comment Likes API from Kitchen Stories — 2 operation(s) for user comment likes.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Comment Likes
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-comment-likes-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-comments-api
+  name: Kitchen Stories User Comments API
+  description: The User Comments API from Kitchen Stories — 3 operation(s) for user comments.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-comments-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-cookbooks-api
+  name: Kitchen Stories User Cookbooks API
+  description: The User Cookbooks API from Kitchen Stories — 5 operation(s) for user cookbooks.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Cookbooks
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-cookbooks-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-external-recipes-api
+  name: Kitchen Stories User External Recipes API
+  description: >-
+    The User External Recipes API from Kitchen Stories — 3 operation(s) for user external recipes.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User External Recipes
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-external-recipes-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-likes-api
+  name: Kitchen Stories User Likes API
+  description: The User Likes API from Kitchen Stories — 3 operation(s) for user likes.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Likes
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-likes-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-meal-plan-api
+  name: Kitchen Stories User Meal Plan API
+  description: The User Meal Plan API from Kitchen Stories — 2 operation(s) for user meal plan.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Meal Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-meal-plan-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-private-favorite-ingredients-api
+  name: Kitchen Stories User Private Favorite Ingredients API
+  description: >-
+    The User Private Favorite Ingredients API from Kitchen Stories — 1 operation(s) for user private favorite
+    ingredients.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Private Favorite Ingredients
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-private-favorite-ingredients-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-private-recipes-api
+  name: Kitchen Stories User Private Recipes API
+  description: >-
+    The User Private Recipes API from Kitchen Stories — 3 operation(s) for user private recipes.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Private Recipes
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-private-recipes-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-public-cookbooks-api
+  name: Kitchen Stories User Public Cookbooks API
+  description: >-
+    The User Public Cookbooks API from Kitchen Stories — 4 operation(s) for user public cookbooks.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Public Cookbooks
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-public-cookbooks-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-public-recipes-api
+  name: Kitchen Stories User Public Recipes API
+  description: >-
+    The User Public Recipes API from Kitchen Stories — 2 operation(s) for user public recipes.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Public Recipes
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-public-recipes-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-user-ratings-api
+  name: Kitchen Stories User Ratings API
+  description: The User Ratings API from Kitchen Stories — 2 operation(s) for user ratings.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - User Ratings
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-user-ratings-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-usercookbooksrecipes-api
+  name: Kitchen Stories UserCookbooksRecipes API
+  description: >-
+    The UserCookbooksRecipes API from Kitchen Stories — 2 operation(s) for usercookbooksrecipes.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - UserCookbooksRecipes
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-usercookbooksrecipes-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-utensils-api
+  name: Kitchen Stories Utensils API
+  description: The Utensils API from Kitchen Stories — 4 operation(s) for utensils.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Utensils
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-utensils-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
+- aid: kitchenstories:kitchenstories-videos-api
+  name: Kitchen Stories Videos API
+  description: The Videos API from Kitchen Stories — 5 operation(s) for videos.
+  humanURL: https://api.kitchenstories.io/api/
+  baseURL: https://api.kitchenstories.io/api
+  tags:
+  - Videos
+  properties:
+  - type: OpenAPI
+    url: openapi/kitchenstories-videos-api-openapi.yml
+  - type: APIReference
+    url: https://api.kitchenstories.io/api/
+  - type: Authentication
+    url: authentication/kitchenstories-authentication.yml
+  - type: ErrorCatalog
+    url: errors/kitchenstories-problem-types.yml
+  - type: Conventions
+    url: conventions/kitchenstories-conventions.yml
+  - type: DataModel
+    url: data-model/kitchenstories-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/kitchenstories-lifecycle.yml
+  - type: Conformance
+    url: conformance/kitchenstories-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/kitchenstories-domain-security.yml
 - type: Website
-  url: http://kitchenstories.de
+  url: https://www.kitchenstories.com
+- type: About
+  url: https://pages.kitchenstories.com/en/about
+- type: TermsOfService
+  url: https://www.kitchenstories.com/en/terms
+- type: PrivacyPolicy
+  url: https://www.kitchenstories.com/en/privacy
+- type: Support
+  url: https://www.kitchenstories.com/en/contact
+- type: Blog
+  url: https://business.kitchenstories.com/en/blog
+- type: GitHubOrganization
+  url: https://github.com/KitchenStories
+- type: SignUp
+  url: https://www.kitchenstories.com/en/signup
+- type: Login
+  url: https://www.kitchenstories.com/en/login
+- type: Pricing
+  url: https://pages.kitchenstories.com/en/plus
+- type: Partners
+  url: https://www.kitchenstories.com/en/partners
+- type: Careers
+  url: https://pages.kitchenstories.com/en/career
+- type: Imprint
+  url: https://www.kitchenstories.com/en/imprint
+- type: LLMsTxt
+  url: llms/kitchenstories-llms.txt
+- type: Packages
+  url: packages/kitchenstories-packages.yml
+- type: WellKnown
+  url: well-known/kitchenstories-well-known.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
