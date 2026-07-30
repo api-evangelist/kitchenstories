@@ -1,0 +1,77 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  openapi/kitchenstories-internal-openapi.json plus a live 401 observed on
+  https://api.kitchenstories.io/api/recipes/{slug}/ on 2026-07-19
+format: vendor-json
+rfc9457: false
+envelope:
+  media_type: application/vnd.ajns.kitchenstories+json
+  shape: >-
+    Django REST Framework style. Errors are returned as a flat JSON object with a single `detail`
+    string carrying the human-readable message; field-level validation errors are returned as an
+    object keyed by field name with an array of messages. The API does NOT use
+    application/problem+json and declares no error schema in its OpenAPI, so no RFC 9457
+    problem types can be derived — only the status codes the spec declares and the envelope
+    observed live.
+  example: '{"detail":"Authentication credentials were not provided."}'
+  fields:
+  - name: detail
+    type: string
+    description: Human-readable error message.
+notes: >-
+  The published spec declares only success plus 403 and 404 responses; 401 is undeclared but is
+  what the live API actually returns for a missing credential. No 429 or 5xx responses are
+  declared anywhere in the spec, and no error-code registry or error-reference documentation is
+  published. Counts below are occurrences across the 157 operations in the spec.
+status_codes:
+- status: 200
+  occurrences: 152
+  title: OK
+  category: success
+- status: 201
+  occurrences: 1
+  title: Created
+  category: success
+- status: 202
+  occurrences: 2
+  title: Accepted
+  category: success
+- status: 204
+  occurrences: 4
+  title: No Content
+  category: success
+- status: 401
+  occurrences: 0
+  declared_in_spec: false
+  observed_live: true
+  title: Unauthorized
+  category: client_error
+  meaning: No credential, or an invalid/expired bearer token, was presented.
+  response_headers:
+    WWW-Authenticate: Bearer
+  remediation: >-
+    Obtain a fresh JWT via POST /authenticate/credentials/ (or one of the social
+    /authenticate/* endpoints) and resend with `Authorization: Bearer <token>`.
+- status: 403
+  occurrences: 59
+  declared_in_spec: true
+  title: Forbidden
+  category: client_error
+  meaning: >-
+    The caller is authenticated but not permitted. Declared on every user-scoped and admin-scoped
+    operation (user cookbooks, meal plans, private recipes, likes, ratings, comments,
+    personalization admin, QA and content-collection admin).
+  remediation: Authenticate as the owning user, or as a principal holding the admin/QA role.
+- status: 404
+  occurrences: 85
+  declared_in_spec: true
+  title: Not Found
+  category: client_error
+  meaning: >-
+    The addressed resource does not exist. Declared on every detail-by-`{uuid-or-slug}` operation.
+  remediation: Verify the UUID or slug; list endpoints return valid identifiers.
+undeclared:
+  note: >-
+    No 400, 409, 422, 429 or 5xx responses are declared in the spec. Absence of a documented rate
+    limit or conflict semantics is recorded here as a gap, not inferred as absent behaviour.

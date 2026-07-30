@@ -1,0 +1,123 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  openapi/kitchenstories-internal-openapi.json plus live response headers observed on
+  https://api.kitchenstories.io/api/ on 2026-07-19
+summary: >-
+  A Django REST Framework backend ("Ultron") behind nginx and CloudFront. Versioning is carried in
+  a vendor media type rather than the path, reads are cacheable with ETags, collections use
+  page-number pagination with a links/meta envelope, and every operation requires a bearer token.
+  There is no idempotency mechanism, no documented rate-limit signaling, and no request-id header.
+auth:
+  style: bearer-token
+  header: 'Authorization: Bearer <jwt>'
+  alternate_header: X-Ultron-User
+  applied: globally to all 157 operations
+  see: ../authentication/kitchenstories-authentication.yml
+idempotency:
+  supported: false
+  evidence: >-
+    No Idempotency-Key (or equivalent) header parameter appears anywhere in the spec's 157
+    operations, and no idempotency behaviour is documented. Write operations (POST /users/me/...)
+    are not safe to blind-retry.
+  header: null
+  scope: null
+  retention: null
+versioning:
+  style: media-type
+  current: '3'
+  request: 'Accept: application/vnd.ajns.kitchenstories+json; version=3'
+  response_media_type: 'application/vnd.ajns.kitchenstories+json; version=3'
+  response_header: 'x-ultron-api-version: 3'
+  path_prefix: /api
+  notes: >-
+    The major version is negotiated through the vendor media type and echoed in the
+    `x-ultron-api-version` response header. The base path itself is unversioned.
+  see: ../lifecycle/kitchenstories-lifecycle.yml
+pagination:
+  style: page-number
+  request_params:
+  - name: page
+    description: 1-based page number.
+  response_envelope:
+    data: array of resources
+    links:
+      first: uri
+      last: uri
+      next: uri (absent on the final page)
+      prev: uri (absent on the first page)
+    meta:
+      pagination:
+        page: current page number
+        pages: total number of pages
+        count: total number of records
+  evidence: >-
+    Derived from the `links`, `meta` and `*_pagination` component schemas, which every list
+    operation returns.
+field_selection:
+  sparse_fields:
+    supported: true
+    param: simplified
+    type: boolean
+    description: >-
+      The most widely used shaping parameter (16 operations). When true the API returns a reduced
+      representation of the resource; the spec models these as separate `*_simplified` and
+      `*_reduced` schemas.
+  expansion:
+    supported: false
+  filtering:
+    params:
+    - slug
+    - type
+    - tag
+    - category
+    - ids
+    - search
+    - language
+    - date
+    - feed_item
+    - key
+    - set
+    - draft
+  sorting:
+    param: order
+    values:
+    - date
+    - likes
+    notes: Descending only; any other value is ignored.
+tracing:
+  request_id_header: null
+  supported: false
+  observed_headers:
+  - x-amz-cf-id
+  - x-amz-cf-pop
+  notes: >-
+    No first-party correlation identifier. The only per-request identifiers are CloudFront's,
+    which are edge artifacts rather than an API contract.
+caching:
+  etag: true
+  cache_control: 'public, max-age=5400'
+  vary: Accept, Accept-Language, Accept-Encoding, Authorization, Origin
+  cdn: Amazon CloudFront
+  evidence: observed on a live GET to /api/recipes/{slug}/
+rate_limits:
+  documented: false
+  headers: []
+  evidence: >-
+    No rate-limit headers were returned on live requests and no 429 response is declared in the
+    spec. Absence of a published limit is recorded as-is, not inferred as unlimited.
+errors:
+  envelope: '{"detail": "<message>"}'
+  media_type: application/vnd.ajns.kitchenstories+json
+  rfc9457: false
+  see: ../errors/kitchenstories-problem-types.yml
+content_negotiation:
+  language:
+    param: language
+    header: Accept-Language
+    notes: >-
+      Content is multilingual (at minimum en and de); `Vary: Accept-Language` is returned.
+trailing_slash:
+  convention: >-
+    Every path except GET /users/validate/email requires a trailing slash, which the spec calls
+    out explicitly for that one exception.

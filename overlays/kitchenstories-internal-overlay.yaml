@@ -1,0 +1,123 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Kitchen Stories Internal API
+  version: 1.0.0
+extends: ../openapi/kitchenstories-internal-openapi.json
+x-generated: '2026-07-19'
+x-method: generated
+x-source: >-
+  Derived from openapi/kitchenstories-internal-openapi.json and from live behaviour observed on
+  https://api.kitchenstories.io/api/ on 2026-07-19. This overlay records API Evangelist
+  enhancements only; the original spec is never mutated.
+actions:
+- target: $.info
+  description: >-
+    Record the provider-published description URL and clarify that this is a first-party internal
+    API with no public developer program.
+  update:
+    description: >-
+      The Kitchen Stories content and community REST API ("Ultron"), which powers the Kitchen
+      Stories apps and website. This is a first-party internal API: there is no public developer
+      program, no self-service credential issuance and no published SDK. The provider serves this
+      OpenAPI 3.0.0 document itself at https://api.kitchenstories.io/api/.
+    x-api-evangelist-source: https://api.kitchenstories.io/api/
+    x-api-evangelist-captured: '2026-07-19'
+    x-audience: internal
+- target: $.info.license
+  description: >-
+    Flag that the Apache 2.0 licence in info.license is spec-template boilerplate and should not
+    be read as a licence grant over the API or its recipe content.
+  update:
+    x-api-evangelist-note: >-
+      Boilerplate from the specification template. Kitchen Stories publishes no API licence; the
+      site terms at https://www.kitchenstories.com/en/terms govern use of its content.
+- target: $.servers[2]
+  description: Mark the localhost entry as a developer-local server, not a reachable environment.
+  update:
+    x-reachable: false
+    x-api-evangelist-note: Developer-local server; not a usable environment for API consumers.
+- target: $.components.securitySchemes.bearerAuth
+  description: Document how the bearer token is actually obtained.
+  update:
+    description: >-
+      JWT bearer token obtained from POST /authenticate/credentials/ (email and password), POST
+      /authenticate/ (anonymous or device), or the social endpoints
+      /authenticate/appleid/, /authenticate/google/ and /authenticate/facebook/. Present as
+      `Authorization: Bearer <token>`. A missing or invalid token yields 401 with
+      `WWW-Authenticate: Bearer` and body {"detail": "Authentication credentials were not provided."}.
+- target: $.components.securitySchemes.ApiKeyAuth
+  description: Clarify the vendor user-identity header.
+  update:
+    description: >-
+      Vendor-specific user-identity header (X-Ultron-User). Not a self-service API key; issued
+      internally and not available through any public developer program.
+- target: $
+  description: >-
+    Record the cross-cutting runtime semantics observed live but absent from the specification:
+    media-type versioning, page-number pagination, ETag caching, and the absence of an
+    idempotency contract and of any documented rate limit.
+  update:
+    x-api-evangelist-conventions:
+      versioning:
+        style: media-type
+        current: '3'
+        request_header: 'Accept: application/vnd.ajns.kitchenstories+json; version=3'
+        response_header: x-ultron-api-version
+      pagination:
+        style: page-number
+        request_param: page
+        envelope:
+          data: array
+          links: first, last, next, prev
+          meta.pagination: page, pages, count
+      caching:
+        etag: true
+        cache_control: 'public, max-age=5400'
+        vary: Accept, Accept-Language, Accept-Encoding, Authorization, Origin
+      idempotency:
+        supported: false
+      rate_limits:
+        documented: false
+      request_id:
+        supported: false
+      trailing_slash:
+        required: true
+        exception: GET /users/validate/email
+    x-api-evangelist-artifacts:
+      authentication: ../authentication/kitchenstories-authentication.yml
+      conventions: ../conventions/kitchenstories-conventions.yml
+      errors: ../errors/kitchenstories-problem-types.yml
+      lifecycle: ../lifecycle/kitchenstories-lifecycle.yml
+      data_model: ../data-model/kitchenstories-data-model.yml
+      conformance: ../conformance/kitchenstories-conformance.yml
+      mcp: ../mcp/kitchenstories-mcp.yml
+      skills: ../skills/_index.yml
+- target: $.paths..responses
+  description: >-
+    Add the 401 response the live API returns for a missing or invalid credential. The published
+    spec declares only 403 and 404 client errors, but every operation is globally secured, so 401
+    is reachable on all 157 operations.
+  update:
+    '401':
+      description: >-
+        Authentication credentials were not provided, or the bearer token is invalid or expired.
+      content:
+        application/vnd.ajns.kitchenstories+json:
+          schema:
+            type: object
+            required:
+            - detail
+            properties:
+              detail:
+                type: string
+                example: Authentication credentials were not provided.
+- target: $.paths['/users/me/likes/'].get
+  description: >-
+    Flag the legacy likes endpoint, which is superseded by /users/me/likes/feed-items/ by naming
+    (operationId likes-list-old) but carries no formal deprecation marker in the spec.
+  update:
+    x-api-evangelist-legacy: true
+    x-superseded-by: /users/me/likes/feed-items/
+    x-api-evangelist-note: >-
+      Signposted as legacy by its operationId only. Kitchen Stories publishes no deprecation
+      policy and emits no Sunset or Deprecation headers, so no removal date can be stated.

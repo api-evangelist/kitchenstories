@@ -1,0 +1,53 @@
+generated: '2026-07-19'
+method: searched
+source: probed live over HTTPS on 2026-07-19
+notes: >-
+  No /.well-known/ discovery document is published on any Kitchen Stories host. The
+  www.kitchenstories.com origin sits behind a WAF that answers every /.well-known/ path with
+  403 (a blanket block, not a published policy); pages.kitchenstories.com and the API host
+  api.kitchenstories.io answer 404. No security.txt (RFC 9116), no OIDC discovery, no RFC 8414
+  authorization-server metadata, no api-catalog (RFC 9727) and no ai-plugin.json were found.
+  The site does publish an llms.txt and an llms-full.txt at the web root, which are captured
+  separately under llms/.
+hosts:
+- host: https://www.kitchenstories.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /robots.txt
+    status: 200
+  - path: /llms.txt
+    status: 200
+    file: ../llms/kitchenstories-llms.txt
+  - path: /llms-full.txt
+    status: 200
+    note: not captured; *-llms-full.txt is gitignored by pipeline policy
+- host: https://pages.kitchenstories.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /robots.txt
+    status: 200
+- host: https://api.kitchenstories.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /api/
+    status: 200
+    note: serves the provider's own OpenAPI 3.0.0 document (captured under openapi/)

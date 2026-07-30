@@ -1,0 +1,77 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  openapi/kitchenstories-internal-openapi.json plus live response headers and host probes on
+  2026-07-19
+summary: >-
+  The Kitchen Stories Internal API is a first-party backend with no public developer program, and
+  correspondingly no published versioning policy, deprecation policy, SLA, changelog or status
+  page. What can be established is derived from the spec and from live response headers, which do
+  expose a major version and a build stamp.
+versioning:
+  scheme: media-type major version
+  current: '3'
+  negotiated_via: 'Accept: application/vnd.ajns.kitchenstories+json; version=3'
+  response_header: 'x-ultron-api-version: 3'
+  policy_published: false
+  policy_url: null
+build:
+  header: x-ultron-version
+  observed_value: 'master, 2026-07-07T07:28:53.449889'
+  notes: >-
+    The API stamps every response with the deployed branch and build timestamp, which gives a
+    rough deployment cadence signal but is not a release channel.
+environments:
+- name: LIVE
+  url: https://api.kitchenstories.io/api
+- name: Development
+  url: https://api.dev.kitchenstories.io/api
+- name: Local
+  url: http://localhost:8000/api
+  note: developer-local server entry in the published spec; not a reachable environment
+deprecation:
+  policy_published: false
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  evidence: >-
+    No operation in the spec is marked `deprecated: true`, and no Sunset or Deprecation response
+    header was observed. One legacy operation is signposted by naming only — `likes-list-old`
+    (GET /users/me/likes/), superseded by `likes-list` (GET /users/me/likes/feed-items/) — but it
+    carries no formal deprecation marker.
+  legacy_by_naming:
+  - operationId: likes-list-old
+    path: /users/me/likes/
+    superseded_by: /users/me/likes/feed-items/
+status_page:
+  published: false
+  url: null
+  evidence: >-
+    status.kitchenstories.com does not resolve; no status or uptime page is linked from the
+    website, the business site or the API.
+  health_endpoint:
+    operationId: other-healthcheck
+    method: GET
+    path: /health/
+    note: >-
+      An in-API health check exists but is a service endpoint, not a public status page.
+sla:
+  published: false
+  url: null
+changelog:
+  published: false
+  url: null
+  evidence: >-
+    No dated API changelog or release-notes page exists. The Kitchen Stories blog at
+    business.kitchenstories.com is marketing content, not API release notes.
+support:
+  contact: https://www.kitchenstories.com/en/contact
+  spec_contact_email: hello@kitchenstories.com
+license:
+  declared_in_spec: Apache 2.0
+  url: http://www.apache.org/licenses/LICENSE-2.0.html
+  note: >-
+    Declared in the spec's `info.license`; this is the boilerplate default from the spec template
+    and should not be read as a licence grant over the API or its content.

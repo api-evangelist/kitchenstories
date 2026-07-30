@@ -1,0 +1,83 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/kitchenstories-internal-openapi.json
+search_notes: >-
+  Searched for an official Kitchen Stories MCP server across the provider's docs and website, the
+  github.com/KitchenStories organization (41 repos), npm and the public MCP registries on
+  2026-07-19. None exists. The tool list below is a CANDIDATE derived from read-only operations in
+  the provider's own OpenAPI document; it is not published or endorsed by Kitchen Stories, and the
+  API requires a bearer token that is not available through any public developer program.
+server:
+  name: kitchenstories
+  transport: stdio
+  url: null
+  published: false
+  upstream_base_url: https://api.kitchenstories.io/api
+  auth:
+    type: bearer
+    note: >-
+      Requires a JWT from POST /authenticate/credentials/. There is no self-service key issuance.
+tools:
+- name: list_recipes
+  description: List Kitchen Stories recipes, optionally filtered by slug, tag, category or search.
+  source_operation: openapi/kitchenstories-internal-openapi.json#recipe-list
+- name: get_recipe
+  description: Get a single recipe by UUID or slug, including steps, ingredients and utensils.
+  source_operation: openapi/kitchenstories-internal-openapi.json#recipe-detail
+- name: get_recipe_recommendations
+  description: Get recipes recommended alongside a given recipe.
+  source_operation: openapi/kitchenstories-internal-openapi.json#recipe-recommendation-list
+- name: get_recipe_of_the_day
+  description: Get the editorially selected recipe of the day.
+  source_operation: openapi/kitchenstories-internal-openapi.json#recipe-of-the-day
+- name: list_articles
+  description: List editorial articles, filterable by slug, type, tag, category and order.
+  source_operation: openapi/kitchenstories-internal-openapi.json#article-list
+- name: get_article
+  description: Get a single article by UUID or slug.
+  source_operation: openapi/kitchenstories-internal-openapi.json#article-detail
+- name: list_videos
+  description: List Kitchen Stories video assets.
+  source_operation: openapi/kitchenstories-internal-openapi.json#video-list
+- name: get_video
+  description: Get a single video by UUID or slug.
+  source_operation: openapi/kitchenstories-internal-openapi.json#video-detail
+- name: list_categories
+  description: List the content category tree.
+  source_operation: openapi/kitchenstories-internal-openapi.json#category-list
+- name: get_category
+  description: Get a category by UUID or slug, with its path and children.
+  source_operation: openapi/kitchenstories-internal-openapi.json#category-detail
+- name: list_tags
+  description: List content tags.
+  source_operation: openapi/kitchenstories-internal-openapi.json#tag-list
+- name: list_ingredients
+  description: List canonical ingredients.
+  source_operation: openapi/kitchenstories-internal-openapi.json#ingredient-list
+- name: list_ingredient_units
+  description: List the measurement units used by ingredients.
+  source_operation: openapi/kitchenstories-internal-openapi.json#ingredient-units-list
+- name: list_utensils
+  description: List canonical kitchen utensils.
+  source_operation: openapi/kitchenstories-internal-openapi.json#utensil-list
+- name: search_suggestions
+  description: Get search autocomplete suggestions.
+  source_operation: openapi/kitchenstories-internal-openapi.json#other-search-suggestions
+- name: get_feed
+  description: Get the mixed content feed of recipes, articles and videos.
+  source_operation: openapi/kitchenstories-internal-openapi.json#feed-list
+- name: list_content_collections
+  description: List editorially curated content collections.
+  source_operation: openapi/kitchenstories-internal-openapi.json#content-collection-get-list
+- name: list_my_cookbooks
+  description: List the authenticated user's cookbooks.
+  source_operation: openapi/kitchenstories-internal-openapi.json#cookbook-list
+- name: get_my_meal_plan
+  description: Get the authenticated user's meal plan.
+  source_operation: openapi/kitchenstories-internal-openapi.json#mealplan-list
+excluded:
+  policy: >-
+    Write, admin, QA and destructive operations (content-meta create/edit/delete, personalization
+    admin, QA UGC accept/reject, account deletion, uploads) are deliberately excluded from this
+    candidate tool list.

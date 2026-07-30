@@ -1,0 +1,37 @@
+# Kitchen Stories
+
+> Your joyful cooking companion-turning everyday meals into delicious Stories
+
+Kitchen Stories is a mobile-first cooking platform that inspires home cooks worldwide. With smart timers, recipe collections, meal planning, and an engaged Community, the app empowers you to cook confidently and joyfully. Its tone is warm, playful, and encouraging-like your favorite foodie friend cheering you on.
+
+## Featured recipes
+
+- [Italian sandwich with prosciutto di Parma](https://www.kitchenstories.com/en/recipes/italian-sandwich-with-prosciutto-di-parma): A crisp ciabatta loaded with silky Prosciutto di Parma, fresh mozzarella, tomato, arugula, and pesto-simple yet utterly satisfying :contentReference[oaicite:1]{index=1}
+- [Homemade salty popcorn](https://www.kitchenstories.com/en/recipes/homemade-salty-popcorn): Classic stove-top popcorn tossed in oil and salt-ready in about 10 minutes for all your cozy snack cravings 
+- [Tempura sushi rolls](https://www.kitchenstories.com/en/recipes/tempura-sushi-rolls): Crunchy tempura meets soft sushi rice, all drizzled with a sweet-savory nitsume sauce-a fun twist on sushi night 
+- [Aperol spritz tiramisu](https://www.kitchenstories.com/en/recipes/aperol-spritz-tiramisu): A fizzy Italian cocktail meets the creamy delight of tiramisu-light, citrusy, and oh-so indulgent
+- [Djuvec rice](https://www.kitchenstories.com/en/recipes/djuvec-rice): A vibrant Balkan rice dish loaded with tomatoes, peppers, and warming spices-perfect as a hearty veggie side
+- [Classic Italian lasagna](https://www.kitchenstories.com/en/recipes/classic-italian-lasagna): A layered symphony of rich ragù, silky béchamel, and melted cheese-comfort at its finest
+- [5-ingredient creamy tomato and basil pasta](https://www.kitchenstories.com/en/recipes/5-ingredient-creamy-tomato-and-basil-pasta): Minimal effort, maximum flavor-silky tomato sauce with basil notes, ready in minutes
+- [Tartiflette (French potato, bacon, and cheese casserole)](https://www.kitchenstories.com/en/recipes/tartiflette-french-potato-bacon-and-cheese-casserole): Cozy Alpine bake of potatoes, smoky bacon, and gooey cheese-perfect for wrapping yourself in comfort
+- [Gigi Hadid pasta](https://www.kitchenstories.com/en/recipes/gigi-hadid-pasta-8038): Creamy vodka sauce tossed with cherry tomatoes and fresh herbs-a celebrity-endorsed delight that truly delivers
+- [3-ingredient peanut brittle](https://www.kitchenstories.com/en/recipes/3-ingredient-peanut-brittle): Crunchy, sweet, salty nostalgia in just sugar, peanuts, and butter-candy bliss
+- [Linguine with lobster](https://www.kitchenstories.com/en/recipes/linguine-with-lobster): Elegant pasta studded with sweet lobster, garlic, and a light sauce-restaurant vibes at home
+- [Chili con carne](https://www.kitchenstories.com/en/recipes/chili-con-carne): Hearty, warming, and packed with spice-ground beef, beans, tomatoes, and a chili kick
+- [Gnocchi with peas and Parmesan](https://www.kitchenstories.com/en/recipes/gnocchi-with-peas-and-parmesan): Pillowy potato dumplings folded into a creamy Parmesan-and-pea sauce-a weeknight delight
+- [Pad kra pao (Thai holy basil and pork stir-fry)](https://www.kitchenstories.com/en/recipes/pad-kra-pao-thai-holy-basil-and-pork-stir-fry): Fragrant Thai stir-fry with spicy pork and fresh holy basil-goes great over rice or a fried egg
+- [Easy miso-glazed cabbage](https://www.kitchenstories.com/en/recipes/easy-miso-glazed-cabbage): Caramelized cabbage slathered in savory-sweet miso glaze-an unexpected veggie hero
+- [TikTok's vegan green goddess salad](https://www.kitchenstories.com/en/recipes/tiktok-s-vegan-green-goddess-salad): Vibrant green bowl with creamy dressing-plant-powered goodness in every bite
+- [Tagliatelle with beef and creamy pepper sauce](https://www.kitchenstories.com/en/recipes/tagliatelle-with-beef-and-creamy-pepper-sauce): Rich, peppery cream meets tender beef and ribbons of pasta-a cozy dinner winner
+- [Best big, fat, chewy chocolate chip cookies](https://www.kitchenstories.com/en/recipes/best-big-fat-chewy-chocolate-chip-cookies-35ae): Gooey centers, crisp edges, and generous chocolate-bakery-quality treats at home
+- [American apple pie](https://www.kitchenstories.com/en/recipes/american-apple-pie): Classic double-crust pie with cinnamon-spiced apples-warm, flaky, and nostalgia in every slice
+- [Rhubarb raspberry crumble](https://www.kitchenstories.com/en/recipes/rhubarb-raspberry-crumble): Tangy berries under a buttery crisp topping-a fruit-filled delight
+- [Twice-baked pistachio croissant](https://www.kitchenstories.com/en/recipes/twice-baked-pistachio-croissant): Flaky croissant rebaked with rich pistachio cream-perfectly indulgent treat
+- [Chicken katsu with sesame cabbage salad](https://www.kitchenstories.com/en/recipes/chicken-katsu-with-sesame-cabbage-salad): Crispy breaded chicken paired with crunchy, tangy sesame-dressed cabbage-Asian-inspired comfort
+- [German Donauwelle cake](https://www.kitchenstories.com/en/recipes/german-donauwelle-cake): Marble cake layered with cherries and buttercream, topped with chocolate glaze-a German bake legend
+- [Easiest bacon sandwich](https://www.kitchenstories.com/en/recipes/easiest-bacon-sandwich): Crisp bacon tucked between soft bread-simplicity that satisfies
+- [Aperol and elderflower cocktail](https://www.kitchenstories.com/en/recipes/aperol-and-elderflower-cocktail): Bright, fizzy Aperol spritz meets floral elderflower-summer sips with flair
+
+## Optional
+
+- [Kitchen Stories homepage](https://www.kitchenstories.com): Discover even more recipes, cooking tips, and Community inspiration

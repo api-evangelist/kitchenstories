@@ -1,0 +1,192 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/kitchenstories-internal-openapi.json
+summary:
+  schemas_total: 176
+  entities_documented: 12
+  identifier_style: >-
+    Opaque UUIDs on every entity (`id`). Most content entities additionally carry a human-readable
+    `slug`, and public read paths accept either form via the `{uuid-or-slug}` path parameter.
+    Content entities also carry a separate `content_id`, the CMS-side identifier (the backend is
+    Wagtail-based, exposed through the `wagtail_meta` object).
+  polymorphism: >-
+    Recipes, articles and videos are all "feed items" and share a `type` discriminator plus a
+    common `user_reactions` block. The `/feed/` and `/feed-item/{uuid-or-pk}/` endpoints return
+    the mixed stream, and likes/ratings are attached to a feed item rather than to a recipe or
+    article directly (see `/users/me/likes/feed-items/` and `/users/me/rating/{feeditem-uuid}/`).
+entities:
+- name: recipe
+  description: A recipe with steps, ingredients, utensils, nutrition, servings and video.
+  identifier: id (uuid) + slug
+  relationships:
+  - type: has_one
+    via: image
+    target: image
+  - type: has_one
+    via: author
+    target: user_public
+  - type: has_one
+    via: video
+    target: video
+  - type: has_many
+    via: howto_videos
+    target: video
+  - type: has_many
+    via: steps
+    target: step
+  - type: has_many
+    via: utensils
+    target: recipe_utensil
+  - type: has_many
+    via: tags
+    target: tag
+  - type: has_many
+    via: content_meta
+    target: content_meta
+  - type: has_one
+    via: meta
+    target: wagtail_meta
+- name: article
+  description: An editorial article; also used for essentials, static pages and blogger profiles.
+  identifier: id (uuid) + slug
+  relationships:
+  - type: has_one
+    via: image
+    target: image
+  - type: has_one
+    via: author
+    target: user_public
+  - type: has_one
+    via: publishing
+    target: publishing
+  - type: has_many
+    via: tags
+    target: tag
+  - type: has_many
+    via: content_meta
+    target: content_meta
+  - type: has_one
+    via: meta
+    target: wagtail_meta
+- name: video
+  description: A hosted video asset; `remote_id` references the upstream host (Vimeo).
+  identifier: id (uuid) + slug
+  relationships:
+  - type: has_one
+    via: image
+    target: image
+  - type: has_one
+    via: meta
+    target: wagtail_meta
+- name: category
+  description: A hierarchical content category with a materialized `path`.
+  identifier: id (uuid) + slug
+  relationships:
+  - type: has_many
+    via: path
+    target: path_item
+  - type: has_many
+    via: children
+    target: child_item
+  - type: has_one
+    via: image
+    target: image
+  - type: has_many
+    via: content_meta
+    target: content_meta
+- name: tag
+  description: A flat label applied to recipes and articles; carries a `type` and `is_hidden`.
+  identifier: id (uuid) + slug
+  relationships: []
+- name: user
+  description: The authenticated user profile, including premium status and onboarding state.
+  identifier: id (uuid) + slug
+  relationships:
+  - type: has_one
+    via: image
+    target: image
+  - type: has_one
+    via: banner_image
+    target: image
+  - type: has_one
+    via: wide_banner_image
+    target: image
+  - type: has_many
+    via: cookbooks
+    target: cookbook
+    inferred_from: /users/me/cookbooks/
+  - type: has_many
+    via: recipes
+    target: recipe
+    inferred_from: /users/me/recipes/
+  - type: has_many
+    via: mealplan
+    target: mealplan_item
+    inferred_from: /users/me/mealplan/
+- name: cookbook
+  description: A user-curated collection of recipes and articles, optionally public.
+  identifier: id (uuid)
+  relationships:
+  - type: has_one
+    via: image
+    target: image
+  - type: has_many
+    via: images
+    target: image
+  - type: belongs_to
+    via: user
+    target: user
+    inferred_from: /users/me/cookbooks/
+  - type: has_many
+    via: items
+    target: cookbook_item
+    inferred_from: /users/me/cookbooks/{cookbook-uuid}/items/
+- name: comment
+  description: A user comment on a feed item, with replies, images and like counts.
+  identifier: id (uuid)
+  relationships:
+  - type: has_one
+    via: author
+    target: user_public
+  - type: belongs_to
+    via: feed_item
+    target: feed_item
+  - type: has_many
+    via: recent_answers
+    target: comment_comment
+  - type: has_many
+    via: images
+    target: comment_image
+- name: ingredient
+  description: A canonical ingredient with characteristics and partner/searchable flags.
+  identifier: id (uuid)
+  relationships:
+  - type: has_many
+    via: characteristics
+    target: characteristic
+- name: utensil
+  description: A canonical kitchen utensil with characteristics and sizes.
+  identifier: id (uuid)
+  relationships:
+  - type: has_many
+    via: characteristics
+    target: characteristic
+  - type: has_many
+    via: sizes
+    target: size
+- name: mealplan
+  description: The authenticated user's meal plan, a dated list of planned items.
+  identifier: mealplan-item-uuid
+  relationships:
+  - type: has_many
+    via: data
+    target: mealplan_item
+- name: content_collection
+  description: An editorially curated collection of mixed content items.
+  identifier: id (uuid)
+  relationships:
+  - type: has_many
+    via: items
+    target: content_collection_item
+    inferred_from: /content-collections/{uuid}/items/
+render: null

@@ -1,0 +1,88 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  openapi/kitchenstories-internal-openapi.json plus live probes and a search of
+  kitchenstories.com, pages.kitchenstories.com and business.kitchenstories.com on 2026-07-19
+summary: >-
+  A conventional REST/JSON API with a self-published OpenAPI 3.0.0 description and HTTP bearer
+  authentication. It conforms to no cross-cutting industry profile: there is no OAuth 2.0
+  authorization server, no OIDC, no RFC 9457 problem details, no idempotency contract and no
+  published compliance certification. Kitchen Stories publishes no trust centre and names no
+  audited certification (SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP) on any of its public
+  properties, so no `Compliance` pointer is emitted.
+standards:
+- id: openapi
+  conforms: true
+  version: 3.0.0
+  evidence: >-
+    The provider serves its own OpenAPI 3.0.0 document at https://api.kitchenstories.io/api/
+    (110 paths, 157 operations, 176 component schemas, securitySchemes defined and applied
+    globally).
+- id: rest
+  conforms: true
+  evidence: >-
+    Resource-oriented paths, correct verb usage (GET/POST/PUT/DELETE), 200/201/202/204 success
+    codes and 403/404 client errors.
+- id: http-bearer
+  conforms: true
+  evidence: >-
+    `bearerAuth` http/bearer securityScheme with bearerFormat JWT; live 401 responses carry
+    `WWW-Authenticate: Bearer` per RFC 6750.
+- id: jwt
+  conforms: true
+  evidence: bearerFormat is declared as JWT in components.securitySchemes.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No oauth2 securityScheme, no authorization or token endpoint, and no scope surface. Tokens
+    are minted directly by /authenticate/* endpoints.
+- id: oidc
+  conforms: false
+  evidence: >-
+    No openIdConnect securityScheme and no /.well-known/openid-configuration on any host.
+    Sign in with Apple, Google and Facebook are consumed upstream by the backend, then exchanged
+    for a first-party token; they are not exposed as OIDC to callers.
+- id: rfc9457
+  conforms: false
+  evidence: >-
+    Errors use a DRF `{"detail": "..."}` envelope under the vendor media type
+    application/vnd.ajns.kitchenstories+json, not application/problem+json.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: No /.well-known/security.txt on any host (403 on www, 404 on pages and api).
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No Sunset or Deprecation headers observed; no deprecation policy published.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header parameter in any of the 157 operations.
+- id: pagination
+  conforms: true
+  style: page-number with links/meta envelope
+  evidence: >-
+    `links` (first/last/next/prev) and `meta.pagination` (page/pages/count) component schemas
+    returned by every list operation.
+- id: json-api
+  conforms: false
+  evidence: >-
+    The links/meta/data envelope resembles JSON:API but the media type, resource-object shape and
+    relationship model do not follow the specification.
+- id: etag-conditional-requests
+  conforms: true
+  evidence: 'Live responses return ETag and Cache-Control: public, max-age=5400.'
+- id: schema-org-recipe
+  conforms: true
+  scope: website only
+  evidence: >-
+    Kitchen Stories recipe pages on www.kitchenstories.com publish schema.org Recipe structured
+    data; this is a web-page convention, not an API contract.
+- id: gdpr
+  conforms: unknown
+  evidence: >-
+    The company is Berlin-based and publishes a German-law privacy policy and Impressum, and the
+    API exposes account-deletion (DELETE /users/me/) and newsletter opt-in fields consistent with
+    GDPR obligations. No certification or DPA is published, so this is recorded as unverified
+    rather than asserted.
+certifications: []
+compliance_program_published: false
+trust_center_published: false

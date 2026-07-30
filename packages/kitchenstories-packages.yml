@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  npm registry, pub.dev, PyPI and the github.com/KitchenStories organization, probed 2026-07-19
+notes: >-
+  Kitchen Stories publishes no client library for its own API. The Kitchen Stories Internal API
+  is a first-party backend consumed by the company's own apps and website, and there is no
+  developer program or SDK for third parties. The packages below are genuine first-party
+  open-source releases from the KitchenStories GitHub organization, but none of them is a client
+  for the Kitchen Stories API — they are general-purpose UI and appliance-integration libraries.
+  Because no API client library exists, this repo deliberately does NOT carry an `SDKs` pointer.
+  Searched and found nothing on: PyPI (`kitchenstories` 404), Maven Central, NuGet, pkg.go.dev,
+  RubyGems, Packagist, crates.io.
+api_client_libraries: []
+packages:
+- language: javascript
+  registry: npm
+  name: vue-gallery-slideshow
+  version: 1.5.2
+  url: https://www.npmjs.com/package/vue-gallery-slideshow
+  install: npm install vue-gallery-slideshow
+  repository: https://github.com/KitchenStories/vue-gallery-slideshow
+  license: MIT
+  description: Lightweight and responsive image gallery for Vue.js.
+  official: true
+  api_client: false
+  status: archived
+- language: dart
+  registry: pub.dev
+  name: flutter_smart_kitchen_dock
+  version: 0.0.3
+  url: https://pub.dev/packages/flutter_smart_kitchen_dock
+  install: flutter pub add flutter_smart_kitchen_dock
+  repository: https://github.com/KitchenStories/flutter_smart_kitchen_dock
+  license: BSD-3-Clause
+  description: >-
+    Smart Kitchen Dock plugin. Creates a stream of gestures sent by the Smart Kitchen Dock to
+    the Flutter app.
+  official: true
+  api_client: false
+  status: active
+- language: dart
+  registry: pub.dev
+  name: homeconnect_flutter
+  version: 0.1.0
+  url: https://pub.dev/packages/homeconnect_flutter
+  install: flutter pub add homeconnect_flutter
+  repository: https://github.com/KitchenStories/flutter_home_connect_sdk
+  license: BSD-3-Clause
+  description: Flutter utility classes, meant to be used with the Home Connect SDK.
+  official: true
+  api_client: false
+  api_client_for: Home Connect (BSH appliances), not the Kitchen Stories API
+  status: active
