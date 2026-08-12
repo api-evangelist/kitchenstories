@@ -951,6 +951,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgentSkill
+  url: skills/kitchenstories-community-engagement.md
+- type: MCPServer
+  url: mcp/kitchenstories-mcp.yml
+- type: Overlay
+  url: overlays/kitchenstories-internal-overlay.yaml
 - type: DomainSecurity
   url: security/kitchenstories-domain-security.yml
 - type: Website
