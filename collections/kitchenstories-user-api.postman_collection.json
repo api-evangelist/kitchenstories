@@ -1,0 +1,586 @@
+{
+  "item": [
+    {
+      "id": "a3ef9299-2efe-4e73-a164-d9390ee8b52b",
+      "name": "User",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "005acdf7-6275-4d61-ba56-923fcfb542df",
+          "name": "Details of given Public User",
+          "request": {
+            "name": "Details of given Public User",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":uuid-or-slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) User uuid or slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec5cd929-252f-4199-832d-1d406903f9ea",
+              "name": "Get user by uuid or slug",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) User uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"type\": \"editor\",\n  \"new_type\": \"external\",\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"occupation\": \"string\",\n  \"description\": \"string\",\n  \"image\": {\n    \"url\": \"http://XoeyPFaWxxoKuRP.sifyokQNSY3WwYe\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 3261.5817135047178,\n    \"height\": 2510.629350335909\n  },\n  \"banner_image\": {\n    \"url\": \"http://ApwSjLxOnfggprfAMig.fwongeJbdET2PIFhiKBHls4JgWiwyhrZZbIAGsGd0Cejl\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 1122.4020808703228,\n    \"height\": 7041.593540785966\n  },\n  \"wide_banner_image\": {\n    \"url\": \"http://HMdmvo.mzuSep3uEDzWvZcBwIH3smP42IWwO.ObgX6inewsabSzZunRRCVt5oE\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 7924.033054387748,\n    \"height\": 1393.6247332899743\n  },\n  \"website\": \"https://wbZXI.icPFckxD5xgttrATIMrxBp1D26ykn\",\n  \"is_premium\": true,\n  \"created\": \"2007-08-13T04:37:07.730Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "382b4237-a736-4979-99c5-0f36114170c0",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) User uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "205ab5db-a281-4225-8823-804044de1e8a",
+          "name": "Details on currently authenticated user",
+          "request": {
+            "name": "Details on currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09295749-d50d-4737-930f-e39b5e5f973e",
+              "name": "Returns the currently authenticated user details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"type\": \"contributor\",\n  \"newsletter_opt_in\": \"string\",\n  \"new_type\": \"editor\",\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"email\": \"FBJupluTrnQrs@GflTJV.fsc\",\n  \"slug\": \"string\",\n  \"occupation\": \"string\",\n  \"description\": \"string\",\n  \"image\": {\n    \"url\": \"https://q.fopeE3IcuTBrS2B\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 6801.847472702885,\n    \"height\": 1977.5756013621726\n  },\n  \"banner_image\": {\n    \"url\": \"https://U.hurYKEZxQBbisEHnIz,xTTCjPtAWQAEJ9Cj4fVgen.Ddm.vuQT9IeVu-.rXH40\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 1026.1158522261671,\n    \"height\": 4586.064984477556\n  },\n  \"wide_banner_image\": {\n    \"url\": \"http://vFBWZDeCpFpG.ldkBqu9UOnriXXq\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 4962.355775876766,\n    \"height\": 9242.166565565458\n  },\n  \"website\": \"http://IyEUsytElEIIyupbMkFIuB.wvyBVtguAQKPBJEE1EbyZkB7LDbE.MzqNBdvSIY6\",\n  \"gender\": \"string\",\n  \"birthday\": \"2016-05-09T06:36:10.145Z\",\n  \"is_premium\": false,\n  \"preferences_set\": \"8e882d001-4f0b1-e1-c04a8a7d250904e21\",\n  \"onboarding_completed\": true,\n  \"created\": \"1954-11-11T02:16:09.640Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "695f2a57-9aa6-40f8-a1ca-d63226fa617b",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0acb048-8047-4890-8357-446cb4497ded",
+          "name": "Update currently authenticated user",
+          "request": {
+            "name": "Update currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "790881c2-8bc5-4398-8f00-3915fadf0bba",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"type\": \"community\",\n  \"newsletter_opt_in\": \"string\",\n  \"new_type\": \"contributor\",\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"email\": \"JuE@DWqLaOnGIeOmun.uv\",\n  \"slug\": \"string\",\n  \"occupation\": \"string\",\n  \"description\": \"string\",\n  \"image\": {\n    \"url\": \"<uri>\",\n    \"id\": \"<string>\",\n    \"source\": \"<string>\",\n    \"source_link\": \"<string>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\"\n  },\n  \"banner_image\": {\n    \"url\": \"<uri>\",\n    \"id\": \"<string>\",\n    \"source\": \"<string>\",\n    \"source_link\": \"<string>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\"\n  },\n  \"wide_banner_image\": {\n    \"url\": \"<uri>\",\n    \"id\": \"<string>\",\n    \"source\": \"<string>\",\n    \"source_link\": \"<string>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\"\n  },\n  \"website\": \"https://kxkNQFCsB.janbQmeqG304wAFqUxP5bQe8KxNyVmdHHRnlpqPjQ6V\",\n  \"gender\": \"string\",\n  \"birthday\": \"1953-04-30T06:08:16.588Z\",\n  \"is_premium\": false,\n  \"preferences_set\": \"cd5fed2ed1f4cbea1bac38399467f174d788\",\n  \"onboarding_completed\": false,\n  \"created\": \"1960-03-26T05:40:50.808Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0127b92b-5662-4791-a1ba-136b8a939743",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a26e7e3-fb4c-4145-99e3-048c04ff197b",
+          "name": "Delete currently authenticated user",
+          "request": {
+            "name": "Delete currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3afc9c02-3c20-46ad-946b-288f3509e780",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c4f6a91-d48f-452d-8406-01ebcb3aea28",
+              "name": "Forbidden. When user is KS user or not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "291dd756-400e-4db9-9b73-cfe241603065",
+    "name": "Kitchen Stories Internal Articles Admin User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

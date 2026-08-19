@@ -1,0 +1,758 @@
+{
+  "item": [
+    {
+      "id": "20bafcb4-decb-43bf-95ab-3c68aa004d61",
+      "name": "Recipes Admin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b02cef0-76fb-4f55-a4d4-becb97bd17a1",
+          "name": "Add a new content meta",
+          "request": {
+            "name": "Add a new content meta",
+            "description": {},
+            "url": {
+              "path": [
+                "recipes",
+                ":uuid-or-slug",
+                "content-meta",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) id or slug of the recipe"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f064d615-0411-439c-a44e-734ce749666a",
+              "name": "Edit an existing content meta for Recipe with the specific uuid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"key\": \"string\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"string\",\n  \"language\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55f9b278-bb77-4f3e-b800-3a5e80a230bd",
+              "name": "Forbidden — user does not have editor permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ba79c89c-8de0-4c77-8e79-79021f48c905",
+              "name": "Recipe not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94e8d24b-9bb6-46a3-8068-47b6169d18dd",
+          "name": "Edit an existing content meta",
+          "request": {
+            "name": "Edit an existing content meta",
+            "description": {},
+            "url": {
+              "path": [
+                "recipes",
+                ":uuid-or-slug",
+                "content-meta",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "unique key of Content Meta to edit. Non mandatory as it can be also passed via the body of the request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) id or slug of the recipe"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d784014e-08ec-42aa-8e79-104e8f139a05",
+              "name": "Create new content meta for Recipe with the specific uuid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"key\": \"string\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"string\",\n  \"language\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd25e0ac-ba01-47f9-aabc-1de1b8a7d8d4",
+              "name": "Forbidden — user does not have editor permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d5f3f4b-3945-4218-a961-884348fafd83",
+              "name": "Recipe not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"key\": \"<string>\",\n  \"value\": {\n    \"url\": \"<uri>\"\n  },\n  \"campaign\": \"<string>\",\n  \"language\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1aa0a5b6-98ad-466f-9d2c-33bda25ff8cc",
+          "name": "Delete a content meta by key",
+          "request": {
+            "name": "Delete a content meta by key",
+            "description": {},
+            "url": {
+              "path": [
+                "recipes",
+                ":uuid-or-slug",
+                "content-meta",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) unique key of Content Meta to delete"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "the language code of the content meta to delete. If not provided, the content meta will be deleted in all languages"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) id or slug of the recipe"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02096178-9828-438d-9654-dbc660a8b214",
+              "name": "A confirmation or error deleting the target content meta",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a05dd219-70cc-4ebd-bdc3-a9131730479e",
+              "name": "Forbidden — user does not have editor permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a77a95bb-47af-42b7-be89-479020144a18",
+              "name": "Recipe or Content Meta key not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipes",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7baca4ed-c29e-49ce-abd3-ffa84743c099",
+    "name": "Kitchen Stories Internal Articles Admin Recipes Admin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

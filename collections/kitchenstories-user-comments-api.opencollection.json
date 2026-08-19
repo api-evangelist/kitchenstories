@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Comments API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List User Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/comments/",
+            "params": [
+              {
+                "name": "feed_item",
+                "value": "",
+                "type": "query",
+                "description": "Get comments for the specific feed-item"
+              },
+              {
+                "name": "parent",
+                "value": "",
+                "type": "query",
+                "description": "Get all answers for the given parent comment uuid"
+              },
+              {
+                "name": "with_feed_item",
+                "value": "",
+                "type": "query",
+                "description": "Embed the feeditem in the comment"
+              }
+            ]
+          },
+          "docs": "List User Comments"
+        },
+        {
+          "info": {
+            "name": "Create a new comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/comments/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new comment"
+        },
+        {
+          "info": {
+            "name": "Get user image comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/comments/images/",
+            "params": [
+              {
+                "name": "feed_item",
+                "value": "",
+                "type": "query",
+                "description": "Get comments for the specific feed-item"
+              }
+            ]
+          },
+          "docs": "Get user image comments"
+        },
+        {
+          "info": {
+            "name": "Attach an image to a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/comments/:comment-uuid/images/",
+            "params": [
+              {
+                "name": "comment-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Comment uuid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Attach an image to a comment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

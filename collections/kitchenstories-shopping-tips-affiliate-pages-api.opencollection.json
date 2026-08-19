@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Shopping Tips (Affiliate Pages) API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shopping Tips (Affiliate Pages)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get shopping tips grouped by categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/shopping-tips/",
+            "params": [
+              {
+                "name": "tips_per_category",
+                "value": "",
+                "type": "query",
+                "description": "Number of tips to return per category"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Return simplified version (just categories, no tips per category)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of categories containing shopping tips.\nEach category includes its basic information and a list of associated shopping tips (if not in simplified output mode).\n"
+        },
+        {
+          "info": {
+            "name": "Get shopping tips for a specific category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/shopping-tips/:category_slug/",
+            "params": [
+              {
+                "name": "category_slug",
+                "value": "",
+                "type": "path",
+                "description": "Slug of the category"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Return simplified version of articles"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of shopping tips for the specified category"
+        },
+        {
+          "info": {
+            "name": "Details of given Shopping Tip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/shopping-tips/:category_slug/:uuid-or-slug/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the shopping tip (article)"
+              },
+              {
+                "name": "category_slug",
+                "value": "",
+                "type": "path",
+                "description": "slug of the shopping tip (article)"
+              },
+              {
+                "name": "draft",
+                "value": "",
+                "type": "query",
+                "description": "Get a shopping tip (article) with the current draft"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified shopping tip (article)"
+              }
+            ]
+          },
+          "docs": "Details of given Shopping Tip"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

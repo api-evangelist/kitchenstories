@@ -1,0 +1,815 @@
+{
+  "item": [
+    {
+      "id": "a695a4b9-06f9-4d33-8349-e8d0802e8211",
+      "name": "Ingredients",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6e3f07fe-ce40-42c1-806f-44b4c90f09a0",
+          "name": "List Ingredients",
+          "request": {
+            "name": "List Ingredients",
+            "description": {},
+            "url": {
+              "path": [
+                "ingredients",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_partner",
+                  "value": "<string>",
+                  "description": "Set to 1 or true to filter by partner ingredients, 0 or false to filter by non-partner ingredients, or leave empty to get all ingredients"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_searcheable",
+                  "value": "<string>",
+                  "description": "Set to 1 or true to filter by ingredients explictily marked as searcheable, 0 or false to explicityl exclude them from the results, or leave empty to get all ingredients"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02c7cc00-ac30-4bc2-8998-9c2649b58e29",
+              "name": "Get all ingredients",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_searcheable",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"is_partner\": true,\n      \"characteristics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"is_searcheable\": true\n    },\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"is_partner\": false,\n      \"characteristics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"is_searcheable\": true\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://XXsuBTY.frxtC6DLA8yYfQltPQDuEipSAc2ubsyJ87GkbEYCPEQ7X32viMdO\",\n    \"first\": \"https://goMJgbKk.fzresEqe0UxLH9HlSV5WUmtjWpK4iGk,nd+1dPxWdBIneuzM\",\n    \"next\": \"https://EYQsNPJ.jmBdo8XoOqwBCs0lkCHik.kCB8Q9rSMQfbA9QbRh85Ac7RaLhn\",\n    \"prev\": \"https://SipNx.kukyHtpPkdkveGZkxnrOjJgIT4q-TkiaH.tJuE-TlOE9C5zGbZHP5-iGAZgEBDoWtd-X\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 3411.1622903478724,\n      \"pages\": 7198.5191030068345,\n      \"count\": 5538.839657340274\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc299094-7d31-4793-a184-5b7aaa86fbd2",
+          "name": "Details of given ingredient",
+          "request": {
+            "name": "Details of given ingredient",
+            "description": {},
+            "url": {
+              "path": [
+                "ingredients",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) Ingredient uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63120967-dd67-4e17-97e8-d54a8a2332a5",
+              "name": "Get ingredient details for the given uuid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Ingredient uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": {\n    \"one\": \"string\",\n    \"many\": \"string\"\n  },\n  \"is_partner\": true,\n  \"characteristics\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"is_searcheable\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f6e404d-bfce-44a3-a8b2-1694a6d5a588",
+              "name": "Ingredient not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Ingredient uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba075576-7434-41b3-b7a1-69494e8c9cdd",
+          "name": "List Additional Information entries for all Ingredients",
+          "request": {
+            "name": "List Additional Information entries for all Ingredients",
+            "description": {},
+            "url": {
+              "path": [
+                "ingredients",
+                "additional-information",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ae6a58b-a4c9-4ea9-ab9a-2df38eaad328",
+              "name": "Get all ingredients additional information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    "additional-information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://kQWmKvc.deuqaUEnf+3uLjNeL9Utw\",\n    \"first\": \"http://Ziyu.rdMv4VRMZw,IGUdPB1VW5oU+lfEzIC3\",\n    \"next\": \"https://CFLR.zqOTPnS,Jb6DOHGwlf7msEkcWu0kqlbxYCkB\",\n    \"prev\": \"https://FeqeJSInVQmGEDptpXZwsoLqgYZAJq.vvT5Vggt9dXM8g6FVlFlvsNU2YLis3qjpEzysYwQgz\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 6041.236358822899,\n      \"pages\": 2446.5309114890397,\n      \"count\": 7830.800351915675\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b750ccd-1baa-4563-b1f8-fdb1a2f15e6c",
+          "name": "Details for given Ingredients additional Information",
+          "request": {
+            "name": "Details for given Ingredients additional Information",
+            "description": {},
+            "url": {
+              "path": [
+                "ingredients",
+                "additional-information",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) Ingredient Additional Information uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77010e5e-36f4-4882-a4b4-aa52e653fe03",
+              "name": "Ingredients additional Information Detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    "additional-information",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Ingredient Additional Information uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a6dd11d-a25f-4ad1-8ad2-5d72af0f7612",
+              "name": "Ingredient Additional information not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    "additional-information",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Ingredient Additional Information uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17a96641-d30f-4341-a46a-058c4d7c633a",
+          "name": "List ingredient units",
+          "request": {
+            "name": "List ingredient units",
+            "description": {},
+            "url": {
+              "path": [
+                "ingredients",
+                "units",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dad217a4-3fce-458e-95a9-89e6054e6af1",
+              "name": "Get all ingredients units. If Many does not exists, one is filled instead.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    "units",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"rendered\": \"string\",\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"ingredient_pluralizable\": true,\n      \"type\": \"string\",\n      \"featured_order\": 1958.7530540692921\n    },\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"rendered\": \"string\",\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"ingredient_pluralizable\": true,\n      \"type\": \"string\",\n      \"featured_order\": 4284.496709984445\n    }\n  ],\n  \"links\": {\n    \"last\": \"https://xGaQljdoOzyyuUwavCNNVENHz.ojjYk6CoRYbrVXyWXGg.Wi1v+XnXse.U1-c\",\n    \"first\": \"http://gOeLKSHRghIyWsCYx.nnrx3c5-x0vIMw5BFuQUJGk5,f.h1lD-GoCHgVypI5eWNoa\",\n    \"next\": \"http://dYfwtDHjIxzhOStrTpS.honTDOZ3CWXcjfZzrosPw-bFSfqSrHPifp.e\",\n    \"prev\": \"http://yvYAXWyUU.oqhXU-9FQiFoMw4RWeHpmBTFZZIfOmkaW3sCyY9oGfKKeLaNhfNSmK0O,NPII-JcI1hDDn\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 5200.9507563672605,\n      \"pages\": 6553.377584667836,\n      \"count\": 1542.0037374649876\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5546bb27-c3a7-4212-88ab-8f4a6f3dafac",
+          "name": "Details on the given Ingredients Unit",
+          "request": {
+            "name": "Details on the given Ingredients Unit",
+            "description": {},
+            "url": {
+              "path": [
+                "ingredients",
+                "units",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) Ingredient Unit uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "635a394f-432a-4828-ae80-56d3f566dc87",
+              "name": "Ingredient Unit Details. If Many does not exists, one is filled instead.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    "units",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Ingredient Unit uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": {\n    \"rendered\": \"string\",\n    \"one\": \"string\",\n    \"many\": \"string\"\n  },\n  \"ingredient_pluralizable\": false,\n  \"type\": \"string\",\n  \"featured_order\": 7333.111789202799\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "208d1ab7-69ff-4715-aab4-9f0e4c3b3420",
+              "name": "Ingredient Unit not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    "units",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Ingredient Unit uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51a5a745-af16-45bb-9279-09871b385f85",
+          "name": "Obtains the list of top promoted ingredients",
+          "request": {
+            "name": "Obtains the list of top promoted ingredients",
+            "description": {},
+            "url": {
+              "path": [
+                "ingredients",
+                "promoted",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9201cb6-0863-4faf-a786-8d135390d968",
+              "name": "Get all promoted ingredients",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ingredients",
+                    "promoted",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"is_partner\": false,\n      \"characteristics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"is_searcheable\": true\n    },\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"is_partner\": true,\n      \"characteristics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"is_searcheable\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f90b619b-d2e2-4df2-abdf-8e3a5200a009",
+    "name": "Kitchen Stories Internal Articles Admin Ingredients API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

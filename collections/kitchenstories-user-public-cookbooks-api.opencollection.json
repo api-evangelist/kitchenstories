@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Public Cookbooks API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Public Cookbooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all public cookbooks of the given partner or editor user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/:uuid-or-slug/cookbooks/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "User uuid or slug"
+              }
+            ]
+          },
+          "docs": "Get all public cookbooks of the given partner or editor user"
+        },
+        {
+          "info": {
+            "name": "Get details for given cookbook from partner or editor user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/:uuid-or-slug/cookbooks/:cookbook-uuid/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "User uuid or slug"
+              },
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Coookbook uuid"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search through cookbooks by title"
+              }
+            ]
+          },
+          "docs": "Get details for given cookbook from partner or editor user"
+        },
+        {
+          "info": {
+            "name": "Get recipes for this public user cookbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/:uuid-or-slug/cookbooks/:cookbook-uuid/recipes/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "User uuid or slug"
+              },
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              }
+            ]
+          },
+          "docs": "Get recipes for this public user cookbook"
+        },
+        {
+          "info": {
+            "name": "Get feed items (recipes and articles) for this public user cookbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/:uuid-or-slug/cookbooks/:cookbook-uuid/items/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "User uuid or slug"
+              },
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Coookbook uuid"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search through cookbooks by title"
+              }
+            ]
+          },
+          "docs": "Get feed items (recipes and articles) for this public user cookbook"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

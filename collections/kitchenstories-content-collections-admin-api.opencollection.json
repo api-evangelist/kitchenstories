@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Content Collections Admin API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Content Collections Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a new content collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/content-collections/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new content collection"
+        },
+        {
+          "info": {
+            "name": "Edit a content collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/content-collections/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for content collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a content collection"
+        },
+        {
+          "info": {
+            "name": "Delete a content collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/content-collections/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for content collection"
+              }
+            ]
+          },
+          "docs": "Delete a content collection"
+        },
+        {
+          "info": {
+            "name": "Add a new content collection item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/content-collections/:uuid/items/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new content collection item"
+        },
+        {
+          "info": {
+            "name": "Remove a single content collection item from its associated collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/content-collections/:collection-uuid/items/:item-uuid/",
+            "params": [
+              {
+                "name": "collection-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for content collection"
+              },
+              {
+                "name": "item-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a single content item"
+              }
+            ]
+          },
+          "docs": "Remove a single content collection item from its associated collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,192 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Recipes API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recipes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Recipes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/recipes/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Get recipe by slug"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Get recipe type eg. 'recipe', 'howto', 'community'. Any other value is ignored."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Get recipe by tag eg. 'partner'"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Get recipes by given category slug eg. 'pizza-recipes'"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Get recipes in descending order of 'date' or 'likes'. Any other value is ignored."
+              },
+              {
+                "name": "craft_ids",
+                "value": "",
+                "type": "query",
+                "description": "Get recipe by separated content_ids eg. 'R1234,R2345'"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified recipe schema"
+              }
+            ]
+          },
+          "docs": "List Recipes"
+        },
+        {
+          "info": {
+            "name": "Details of given Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/recipes/:uuid-or-slug/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the recipe"
+              },
+              {
+                "name": "draft",
+                "value": "",
+                "type": "query",
+                "description": "Get submitted user recipe or wagtail recipe with latest revision"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified recipe"
+              }
+            ]
+          },
+          "docs": "Details of given Recipe"
+        },
+        {
+          "info": {
+            "name": "List Recommendations for given Recipe uuid or slug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/recipes/:uuid-or-slug/recommendations/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the recipe"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified recipe schema"
+              }
+            ]
+          },
+          "docs": "List Recommendations for given Recipe uuid or slug"
+        },
+        {
+          "info": {
+            "name": "Content meta of given Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/recipes/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the recipe"
+              }
+            ]
+          },
+          "docs": "Content meta of given Recipe"
+        },
+        {
+          "info": {
+            "name": "Send E-Mail with List of Recipes for the currently authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/recipes/send_email_with_recipes/",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Recipes UUID separated by **,** eg. '56050eb4-4a6e-4165-940f-b5d4ab70db92,7bd8e39c-c3af-4164-89fb-ddc2524993bb'"
+              }
+            ]
+          },
+          "docs": "Send E-Mail with List of Recipes for the currently authenticated User"
+        },
+        {
+          "info": {
+            "name": "Get current Recipe Of the Day",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/recipe-of-the-day/",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Preview Date of the recipe"
+              }
+            ]
+          },
+          "docs": "Get current Recipe Of the Day"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

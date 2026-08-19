@@ -2,12 +2,11 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/kitchenstories-internal-openapi.json
-search_notes: >-
-  Searched for an official Kitchen Stories MCP server across the provider's docs and website, the
-  github.com/KitchenStories organization (41 repos), npm and the public MCP registries on
-  2026-07-19. None exists. The tool list below is a CANDIDATE derived from read-only operations in
-  the provider's own OpenAPI document; it is not published or endorsed by Kitchen Stories, and the
-  API requires a bearer token that is not available through any public developer program.
+search_notes: Searched for an official Kitchen Stories MCP server across the provider's docs and website,
+  the github.com/KitchenStories organization (41 repos), npm and the public MCP registries on 2026-07-19.
+  None exists. The tool list below is a CANDIDATE derived from read-only operations in the provider's
+  own OpenAPI document; it is not published or endorsed by Kitchen Stories, and the API requires a bearer
+  token that is not available through any public developer program.
 server:
   name: kitchenstories
   transport: stdio
@@ -16,8 +15,7 @@ server:
   upstream_base_url: https://api.kitchenstories.io/api
   auth:
     type: bearer
-    note: >-
-      Requires a JWT from POST /authenticate/credentials/. There is no self-service key issuance.
+    note: Requires a JWT from POST /authenticate/credentials/. There is no self-service key issuance.
 tools:
 - name: list_recipes
   description: List Kitchen Stories recipes, optionally filtered by slug, tag, category or search.
@@ -77,7 +75,12 @@ tools:
   description: Get the authenticated user's meal plan.
   source_operation: openapi/kitchenstories-internal-openapi.json#mealplan-list
 excluded:
-  policy: >-
-    Write, admin, QA and destructive operations (content-meta create/edit/delete, personalization
-    admin, QA UGC accept/reject, account deletion, uploads) are deliberately excluded from this
-    candidate tool list.
+  policy: Write, admin, QA and destructive operations (content-meta create/edit/delete, personalization
+    admin, QA UGC accept/reject, account deletion, uploads) are deliberately excluded from this candidate
+    tool list.
+deployment:
+  mode: none
+  verified: derived
+  tools: 19
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Private Recipes API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Private Recipes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Recipes from currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/recipes/",
+            "params": [
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified recipe schema"
+              }
+            ]
+          },
+          "docs": "List all Recipes from currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Create a new Private Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/recipes/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Private Recipe"
+        },
+        {
+          "info": {
+            "name": "Details of given Private Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/recipes/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Private Recipe uuid"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified recipe schema"
+              }
+            ]
+          },
+          "docs": "Details of given Private Recipe"
+        },
+        {
+          "info": {
+            "name": "Update the given Private Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/users/me/recipes/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Recipe uuid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the given Private Recipe"
+        },
+        {
+          "info": {
+            "name": "Delete a Private Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/users/me/recipes/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "id of the recipe"
+              }
+            ]
+          },
+          "docs": "Delete a Private Recipe"
+        },
+        {
+          "info": {
+            "name": "Submits the given Private Recipe to UGC review.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/recipes/:uuid/submit/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "id of the recipe"
+              }
+            ]
+          },
+          "docs": "Submits the given Private Recipe to UGC review."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

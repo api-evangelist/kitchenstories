@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Search Categories API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all featured search categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/search/featured/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Get category by slug"
+              }
+            ]
+          },
+          "docs": "List all featured search categories"
+        },
+        {
+          "info": {
+            "name": "Details for given Search Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/search/featured/:uuid-or-slug/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "Category uuid or slug"
+              }
+            ]
+          },
+          "docs": "Details for given Search Category"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

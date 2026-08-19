@@ -1,0 +1,954 @@
+{
+  "item": [
+    {
+      "id": "d51562e5-155a-48c5-ae5d-320e878c906f",
+      "name": "User Meal Plan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ee3aa47-feed-4bd8-a7f9-f98418e6d267",
+          "name": "Get all meal plan items for the currently authenticated user",
+          "request": {
+            "name": "Get all meal plan items for the currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "mealplan",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "week",
+                  "value": "<integer>",
+                  "description": "Calendar week number"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "Year"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "Start date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "End date (YYYY-MM-DD)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83d33110-1f56-4f58-9aca-d500ee68bd7f",
+              "name": "Successful response with meal plan items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "week",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"year\": 3499.038102747838,\n      \"id\": \"string\",\n      \"feed_item\": {\n        \"type\": \"string\",\n        \"recipe\": {\n          \"content_id\": \"string\",\n          \"type\": \"string\",\n          \"publishing\": {\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"published\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"url\": \"http://MMHgzDthlsqAmZJCQTinCfxjHTaoE.iouL,ldQPaOrnMrZl2Q6YlB.TZaKxb2lLxU\",\n          \"user_reactions\": {\n            \"comments_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"images_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"like_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rating\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rating_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"images\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"author\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": \"string\",\n          \"difficulty\": \"string\",\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"preparation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baking\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"hide_for_web\": false,\n        \"hide_for_app\": true\n      },\n      \"calendar_week\": 896.9542233104777,\n      \"target_date\": \"1976-08-08\",\n      \"day_of_week\": 9573.97611398971,\n      \"pinned\": false\n    },\n    {\n      \"year\": 1020.485364356728,\n      \"id\": \"string\",\n      \"feed_item\": {\n        \"type\": \"string\",\n        \"recipe\": {\n          \"content_id\": \"string\",\n          \"type\": \"string\",\n          \"publishing\": {\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"published\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"url\": \"http://cxBfLFoTvRHoeeNLdXufw.kiFyt2z.-uF\",\n          \"user_reactions\": {\n            \"comments_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"images_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"like_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rating\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rating_count\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"images\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"author\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": \"string\",\n          \"difficulty\": \"string\",\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"preparation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baking\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"hide_for_web\": false,\n        \"hide_for_app\": true\n      },\n      \"calendar_week\": 6282.350591498793,\n      \"target_date\": \"2017-03-26\",\n      \"day_of_week\": 5118.920416093822,\n      \"pinned\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b62c28b-2c56-44f4-88d1-c03d4cff560e",
+              "name": "User not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "week",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7b91dc6-b90f-49e3-94a5-e3456e453415",
+          "name": "Create a meal plan item for the currently authenticated user",
+          "request": {
+            "name": "Create a meal plan item for the currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "mealplan",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"feed_item\": \"<string>\",\n  \"target_date\": \"<date>\",\n  \"year\": \"<number>\",\n  \"calendar_week\": \"<number>\",\n  \"day_of_week\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c60703ca-d367-4f64-9f33-a7b63f8a1425",
+              "name": "Operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"feed_item\": \"<string>\",\n  \"target_date\": \"<date>\",\n  \"year\": \"<number>\",\n  \"calendar_week\": \"<number>\",\n  \"day_of_week\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"year\": 5445.411399824756,\n  \"id\": \"string\",\n  \"feed_item\": {\n    \"type\": \"string\",\n    \"recipe\": {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"2009-05-11T07:42:14.019Z\",\n        \"updated\": \"1963-04-26T06:43:58.373Z\",\n        \"state\": \"draft\",\n        \"published\": \"2001-05-26T16:47:27.951Z\"\n      },\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"url\": \"http://KqMZyKh.fpbSxKk24Twt2okJVADSN73kQtI6.3KGBhPAHFpPJc,SwbbCBG\",\n      \"user_reactions\": {\n        \"comments_count\": 2239.035993661661,\n        \"images_count\": 4085.4144209308483,\n        \"like_count\": 836.9370346764415,\n        \"quality\": 2344.925214916955,\n        \"rating\": 4452.166431014609,\n        \"rating_count\": 2398.119417328809,\n        \"images\": [\n          {\n            \"author\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"original_location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"author\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"original_location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"author\": {\n        \"type\": \"editor\",\n        \"new_type\": \"community\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"banner_image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"wide_banner_image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"website\": \"http://tbOAXqMtRSVeaTkXttPt.tgdehUg2\",\n        \"is_premium\": true,\n        \"created\": \"2025-09-20T10:13:47.832Z\"\n      },\n      \"id\": \"string\",\n      \"difficulty\": \"string\",\n      \"image\": {\n        \"url\": \"http://vkFXlNZuNBKe.uospcZzh7apAdeNBR.xA4BmIWn1DX8Pk0y4oTTW3NsDCQqeSo.81\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 3628.7570069937847,\n        \"height\": 3483.3440740724486\n      },\n      \"duration\": {\n        \"preparation\": 8654.915534638887,\n        \"resting\": 8590.001933486457,\n        \"baking\": 8157.227614783129\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        }\n      ]\n    },\n    \"hide_for_web\": true,\n    \"hide_for_app\": false\n  },\n  \"calendar_week\": 141.2781430888954,\n  \"target_date\": \"1990-06-20\",\n  \"day_of_week\": 7499.049964400007,\n  \"pinned\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fc1a540-fdb7-4c71-ada0-c762c4343554",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"feed_item\": \"<string>\",\n  \"target_date\": \"<date>\",\n  \"year\": \"<number>\",\n  \"calendar_week\": \"<number>\",\n  \"day_of_week\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13aca698-4d28-4d5e-9a3e-ca079246778c",
+          "name": "Get the given meal plan item for the currently authenticated user",
+          "request": {
+            "name": "Get the given meal plan item for the currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "mealplan",
+                ":mealplan-item-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "mealplan-item-uuid",
+                  "description": "(Required) Meal plan item uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca33f1f8-3b9e-4e98-92cf-3b3853fa11af",
+              "name": "Get this Meal Plan item details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"year\": 5445.411399824756,\n  \"id\": \"string\",\n  \"feed_item\": {\n    \"type\": \"string\",\n    \"recipe\": {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"2009-05-11T07:42:14.019Z\",\n        \"updated\": \"1963-04-26T06:43:58.373Z\",\n        \"state\": \"draft\",\n        \"published\": \"2001-05-26T16:47:27.951Z\"\n      },\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"url\": \"http://KqMZyKh.fpbSxKk24Twt2okJVADSN73kQtI6.3KGBhPAHFpPJc,SwbbCBG\",\n      \"user_reactions\": {\n        \"comments_count\": 2239.035993661661,\n        \"images_count\": 4085.4144209308483,\n        \"like_count\": 836.9370346764415,\n        \"quality\": 2344.925214916955,\n        \"rating\": 4452.166431014609,\n        \"rating_count\": 2398.119417328809,\n        \"images\": [\n          {\n            \"author\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"original_location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"author\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"original_location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"author\": {\n        \"type\": \"editor\",\n        \"new_type\": \"community\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"banner_image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"wide_banner_image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"website\": \"http://tbOAXqMtRSVeaTkXttPt.tgdehUg2\",\n        \"is_premium\": true,\n        \"created\": \"2025-09-20T10:13:47.832Z\"\n      },\n      \"id\": \"string\",\n      \"difficulty\": \"string\",\n      \"image\": {\n        \"url\": \"http://vkFXlNZuNBKe.uospcZzh7apAdeNBR.xA4BmIWn1DX8Pk0y4oTTW3NsDCQqeSo.81\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 3628.7570069937847,\n        \"height\": 3483.3440740724486\n      },\n      \"duration\": {\n        \"preparation\": 8654.915534638887,\n        \"resting\": 8590.001933486457,\n        \"baking\": 8157.227614783129\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        }\n      ]\n    },\n    \"hide_for_web\": true,\n    \"hide_for_app\": false\n  },\n  \"calendar_week\": 141.2781430888954,\n  \"target_date\": \"1990-06-20\",\n  \"day_of_week\": 7499.049964400007,\n  \"pinned\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6ab1123-6abe-40eb-bcd8-db79ef740863",
+              "name": "Meal plan item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c09e775-f5b3-455b-97eb-d0fc10b0b35a",
+          "name": "Update a Meal Plan item for the currently authenticated User",
+          "request": {
+            "name": "Update a Meal Plan item for the currently authenticated User",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "mealplan",
+                ":mealplan-item-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "mealplan-item-uuid",
+                  "description": "(Required) Meal plan item uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target_date\": \"<date>\",\n  \"year\": \"<number>\",\n  \"calendar_week\": \"<number>\",\n  \"day_of_week\": \"<number>\",\n  \"pinned\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "672fd74e-78b6-425e-ac52-63a54cea2590",
+              "name": "Operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"target_date\": \"<date>\",\n  \"year\": \"<number>\",\n  \"calendar_week\": \"<number>\",\n  \"day_of_week\": \"<number>\",\n  \"pinned\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"year\": 5445.411399824756,\n  \"id\": \"string\",\n  \"feed_item\": {\n    \"type\": \"string\",\n    \"recipe\": {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"2009-05-11T07:42:14.019Z\",\n        \"updated\": \"1963-04-26T06:43:58.373Z\",\n        \"state\": \"draft\",\n        \"published\": \"2001-05-26T16:47:27.951Z\"\n      },\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"url\": \"http://KqMZyKh.fpbSxKk24Twt2okJVADSN73kQtI6.3KGBhPAHFpPJc,SwbbCBG\",\n      \"user_reactions\": {\n        \"comments_count\": 2239.035993661661,\n        \"images_count\": 4085.4144209308483,\n        \"like_count\": 836.9370346764415,\n        \"quality\": 2344.925214916955,\n        \"rating\": 4452.166431014609,\n        \"rating_count\": 2398.119417328809,\n        \"images\": [\n          {\n            \"author\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"original_location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"author\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"original_location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"author\": {\n        \"type\": \"editor\",\n        \"new_type\": \"community\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"banner_image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"wide_banner_image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"website\": \"http://tbOAXqMtRSVeaTkXttPt.tgdehUg2\",\n        \"is_premium\": true,\n        \"created\": \"2025-09-20T10:13:47.832Z\"\n      },\n      \"id\": \"string\",\n      \"difficulty\": \"string\",\n      \"image\": {\n        \"url\": \"http://vkFXlNZuNBKe.uospcZzh7apAdeNBR.xA4BmIWn1DX8Pk0y4oTTW3NsDCQqeSo.81\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 3628.7570069937847,\n        \"height\": 3483.3440740724486\n      },\n      \"duration\": {\n        \"preparation\": 8654.915534638887,\n        \"resting\": 8590.001933486457,\n        \"baking\": 8157.227614783129\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        }\n      ]\n    },\n    \"hide_for_web\": true,\n    \"hide_for_app\": false\n  },\n  \"calendar_week\": 141.2781430888954,\n  \"target_date\": \"1990-06-20\",\n  \"day_of_week\": 7499.049964400007,\n  \"pinned\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64d71867-5d71-46d6-a011-74848ed44032",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"target_date\": \"<date>\",\n  \"year\": \"<number>\",\n  \"calendar_week\": \"<number>\",\n  \"day_of_week\": \"<number>\",\n  \"pinned\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22af4631-ffca-41fd-8482-0b4eb97978e4",
+              "name": "Meal plan item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"target_date\": \"<date>\",\n  \"year\": \"<number>\",\n  \"calendar_week\": \"<number>\",\n  \"day_of_week\": \"<number>\",\n  \"pinned\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ea180cd-321a-4360-bb55-6768fd73384d",
+          "name": "Delete a Meal Plan item for the currently authenticated User",
+          "request": {
+            "name": "Delete a Meal Plan item for the currently authenticated User",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "mealplan",
+                ":mealplan-item-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "mealplan-item-uuid",
+                  "description": "(Required) Meal plan item uuid"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ebe6cc2-911c-422f-8498-000403f4c764",
+              "name": "Operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cbfd49f9-b799-45c5-a529-9148e39829a3",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7101843-f118-4d08-9a13-0d381556f9c4",
+              "name": "NotFound. When Meal Plan item does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "mealplan",
+                    ":mealplan-item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "mealplan-item-uuid",
+                      "description": "(Required) Meal plan item uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "002cccc8-f4b3-463a-ad92-702cf51765a6",
+    "name": "Kitchen Stories Internal Articles Admin User Meal Plan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

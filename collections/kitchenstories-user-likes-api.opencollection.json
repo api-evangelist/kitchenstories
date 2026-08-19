@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Likes API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Likes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "replaced with  `users/me/likes/feed-items/`",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/likes/",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Returns a list with `feeditem-ids` only."
+              }
+            ]
+          },
+          "docs": "replaced with  `users/me/likes/feed-items/`"
+        },
+        {
+          "info": {
+            "name": "List likes for currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/likes/feed-items/",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Returns a list with `feeditem-ids` only."
+              }
+            ]
+          },
+          "docs": "List likes for currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Like a Recipe or Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/likes/feed-items/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Like a Recipe or Article"
+        },
+        {
+          "info": {
+            "name": "Delete Like on the given feed-item for currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/users/me/likes/feed-items/:feeditem-uuid/",
+            "params": [
+              {
+                "name": "feeditem-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Feed Item (Recipe or Article) uuid"
+              }
+            ]
+          },
+          "docs": "Delete Like on the given feed-item for currently authenticated user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Ingredients API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ingredients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Ingredients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/ingredients/",
+            "params": [
+              {
+                "name": "is_partner",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 or true to filter by partner ingredients, 0 or false to filter by non-partner ingredients, or leave empty to get all ingredients"
+              },
+              {
+                "name": "is_searcheable",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 or true to filter by ingredients explictily marked as searcheable, 0 or false to explicityl exclude them from the results, or leave empty to get all ingredients"
+              }
+            ]
+          },
+          "docs": "List Ingredients"
+        },
+        {
+          "info": {
+            "name": "Details of given ingredient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/ingredients/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Ingredient uuid"
+              }
+            ]
+          },
+          "docs": "Details of given ingredient"
+        },
+        {
+          "info": {
+            "name": "List Additional Information entries for all Ingredients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/ingredients/additional-information/"
+          },
+          "docs": "List Additional Information entries for all Ingredients"
+        },
+        {
+          "info": {
+            "name": "Details for given Ingredients additional Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/ingredients/additional-information/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Ingredient Additional Information uuid"
+              }
+            ]
+          },
+          "docs": "Details for given Ingredients additional Information"
+        },
+        {
+          "info": {
+            "name": "List ingredient units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/ingredients/units/"
+          },
+          "docs": "List ingredient units"
+        },
+        {
+          "info": {
+            "name": "Details on the given Ingredients Unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/ingredients/units/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Ingredient Unit uuid"
+              }
+            ]
+          },
+          "docs": "Details on the given Ingredients Unit"
+        },
+        {
+          "info": {
+            "name": "Obtains the list of top promoted ingredients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/ingredients/promoted/"
+          },
+          "docs": "Obtains the list of top promoted ingredients"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Categories Admin API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Categories Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a new content meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/categories/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the category"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new content meta"
+        },
+        {
+          "info": {
+            "name": "Delete a content meta by key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/categories/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the category"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "unique key of Content Meta to delete"
+              }
+            ]
+          },
+          "docs": "Delete a content meta by key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

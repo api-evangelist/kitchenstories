@@ -1,0 +1,1983 @@
+{
+  "item": [
+    {
+      "id": "0ba289b0-362a-4120-9139-81e31a1fe53b",
+      "name": "User Cookbooks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6dad4357-8333-4683-a502-7974762caa9c",
+          "name": "Get all cookbooks for the currently authenticated user",
+          "request": {
+            "name": "Get all cookbooks for the currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "feed_item",
+                  "value": "<uuid>",
+                  "description": "A feed item (article or recipe) uuid. If passed, will only return cookbooks whose item is saved in"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search through cookbooks by title"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f531db1a-8c1d-4229-b427-b32314103f5c",
+              "name": "Get a paginated list of Cookbooks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_item",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"recipes_count\": 7351.173528132028,\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"images\": [\n        {\n          \"url\": \"http://ymbKE.gibzbiNWeyrH0lIgnJq8D+FHqbI,Mx,,CT3,OR6gSuxbvtP1RK8m7+ryBBP9KDfAti-dV2.\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 310.81808473569674,\n          \"height\": 9247.37763251356\n        },\n        {\n          \"url\": \"http://QzDpazMkVMThZWlUUHxztHq.yxylUD6sjo0rWSU4MvKp\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 7825.197357513675,\n          \"height\": 2836.3353989457173\n        }\n      ],\n      \"articles_count\": 2022.9200226290754,\n      \"items_count\": 3856.072339264922,\n      \"image\": {\n        \"url\": \"http://cGvUtNTNPMvHQ.quErS3FuAFX+o.uvjV+ZM8zBmP3qglFWPnLAUXJT5pxcYRn8Jjh,dPH\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 1064.9158239910196,\n        \"height\": 703.667544585932\n      }\n    },\n    {\n      \"recipes_count\": 6897.302887087478,\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"images\": [\n        {\n          \"url\": \"http://VrZjShgLGMPxbpGG.lvJgvcrAD+SOPeqTsOIb\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 8696.276560458176,\n          \"height\": 1526.7189234773614\n        },\n        {\n          \"url\": \"http://XhNaTuRlQmO.itaEnAi3eIwHkGfEXF6lFGISl-rl4en,8bAk+gyQnF+6ghVxrCGQhhv3-UVN5IfRKl+gp-2vYNifDi0XyQn1Ejj\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 1742.0686959433563,\n          \"height\": 6790.229309459116\n        }\n      ],\n      \"articles_count\": 4416.753139246794,\n      \"items_count\": 4315.772836780218,\n      \"image\": {\n        \"url\": \"https://ubebxlFOgFAxijmAbdk.ymfe02CWu+M.tOGIKgwucGw-473lCMB+2tpxr\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 7529.987684977443,\n        \"height\": 8034.650147550771\n      }\n    }\n  ],\n  \"links\": {\n    \"last\": \"https://OpvlkyVCvBRHOxuHJJC.ehbxUco2C6TU9RUM-fQDglfm\",\n    \"first\": \"https://JCeDkmXhqDsmskFPAKnAHsmcaILsSI.dzctVfka2iR\",\n    \"next\": \"https://XQNggjaEeGEKeBwgKUXZnu.curseexI+khrw4aHtB06Yn41ZazNXHvOB6.dYza4uC0RBMN7lWzZnIOPr894zwkxwrAM0+xG\",\n    \"prev\": \"http://HqcLENPWRidBKCDOPyJ.clmhj4Dyf4Fr9+2u9YS3TPKGrvy+FpObHGEFwBfm3JbcCNWSc\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 1019.8555389588926,\n      \"pages\": 1951.5676860656783,\n      \"count\": 4801.6847247803225\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e370193-2c02-495e-b320-3b02c573b2b5",
+              "name": "User not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_item",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "087337ae-bec8-4259-83b9-2e5bbd96f38b",
+          "name": "Create a cookbook for the currently authenticated user User",
+          "request": {
+            "name": "Create a cookbook for the currently authenticated user User",
+            "description": {
+              "content": "Image is the image-uuid for cover-image",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"image\": \"<string>\",\n  \"feed_item_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"feed_items\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d02cee6b-c5d1-4423-a6ec-a71636345cac",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"image\": \"<string>\",\n  \"feed_item_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"feed_items\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"recipes_count\": 7149.034834591686,\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"images\": [\n    {\n      \"url\": \"http://IMlSekVHbChIxqiNifKEDpRrkwpAhqIU.iykbrWkbUI9pVOu2ZeAbE8T4MpExlOslRAn5\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 851.0612318192811,\n      \"height\": 9554.588553073912\n    },\n    {\n      \"url\": \"http://BdcLPJFEBfscWVQcdwHMtZ.gamkNI8kcvstPts7-5yUIfzQqgV-KQ99EWBw3FjEKxyTNFMSU8AQS,\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 1139.0149558252515,\n      \"height\": 6253.66051313863\n    }\n  ],\n  \"articles_count\": 7950.890724490799,\n  \"items_count\": 45.05121987660732,\n  \"image\": {\n    \"url\": \"https://moLKUv.dknmzMcgrNJdOF6sCis6vYF9\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 762.7179777478765,\n    \"height\": 6930.126583659641\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7423f053-295a-46a7-ab3e-5675c7862307",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"image\": \"<string>\",\n  \"feed_item_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"feed_items\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8533664e-326a-41b9-85b9-4a5f0332849a",
+          "name": "Get the given cookbook for the currently authenticated user",
+          "request": {
+            "name": "Get the given cookbook for the currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Cookbook uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cace7320-c624-4ed4-9d1c-25bbe6802e8e",
+              "name": "Get this Cookbook details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"recipes_count\": 7149.034834591686,\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"images\": [\n    {\n      \"url\": \"http://IMlSekVHbChIxqiNifKEDpRrkwpAhqIU.iykbrWkbUI9pVOu2ZeAbE8T4MpExlOslRAn5\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 851.0612318192811,\n      \"height\": 9554.588553073912\n    },\n    {\n      \"url\": \"http://BdcLPJFEBfscWVQcdwHMtZ.gamkNI8kcvstPts7-5yUIfzQqgV-KQ99EWBw3FjEKxyTNFMSU8AQS,\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 1139.0149558252515,\n      \"height\": 6253.66051313863\n    }\n  ],\n  \"articles_count\": 7950.890724490799,\n  \"items_count\": 45.05121987660732,\n  \"image\": {\n    \"url\": \"https://moLKUv.dknmzMcgrNJdOF6sCis6vYF9\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 762.7179777478765,\n    \"height\": 6930.126583659641\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfd85876-72c5-45c6-ba0e-fd6a9c4a7398",
+              "name": "Cookbook not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d5a4d4f-e3aa-4db9-9169-e8d46e36ff70",
+          "name": "Update a Cookbook for the currently authenticated User",
+          "request": {
+            "name": "Update a Cookbook for the currently authenticated User",
+            "description": {
+              "content": "Image is the image-uuid for cover-image",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Cookbook uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"image\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b006003b-6cb4-4edb-8970-9380dc8359b7",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"image\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9032edf3-a73b-4fd1-8265-d64d210c60e8",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"image\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bd927f7-eab9-4128-a828-a1a7a98b5668",
+          "name": "Delete a Cookbook for the currently authenticated User",
+          "request": {
+            "name": "Delete a Cookbook for the currently authenticated User",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Cookbook uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44fea5a9-aceb-4029-bffe-db6683d0a4ef",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f74c10b5-fc22-4fa2-92b6-9212718af0b9",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be2621ca-bb58-4438-93fe-2db8ef1f3c95",
+              "name": "NotFound. When Cookbook does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2cb18fd-0500-48b4-885b-4c7585b468b5",
+          "name": "List all items for the given cookbook",
+          "request": {
+            "name": "List all items for the given cookbook",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                "items",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search through items of this cookbook by title"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Cookbook uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04eea5c2-5bff-41fb-a9fd-ddeff7b62f39",
+              "name": "Get all items (internal recipes, external recipes and articles) from the given cookbook",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"string\",\n      \"article\": {\n        \"content_id\": \"string\",\n        \"type\": \"string\",\n        \"publishing\": {\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"updated\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"published\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"url\": \"https://nCCWButprElgwDvJTtOpDbkfJPQGQnTFK.paijTHuLItNl8EaEOl1iZLGdhaDNB6F24GZeY5nePWxkKvhCQ\",\n        \"subtitle\": \"string\",\n        \"user_reactions\": {\n          \"comments_count\": 8156.770875221683,\n          \"images_count\": 1886.3613052687401,\n          \"like_count\": 8615.627003344842,\n          \"quality\": 4269.0648531984525\n        },\n        \"author\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"new_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"slug\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"occupation\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"banner_image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"wide_banner_image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"website\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_premium\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"id\": \"string\",\n        \"image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"hide_for_web\": true,\n      \"hide_for_app\": true\n    },\n    {\n      \"type\": \"string\",\n      \"article\": {\n        \"content_id\": \"string\",\n        \"type\": \"string\",\n        \"publishing\": {\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"updated\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"published\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"url\": \"http://jiaQcGMJlqUiRFsmPH.clbwRMbHp\",\n        \"subtitle\": \"string\",\n        \"user_reactions\": {\n          \"comments_count\": 6602.173480186022,\n          \"images_count\": 9496.38066082132,\n          \"like_count\": 8373.023503115528,\n          \"quality\": 4495.082630002195\n        },\n        \"author\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"new_type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"slug\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"occupation\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"banner_image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"wide_banner_image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"website\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_premium\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"id\": \"string\",\n        \"image\": {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_link\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"width\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"height\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"hide_for_web\": true,\n      \"hide_for_app\": false\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://OUTkmcrfNImyXgFlEuHvdH.etS7GHwcqlAAhU-M.qW3CLn8kQnss9L\",\n    \"first\": \"http://Yyr.drpxfRmtF5eFSg5d.X,,,l1xNpIHSpIJ237NLKbGB92cLUtn0VG97,TYCV8yc\",\n    \"next\": \"https://YtRByihaJAvZODfGXgZvjY.ekow87qSYF2d3dgrscjvXxFxKJgODfk3Osk1cAqawK,6-FcJL\",\n    \"prev\": \"http://lTsvvcRprDgZkKCQtfSVdItOJQ.bciGs1uaNLcT,qyrMxrEQUT+i0weUTuWmErCgbLehf5ABN8YZAhREXAwOE63f8\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 3746.4783021284366,\n      \"pages\": 5407.480540987365,\n      \"count\": 5660.9318162804575\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d655a493-7345-4c29-a482-47c0669e3530",
+          "name": "Add Internal Recipe, Article or saved-external-recipe to the given cookbook",
+          "request": {
+            "name": "Add Internal Recipe, Article or saved-external-recipe to the given cookbook",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                "items",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Cookbook uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd50d1b5-c78f-4692-82c8-306616b9c348",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ad27452-d1cc-4e93-87f3-416ab455261e",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab6dcc0d-9476-428b-a806-bfa3b9667cbb",
+              "name": "NotFound. When Cookbook does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b88f14d-4955-4cc3-99ae-a49fdeea56d3",
+          "name": "Add an external recipe to the given cookbook",
+          "request": {
+            "name": "Add an external recipe to the given cookbook",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                "external-items",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Cookbook uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6001fdfc-67ff-4555-945c-10f593048f14",
+              "name": "Operation successful - recipe payload returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "external-items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"content_id\": \"string\",\n  \"type\": \"string\",\n  \"publishing\": {\n    \"created\": \"1950-02-22T11:25:11.898Z\",\n    \"updated\": \"1993-05-11T11:28:52.733Z\",\n    \"state\": \"rejected\",\n    \"published\": \"1959-04-23T20:06:48.074Z\"\n  },\n  \"title\": \"string\",\n  \"steps\": [\n    {\n      \"text\": \"string\",\n      \"headline\": \"string\",\n      \"tip\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"video\": {\n          \"content_id\": \"string\",\n          \"duration\": 8180.379371716595,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"https://vykMxFUhVDXcXjyGnqz.ygdxd96rRzw9.NdPjupwX0naqoi5O9sZx4Xs5hgpmgiP4cKc\",\n          \"recipe_url\": \"http://MMxPSeJ.kemTSr9+1WIKZfn,qKO99tcSRyzwIEOqpqEPsC7rXH0VSIh+aWAiGCLW+SWV\",\n          \"width\": 9073.800366928159,\n          \"height\": 2502.9693946082352,\n          \"image\": {\n            \"url\": \"http://lUtUOWSdMAPkHRV.yvCWEZbVdTARzMA8\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 9503.782107744071,\n            \"height\": 1682.483794058034\n          },\n          \"publishing\": {\n            \"created\": \"1986-01-10T11:12:20.428Z\",\n            \"updated\": \"1962-07-30T09:10:57.240Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"processing\",\n            \"published\": \"2002-04-01T04:15:19.714Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 248.09697009034016\n          }\n        }\n      },\n      \"image\": {\n        \"url\": \"https://JVPbzqiaXWUnHC.kwaj4EPJ,YdoVTZn5RvQKSiiyX,sF3QWBqtOn9sPPZP4pVpaUcKQeInJxvJzNJwHZxtrxdKaUcTcNTFi\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 7747.928045106774,\n        \"height\": 4286.196860054654\n      },\n      \"video\": {\n        \"content_id\": \"string\",\n        \"duration\": 9091.888063346343,\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"meta\": {\n          \"hreflang\": {\n            \"en\": \"http://lsAKurNNrNGtt.illyXM1OraotAfwub-0UkodLz.3I\",\n            \"de\": \"https://BHKKucGIYpOPnqoltTqbBgKJMmRjMqiW.hsIlkEY9n-NRnKQOZU9l15W+-pMOVz1L7i5ekQUqDgQD2fV5.8hn,QLS2Oee\",\n            \"zh\": \"https://dcaomdYrslwo.bsoC6vyHqnxas72\"\n          },\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        \"type\": \"string\",\n        \"remote_id\": \"string\",\n        \"url\": \"https://ozSjeBXEkMwPJLGWQPkLKFByjcxMSqN.smuVPl-,YKN5Jfq8d216pfx1REYG,UjMaDkqp\",\n        \"recipe_url\": \"https://WOVRKHzABlQbEqLeveMQrt.elf6YwKit1N5vzinelGwEUuRGd9VvBBsTofd+5vIFoauoEN19TEkgTH.6g0t\",\n        \"width\": 7883.912908064387,\n        \"height\": 1603.9297630672056,\n        \"image\": {\n          \"url\": \"http://rkWKzLLbCkJgBpWAU.aqavZ\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 9086.380181284794,\n          \"height\": 3658.7902875459367\n        },\n        \"publishing\": {\n          \"created\": \"1954-04-07T15:25:13.234Z\",\n          \"updated\": \"1969-04-05T17:51:43.092Z\",\n          \"state\": \"string\",\n          \"playback-state\": \"ready\",\n          \"published\": \"1956-05-23T08:14:32.298Z\"\n        },\n        \"user_reactions\": {\n          \"view_count\": 5718.469743625518\n        }\n      },\n      \"utensils\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 1441.4459259936784,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 7404.640059485301,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        }\n      ],\n      \"ingredients\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 3662.3341078730687,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 4904.642882738699,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": true,\n          \"is_searcheable\": false,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 7009.649271050465,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 5431.640461552422,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": true,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"text\": \"string\",\n      \"headline\": \"string\",\n      \"tip\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"video\": {\n          \"content_id\": \"string\",\n          \"duration\": 3278.5261833074132,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"https://oUXLEMGji.jhqzFdN4PI8M3bJ78EOUV\",\n          \"recipe_url\": \"https://cbVxnTXxbTrPepLihwGmqDPT.krlwa,1aGwYO83FkhvkwqQDDesb-Yj-EbGTqhrFIw+vWuksBbCLnHfVIInmylIQFx\",\n          \"width\": 8333.523039890399,\n          \"height\": 1029.3243557956312,\n          \"image\": {\n            \"url\": \"http://VusZcmLCMXHMQcXFfuWXqqGTStQReUg.nrYLfYzcjH7wF7mbfonlmw4OtSjuDb08Tecxm+rIsCEqKItllw86YiKW3D\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 5051.534542189306,\n            \"height\": 6971.299774716965\n          },\n          \"publishing\": {\n            \"created\": \"1995-12-22T07:27:35.632Z\",\n            \"updated\": \"2024-03-17T07:38:17.845Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"ready\",\n            \"published\": \"1965-08-20T13:35:30.298Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 1526.018692480563\n          }\n        }\n      },\n      \"image\": {\n        \"url\": \"https://KsroNCNocznKYfAVcgKLMhGaShENAJOH.kjlwaiE4nWWdLuTq7+kkPxjSB3lP,vrrmZZHcWsbLhlW+jwD+KJnyCU4ZgDz5nNAOLApu8CCUDmW-\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 3908.4794254149824,\n        \"height\": 9065.232303561355\n      },\n      \"video\": {\n        \"content_id\": \"string\",\n        \"duration\": 7350.171038826934,\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"meta\": {\n          \"hreflang\": {\n            \"en\": \"https://DttrrNLphFzTvKPNPnVRLxDsOFOpWNQ.hoaetYD+QkJmvPeYXmAUQnOPe3jH,+HRpCw\",\n            \"de\": \"https://Odgl.bhfwYXpDouWBLXsBaWj+s1zLFTP7lBhgrg2Je2Mg,VUO67ekHLi4.AUudS6ef3EEiTbyTRrOnsYG\",\n            \"zh\": \"http://ojRWjCYCZoJu.ooj+k9uy7.Gfhy\"\n          },\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        \"type\": \"string\",\n        \"remote_id\": \"string\",\n        \"url\": \"https://cxLKQnBrhzjraFimwFRTSgJiPgTlnT.gwpZmeXk.+IhlGhrPqgIkHAappDK\",\n        \"recipe_url\": \"https://UlUWQEcyVLEbNNS.toarwzAeoFe6Wjs4XYXTMmTzXDBV4bZkWRft73P\",\n        \"width\": 3537.04205396135,\n        \"height\": 8644.875774120417,\n        \"image\": {\n          \"url\": \"http://VKcAvrVNK.qtbSjO4p2abW.2,0qnsbS\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 3861.5579073929316,\n          \"height\": 6716.068025282949\n        },\n        \"publishing\": {\n          \"created\": \"2022-12-30T02:19:09.397Z\",\n          \"updated\": \"1961-01-14T08:20:34.164Z\",\n          \"state\": \"string\",\n          \"playback-state\": \"not-playable\",\n          \"published\": \"1996-01-19T01:06:59.021Z\"\n        },\n        \"user_reactions\": {\n          \"view_count\": 1139.18016624737\n        }\n      },\n      \"utensils\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 5621.597931070167,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 1608.032166614196,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        }\n      ],\n      \"ingredients\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 6953.942933022939,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 4449.231415367786,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 5484.026867593074,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 8301.313435584789,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"slug\": \"string\",\n  \"url\": \"http://nCuhPnSnBq.ptXq,cRI4ydbhiurPMm8tqpI.mJnHoqI7lNCOjxlsDO5wGNBo4\",\n  \"user_reactions\": {\n    \"comments_count\": 7742.087157937447,\n    \"images_count\": 5947.94007751864,\n    \"like_count\": 5921.41790177483,\n    \"quality\": 7285.075117945133,\n    \"rating\": 7451.6493365217275,\n    \"rating_count\": 4430.98377259883,\n    \"images\": [\n      {\n        \"author\": {\n          \"type\": \"community\",\n          \"new_type\": \"partner\",\n          \"name\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"occupation\": \"string\",\n          \"description\": \"string\",\n          \"image\": {\n            \"url\": \"http://FirVYEOmFmVRZrhriUoTQXTF.kbqhTbsohZgljnR3WnHe3MkOq9\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 3268.0550481047035,\n            \"height\": 3593.138805878455\n          },\n          \"banner_image\": {\n            \"url\": \"http://Nwo.avkMCkEDNkbFqRR3ZQbVoD,tKfdcFtLw,.R7bvF4HzgMNiYFaFqcF.JLQQ0b7AmsU\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 2075.139686319707,\n            \"height\": 1306.1870307852396\n          },\n          \"wide_banner_image\": {\n            \"url\": \"http://nJSyAdbgKCkr.jekx4aJA3QkBhxUlYKBlB0sqMF5OUlif-ALTdmo6D4G-nrs,PyN0q6su\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 1624.4462860814358,\n            \"height\": 553.3150758309513\n          },\n          \"website\": \"https://oBXMlGhzZZTGuGalqmSqxyTRZjSEuxAE.oyoJaSM\",\n          \"is_premium\": true,\n          \"created\": \"1964-03-25T05:14:45.908Z\"\n        },\n        \"created\": \"1951-07-31T00:01:33.459Z\",\n        \"image\": {\n          \"url\": \"https://CSfi.nnaFc3r2EeuC6SQTc-wbkZqAskiFoLb8,AKJ\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 408.43670862586777,\n          \"height\": 6727.553926883775\n        },\n        \"original_location\": \"string\",\n        \"comment\": \"string\"\n      },\n      {\n        \"author\": {\n          \"type\": \"community\",\n          \"new_type\": \"editor\",\n          \"name\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"occupation\": \"string\",\n          \"description\": \"string\",\n          \"image\": {\n            \"url\": \"http://eUpaChXnorNksaNtLTsG.pncSlKxJ7QEQ8IEaYf.kTkaoEVHPHI+kiH2DtaD-\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 9311.935893380054,\n            \"height\": 8083.730103355972\n          },\n          \"banner_image\": {\n            \"url\": \"https://D.xoicw3wkckfL96xtN3-jCnyeEpgEwTuk8KX+AlyGLssQD.6VaimLD2\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 4624.644930529383,\n            \"height\": 4569.881831989386\n          },\n          \"wide_banner_image\": {\n            \"url\": \"https://FjjHnhGZeIscauGr.teX0TCk,Dmn6ddavPUg5+Kca0hHAiDNuKJvi7AYimR52RqbQpkB\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 2067.1133608658333,\n            \"height\": 8015.482833658829\n          },\n          \"website\": \"https://ntAZZZpv.cusqUoYcNxJBBC2Mz7zny-CkcQiLU8HgLGeBSjuhoBZT,VuuD6BGJfNYrFlrGr3i74-QDpA3ZEz\",\n          \"is_premium\": true,\n          \"created\": \"2007-01-11T16:03:45.639Z\"\n        },\n        \"created\": \"2006-02-13T07:44:27.320Z\",\n        \"image\": {\n          \"url\": \"http://KXMAdFxvTWLVOsBrcELcBbzr.npfkjDPtj6SCmADBzCb4s5\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 9624.440093973048,\n          \"height\": 7203.723280610526\n        },\n        \"original_location\": \"string\",\n        \"comment\": \"string\"\n      }\n    ]\n  },\n  \"author\": {\n    \"type\": \"contributor\",\n    \"new_type\": \"editor\",\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"occupation\": \"string\",\n    \"description\": \"string\",\n    \"image\": {\n      \"url\": \"http://BMZgQNaOnnvjZLESzclwwQLruou.hhlSkMEMM56QpelUtYhlR+jTj1K58htWLy.zsWCC0yUJGNLENIOkogzEAZ3+CIhienwHb5nGfWl7eyTx.lqED\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 3251.682262111454,\n      \"height\": 5360.375837267875\n    },\n    \"banner_image\": {\n      \"url\": \"http://wfrahONnQaLZZM.encILXZ-WI,TxxIWEY-cxx1b9aoyrvfcPWSGvg4Sk.Oy3LZQ8ojqpyLwXxvVPI+rBr9-sSHusc9\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 9087.816880405499,\n      \"height\": 4848.275786911587\n    },\n    \"wide_banner_image\": {\n      \"url\": \"http://cshBNqJJ.vbKxtZL5W6o6VxB,ollAmNpTKlb8aU,ZRybvmjpiw75ABBfSW4-0lYAM\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 5279.567281318359,\n      \"height\": 8450.483599878507\n    },\n    \"website\": \"http://cTWkdGlIQoAedGzqXAYuPiN.pmcrs7PfbLMds4R00Ximk+t+0yIOe9GLkkaUDtk,nM9ELarY0YDhMEBQE0fwVe\",\n    \"is_premium\": true,\n    \"created\": \"2019-05-22T06:49:54.703Z\"\n  },\n  \"servings\": {\n    \"amount\": 8243.582503990796,\n    \"type\": \"string\"\n  },\n  \"ingredients\": [\n    {\n      \"list\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 4199.894995155719,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 4593.306948216691,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 7742.947513634951,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 2581.9158415823495,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": true,\n          \"is_searcheable\": false,\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"list\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 4077.480563466713,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 4045.094866271278,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": true,\n          \"is_searcheable\": false,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 4976.052159184108,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 5030.5974908381095,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"id\": \"string\",\n  \"difficulty\": \"string\",\n  \"chefs_note\": \"string\",\n  \"image\": {\n    \"url\": \"https://uCoAD.girlpj1ps9HWXULUMO6fkUxjM8pCMovm4edkPAPILYzHlaNMcRU+b\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 6189.306165545774,\n    \"height\": 4382.126261960704\n  },\n  \"duration\": {\n    \"preparation\": 6149.206139776403,\n    \"resting\": 7227.41682297497,\n    \"baking\": 6637.06471300123\n  },\n  \"nutrition\": {\n    \"protein\": 7537.89287813,\n    \"fat\": 5944.968501047534,\n    \"calories\": 7632.440307665676,\n    \"carbohydrate\": 3525.5449121194292\n  },\n  \"meta\": {\n    \"hreflang\": {\n      \"en\": \"https://QLm.rounTrI2OAKkbjkB\",\n      \"de\": \"https://RsKoyfEiUPMJYQkTYMTrpzB.fuenBCaf4Xvit2JlifGD1V76-.z1WljNaZyxAg0ZqqtmLmfJsA8onO\",\n      \"zh\": \"https://lOSiIiPbQ.mxyXUh4+xeSmkHCYVa-0lcvxSznAc,iEcLtEw4QyiInrKi8MmaA3W+C\"\n    },\n    \"title\": \"string\",\n    \"description\": \"string\"\n  },\n  \"tags\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": true\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": true\n    }\n  ],\n  \"content_meta\": [\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"https://yDxBEebSSalGiqJjWIQYqxq.xiiXykjhyxhRKs8CohTUIM0Q2AfBvXFoPYic4PfEueMmaOn\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"https://xumHnrawpKmPJXBqdfKoMKhhGcjJ.fch+.8g,AFWsXLlqYdcVY\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    }\n  ],\n  \"categories\": {\n    \"main\": {\n      \"slug\": \"string\",\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"path\": [\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"children\": [\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"additional\": [\n      {\n        \"slug\": \"string\",\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"path\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"children\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"slug\": \"string\",\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"path\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"children\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"video\": {\n    \"content_id\": \"string\",\n    \"duration\": 7902.53478902379,\n    \"title\": \"string\",\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"meta\": {\n      \"hreflang\": {\n        \"en\": \"https://UhSInPFLBUzLkVmVicfGdOReCfs.wxaSUIuigauH,NaRcRBJ7pa,4lLECCyi0sbFc.B+F,YMD6gBhsSknUKwzVHQ2UiI8xJt4WqmhCA-l,n5lVPJ7x4x\",\n        \"de\": \"http://IaUspMnZQQsi.bmyCuI7.xxWqFF2F-njZfwNaLZesUCzMHD0ts6ot4H2xzx+\",\n        \"zh\": \"https://jLpRSXblQIhjo.ivbO1-vDWtaiYaVFxC5,aRYvJzHgn0uHHjOwQhiCQ-,9LqveFM+S7Bx++ECoAj5.7iGIwto2zR\"\n      },\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    \"type\": \"string\",\n    \"remote_id\": \"string\",\n    \"url\": \"https://mPLmSopncS.zahlYSAaxdxOT6YOpX5lxIIbVOQzbEkZ9HzydMPgOu-5ObQtrghnj1EyvO7DpJkwCFgJXXW\",\n    \"recipe_url\": \"https://iAvqVCzhhfYwkIcZSwo.kiizuCuQ6mSN\",\n    \"width\": 4563.64253256995,\n    \"height\": 1381.2771520373824,\n    \"image\": {\n      \"url\": \"https://IcECuaSCGXBvYOLhq.pcqH.P9gbJ-HJ8PTZ9Lp\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 178.17122011654862,\n      \"height\": 8563.951116545628\n    },\n    \"publishing\": {\n      \"created\": \"1987-05-23T09:26:26.679Z\",\n      \"updated\": \"2012-01-10T19:57:39.324Z\",\n      \"state\": \"string\",\n      \"playback-state\": \"ready\",\n      \"published\": \"2009-09-12T04:02:43.237Z\"\n    },\n    \"user_reactions\": {\n      \"view_count\": 6632.764352258197\n    }\n  },\n  \"howto_videos\": [\n    {\n      \"content_id\": \"string\",\n      \"duration\": 3391.0693070881903,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"https://DXTKuwnTxMmpeU.zsWGfA-39FLwd8w9WpBxNfvsfb1hK2cSfG.El0wxiqvOBIIhk2,FmZcahgK10+WwqQl91LS7HYtD-HI,03OC\",\n          \"de\": \"https://GZanpBQuXCXRRkJjzlMciiAplAeXRXL.khpaNI5+51398Fd-3GxwYYC5eqo,bN-7YOlkl\",\n          \"zh\": \"http://NJOBwYutMtcoUvZQCVQXDy.kjEtVTWWQNlYegFoPbcflT8K\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"http://nzrqEYQbetZIsNqMUhrTNEBo.hbQz.YtfF7X4\",\n      \"recipe_url\": \"https://XisFigWstfiC.jflcNE7IXpdkpdxTYEiGY-O2TVPEG1TXddBaeyw3qrkRIfsJjCH-cWtnFx+zRas,rnQd.\",\n      \"width\": 3484.4362938304375,\n      \"height\": 3086.7531470909316,\n      \"image\": {\n        \"url\": \"http://ljSvdnVOuQNSyS.exdwjTw\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 2169.352370594588,\n        \"height\": 4471.350457074494\n      },\n      \"publishing\": {\n        \"created\": \"1955-12-10T00:47:05.508Z\",\n        \"updated\": \"1971-02-13T16:15:42.562Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"not-playable\",\n        \"published\": \"1959-05-06T09:23:08.256Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 3010.791192717128\n      }\n    },\n    {\n      \"content_id\": \"string\",\n      \"duration\": 5175.829914350641,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://jTPufJSMdocQUyIceDXPTKVZ.vbSwTJ+u6GpydKvrmFLICjjIZ1\",\n          \"de\": \"http://Y.gegttvEJrfcr8vEVbzZTIW23uH7qIzpbvH5BR+MjZ7w2nQtMB1\",\n          \"zh\": \"https://vXViLdbVNxSaLa.zntgCIxdFRXJCUocdJamF,+Mx.wEBlD-sZV8B2ti0nNdr\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"http://nFEHNRpykZxqCg.ydF4uTG.JfkGOimuv2A3ULEzF5\",\n      \"recipe_url\": \"http://vsgcQMyUIUJeXQPbYJwqQJnYDiNUIunlD.ykkagi1zdV.i,XDJxrtg3MLxD4q6z.PStf4-F7HhuUsQ5z+qVa1QtglqlUvszt.Yy\",\n      \"width\": 4583.906221413785,\n      \"height\": 7618.793800974922,\n      \"image\": {\n        \"url\": \"http://f.ttidd5G8d.d1+Fu1POTL3bJ3LGJcf6kAu3YcW53Wuku.yCTbEjfmZTptpFlNB\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 7996.75589887111,\n        \"height\": 6763.600784649313\n      },\n      \"publishing\": {\n        \"created\": \"1957-07-10T10:31:20.138Z\",\n        \"updated\": \"1947-05-12T22:18:55.946Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"not-playable\",\n        \"published\": \"1979-01-30T17:01:10.995Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 8356.062670150457\n      }\n    }\n  ],\n  \"utensils\": [\n    {\n      \"name\": {\n        \"rendered\": \"string\",\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"id\": \"string\",\n      \"amount\": 5248.915433162714,\n      \"characteristic\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"additional_information\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"size\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"metric\": \"string\",\n        \"imperial\": \"string\"\n      }\n    },\n    {\n      \"name\": {\n        \"rendered\": \"string\",\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"id\": \"string\",\n      \"amount\": 8470.176947709775,\n      \"characteristic\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"additional_information\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"size\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"metric\": \"string\",\n        \"imperial\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0f7661b-9e8b-4fd9-862c-8ddfeb062ae1",
+              "name": "Operation successful - recipe is being fetched. Rerun the request to get the recipe.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "external-items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f960153b-de17-4590-8246-b2fcbd26f75d",
+              "name": "Forbidden. When user is not logged in or does not have permission to run the operation (not premium)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "external-items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "699bc912-81db-440c-9aff-199e455ecc94",
+              "name": "NotFound. When Cookbook does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "external-items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8cde911-f269-4903-9d95-790d8cba9e63",
+          "name": "Move an item from the given cookbook to another",
+          "request": {
+            "name": "Move an item from the given cookbook to another",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                "items",
+                ":item-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Origin Cookbook uuid"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "item-uuid",
+                  "description": "(Required) Item uuid (external recipe, internal recipe or article) - id can not already be in new cookbook"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3dcb6d1b-fba2-4377-bb93-985fbb8a67b3",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ":item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Origin Cookbook uuid"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "item-uuid",
+                      "description": "(Required) Item uuid (external recipe, internal recipe or article) - id can not already be in new cookbook"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cb9ea49-3199-402a-99a3-6ca3d361dfde",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ":item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Origin Cookbook uuid"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "item-uuid",
+                      "description": "(Required) Item uuid (external recipe, internal recipe or article) - id can not already be in new cookbook"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7b002ca-6541-41ba-95e1-5768626e0099",
+          "name": "Delete an item from the given cookbook",
+          "request": {
+            "name": "Delete an item from the given cookbook",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "cookbooks",
+                ":cookbook-uuid",
+                "items",
+                ":item-uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "cookbook-uuid",
+                  "description": "(Required) Cookbook uuid"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "item-uuid",
+                  "description": "(Required) Item uuid (external recipe, internal recipe or article)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15ec163f-ccb8-4441-a28a-ec7a2ddbc8f8",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ":item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "item-uuid",
+                      "description": "(Required) Item uuid (external recipe, internal recipe or article)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28a7efcd-abed-4b2f-882d-fbe4b9ecb96b",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ":item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "item-uuid",
+                      "description": "(Required) Item uuid (external recipe, internal recipe or article)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "461b1f7f-8a92-4053-828f-fea758dd22bc",
+              "name": "NotFound. When Cookbook does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "cookbooks",
+                    ":cookbook-uuid",
+                    "items",
+                    ":item-uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "cookbook-uuid",
+                      "description": "(Required) Cookbook uuid"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "item-uuid",
+                      "description": "(Required) Item uuid (external recipe, internal recipe or article)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aaa39e2b-ee53-44dc-879d-7de54d9e6488",
+    "name": "Kitchen Stories Internal Articles Admin User Cookbooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,735 @@
+{
+  "item": [
+    {
+      "id": "7d64e50e-0d0e-4d3f-b6c9-8bc04742f6e8",
+      "name": "Videos",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9fc9fbc0-5bb7-4ec8-9ba4-477443b1de5b",
+          "name": "List published videos, ordered by `-published` for the current given language",
+          "request": {
+            "name": "List published videos, ordered by `-published` for the current given language",
+            "description": {},
+            "url": {
+              "path": [
+                "videos",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "Get video by types eg. **'howto,recipe'**. Available types **['howto', 'recipe', 'article']**."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Get video by tags eg. **'partner,meal'**."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Get video by slug."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "012332e5-198d-4a1f-ad53-31621f1f46fc",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"content_id\": \"string\",\n      \"duration\": 6449.878423102568,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://wYZIrflg.ppfZw39RVw-F+nFZV8wO,\",\n          \"de\": \"http://hSUlXY.vrK4DtW1QgB1fkAdZGyZAI,+qkzyh+6+PtjcCqesxmMKkAWbUSbseB7\",\n          \"zh\": \"https://SPqGTsrzuuAovVEQGuFkYptZXJpwI.zniuMUaIh6E4yGGc+L9W7EbpzpDHCw8FkAnO\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"https://mbyez.xkzjwSrs.luzawoeAHni9D.mC\",\n      \"recipe_url\": \"https://tCCeSNdHweMmWJYZfkbsHJMNN.lxXqasw9Fhgn-8rrxPnX\",\n      \"width\": 4873.39147495227,\n      \"height\": 8445.054376623324,\n      \"image\": {\n        \"url\": \"https://ZeLJYViS.ojpMYG,A2H3fjqFyjrejlh,iSV\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 5822.00128643265,\n        \"height\": 2677.273818603588\n      },\n      \"publishing\": {\n        \"created\": \"1993-08-28T18:34:21.019Z\",\n        \"updated\": \"2004-03-28T13:29:39.857Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"not-playable\",\n        \"published\": \"2017-03-13T19:31:50.543Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 4465.781925179537\n      }\n    },\n    {\n      \"content_id\": \"string\",\n      \"duration\": 6071.977673420861,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"https://dpsmWYEyrkEgP.onhEPcthgspdddGv,zX68MMXIfBdz0g.SXhtVSS7AMV6kgBaUa5uZIC6bkw3f3rDHJAH8N+,ZrfXkVs2Ws-\",\n          \"de\": \"http://PsbcGDtBNTxzV.agSYxQ2yMh7PXZyivYncIYyDQ8qtp.t4PkwN17Jsi-WcUub\",\n          \"zh\": \"http://qNyBehYdfPGYxbnBwPmyDC.wbqLzISjGnHW\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"https://lGUyhncjMMaRMJQuEgyaTIKdUzmfmQpZ.dmhVXOOxJHY9IVL.F\",\n      \"recipe_url\": \"https://AsthZlIdlEOD.pmR-AU3A0J\",\n      \"width\": 4853.163215540681,\n      \"height\": 9282.34354824767,\n      \"image\": {\n        \"url\": \"http://PESDVtubwChffSiYrLHLtxiZvlWrQnM.cemivDMI4cZOD8UMwxu5.c30s2c5IvF-7xvxpcqG,CP2,4njWLieXFxu4\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 8088.351259403086,\n        \"height\": 1928.6450793569343\n      },\n      \"publishing\": {\n        \"created\": \"1967-05-14T14:23:57.420Z\",\n        \"updated\": \"2005-11-19T03:37:31.168Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"not-playable\",\n        \"published\": \"2003-08-12T14:44:25.255Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 4661.785993479966\n      }\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://eAftJowlucFZ.pmszUDhgarY7VkSNoB8OgEpBi,hNukBDW,Do9LiZW,-mGE\",\n    \"first\": \"https://ASETXcGtemQzovjt.foOgB\",\n    \"next\": \"http://xlWtfummRtmPhHWgboZawVnGukltbHHD.ezrgLzARCU0I,riosXn\",\n    \"prev\": \"https://HDfADCCzIwag.ejfsxyWqvyZjBDgLfjZOtWMeiUh1d80Bcq2cSCXOb+\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 5298.1885147081075,\n      \"pages\": 1494.0415338701373,\n      \"count\": 7244.001882310285\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68ace367-5719-4813-b280-528c2cce7ac0",
+          "name": "Details for given Video uuid or slug (ignores publishing date)",
+          "request": {
+            "name": "Details for given Video uuid or slug (ignores publishing date)",
+            "description": {},
+            "url": {
+              "path": [
+                "videos",
+                ":uuid-or-slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "draft",
+                  "value": "<string>",
+                  "description": "Get the latest draft version - for preview eg. **true** or **false**"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) Video uuid or slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69c2e494-ac36-45d8-bdc9-0861a77e494b",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draft",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) Video uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"content_id\": \"string\",\n  \"duration\": 4700.80505612682,\n  \"title\": \"string\",\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"meta\": {\n    \"hreflang\": {\n      \"en\": \"http://BEIkgdUBsi.axqTmSB3OwbrqAZrBmO0QMR\",\n      \"de\": \"https://ClVKBmqSJPtbguEcsdbkpvrTetMZuQMKf.axtouUNCgBJqKDoiu7ykHAKnk8tAh5IFKkgEJ1VzmRM,WSw\",\n      \"zh\": \"https://ZFuiCKdFNwndAbVIuxhXTalDmQLhcKe.tjoo.XGYlzu9U3ypHhiZGKvI.DjpnTNgAFwroSG08EZj3aoUqwcEuf5\"\n    },\n    \"title\": \"string\",\n    \"description\": \"string\"\n  },\n  \"type\": \"string\",\n  \"remote_id\": \"string\",\n  \"url\": \"https://unwjylN.ckLRmdi3+C54ERer4DJY3vFFwTzcCU+jIc2+AUER9EHC6znV\",\n  \"recipe_url\": \"http://GrbhFienekMQdjaKKcjZxflP.utAG-V9tKBY,HUza,GdWxj\",\n  \"width\": 4493.179443106466,\n  \"height\": 5054.004351379997,\n  \"image\": {\n    \"url\": \"https://tFkq.eri\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 8838.491389435938,\n    \"height\": 5856.560617142701\n  },\n  \"publishing\": {\n    \"created\": \"2023-12-13T08:35:59.930Z\",\n    \"updated\": \"1964-11-28T13:00:34.673Z\",\n    \"state\": \"string\",\n    \"playback-state\": \"not-playable\",\n    \"published\": \"1997-10-04T02:43:50.696Z\"\n  },\n  \"user_reactions\": {\n    \"view_count\": 3285.5595175854214\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab0b42c6-754d-4b4c-acbf-51e922d53d21",
+              "name": "Video not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draft",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) Video uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "808d4b27-f7fb-4732-912b-5db42f06dd14",
+          "name": "Save a video view for the given Video vimeo-remote-id",
+          "request": {
+            "name": "Save a video view for the given Video vimeo-remote-id",
+            "description": {},
+            "url": {
+              "path": [
+                "videos",
+                "view",
+                "vimeo",
+                ":remote-id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "remote-id",
+                  "description": "(Required) Vimeo remote-id"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a9763b0-e35e-42ef-a0b6-7dab0d8634c4",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    "view",
+                    "vimeo",
+                    ":remote-id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "remote-id",
+                      "description": "(Required) Vimeo remote-id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "682d780b-f0ee-45e9-ab83-790899ca4f4a",
+              "name": "Video not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    "view",
+                    "vimeo",
+                    ":remote-id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "remote-id",
+                      "description": "(Required) Vimeo remote-id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "121edacb-7ec0-4225-9e4a-4be2355c4d63",
+          "name": "Save a video view for the given Video uuid",
+          "request": {
+            "name": "Save a video view for the given Video uuid",
+            "description": {},
+            "url": {
+              "path": [
+                "videos",
+                "view",
+                ":video-id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "video-id",
+                  "description": "(Required) Video uuid"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c28e07c-d9ba-4967-b621-e2d51eb8124b",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    "view",
+                    ":video-id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "video-id",
+                      "description": "(Required) Video uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "153ab854-8dc5-4a5b-af10-94f377e10d3c",
+              "name": "Video not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    "view",
+                    ":video-id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "video-id",
+                      "description": "(Required) Video uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4fea205-6de3-44d7-bc22-6853b2b544ec",
+          "name": "List Recommendations for given Video uuid or slug",
+          "request": {
+            "name": "List Recommendations for given Video uuid or slug",
+            "description": {},
+            "url": {
+              "path": [
+                "videos",
+                ":uuid-or-slug",
+                "recommendations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) Video uuid or slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cda50171-a0ff-44c9-8d1a-6afb43f7b415",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":uuid-or-slug",
+                    "recommendations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) Video uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"content_id\": \"string\",\n      \"duration\": 3152.4620267677415,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://xdxfVfzxSKtIUrwmLoWISsezQOYPninQ.jzxfG\",\n          \"de\": \"http://NECNEidOxLLrWHvgzszmKsI.ukLVvcwwX\",\n          \"zh\": \"https://RwlDPgUsmt.baomk-W.Qa3pMuPJh9qB0\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"http://tyYetOWCu.bbNbnvM7TkxmsZQkzvUbAaivB5CatfOF4vbrz68u8Fc6fMYDfHdYF0vGAzyebNmh.68\",\n      \"recipe_url\": \"https://KoSuxSESODjfz.oheaIFEHzb7GM+OYPqurlOrfWaznW2fJFxBhn7Ns\",\n      \"width\": 6004.219356332285,\n      \"height\": 9157.60028938636,\n      \"image\": {\n        \"url\": \"https://HrTJBsoncCTxCmRXQNyKLWOdYQ.cdF56PO3IR4zuAv\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 2730.6555024414415,\n        \"height\": 3980.5527678027543\n      },\n      \"publishing\": {\n        \"created\": \"1954-07-12T11:18:54.211Z\",\n        \"updated\": \"1978-04-23T00:23:03.805Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"ready\",\n        \"published\": \"1999-01-17T23:43:15.258Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 9378.70151193204\n      }\n    },\n    {\n      \"content_id\": \"string\",\n      \"duration\": 5960.449523291313,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"https://g.inym9F7AhB3+yDnO.GEfBlzz45RVtj4M-NWf2ev7b6n7QsMVDum+XCFyq0XuQQCGT5yGcboY3WZAp+gJk\",\n          \"de\": \"https://NiCNLuYqnFzdAopyMGGjVXus.tykwE13xYhy4jkDEl-cghAK3\",\n          \"zh\": \"https://WuooNxAnbddjerjtvZDbuJXF.xsentTDr4fVHYN+XsrTSDWGbWAh008r\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"https://vuGxIYnZBR.uyvcRHrXmkuoKAHcmDrz6MhBrd,HYYbVDby0p6TnIuPMiTvbxL3BT\",\n      \"recipe_url\": \"http://HXkc.fglETZYouE1-sz67jWzzzZ\",\n      \"width\": 9312.634604254616,\n      \"height\": 1714.8433050645074,\n      \"image\": {\n        \"url\": \"https://grbcWQk.wfeM5fkdkfwzOQb3IOS1DleTuFqhdP\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 6899.39576395338,\n        \"height\": 5310.040812138181\n      },\n      \"publishing\": {\n        \"created\": \"2015-08-14T23:05:51.360Z\",\n        \"updated\": \"1963-09-08T18:26:46.818Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"processing\",\n        \"published\": \"2006-04-03T14:55:05.532Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 3131.5757970054237\n      }\n    }\n  ],\n  \"links\": {\n    \"last\": \"https://ogEEnpYfXqUp.vhdqL,54HM-cjC9IwiyFShvZcMocZPr7MUh+Of6jDkizNnkf\",\n    \"first\": \"http://zpgATaDkyJTfjsIHilnqgsPpvgnA.hllCmaHNw.kI9ubV6wQslhyOcezQiLHU.Fm42kSxBWW3WXZ38bb\",\n    \"next\": \"http://Z.tpjgaj\",\n    \"prev\": \"http://TywOYgFnwMKywrqfYbyuIeETQebU.tzcYumv1uZFlRevMbV+w.I5WM7GFqZ,HAjz1BQAIIZg5sJzJBRGrbHYYczZBSDYRKF-6\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 2180.2154303985344,\n      \"pages\": 2506.4732704622584,\n      \"count\": 1400.3659531682945\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67ad52f8-664e-42ab-b537-bb598afcc3a3",
+              "name": "Video not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":uuid-or-slug",
+                    "recommendations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) Video uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a79014b6-2e0d-4a2f-a5db-1e61f865b85e",
+    "name": "Kitchen Stories Internal Articles Admin Videos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

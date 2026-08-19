@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Admin Articles API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/articles/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Get articles by slug"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Get article type eg. 'article', 'essential', 'static_page', 'blogger_profile'"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Get articles by tag eg. 'partner'"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Get articles by given category slug eg. 'news'"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Get articles in descending order of 'date' or 'likes'. Any other value is ignored."
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified article"
+              }
+            ]
+          },
+          "docs": "List Articles"
+        },
+        {
+          "info": {
+            "name": "Details of given Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/articles/:uuid-or-slug/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the article"
+              },
+              {
+                "name": "draft",
+                "value": "",
+                "type": "query",
+                "description": "Get article with the current draft"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified article"
+              }
+            ]
+          },
+          "docs": "Details of given Article"
+        },
+        {
+          "info": {
+            "name": "List Recommendations for given Article uuid or slug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/articles/:uuid-or-slug/recommendations/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the article"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified article schema"
+              }
+            ]
+          },
+          "docs": "List Recommendations for given Article uuid or slug"
+        },
+        {
+          "info": {
+            "name": "Content meta of given Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/articles/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the article"
+              }
+            ]
+          },
+          "docs": "Content meta of given Article"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

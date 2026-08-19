@@ -1,0 +1,274 @@
+{
+  "item": [
+    {
+      "id": "bcf9c76f-3ec2-45e9-a66c-1f4a398cf3c3",
+      "name": "Tags",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29fa404c-2e73-456c-8f25-4902b3251585",
+          "name": "List Tags",
+          "request": {
+            "name": "List Tags",
+            "description": {},
+            "url": {
+              "path": [
+                "tags",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hidden",
+                  "value": "<string>",
+                  "description": "Display hidden tags with `hidden=True`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e13f388e-7d09-4b7a-905f-9acde575c249",
+              "name": "Get all tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hidden",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": false\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": true\n    }\n  ],\n  \"links\": {\n    \"last\": \"https://uVrJjyfqlCaAMWEtzOZGZSfQudh.sowdoxObk0TO\",\n    \"first\": \"https://izCaaXnEWjEQUkS.btsIrQbk+m4P4BL+NM8VgQfBlpVyaiUgw3ERGNx87gpMTkQR5mZ1cgDts-qPAAgEkaoMDWc9+a\",\n    \"next\": \"https://HHeqbbdruhuMSX.gtqxsNVDU\",\n    \"prev\": \"http://gFXpnYmw.lwusNTRL,kCaOpp0b1hqrCPR-KxUBHeQ8\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 5536.272711651439,\n      \"pages\": 8277.462137614497,\n      \"count\": 8287.299744225536\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb14375f-b662-47df-9e28-a642ce1ad0d6",
+          "name": "Details of given Tag",
+          "request": {
+            "name": "Details of given Tag",
+            "description": {},
+            "url": {
+              "path": [
+                "tags",
+                ":slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "slug",
+                  "description": "(Required) Tag unique slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46178623-974f-4a3a-af6f-f2717a09b0ed",
+              "name": "Get tag with the specified slug",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "slug",
+                      "description": "(Required) Tag unique slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"string\",\n  \"is_hidden\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1c713c3-6dfa-4c8f-a61e-47c85fecd011",
+              "name": "Tag not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "slug",
+                      "description": "(Required) Tag unique slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f90bce61-92eb-4beb-93a9-d9d69a141975",
+    "name": "Kitchen Stories Internal Articles Admin Tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

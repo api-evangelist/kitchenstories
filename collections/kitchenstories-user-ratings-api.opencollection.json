@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Ratings API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Ratings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all ratings for currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/rating/"
+          },
+          "docs": "List all ratings for currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Create a Rating on the given feed-item for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/rating/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Rating on the given feed-item for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Updates a given feed-item rating for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/users/me/rating/:feeditem-uuid/",
+            "params": [
+              {
+                "name": "feeditem-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Feed Item uuid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a given feed-item rating for the currently authenticated user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

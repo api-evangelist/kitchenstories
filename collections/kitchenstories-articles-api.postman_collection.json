@@ -1,0 +1,666 @@
+{
+  "item": [
+    {
+      "id": "d20011f9-53ce-41e1-a600-4ce3d9eb7401",
+      "name": "Articles",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0fb252ea-7402-402c-b902-8eb11af12293",
+          "name": "List Articles",
+          "request": {
+            "name": "List Articles",
+            "description": {},
+            "url": {
+              "path": [
+                "articles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Get articles by slug"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Get article type eg. 'article', 'essential', 'static_page', 'blogger_profile'"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "Get articles by tag eg. 'partner'"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Get articles by given category slug eg. 'news'"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Get articles in descending order of 'date' or 'likes'. Any other value is ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "simplified",
+                  "value": "<boolean>",
+                  "description": "Get simplified article"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c068c0a0-688f-40d9-b184-82ba37ae170d",
+              "name": "Get all articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"1992-09-20T08:31:55.160Z\",\n        \"updated\": \"1973-02-19T12:57:12.843Z\",\n        \"state\": \"string\",\n        \"published\": \"1969-10-18T21:56:09.105Z\"\n      },\n      \"title\": \"string\",\n      \"content\": [\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 835.1683933022969,\n            \"text\": \"string\"\n          }\n        },\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 3246.8161534402475,\n            \"text\": \"string\"\n          }\n        }\n      ],\n      \"slug\": \"string\",\n      \"url\": \"http://DswmoSXQKlXUrbO.pwiXS,4+EwyworRlvU\",\n      \"subtitle\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://ihqhMBbzuJrDvLgqFd.ejtrqTNJ5if8LfbMae4nZh4biOBoNFrLA4Kj2Adu+SuQVZbV6pGCid7HrKR1UTKklWh-JG9tDM+I\",\n          \"de\": \"https://LAvBXlgehNJloHnNjDPysHpRsTHb.pvhWJaDdz0Zs-5bW4WILFb3wTvRbWB,Agp+clHbD8Y1Nj8Se512by5O9Y7gi\",\n          \"zh\": \"http://lLWgRehWdRImhTFZtnvKygxs.jqtM5o,g-XBjI+F2Trch-FPxz99tCIdQl5G33KoFtXnT1K5zhke1+klMSLJZRb4vnBKzjU4HHYdrYd\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"user_reactions\": {\n        \"comments_count\": 1447.218655296988,\n        \"images_count\": 1002.6354482569388,\n        \"like_count\": 8708.834977194456,\n        \"quality\": 5891.088883478639\n      },\n      \"author\": {\n        \"type\": \"community\",\n        \"new_type\": \"editor\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": \"https://PGYHAsktsqOUPzoffgZPQAxuh.rqfoISuL5uZoC.SArv\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 3251.3077971044313,\n          \"height\": 9513.877467518238\n        },\n        \"banner_image\": {\n          \"url\": \"http://jF.ulcEuU93EsovSc+o0Z1YrlfhMdhGCXekXYiR1.Q5R1CmIRNIMtI0KNONaLPRKZ\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 7937.86393740043,\n          \"height\": 2036.8397351135725\n        },\n        \"wide_banner_image\": {\n          \"url\": \"https://IEZnmynKeVveYyTAWxFI.fbzd0Me3YDt1\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 2019.7491160443126,\n          \"height\": 7608.381254876252\n        },\n        \"website\": \"http://kxQxFJqSLxLBJHqLNrzKIQwcaRCxBi.ilTpHdph,pV7WhSH4QS9TdkbG1f1\",\n        \"is_premium\": false,\n        \"created\": \"2022-07-07T14:35:19.070Z\"\n      },\n      \"id\": \"string\",\n      \"image\": {\n        \"url\": \"https://ErgL.osUkliVwL-f9n7MpsDLnfqLkIn+tx8Lna1BXcBma\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 5559.638329003304,\n        \"height\": 5176.350564679608\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        }\n      ],\n      \"content_meta\": [\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        }\n      ],\n      \"categories\": {\n        \"main\": {\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"additional\": [\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    },\n    {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"1965-09-28T07:56:16.483Z\",\n        \"updated\": \"2023-05-13T20:12:10.645Z\",\n        \"state\": \"string\",\n        \"published\": \"1982-01-31T23:23:11.215Z\"\n      },\n      \"title\": \"string\",\n      \"content\": [\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 116.19513347747912,\n            \"text\": \"string\"\n          }\n        },\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 944.0097053625285,\n            \"text\": \"string\"\n          }\n        }\n      ],\n      \"slug\": \"string\",\n      \"url\": \"https://Blb.gvaqIwV7PRqyCFZDHeb85uaNBQ4P+QrX19qU58YTjTye7lhp,E2YGFrZ.CRBgGQYYAz4PTnB4qWXww3\",\n      \"subtitle\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://GKhacKO.ponrx.kFAfZqEHk4KHXfW2-bQIHABO+CxAk,OZGaVmJIwVKrdue\",\n          \"de\": \"http://yzKIfvAozIOrwQleRbshTVkYoOjp.dpxlF30n966ecnxx.OztvvUvdTWq+mKZEPg3j\",\n          \"zh\": \"http://QGifMQpRtQowGhIffsteGzgJdBs.fgmqTsBunpF.1VdyMAlHqXnBLjqOV4GnYhB0BMl\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"user_reactions\": {\n        \"comments_count\": 8086.08831792848,\n        \"images_count\": 9364.727273869976,\n        \"like_count\": 8439.67259404091,\n        \"quality\": 153.5498099386856\n      },\n      \"author\": {\n        \"type\": \"community\",\n        \"new_type\": \"contributor\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": \"https://DLzYAXANuxhGLslRWnLIJFCafLhcFuAUr.qlaM-bKAP,7IR+RnrEKKN+\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 864.2797013782389,\n          \"height\": 8477.937418593463\n        },\n        \"banner_image\": {\n          \"url\": \"https://QBJeRoNDJYIpbXQNmgfzTtXnyAJKT.qrtkaR1dfxuu.PMMxTeT\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 6144.50775381631,\n          \"height\": 2283.4799271101815\n        },\n        \"wide_banner_image\": {\n          \"url\": \"https://CNzXrFOlobAIWqqxySoSPd.llxNwW\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 1161.907627183426,\n          \"height\": 2661.066849771422\n        },\n        \"website\": \"http://keMmvMCd.mrds,9.nAdPHQ7Hw1QgJqYZLXkoTakLxs5hA8sSm3IuDmwlr\",\n        \"is_premium\": true,\n        \"created\": \"2004-12-06T11:26:51.766Z\"\n      },\n      \"id\": \"string\",\n      \"image\": {\n        \"url\": \"http://oTQdSHeIPmqoWbRp.cqvTZKuKHV-B5o6KvjKwWuYb09y0zFY6jnsIcU\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 9042.6577877857,\n        \"height\": 1718.086726050776\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        }\n      ],\n      \"content_meta\": [\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        }\n      ],\n      \"categories\": {\n        \"main\": {\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"additional\": [\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://pdfyWAQJcsRvyhHxHMERLDv.nkgZmlU,rzezMLQ7ZLCnJo1yXZZCiFTNU7RXwr3MNXs50YXAeNa+L-Q\",\n    \"first\": \"https://dyUNZGWDpMQckNEslsFfJOjDzlwOK.amfojdymV8cCiQ0dCM0kpy4HBohdxfDdFp-wlHujJrzA\",\n    \"next\": \"http://uqzRCO.zhTCg6SrQ+Sa+eAp0Gd,uTguubivnIeD1FQJwe\",\n    \"prev\": \"https://OBCIbU.irwrbdwOjsI\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 7438.306341941432,\n      \"pages\": 9950.109228385905,\n      \"count\": 8986.515360313171\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e94472c-ec42-4ad4-b2f0-f29ccb6c591b",
+          "name": "Details of given Article",
+          "request": {
+            "name": "Details of given Article",
+            "description": {},
+            "url": {
+              "path": [
+                "articles",
+                ":uuid-or-slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "draft",
+                  "value": "<boolean>",
+                  "description": "Get article with the current draft"
+                },
+                {
+                  "disabled": false,
+                  "key": "simplified",
+                  "value": "<boolean>",
+                  "description": "Get simplified article"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) id or slug of the article"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e5303ed-6b4a-4c8c-af4e-1e85252ac573",
+              "name": "Get Article with the specific uuid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draft",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the article"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"content_id\": \"string\",\n  \"type\": \"string\",\n  \"publishing\": {\n    \"created\": \"2000-01-24T20:35:40.607Z\",\n    \"updated\": \"1971-09-08T14:51:07.243Z\",\n    \"state\": \"string\",\n    \"published\": \"2009-05-19T08:58:34.848Z\"\n  },\n  \"title\": \"string\",\n  \"content\": [\n    {\n      \"type\": \"string\",\n      \"headline\": {\n        \"level\": 9369.042730771705,\n        \"text\": \"string\"\n      }\n    },\n    {\n      \"type\": \"string\",\n      \"headline\": {\n        \"level\": 3873.0389724337897,\n        \"text\": \"string\"\n      }\n    }\n  ],\n  \"slug\": \"string\",\n  \"url\": \"http://GeqZakmKfJxggwswVWqyultMmz.uacaltPEj,0Zc8lVlGTDh0fYe+EzilKdLCd0ggTOWth0K8MvO.sefsWNkp\",\n  \"subtitle\": \"string\",\n  \"meta\": {\n    \"hreflang\": {\n      \"en\": \"https://qeetbFysgvI.mllCuEaU+b8ncJhmVH\",\n      \"de\": \"https://cJnoKKQpxy.aaluSa8jZMXqENeCgVOdwcjjcWG.OUMErUK\",\n      \"zh\": \"https://cL.eijzecbvhrKGHmGjYkk98FX8BYX0XJND8\"\n    },\n    \"title\": \"string\",\n    \"description\": \"string\"\n  },\n  \"user_reactions\": {\n    \"comments_count\": 9141.11653340329,\n    \"images_count\": 1036.0121109056154,\n    \"like_count\": 954.0526265518635,\n    \"quality\": 8904.155835614549\n  },\n  \"author\": {\n    \"type\": \"contributor\",\n    \"new_type\": \"editor\",\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"occupation\": \"string\",\n    \"description\": \"string\",\n    \"image\": {\n      \"url\": \"https://YMLqoihpFjnmtryvDBRElvhrYohnpQo.yzvbA5ayzQlrF-qR8.4ZmuwkXSvpj9WZYSmZPsUT4t\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 720.9347285305922,\n      \"height\": 3381.3551348774918\n    },\n    \"banner_image\": {\n      \"url\": \"http://EvNEggpsEQQy.zaDJSWu\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 4978.130689142223,\n      \"height\": 6218.775582124997\n    },\n    \"wide_banner_image\": {\n      \"url\": \"http://QiXeLpBAiWqizT.szQ.9S8czd.8\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 2885.5148363551807,\n      \"height\": 8538.403355950173\n    },\n    \"website\": \"http://YCxSzgbkFdRI.fywc5QfxbADxBceUAqkHFtV1+Y\",\n    \"is_premium\": true,\n    \"created\": \"1973-12-20T11:47:38.665Z\"\n  },\n  \"id\": \"string\",\n  \"image\": {\n    \"url\": \"https://lRchUMMCHuBFzwUBi.kqangs.SZnWm2D36sRyuUvMfqRbgPAyqsGUDBtngDmXOttt\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 2027.9404274156743,\n    \"height\": 9565.89639068344\n  },\n  \"tags\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": false\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": false\n    }\n  ],\n  \"content_meta\": [\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"https://qrenqElJhUmbRM.aryhZ9SuW7RK2qmcF0YP2VmLg2YcZ-Cb3InB4pOP+aRO7p1ISGnyW62CYQlVrAE\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"http://RPUmlXbMqIjrWzWYyjMPfTr.czDgPYvE+HoracM2c-SUmAmgi,1UPQsaGdGDKFFu+R6K.La+8\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    }\n  ],\n  \"categories\": {\n    \"main\": {\n      \"slug\": \"string\",\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"path\": [\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"children\": [\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"additional\": [\n      {\n        \"slug\": \"string\",\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"path\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"children\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"slug\": \"string\",\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"path\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"children\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fdd3fe5-8c53-40b0-b30d-27b4db521d7b",
+              "name": "Article not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draft",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the article"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe0b9a4d-ffce-4d5b-b808-eee22648a063",
+          "name": "List Recommendations for given Article uuid or slug",
+          "request": {
+            "name": "List Recommendations for given Article uuid or slug",
+            "description": {},
+            "url": {
+              "path": [
+                "articles",
+                ":uuid-or-slug",
+                "recommendations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "simplified",
+                  "value": "<boolean>",
+                  "description": "Get simplified article schema"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) id or slug of the article"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a9a757c-993f-4f99-b96d-1331996fafb6",
+              "name": "Articles Paginated List with Recommendations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":uuid-or-slug",
+                    "recommendations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the article"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"2000-06-29T01:26:51.980Z\",\n        \"updated\": \"1998-01-18T08:46:10.948Z\",\n        \"state\": \"string\",\n        \"published\": \"1953-08-23T18:02:39.888Z\"\n      },\n      \"title\": \"string\",\n      \"content\": [\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 9153.667481972188,\n            \"text\": \"string\"\n          }\n        },\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 438.5214403846327,\n            \"text\": \"string\"\n          }\n        }\n      ],\n      \"slug\": \"string\",\n      \"url\": \"http://nMuSdcKgOaXBp.xmqKijtOyUmDlWzbwR5Pdb9332sXPiz-t,cC78-rMznJQlU4.F7qufmvlkuYLevdQM4O.N6N\",\n      \"subtitle\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://npHhuQAeZkXDehNrVyPWMe.zoTDE0DpOrEC2m4IqycSqM4E7Ej9BIHCXHAOdQ0nVWqPcIeyyeLMA52Gqy\",\n          \"de\": \"https://UdfeepVttJGopMVK.ozsxQ.5yLUUuCWF-PmpKB9fNs\",\n          \"zh\": \"https://MQGyMqqWMLoVxhrUVSRLg.onlowBMzLESRf+aSwo7GW\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"user_reactions\": {\n        \"comments_count\": 2362.4758128418243,\n        \"images_count\": 8319.654869347461,\n        \"like_count\": 8091.804701701482,\n        \"quality\": 7917.788654137751\n      },\n      \"author\": {\n        \"type\": \"contributor\",\n        \"new_type\": \"partner\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": \"http://mdwVRchbTjWGtEotcNDMfkMv.tuzqL60sA5ZOFe-SXKMG7kKKijO9,diMFYSUK\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 3938.6106121328544,\n          \"height\": 656.1507160545776\n        },\n        \"banner_image\": {\n          \"url\": \"https://LZwvEHXTuCBjQiYaMLiocbTyGMusDKsp.wuTahuFz4\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 9547.295606964144,\n          \"height\": 2249.9684043391144\n        },\n        \"wide_banner_image\": {\n          \"url\": \"https://AsWsSzFGcWNCbQiZSKVPBELKpOfEr.uwsPuBsLwS721LZwTyzLZjKq5vwDdFsFoFWG0dILjFaOvqPUr,F-t.R\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 5072.085132543946,\n          \"height\": 2840.110357359591\n        },\n        \"website\": \"https://qu.svqDqilpGxiuK,NCImou-E+sJI7VRTfawhz6QHXq2uqqGal6P5WCzokNrfsAi\",\n        \"is_premium\": true,\n        \"created\": \"1976-08-26T03:40:51.382Z\"\n      },\n      \"id\": \"string\",\n      \"image\": {\n        \"url\": \"https://NxpvnDnHDWhoJVJMSwrXkprZ.kkoesFwCiPMyVnKRjgd0Xm,U\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 7623.918396811819,\n        \"height\": 8184.613654758529\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        }\n      ],\n      \"content_meta\": [\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        }\n      ],\n      \"categories\": {\n        \"main\": {\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"additional\": [\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    },\n    {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"1985-05-18T11:59:54.470Z\",\n        \"updated\": \"1957-09-02T15:16:57.738Z\",\n        \"state\": \"string\",\n        \"published\": \"2021-07-19T23:53:26.349Z\"\n      },\n      \"title\": \"string\",\n      \"content\": [\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 2607.1477941433573,\n            \"text\": \"string\"\n          }\n        },\n        {\n          \"type\": \"string\",\n          \"headline\": {\n            \"level\": 4075.8414849064993,\n            \"text\": \"string\"\n          }\n        }\n      ],\n      \"slug\": \"string\",\n      \"url\": \"http://kcOKbFPGJFOGmGQfbQCIryLiDnfkuFjx.neevCxDcq-seo\",\n      \"subtitle\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://OeIlSqmqUoat.mdb1FCN1Ms8wzcclbNenowPNbBvv.ODrs.3vb5O\",\n          \"de\": \"https://EjYBmzDScHDbZUauCgm.lbcgiu9PJxoXYIzEHA1ezNfn+DM6zuu1Ag7OK2GqjqKseFoqqsy-pnIaB-YWJRBEGLvwy\",\n          \"zh\": \"https://epNFQaYy.tohjcxlVDiOFj5BQcbS6ueCFKS\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"user_reactions\": {\n        \"comments_count\": 8180.598250507081,\n        \"images_count\": 9370.157633621739,\n        \"like_count\": 1156.0795570146154,\n        \"quality\": 2589.7611159500557\n      },\n      \"author\": {\n        \"type\": \"community\",\n        \"new_type\": \"contributor\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": \"https://HcVYdGybKHs.frfYt,MJelaIlfvUezW2qzI03ya3,.kGSetjO-,5iiIRz\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 5114.761856150661,\n          \"height\": 9116.949982077123\n        },\n        \"banner_image\": {\n          \"url\": \"https://L.nyhHkpi3-TEs\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 3773.7221864527814,\n          \"height\": 1067.2471643116999\n        },\n        \"wide_banner_image\": {\n          \"url\": \"https://sKADTiQZhRCzO.jysoKNgJhDAFASsUNIjnEHurpHWR4Q9b8GmbrVUXs3B\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 6044.844929734626,\n          \"height\": 3855.498762903289\n        },\n        \"website\": \"http://zOrmvhHODeulqBkfZXg.hemcmjxJ33azqRA3GGtiylWL81v4pn+tsLZpFiq3i.lazrYR8Jx5FK,43\",\n        \"is_premium\": false,\n        \"created\": \"1974-10-24T20:03:49.435Z\"\n      },\n      \"id\": \"string\",\n      \"image\": {\n        \"url\": \"https://umFguLnFqXCpShkhZGOoMWQ.xcik2kTBC+gXk0JAdDg27gNbjZZS4TaCxr0OW2HD,O-VLkQ+1\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 9481.026990233331,\n        \"height\": 929.8176996757878\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        }\n      ],\n      \"content_meta\": [\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        }\n      ],\n      \"categories\": {\n        \"main\": {\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"additional\": [\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://DnMAelLZaHuNJJBdrUrMivrKMJzTnEcK.gkeTiPU6toxGCqwmUXFKhTSQhzPIU9ZXV-QnCuE1morqC3toD,UNWqy00\",\n    \"first\": \"https://XwVqHdQdKrsrZBrejGnFqTbmAnwzDH.bexr2Qe5eOAifcSSlllcljpv.JXCKwJ7JFeAh-\",\n    \"next\": \"https://yggJDPLMhPG.aqHb6j6EigsOIVG4GG89fi0LxpcAnUh8zR4T3G-Tpxl1O\",\n    \"prev\": \"https://YFJFumdCrHyQzrkAiTedKyzbPp.ahw+boslJXrMZdz+M2Nksu52fW7,Pr6ZobqB9t3\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 8217.977849463048,\n      \"pages\": 5464.8334222563335,\n      \"count\": 4993.855568805759\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e23e2adb-4cc1-4773-b279-68a393bf7d87",
+              "name": "Article not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":uuid-or-slug",
+                    "recommendations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the article"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57b57043-88ed-4fae-99b4-e4cb144ead59",
+          "name": "Content meta of given Article",
+          "request": {
+            "name": "Content meta of given Article",
+            "description": {},
+            "url": {
+              "path": [
+                "articles",
+                ":uuid-or-slug",
+                "content-meta",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) id or slug of the article"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58ce7796-767e-4a19-9a77-c2e88f59d7d2",
+              "name": "Get content meta for Article with the specific uuid. The returned entries will be ordered by descending updated date.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the article"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"http://ouFFgBFTHexCJMmQGPLCTU.pcoWE3uwlx.XOPdj9GWRqtVrc0yCf5LYgGFXBlNhN4VKOncMCwK.SbRFuT4qFO6\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"https://CkUxdUfbhCzuwajMwqMMPB.eizdX.wwb1YS3YuF2W8MTqQ5bhqCxMrTZO94IH3VKHnVz\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "baf85c5d-1e82-427a-b3c3-779f736f4030",
+              "name": "Article not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "articles",
+                    ":uuid-or-slug",
+                    "content-meta",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) id or slug of the article"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "91e2e397-9307-4db4-9c70-43d3c1a15647",
+    "name": "Kitchen Stories Internal Admin Articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

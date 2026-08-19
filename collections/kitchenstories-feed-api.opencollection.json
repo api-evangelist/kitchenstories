@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Feed API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/feed/",
+            "params": [
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified feed schema (first two items are unrolled, remaining are simplified)"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Get first-time-feed with `order=featured`"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Get preview- feed & poll with `date=2000-01-01T00:00`"
+              }
+            ]
+          },
+          "docs": "Get Feed"
+        },
+        {
+          "info": {
+            "name": "Get Reduced Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/feed-reduced/",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Get preview- feed & poll with `date=2000-01-01T00:00`"
+              }
+            ]
+          },
+          "docs": "Get Reduced Feed"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

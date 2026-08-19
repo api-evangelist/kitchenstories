@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Other API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Other",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API Health Check - returns 200 ok when healthy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/health/"
+          },
+          "docs": "API Health Check - returns 200 ok when healthy"
+        },
+        {
+          "info": {
+            "name": "Return list of redirection rules (paths and where they should be redirected to)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/redirect/"
+          },
+          "docs": "Return list of redirection rules (paths and where they should be redirected to)"
+        },
+        {
+          "info": {
+            "name": "Return static list of search suggestions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/search/suggestions/"
+          },
+          "docs": "Return static list of search suggestions"
+        },
+        {
+          "info": {
+            "name": "Return Recipe or Article details based on provided uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/feed-item/:uuid-or-pk/",
+            "params": [
+              {
+                "name": "uuid-or-pk",
+                "value": "",
+                "type": "path",
+                "description": "uuid or pk id of the recipe or article"
+              }
+            ]
+          },
+          "docs": "Return Recipe or Article details based on provided uuid"
+        },
+        {
+          "info": {
+            "name": "Submit a poll vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/poll/vote/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a poll vote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

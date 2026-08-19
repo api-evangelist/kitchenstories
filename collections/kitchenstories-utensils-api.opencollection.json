@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Utensils API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Utensils",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Utensils",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/utensils/"
+          },
+          "docs": "List Utensils"
+        },
+        {
+          "info": {
+            "name": "Details for given Utensil",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/utensils/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Utensil uuid"
+              }
+            ]
+          },
+          "docs": "Details for given Utensil"
+        },
+        {
+          "info": {
+            "name": "List Additional Information for all Utensils",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/utensils/additional-information/"
+          },
+          "docs": "List Additional Information for all Utensils"
+        },
+        {
+          "info": {
+            "name": "Details for given Utensil's Additional Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/utensils/additional-information/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Utensil Additional Information uuid"
+              }
+            ]
+          },
+          "docs": "Details for given Utensil's Additional Information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

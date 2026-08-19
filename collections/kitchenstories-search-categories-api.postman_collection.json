@@ -1,0 +1,279 @@
+{
+  "item": [
+    {
+      "id": "a9ce7141-6d06-40e1-9699-62304d31f7ba",
+      "name": "Search Categories",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78ef71b0-d4a7-4cd8-9e40-bfb3f62dbf30",
+          "name": "List all featured search categories",
+          "request": {
+            "name": "List all featured search categories",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "featured",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Get category by slug"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "321047a0-3d07-4c3b-87f6-47b8732b894e",
+              "name": "Get all featured search categories",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "featured",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"content_id\": \"string\",\n      \"publishing\": {\n        \"created\": \"1967-07-26T16:33:22.942Z\",\n        \"updated\": \"1957-06-13T02:07:18.391Z\",\n        \"state\": \"string\",\n        \"published\": \"1952-12-09T13:45:13.926Z\"\n      },\n      \"title\": \"string\",\n      \"url\": \"https://YTyAXmKyQVHHpPQIzmBVFicl.rcAET6cswm8.CdHVFrx0ISq8LvWp.DDjOQP3,cipuXtVWH25NTEezl\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://gBwnRlvSjwckSQnCXkRxU.gzUgZ\",\n          \"de\": \"http://CWxCQSzryp.boktirSVq6TazSP5iv,YhnCbc2PbciB+THuv+8,U88SoUx-3To,v\",\n          \"zh\": \"https://tonajWWyWjqffZWVzQqVDJsWmOq.rpYRPekq7\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"image\": {\n        \"url\": \"https://rEUbMbSDxTfEOOTEMRxBsuKHPeiB.vegSFpxsj6Kw6KxT3Clyqmlt.\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 2844.796685684965,\n        \"height\": 51.78017771636845\n      },\n      \"icon\": {\n        \"url\": \"http://SjX.lkcNoWh97VDqJpP95yZg5fXPptjutTw5UrqoA71nDqfm0XtsUiCDQZJBXZU3m\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 9468.757775427974,\n        \"height\": 8008.775299965522\n      },\n      \"search\": {\n        \"query\": \"string\",\n        \"filters\": \"string\",\n        \"index\": \"string\"\n      }\n    },\n    {\n      \"content_id\": \"string\",\n      \"publishing\": {\n        \"created\": \"2015-03-04T18:31:00.918Z\",\n        \"updated\": \"1951-04-15T07:35:04.603Z\",\n        \"state\": \"string\",\n        \"published\": \"1955-06-29T09:12:18.672Z\"\n      },\n      \"title\": \"string\",\n      \"url\": \"http://nfCbwvhfDhOQLedDau.gweyvokeouJPHtSAiNO5ShTE-v\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"https://FcSMpJI.cjcJ72fb5rX70M89buNUkM3oQguYXCheOvaTc1vGz33wKS4\",\n          \"de\": \"http://gQQbiVBDfPqOAukrgLnKhXNPgcj.dkgdEfViPI7DHeqnkDPFsrRkQ.vRhApx5NKXcbny+WasAUwe-G1\",\n          \"zh\": \"https://sDJWMPTkcVjrVcEUTsJHeZCWyWHoQiI.vbGE37OkEkx+lZRaWfkdNrw9ayI,K.\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"image\": {\n        \"url\": \"https://mBLCgAZzPtE.ntfqiGgn5ldtBAdh-yoiAEq+xM6geMH+f6OPsMQHhuhrF8uQNRO-p-CWH+S\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 3407.433082598371,\n        \"height\": 5899.6754482260285\n      },\n      \"icon\": {\n        \"url\": \"https://IDGuFMdwvTuAXBOBtfwAVBZFczJylO.uznscc9s3ryUXRK4.CZphnWC-coXbo6VcKcgkPmvHWtP1n9GaV6dqDm9vgkQwQzJ1N\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 7741.312204429758,\n        \"height\": 4733.957655397898\n      },\n      \"search\": {\n        \"query\": \"string\",\n        \"filters\": \"string\",\n        \"index\": \"string\"\n      }\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://pReDldXfaqzEfKEyTh.naypWhITLuZi04s3NJiaOUAs2-pCy2beojivf.MKV6naObSinsV8Yt45iZQW8Kk\",\n    \"first\": \"https://QzSEoWPOkGacSJorVOquIyZ.macs+C6aRQGfLqLNfZrcC0AFaZrZUww0YY55eEPtf5J8f4XRB\",\n    \"next\": \"http://pSvzsRLCMXLPEasJaptDAdIDOh.niZp9OjLCmexouFj30e2FAEr-61dJwTKD-+ZmCdDZXTkugK..1,\",\n    \"prev\": \"https://O.poiigAcqIX5fHkRISdttuDeTfCO-s6e,V8dw9iMkIVDLts8QaUs60i+7zSjkuJgoHBh0up2OtcTD\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 5067.14514190714,\n      \"pages\": 2485.7730832664083,\n      \"count\": 8405.196276426157\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28541d76-2aa0-41bf-b710-601b978b7490",
+          "name": "Details for given Search Category",
+          "request": {
+            "name": "Details for given Search Category",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "featured",
+                ":uuid-or-slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid-or-slug",
+                  "description": "(Required) Category uuid or slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e0a70a3-dde2-41fc-83fa-1269b0924354",
+              "name": "Get featured search categories with the specified uuid or slug",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "featured",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) Category uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"content_id\": \"string\",\n  \"publishing\": {\n    \"created\": \"1975-09-28T04:17:17.788Z\",\n    \"updated\": \"1957-04-26T01:53:25.872Z\",\n    \"state\": \"string\",\n    \"published\": \"2019-09-28T15:17:56.791Z\"\n  },\n  \"title\": \"string\",\n  \"url\": \"https://z.oaYsxAYRYs829FxvuUvmVzNyE\",\n  \"slug\": \"string\",\n  \"meta\": {\n    \"hreflang\": {\n      \"en\": \"https://wwRRlnpmCyJYIPdBbY.noib2Fy2MRFqlZyOQK+lklV4OzlpkBLoxkFbygKlpz6THc0moiDdLR,Vi\",\n      \"de\": \"https://NoF.msgkhzJScPjkktRJGAxH4xIxiWcaAYNXOnsz,\",\n      \"zh\": \"https://rnknVvxiBIdOsInmqFMWUCA.xykvAUhoZaBClgOrKM2lMfsFQ6fgg4qd1ID-guoa,iAfZbKlFpLKeFc4g73DD+RjKX58yuR\"\n    },\n    \"title\": \"string\",\n    \"description\": \"string\"\n  },\n  \"description\": \"string\",\n  \"id\": \"string\",\n  \"image\": {\n    \"url\": \"http://YidxyFNjKaPSvHsbqmtHiXCf.rpzlVZrYIG\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 5940.026307234386,\n    \"height\": 7328.163600045462\n  },\n  \"icon\": {\n    \"url\": \"http://KQazkjKYBbUvKqecyxvRniHWAJO.wlOrN-W5k8L3Q\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 2647.02068788763,\n    \"height\": 2470.6145571039438\n  },\n  \"search\": {\n    \"query\": \"string\",\n    \"filters\": \"string\",\n    \"index\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66dec2a3-7be3-439e-b7e5-56cfefa40c42",
+              "name": "Category not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "featured",
+                    ":uuid-or-slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid-or-slug",
+                      "description": "(Required) Category uuid or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b444f224-2ea3-4fa0-91c9-ae5274174edc",
+    "name": "Kitchen Stories Internal Articles Admin Search Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

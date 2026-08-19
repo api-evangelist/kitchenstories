@@ -1,0 +1,363 @@
+{
+  "item": [
+    {
+      "id": "be922269-6f2b-422d-901d-67cc4b36cc31",
+      "name": "Upload",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99b29da9-ab7d-4c96-bd87-dc4eb56d2d02",
+          "name": "Upload an JPEG image for the currently authenticated user",
+          "request": {
+            "name": "Upload an JPEG image for the currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "upload",
+                "image",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5c20a049-3faa-4971-963a-d79ae406a5ac",
+              "name": "Operation successful or errors-list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upload",
+                    "image",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"source_link\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2ea3d95-54a2-4227-a61f-8e9eaf968853",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upload",
+                    "image",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb81c8a7-d429-4d9a-accc-48e8241fa8d9",
+          "name": "Upload a video for the currently authenticated user",
+          "request": {
+            "name": "Upload a video for the currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "upload",
+                "video",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "video",
+                  "value": "{\"content_id\":\"<string>\",\"duration\":\"<number>\",\"title\":\"<string>\",\"id\":\"<string>\",\"slug\":\"<string>\",\"meta\":{\"hreflang\":{\"en\":\"<uri>\",\"de\":\"<uri>\",\"zh\":\"<uri>\"},\"title\":\"<string>\",\"description\":\"<string>\"},\"type\":\"<string>\",\"remote_id\":\"<string>\",\"url\":\"<uri>\",\"recipe_url\":\"<uri>\",\"width\":\"<number>\",\"height\":\"<number>\",\"image\":{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"},\"publishing\":{\"created\":\"<dateTime>\",\"updated\":\"<dateTime>\",\"state\":\"<string>\",\"playback-state\":\"<string>\",\"published\":\"<dateTime>\"},\"user_reactions\":{\"view_count\":\"<number>\"}}",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "01e80c98-1839-449d-8c73-26ac4dbb46a0",
+              "name": "Operation successful or errors-list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upload",
+                    "video",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "video",
+                      "value": "{\"content_id\":\"<string>\",\"duration\":\"<number>\",\"title\":\"<string>\",\"id\":\"<string>\",\"slug\":\"<string>\",\"meta\":{\"hreflang\":{\"en\":\"<uri>\",\"de\":\"<uri>\",\"zh\":\"<uri>\"},\"title\":\"<string>\",\"description\":\"<string>\"},\"type\":\"<string>\",\"remote_id\":\"<string>\",\"url\":\"<uri>\",\"recipe_url\":\"<uri>\",\"width\":\"<number>\",\"height\":\"<number>\",\"image\":{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"},\"publishing\":{\"created\":\"<dateTime>\",\"updated\":\"<dateTime>\",\"state\":\"<string>\",\"playback-state\":\"<string>\",\"published\":\"<dateTime>\"},\"user_reactions\":{\"view_count\":\"<number>\"}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"content_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"title\": \"<string>\",\n  \"id\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"meta\": {\n    \"hreflang\": {\n      \"en\": \"<uri>\",\n      \"de\": \"<uri>\",\n      \"zh\": \"<uri>\"\n    },\n    \"title\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"remote_id\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"recipe_url\": \"<uri>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"image\": {\n    \"url\": \"<uri>\",\n    \"id\": \"<string>\",\n    \"source\": \"<string>\",\n    \"source_link\": \"<string>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\"\n  },\n  \"publishing\": {\n    \"created\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"state\": \"<string>\",\n    \"playback-state\": \"<string>\",\n    \"published\": \"<dateTime>\"\n  },\n  \"user_reactions\": {\n    \"view_count\": \"<number>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22581931-bbe6-447f-8013-32c4a99dbc5a",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upload",
+                    "video",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "video",
+                      "value": "{\"content_id\":\"<string>\",\"duration\":\"<number>\",\"title\":\"<string>\",\"id\":\"<string>\",\"slug\":\"<string>\",\"meta\":{\"hreflang\":{\"en\":\"<uri>\",\"de\":\"<uri>\",\"zh\":\"<uri>\"},\"title\":\"<string>\",\"description\":\"<string>\"},\"type\":\"<string>\",\"remote_id\":\"<string>\",\"url\":\"<uri>\",\"recipe_url\":\"<uri>\",\"width\":\"<number>\",\"height\":\"<number>\",\"image\":{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"},\"publishing\":{\"created\":\"<dateTime>\",\"updated\":\"<dateTime>\",\"state\":\"<string>\",\"playback-state\":\"<string>\",\"published\":\"<dateTime>\"},\"user_reactions\":{\"view_count\":\"<number>\"}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5f64d2d9-7f2b-4d05-ac8a-b8a8d40e924b",
+    "name": "Kitchen Stories Internal Articles Admin Upload API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

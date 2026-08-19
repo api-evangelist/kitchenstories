@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Tags API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/tags/",
+            "params": [
+              {
+                "name": "hidden",
+                "value": "",
+                "type": "query",
+                "description": "Display hidden tags with `hidden=True`"
+              }
+            ]
+          },
+          "docs": "List Tags"
+        },
+        {
+          "info": {
+            "name": "Details of given Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/tags/:slug/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Tag unique slug"
+              }
+            ]
+          },
+          "docs": "Details of given Tag"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin QA API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "QA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/qa/users/me/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Delete a given User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/qa/users/me/:pk/",
+            "params": [
+              {
+                "name": "pk",
+                "value": "",
+                "type": "path",
+                "description": "delete an user by uuid , email or name"
+              }
+            ]
+          },
+          "docs": "Delete a given User"
+        },
+        {
+          "info": {
+            "name": "Accept / Approve given UGC recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/qa/ugc/recipe/:pk/accept/",
+            "params": [
+              {
+                "name": "pk",
+                "value": "",
+                "type": "path",
+                "description": "Accept an ugc recipe by uuid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accept / Approve given UGC recipe"
+        },
+        {
+          "info": {
+            "name": "Reject given UGC recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/qa/ugc/recipe/:pk/reject/",
+            "params": [
+              {
+                "name": "pk",
+                "value": "",
+                "type": "path",
+                "description": "Reject an ugc recipe by uuid"
+              }
+            ]
+          },
+          "docs": "Reject given UGC recipe"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

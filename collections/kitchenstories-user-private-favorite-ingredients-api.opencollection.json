@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Private Favorite Ingredients API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Private Favorite Ingredients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Favorite Ingredients from currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/favorite-ingredients/"
+          },
+          "docs": "List all Favorite Ingredients from currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Add Favorite Ingredients",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/favorite-ingredients/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Favorite Ingredients"
+        },
+        {
+          "info": {
+            "name": "Delete Favorite Ingredients",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/users/me/favorite-ingredients/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "query",
+                "description": "Ingredient uuid"
+              }
+            ]
+          },
+          "docs": "Use DELETE `/api/users/me/favorite-ingrediets/all/` to delete every ingredient in the user's favorite list.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,488 @@
+{
+  "item": [
+    {
+      "id": "d9e9e004-6159-4778-8f0d-ce91cf4f221d",
+      "name": "Utensils",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6b4c581-425b-4fd9-a65b-7ff79b31f154",
+          "name": "List Utensils",
+          "request": {
+            "name": "List Utensils",
+            "description": {},
+            "url": {
+              "path": [
+                "utensils",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "acf9c2fa-a0f9-4294-89f7-7622ac5444fd",
+              "name": "Get all utensils",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utensils",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"is_partner\": false,\n      \"characteristics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"sizes\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"metric\": \"string\",\n          \"imperial\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"metric\": \"string\",\n          \"imperial\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": {\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"is_partner\": true,\n      \"characteristics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"sizes\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"metric\": \"string\",\n          \"imperial\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"metric\": \"string\",\n          \"imperial\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"links\": {\n    \"last\": \"https://RciuiWZwVDjFeczWcQTPzjyAxn.easJ2tNkHFtSo,2f-lS\",\n    \"first\": \"http://vrYAuQCZLgdQZMu.zkmwOBQ.p.R0ga2vwc8A+k.,EWlJeFds9d4NsDFZykE6zFcj1bPMB\",\n    \"next\": \"https://mflAxPLYH.zoyAi+2rZgzIRxLq1jYOxin4QCFe-iAxTuI2P7XWvqMPGsb,MKS02c47zFtw,BnRi7j2A\",\n    \"prev\": \"https://wmiBrZlblhUsoOkrPrqeCqa.wfx5xka6MPF.+Yl04akzJLmoxERN4MzO3Wukm4.RchtY.wsz3Zvd20D\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 6739.398508273522,\n      \"pages\": 8294.211901208111,\n      \"count\": 7026.1951830554335\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13a7781a-58d7-4160-87f3-b0bb386d94a2",
+          "name": "Details for given Utensil",
+          "request": {
+            "name": "Details for given Utensil",
+            "description": {},
+            "url": {
+              "path": [
+                "utensils",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) Utensil uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f623378-1294-4b53-accb-e6d9f27df9ae",
+              "name": "Get utensil with the specified uuid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utensils",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Utensil uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": {\n    \"one\": \"string\",\n    \"many\": \"string\"\n  },\n  \"is_partner\": false,\n  \"characteristics\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"sizes\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"metric\": \"string\",\n      \"imperial\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"metric\": \"string\",\n      \"imperial\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aeecdb42-5e8d-409f-9383-a90403eede0d",
+              "name": "Utensil not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utensils",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Utensil uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff2efadb-e367-4de1-a4fe-2ddd3ffc3bfd",
+          "name": "List Additional Information for all Utensils",
+          "request": {
+            "name": "List Additional Information for all Utensils",
+            "description": {},
+            "url": {
+              "path": [
+                "utensils",
+                "additional-information",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83aaab72-1d37-4321-b712-f2e5207e30fb",
+              "name": "Get all utensils additional information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utensils",
+                    "additional-information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://SqMs.tfMHO0LpjEXalQ2OUmG\",\n    \"first\": \"https://MC.apdds80q84AKUx0kuS,yq7gvC\",\n    \"next\": \"http://IkcvxVCsBikiLfpNMMQQfEcIO.uvPxxHmrC1nWK0jQN+iAiuzSz0AiPSu8YzIvoJ7+bVvjvczPMKoN9fCGSa,V6\",\n    \"prev\": \"http://ZxqYTVuVZWCMZsugJqJwuIuwbSIO.qldaXfz7DzaUoX3b0xu,FpuqMf4VQmuFFqFuh5IoF618VCaYjo9pXW53UgBC,y8HmHd5vThjweV5OPQEEUvC\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 9313.993342404878,\n      \"pages\": 8486.205068268162,\n      \"count\": 9286.373439038456\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6885f42-0fcb-4552-9f34-1faed6fb6c7a",
+          "name": "Details for given Utensil's Additional Information",
+          "request": {
+            "name": "Details for given Utensil's Additional Information",
+            "description": {},
+            "url": {
+              "path": [
+                "utensils",
+                "additional-information",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) Utensil Additional Information uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26e693e0-62dd-4a3a-8192-3387013c2add",
+              "name": "Utensils Additional Information Detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utensils",
+                    "additional-information",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Utensil Additional Information uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73316b40-cac5-4638-b60c-b4cce4be14c7",
+              "name": "Utensil Additional Information not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utensils",
+                    "additional-information",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Utensil Additional Information uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "16b7d51d-61ee-48df-8ab4-c3ea41e67356",
+    "name": "Kitchen Stories Internal Articles Admin Utensils API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

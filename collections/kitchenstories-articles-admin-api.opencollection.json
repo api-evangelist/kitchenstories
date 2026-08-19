@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Articles Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a new content meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/articles/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the article"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new content meta"
+        },
+        {
+          "info": {
+            "name": "Edit an existing content meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/articles/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the article"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "unique key of Content Meta to edit. Not mandatory since it can also be passed in the request body."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit an existing content meta"
+        },
+        {
+          "info": {
+            "name": "Delete a content meta by key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/articles/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the article"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "unique key of Content Meta to delete"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "language code of the content meta to delete. If not provided, it will delete in all languages available."
+              }
+            ]
+          },
+          "docs": "Delete a content meta by key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

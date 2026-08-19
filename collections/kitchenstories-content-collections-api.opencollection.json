@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Content Collections API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Content Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available content collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/content-collections/"
+          },
+          "docs": "List available content collections"
+        },
+        {
+          "info": {
+            "name": "Get a single content collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/content-collections/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for content collection"
+              }
+            ]
+          },
+          "docs": "Get a single content collection"
+        },
+        {
+          "info": {
+            "name": "List available content collection items for a given collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/content-collections/:uuid/items/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for content collection"
+              }
+            ]
+          },
+          "docs": "List available content collection items for a given collection"
+        },
+        {
+          "info": {
+            "name": "List a single content collection item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/content-collections/:collection-uuid/items/:item-uuid/",
+            "params": [
+              {
+                "name": "collection-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for content collection"
+              },
+              {
+                "name": "item-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a single content item"
+              }
+            ]
+          },
+          "docs": "List a single content collection item"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

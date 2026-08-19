@@ -1,0 +1,714 @@
+{
+  "item": [
+    {
+      "id": "e315a4e0-3917-4a9a-a957-0f93268d14f5",
+      "name": "QA",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7482bf9c-f7ba-4fd8-8b97-85a6ee7ba0b9",
+          "name": "Update currently authenticated user",
+          "request": {
+            "name": "Update currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "qa",
+                "users",
+                "me",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "banner_image",
+                  "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b92b626e-4303-4e8e-8bb3-4f3020c17280",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "banner_image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"type\": \"community\",\n  \"newsletter_opt_in\": \"string\",\n  \"new_type\": \"contributor\",\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"email\": \"XphMPW@hcZCXvDDDQAVueFRolXWvHFtZ.klhp\",\n  \"slug\": \"string\",\n  \"occupation\": \"string\",\n  \"description\": \"string\",\n  \"image\": {\n    \"url\": \"<uri>\",\n    \"id\": \"<string>\",\n    \"source\": \"<string>\",\n    \"source_link\": \"<string>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\"\n  },\n  \"banner_image\": {\n    \"url\": \"<uri>\",\n    \"id\": \"<string>\",\n    \"source\": \"<string>\",\n    \"source_link\": \"<string>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\"\n  },\n  \"wide_banner_image\": {\n    \"url\": \"<uri>\",\n    \"id\": \"<string>\",\n    \"source\": \"<string>\",\n    \"source_link\": \"<string>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\"\n  },\n  \"website\": \"https://wRHqBOWpiPW.mtB6,Q91wKl33iX8KJ,QDY7Wa5mnjy5Ch,BA1mE4.SG8igh4DQLaxscdevzTPtiIaVwqt6vNLR9jX\",\n  \"gender\": \"string\",\n  \"birthday\": \"1996-03-15T23:15:29.282Z\",\n  \"is_premium\": false,\n  \"preferences_set\": \"6301fd14b10b7835b75924c3f6-b7971317b\",\n  \"onboarding_completed\": true,\n  \"created\": \"1946-11-05T11:50:34.311Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ec4abf8-eceb-4f6e-b947-d2cb459ec2cf",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "users",
+                    "me",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "banner_image",
+                      "value": "{\"url\":\"<uri>\",\"id\":\"<string>\",\"source\":\"<string>\",\"source_link\":\"<string>\",\"width\":\"<number>\",\"height\":\"<number>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3033567-4bc5-4cd0-a22f-5b175917acc0",
+          "name": "Delete a given User",
+          "request": {
+            "name": "Delete a given User",
+            "description": {},
+            "url": {
+              "path": [
+                "qa",
+                "users",
+                "me",
+                ":pk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pk",
+                  "description": "(Required) delete an user by uuid , email or name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c232d628-a8a8-4a26-988c-21d3a3c18f1e",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "users",
+                    "me",
+                    ":pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pk",
+                      "description": "(Required) delete an user by uuid , email or name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee5b3e32-785b-47d3-b7c7-f8a6b8ac08fa",
+              "name": "NotFound. When User does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "users",
+                    "me",
+                    ":pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pk",
+                      "description": "(Required) delete an user by uuid , email or name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "836f8dc3-0072-4263-9abf-a1a26fb0c789",
+          "name": "Accept / Approve given UGC recipe",
+          "request": {
+            "name": "Accept / Approve given UGC recipe",
+            "description": {},
+            "url": {
+              "path": [
+                "qa",
+                "ugc",
+                "recipe",
+                ":pk",
+                "accept",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pk",
+                  "description": "(Required) Accept an ugc recipe by uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quality\": \"<number>\",\n  \"main_category\": \"<number>\",\n  \"additional_categories\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "755f1ece-bb35-4422-8e8f-b56823873bcf",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "ugc",
+                    "recipe",
+                    ":pk",
+                    "accept",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pk",
+                      "description": "(Required) Accept an ugc recipe by uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quality\": \"<number>\",\n  \"main_category\": \"<number>\",\n  \"additional_categories\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d00b542-fbec-4592-8384-346655625efe",
+              "name": "NotFound. When Ugc recipe does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "ugc",
+                    "recipe",
+                    ":pk",
+                    "accept",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pk",
+                      "description": "(Required) Accept an ugc recipe by uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quality\": \"<number>\",\n  \"main_category\": \"<number>\",\n  \"additional_categories\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "441c9680-16f0-4629-ba3c-2295c9f2ec33",
+          "name": "Reject given UGC recipe",
+          "request": {
+            "name": "Reject given UGC recipe",
+            "description": {},
+            "url": {
+              "path": [
+                "qa",
+                "ugc",
+                "recipe",
+                ":pk",
+                "reject",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pk",
+                  "description": "(Required) Reject an ugc recipe by uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b8355f4-0bdf-4a3f-ba19-896d17cf4535",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "ugc",
+                    "recipe",
+                    ":pk",
+                    "reject",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pk",
+                      "description": "(Required) Reject an ugc recipe by uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a0c3ce1-b43c-4546-a692-678340d9d6bd",
+              "name": "NotFound. When Ugc recipe does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qa",
+                    "ugc",
+                    "recipe",
+                    ":pk",
+                    "reject",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pk",
+                      "description": "(Required) Reject an ugc recipe by uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cefba541-d270-46ca-9b3e-e1f59bb92bbb",
+    "name": "Kitchen Stories Internal Articles Admin QA API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

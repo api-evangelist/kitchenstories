@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Indexer API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Indexer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Index the given recipe in algolia",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/indexer/recipe/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Recipe uuid"
+              }
+            ]
+          },
+          "docs": "Index the given recipe in algolia"
+        },
+        {
+          "info": {
+            "name": "Index the given Article in algolia",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/indexer/article/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Article uuid"
+              }
+            ]
+          },
+          "docs": "Index the given Article in algolia"
+        },
+        {
+          "info": {
+            "name": "Index the given video in algolia",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/indexer/video/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Video uuid"
+              }
+            ]
+          },
+          "docs": "Index the given video in algolia"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

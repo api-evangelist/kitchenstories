@@ -1,0 +1,1194 @@
+{
+  "item": [
+    {
+      "id": "4c94f3e1-b847-40a5-8c5c-c27a7ae79a68",
+      "name": "User Private Recipes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7b0f7ba9-3a72-420f-ae3f-a837c6cdbc73",
+          "name": "List all Recipes from currently authenticated user",
+          "request": {
+            "name": "List all Recipes from currently authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "recipes",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "simplified",
+                  "value": "<boolean>",
+                  "description": "Get simplified recipe schema"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d591701-a45a-4e6d-ac33-7682a9306658",
+              "name": "Get all Recipes from current user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"2008-01-10T20:44:52.304Z\",\n        \"updated\": \"2025-04-24T07:49:25.590Z\",\n        \"state\": \"expired\",\n        \"published\": \"1965-09-26T09:21:43.679Z\"\n      },\n      \"title\": \"string\",\n      \"steps\": [\n        {\n          \"text\": \"string\",\n          \"headline\": \"string\",\n          \"tip\": {\n            \"description\": \"string\",\n            \"title\": \"string\",\n            \"video\": {\n              \"content_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"meta\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"remote_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"recipe_url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"publishing\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"user_reactions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"image\": {\n            \"url\": \"http://bH.vwZUCAHtKtNF6dz\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 1038.6508768135416,\n            \"height\": 7127.092775220571\n          },\n          \"video\": {\n            \"content_id\": \"string\",\n            \"duration\": 9867.822422966192,\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"meta\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"string\",\n            \"remote_id\": \"string\",\n            \"url\": \"http://FpK.asSciubP4Ln5Y88OISBq9VG5\",\n            \"recipe_url\": \"http://tayaHVTTpxzsEopAOeqXBg.imaynJ3qOu.ByekKjyhtm6Vbyupit2-i3SPqBtzMRc2Q0E6JSp5UOeCKOioumqj\",\n            \"width\": 9744.081797112078,\n            \"height\": 5190.644544686719,\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"publishing\": {\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updated\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"playback-state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"published\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"user_reactions\": {\n              \"view_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"utensils\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"ingredients\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"text\": \"string\",\n          \"headline\": \"string\",\n          \"tip\": {\n            \"description\": \"string\",\n            \"title\": \"string\",\n            \"video\": {\n              \"content_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"meta\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"remote_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"recipe_url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"publishing\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"user_reactions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"image\": {\n            \"url\": \"http://X.uduAvAZcNuiocM8AeHuXrY7Q.V+\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 806.6789746490222,\n            \"height\": 6087.014908377897\n          },\n          \"video\": {\n            \"content_id\": \"string\",\n            \"duration\": 3036.988154023524,\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"meta\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"string\",\n            \"remote_id\": \"string\",\n            \"url\": \"http://VktFFUXHgmfUcgYfb.rekVEXnzYKoT9ef8ORyGE8wiBeM1FL-zYWuhquNdKyH\",\n            \"recipe_url\": \"http://rFDN.bwshb+yZkeDJ2Xn,gpJMF3atCmY\",\n            \"width\": 3652.447709846871,\n            \"height\": 7665.12185675323,\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"publishing\": {\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updated\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"playback-state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"published\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"user_reactions\": {\n              \"view_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"utensils\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"ingredients\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"slug\": \"string\",\n      \"url\": \"https://VuERVJwNBJnZjGYXGNPvNIwAX.oucYH4nRpzkzGkV8stWU\",\n      \"user_reactions\": {\n        \"comments_count\": 1454.6297764862659,\n        \"images_count\": 5119.766410493934,\n        \"like_count\": 1364.7011216868232,\n        \"quality\": 2661.988933595333,\n        \"rating\": 7232.979500512117,\n        \"rating_count\": 5549.120338710953,\n        \"images\": [\n          {\n            \"author\": {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"new_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"occupation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"wide_banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"website\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_premium\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"created\": \"1974-05-27T21:20:21.513Z\",\n            \"image\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source_link\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"original_location\": \"string\",\n            \"comment\": \"string\"\n          },\n          {\n            \"author\": {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"new_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"occupation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"wide_banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"website\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_premium\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"created\": \"2022-03-28T05:47:16.042Z\",\n            \"image\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source_link\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"original_location\": \"string\",\n            \"comment\": \"string\"\n          }\n        ]\n      },\n      \"author\": {\n        \"type\": \"editor\",\n        \"new_type\": \"community\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": \"https://iAOkSHuzypmKMjC.auXZsQhkhheSCh+E5MmIdnttxPdtc5vuOyfRiRAo3DcQKLG2vBkG\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 9955.924703339459,\n          \"height\": 2490.0964727582864\n        },\n        \"banner_image\": {\n          \"url\": \"http://unlLHAGNTGuPUO.huXPpkrQDgY9YlhA7r0EbJa9UMR57xpqIiM+p7OjW0YRmQpVjCpDUvdnH.WuJNLmkIlGJdRoVaI\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 3508.1930143927566,\n          \"height\": 4186.272145135146\n        },\n        \"wide_banner_image\": {\n          \"url\": \"http://WUfHtijSSxCbLQzeXImAzMbMhoLHF.qqU56X4D8i5\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 46.020771493809896,\n          \"height\": 8049.6285135696\n        },\n        \"website\": \"https://xsKGnPqVnejeakvcBaKLeruchd.atizZ3xNOoeJ7MINAHARsAurzWE2NNkRq5QvzQq\",\n        \"is_premium\": true,\n        \"created\": \"2025-03-23T12:47:56.136Z\"\n      },\n      \"servings\": {\n        \"amount\": 9658.164983127257,\n        \"type\": \"string\"\n      },\n      \"ingredients\": [\n        {\n          \"list\": [\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": true,\n              \"is_partner\": true,\n              \"is_searcheable\": true,\n              \"url\": \"string\"\n            },\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": false,\n              \"is_partner\": true,\n              \"is_searcheable\": true,\n              \"url\": \"string\"\n            }\n          ]\n        },\n        {\n          \"list\": [\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": false,\n              \"is_partner\": false,\n              \"is_searcheable\": false,\n              \"url\": \"string\"\n            },\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": true,\n              \"is_partner\": true,\n              \"is_searcheable\": true,\n              \"url\": \"string\"\n            }\n          ]\n        }\n      ],\n      \"id\": \"string\",\n      \"difficulty\": \"string\",\n      \"chefs_note\": \"string\",\n      \"image\": {\n        \"url\": \"http://SoEJfvHZPeAqITsFyMIBfyHNlUOXvufD.yfi5ZOQ.A,tmtOGfA2hhXlbh39gVf61cV7kijMyVsI5oqs\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 8566.726562820271,\n        \"height\": 3935.756819639914\n      },\n      \"duration\": {\n        \"preparation\": 1888.9713943925312,\n        \"resting\": 7391.239175092599,\n        \"baking\": 5012.634534568774\n      },\n      \"nutrition\": {\n        \"protein\": 3203.6319493946453,\n        \"fat\": 7222.0504630743735,\n        \"calories\": 4450.845094082828,\n        \"carbohydrate\": 9948.42615700875\n      },\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://fR.jkqpUVA+v46X3leQKo5zQN5tZLZ9PT-gRRQHR7aLetEsakdPQkSn+W3,vZrcY17xI\",\n          \"de\": \"http://jNzwPerPJUa.ada-Jf,ewQiQ-CoEc\",\n          \"zh\": \"https://ZRJd.rfuubGSlSc7ZTxPxtNnP,Rvn7SztDCugnq2diLa0WokxGN4Zl6QVe,.\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": false\n        }\n      ],\n      \"content_meta\": [\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        }\n      ],\n      \"categories\": {\n        \"main\": {\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"additional\": [\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"video\": {\n        \"content_id\": \"string\",\n        \"duration\": 2734.109178122337,\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"meta\": {\n          \"hreflang\": {\n            \"en\": \"https://mf.xsetB3puL0ctUPM,C.AmTVdJCKRIX5BN\",\n            \"de\": \"http://HfmYI.ucUNqTMe-lxZsYA2Hg3inkqec4Qip3kXyBcxwfj2tUHMoMCJSApqt7yBGwUK6,xUTqL7+wdtnPF7UuW\",\n            \"zh\": \"http://CYtIlZiXrjcMMwagQyTSQsCqjfmpMgaAw.mnLvnDC4JnX.AhVRQuesSG5zH1S8In.\"\n          },\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        \"type\": \"string\",\n        \"remote_id\": \"string\",\n        \"url\": \"https://StRkeYEaAwyllTEMuzgpgmlBTC.dmci,DDAVmDZPMX-50od6zsZw0DEv5uosDcVX.OIrxSzGSZTgOo9oiErV8UwReRq0X7FpOg\",\n        \"recipe_url\": \"https://xdlyShBYgqieDGLllt.nouw90cRJAwYME5W45La,isCuq499H5r0KCmQaJmvE\",\n        \"width\": 525.5892581739963,\n        \"height\": 8835.06217990298,\n        \"image\": {\n          \"url\": \"http://VTlIk.iiYhLDAbTflJLX.9HOPNpwZWfyXXVSMW2F\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 1021.3882657642359,\n          \"height\": 9708.201595056233\n        },\n        \"publishing\": {\n          \"created\": \"2011-06-05T06:24:02.592Z\",\n          \"updated\": \"1974-10-01T22:07:03.751Z\",\n          \"state\": \"string\",\n          \"playback-state\": \"not-playable\",\n          \"published\": \"2006-12-03T22:36:01.393Z\"\n        },\n        \"user_reactions\": {\n          \"view_count\": 7668.991801763598\n        }\n      },\n      \"howto_videos\": [\n        {\n          \"content_id\": \"string\",\n          \"duration\": 738.9138746268798,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"http://xtnCWYgCKZBUUADSZCVBkbCyogspJnD.yiSgl,QaaoUtvcdGMHXPcrjhPmT-VJAHZmEXtmKE7LZTris2kQ\",\n          \"recipe_url\": \"http://UrdsmuBOnsOPnF.vzhmp,Bm6hWHrUXPjwbq6UcXrAmBIz.\",\n          \"width\": 6116.210205006239,\n          \"height\": 39.820634710507896,\n          \"image\": {\n            \"url\": \"https://XYQNKWJbPyeLMuUa.vbbHm4UXlHTfu1GyJjOVYFQ,Ps4zxqzPigS.qTusFnfhGMfaT3rQeCECSz3RF-,b+W6\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 7096.960188719663,\n            \"height\": 6067.062001147089\n          },\n          \"publishing\": {\n            \"created\": \"2022-10-15T12:28:54.537Z\",\n            \"updated\": \"2015-05-15T13:40:28.853Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"processing\",\n            \"published\": \"1971-01-16T12:16:37.717Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 1443.3660608430964\n          }\n        },\n        {\n          \"content_id\": \"string\",\n          \"duration\": 7025.951032691189,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"http://KBSaYrOXqUKYNOidaQbQi.vtpqMeiBcqBbEXnRuJT9cDp3cUfvqBmD3pAMVXW49gMi-+L\",\n          \"recipe_url\": \"https://hWhJzt.xyeXYVXRbZLmTB\",\n          \"width\": 4883.596077835075,\n          \"height\": 278.6770945854833,\n          \"image\": {\n            \"url\": \"http://dJH.gjeY1+RVMzxYUbUghDzNxx0TwTNQ7,vGHr+7budWAf.HszDofc3HDpreSH7b5XHyw4GKQ\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 9241.839500035425,\n            \"height\": 9822.038094018562\n          },\n          \"publishing\": {\n            \"created\": \"1947-08-17T22:02:25.475Z\",\n            \"updated\": \"2004-10-12T06:48:34.435Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"ready\",\n            \"published\": \"1950-03-16T04:55:03.354Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 8840.208374929676\n          }\n        }\n      ],\n      \"utensils\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 2228.6854976186064,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 2147.0196252050578,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"content_id\": \"string\",\n      \"type\": \"string\",\n      \"publishing\": {\n        \"created\": \"1960-02-08T11:44:47.709Z\",\n        \"updated\": \"1951-08-23T21:30:40.930Z\",\n        \"state\": \"rejected\",\n        \"published\": \"2009-10-06T23:23:45.720Z\"\n      },\n      \"title\": \"string\",\n      \"steps\": [\n        {\n          \"text\": \"string\",\n          \"headline\": \"string\",\n          \"tip\": {\n            \"description\": \"string\",\n            \"title\": \"string\",\n            \"video\": {\n              \"content_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"meta\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"remote_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"recipe_url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"publishing\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"user_reactions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"image\": {\n            \"url\": \"https://KluNjifTKhY.xnwSw-420JzvR-wrQrxeD.o5ohnFPx5FulNzUqW1VzPp7xK0xhZhxnYIYReLrrfTur9M6jP0Ehsw7\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 6054.544995381752,\n            \"height\": 906.457795853215\n          },\n          \"video\": {\n            \"content_id\": \"string\",\n            \"duration\": 6321.94309972675,\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"meta\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"string\",\n            \"remote_id\": \"string\",\n            \"url\": \"http://biIKkXlEmMYtWXayXkAeuGxuQ.jgzg\",\n            \"recipe_url\": \"https://UwHYBtdLmwUAkFYUt.vlshr87F3fL7\",\n            \"width\": 606.2815122665654,\n            \"height\": 7594.632644420643,\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"publishing\": {\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updated\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"playback-state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"published\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"user_reactions\": {\n              \"view_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"utensils\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"ingredients\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"text\": \"string\",\n          \"headline\": \"string\",\n          \"tip\": {\n            \"description\": \"string\",\n            \"title\": \"string\",\n            \"video\": {\n              \"content_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"meta\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"remote_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"recipe_url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"publishing\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"user_reactions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"image\": {\n            \"url\": \"http://ztwhweEe.qvhtn3E0qmFnMF9XmO,jyFnll918jn4QK8I8v.yf\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 1081.4581051667083,\n            \"height\": 5070.184121944441\n          },\n          \"video\": {\n            \"content_id\": \"string\",\n            \"duration\": 92.9299237416925,\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"meta\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"string\",\n            \"remote_id\": \"string\",\n            \"url\": \"http://yzwlzRghetSNcWHifpTPwxqJuJor.brbh6qXejoFNhLUtXgUJpkHIaB5ww7s15XIj3rZvbyBepIahhwbCwVIM\",\n            \"recipe_url\": \"https://jATnoiAngZl.oqnrAzS6D-CPqF9ZInedieob9EYSsJgZ.4hEkOGgv-.yl\",\n            \"width\": 6814.423889972544,\n            \"height\": 8876.81346685881,\n            \"image\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"publishing\": {\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updated\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"playback-state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"published\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"user_reactions\": {\n              \"view_count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"utensils\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"size\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"ingredients\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"measurement\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_partner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_searcheable\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"slug\": \"string\",\n      \"url\": \"https://nyAdffELXPIrceWyz.ljeg+J3o-VRSVgY63I,c+OcmUMYt-nIQWTbPw6RDsqK,JldEu5DEeaUNIVNAsuF0KL9cj\",\n      \"user_reactions\": {\n        \"comments_count\": 1375.0893618327332,\n        \"images_count\": 8403.247843638776,\n        \"like_count\": 7864.144402956388,\n        \"quality\": 240.88249625565217,\n        \"rating\": 7936.402135054404,\n        \"rating_count\": 7176.217707029345,\n        \"images\": [\n          {\n            \"author\": {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"new_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"occupation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"wide_banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"website\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_premium\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"created\": \"2013-11-03T11:08:56.194Z\",\n            \"image\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source_link\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"original_location\": \"string\",\n            \"comment\": \"string\"\n          },\n          {\n            \"author\": {\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"new_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"occupation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"wide_banner_image\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"website\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_premium\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"created\": \"2009-09-21T10:08:14.732Z\",\n            \"image\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"source_link\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"width\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"height\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"original_location\": \"string\",\n            \"comment\": \"string\"\n          }\n        ]\n      },\n      \"author\": {\n        \"type\": \"contributor\",\n        \"new_type\": \"external\",\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"occupation\": \"string\",\n        \"description\": \"string\",\n        \"image\": {\n          \"url\": \"http://GJxlMPMjKzoZbQOnBWYuPMdeCG.ezkoUkotu,f2zSaPzIxEiSKAQ\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 9537.335653002352,\n          \"height\": 8266.070995601998\n        },\n        \"banner_image\": {\n          \"url\": \"https://DikHhvZVNVBmvvFuxFlUEnqfbuGAgt.eqmc9lHYuFdHZUsgps,1f,UrogrdWi-kdD+r-Rmkeh,NNYwftI1iMoKE0\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 9214.063137607678,\n          \"height\": 5181.5142737588885\n        },\n        \"wide_banner_image\": {\n          \"url\": \"http://CdobOBnGlLGMdHtQUUwzKqyWfkecKAwyc.hltinzK6vuNRBiSBTbILTonwxH8oW+gHK4\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 1702.2857811019633,\n          \"height\": 4225.5744244697735\n        },\n        \"website\": \"https://fAwZNXHYSfUvgjuCyUZTW.oporQ2EKCB.C+gMX77+Qffpxm8xy,NU7Giw+V\",\n        \"is_premium\": true,\n        \"created\": \"1975-09-09T16:52:14.376Z\"\n      },\n      \"servings\": {\n        \"amount\": 7490.836017513457,\n        \"type\": \"string\"\n      },\n      \"ingredients\": [\n        {\n          \"list\": [\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": false,\n              \"is_partner\": true,\n              \"is_searcheable\": true,\n              \"url\": \"string\"\n            },\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": true,\n              \"is_partner\": false,\n              \"is_searcheable\": true,\n              \"url\": \"string\"\n            }\n          ]\n        },\n        {\n          \"list\": [\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": true,\n              \"is_partner\": false,\n              \"is_searcheable\": true,\n              \"url\": \"string\"\n            },\n            {\n              \"name\": {\n                \"rendered\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"one\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"many\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"id\": \"string\",\n              \"measurement\": {\n                \"imperial\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"metric\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"characteristic\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"additional_information\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"is_divided\": false,\n              \"is_partner\": false,\n              \"is_searcheable\": true,\n              \"url\": \"string\"\n            }\n          ]\n        }\n      ],\n      \"id\": \"string\",\n      \"difficulty\": \"string\",\n      \"chefs_note\": \"string\",\n      \"image\": {\n        \"url\": \"https://MgfRvzSRgdbu.omndxZi5EgH4VPFf7QiPjbkvfefU\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 883.7584952547006,\n        \"height\": 422.96266902420945\n      },\n      \"duration\": {\n        \"preparation\": 6158.503694721383,\n        \"resting\": 1528.179804404074,\n        \"baking\": 3952.7345864743256\n      },\n      \"nutrition\": {\n        \"protein\": 3560.7388055997226,\n        \"fat\": 421.7837185637219,\n        \"calories\": 8594.84899658048,\n        \"carbohydrate\": 8938.699753107749\n      },\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://uwtbuDObUlDufIv.ihgyWBuWLpFXSqZ5Eab\",\n          \"de\": \"https://sVYvBQFnhomIeqQJPZNmpxH.swbOu2V7\",\n          \"zh\": \"http://QmFVdbhpetaUflaTfRKdTwlGpqypDMV.syqEEnjCxGfk7b0YiT16u8XYMEt,gDD8WGmgwlc0DoBjFah41yWt,7iFCQwTkU6\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        },\n        {\n          \"id\": \"string\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"type\": \"string\",\n          \"is_hidden\": true\n        }\n      ],\n      \"content_meta\": [\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"key\": \"string\",\n          \"value\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"campaign\": \"string\",\n          \"language\": \"string\"\n        }\n      ],\n      \"categories\": {\n        \"main\": {\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"children\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"additional\": [\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"id\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"video\": {\n        \"content_id\": \"string\",\n        \"duration\": 2242.537677034292,\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"meta\": {\n          \"hreflang\": {\n            \"en\": \"https://yPlatXpqcrRqsmSULCaVchqORE.lesylx4+W,\",\n            \"de\": \"http://mauJDKxQTRUdXhBXaQfbbxZDxykQwV.qxcy28gmeLUJth1eHKBNeUMBaRg6zpXt9PfFGwKrbouhUqIhIM4R.\",\n            \"zh\": \"https://nUdIlEdiUKFwViFJKKWpCBAfaNBUDIg.dtlTCPjoK,sgG3hnBguFNmVlTEBq109DnepZPp\"\n          },\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        \"type\": \"string\",\n        \"remote_id\": \"string\",\n        \"url\": \"https://yiRCEoU.vnfKET4CKWksdMtHIqSidMJM+QnGIgmbVPT3\",\n        \"recipe_url\": \"https://ETz.zlgoipR4DxcKihcmYGszbDq6TY,D+mBWHvzizl.xZxPKgfbSLC+OQY9\",\n        \"width\": 3993.511957401362,\n        \"height\": 6817.311700090328,\n        \"image\": {\n          \"url\": \"https://yeEpWScjLOzawooZoQOrszlgywtbdsYW.feenkhKnm,Kq\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 6840.270957336985,\n          \"height\": 1112.7053344000471\n        },\n        \"publishing\": {\n          \"created\": \"1975-05-29T16:07:19.014Z\",\n          \"updated\": \"2025-04-02T06:14:20.245Z\",\n          \"state\": \"string\",\n          \"playback-state\": \"ready\",\n          \"published\": \"1960-06-08T10:05:57.806Z\"\n        },\n        \"user_reactions\": {\n          \"view_count\": 7534.504990697548\n        }\n      },\n      \"howto_videos\": [\n        {\n          \"content_id\": \"string\",\n          \"duration\": 2137.9067746897626,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"http://ZawUrnLrNBHTJMPYxKMF.dxzVQgw0Qb5KTv\",\n          \"recipe_url\": \"https://nZwOGsfPwBgydZkRfJYOqOvQrCpnddX.fxEDjrcKS6FhGPg1WOgm5NHPgtqAMQj.2afnbxDk0WyGb\",\n          \"width\": 331.6675925499146,\n          \"height\": 4549.981834425444,\n          \"image\": {\n            \"url\": \"http://Qc.weheyVbcHALLFWjVnipn7ts7+M+P.gg,n,aOqTP91CegOPHnH5Ka4Mbqkuw,\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 4794.763468452707,\n            \"height\": 2529.2139656381264\n          },\n          \"publishing\": {\n            \"created\": \"1981-04-20T10:29:50.178Z\",\n            \"updated\": \"2015-03-18T02:21:08.083Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"not-playable\",\n            \"published\": \"1987-07-18T18:12:13.281Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 6134.924347638321\n          }\n        },\n        {\n          \"content_id\": \"string\",\n          \"duration\": 6783.3010762075455,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"http://RmEfkmXhp.dbwfpmMVWkYW951zw+ZsKJiGYSu,Im1UE7KOJl+spydk.wX7XRKqCnKXfwgp\",\n          \"recipe_url\": \"http://MboqGsbTUyAyGIcwDIFjeApUSQvoNSjZR.kkcsy83oELLXXECrICBROo7FsnGykK7eQ.qVgjzq6,JT3EH.hF\",\n          \"width\": 3328.4074986887335,\n          \"height\": 5162.117660208914,\n          \"image\": {\n            \"url\": \"http://nHQWRMBcRmHJLUfVghR.spjBvapAgb.EcV2fDKZemIAqnNGrlWMqm,zUxL7lUQ3rGmKYPCnz\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 2182.026026645749,\n            \"height\": 1031.6099077128504\n          },\n          \"publishing\": {\n            \"created\": \"2026-01-17T10:00:12.015Z\",\n            \"updated\": \"2004-07-03T13:34:30.519Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"not-playable\",\n            \"published\": \"1998-12-14T21:23:10.582Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 9772.425341936121\n          }\n        }\n      ],\n      \"utensils\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 9826.291800231744,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 1075.0739746525262,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"links\": {\n    \"last\": \"http://FLaxHdsnxeRjNs.qdlrs6U+mJGdBw3URc8XFyeAMMxAss\",\n    \"first\": \"http://WLg.gkQiTZ2eiOQGInz07M\",\n    \"next\": \"https://fzA.fkuNHsXLnevGthlNvff,1RN56zDjmqWW2uE5gNzYpNS\",\n    \"prev\": \"http://cwZPsJQon.zbrD4YyPWDo-nJA+-SkappvpYTDScXDVJnoSXQNo6.gp.B-dbk8xV,aXsx\"\n  },\n  \"meta\": {\n    \"pagination\": {\n      \"page\": 8252.684534579135,\n      \"pages\": 50.968286660559855,\n      \"count\": 1581.2036978712529\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd6c6cb0-00d6-4a9b-b795-e4da0c87a7e8",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a771470-c983-45e3-af3a-f630d95211e4",
+          "name": "Create a new Private Recipe",
+          "request": {
+            "name": "Create a new Private Recipe",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "recipes",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5e22e70-9943-4f30-8d9d-9bb705fa6647",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f78f1cf0-57db-4fd4-8b7c-41f16d981b2b",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a70da66-9ff4-42fc-b992-391676421b5f",
+              "name": "NotFound. When User Recipe does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acfdbdbf-9124-4e1d-bc80-e8cb7022ebdd",
+          "name": "Details of given Private Recipe",
+          "request": {
+            "name": "Details of given Private Recipe",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "recipes",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "simplified",
+                  "value": "<boolean>",
+                  "description": "Get simplified recipe schema"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) Private Recipe uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbccaa77-35e9-4659-bacb-2561bdf10132",
+              "name": "Get Recipe with the specified uuid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Private Recipe uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"content_id\": \"string\",\n  \"type\": \"string\",\n  \"publishing\": {\n    \"created\": \"1985-04-18T07:05:29.276Z\",\n    \"updated\": \"2020-02-14T09:22:29.852Z\",\n    \"state\": \"expired\",\n    \"published\": \"1956-08-23T14:26:34.625Z\"\n  },\n  \"title\": \"string\",\n  \"steps\": [\n    {\n      \"text\": \"string\",\n      \"headline\": \"string\",\n      \"tip\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"video\": {\n          \"content_id\": \"string\",\n          \"duration\": 1926.2463237735005,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"http://g.ylieD54m8mZE5tRtUZcvoWXN6.9uKlnFziVpkDN1Ng87FkpTrtpQ5Dxw0uySkF\",\n          \"recipe_url\": \"http://tTDLGsIQIhSVPSWnR.ocbuSABzh-zNwMOBnzj0poQCgXqb9jJSJWrlqscF1gjtsP2SuXda3gUKr\",\n          \"width\": 3682.1670574259333,\n          \"height\": 8939.814518720954,\n          \"image\": {\n            \"url\": \"http://BZAHtZllq.kksuqh7NMeWUyZh2Cd+AEVD,rzPMIU9dTQebQ,HOM8qh\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 9932.261800745124,\n            \"height\": 2054.5442592804443\n          },\n          \"publishing\": {\n            \"created\": \"1976-05-06T18:31:44.789Z\",\n            \"updated\": \"1971-03-02T17:37:35.454Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"processing\",\n            \"published\": \"1979-02-02T19:06:28.272Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 7452.204043071377\n          }\n        }\n      },\n      \"image\": {\n        \"url\": \"http://LupPTNBAPnSYLYbeOWb.jzeHhN\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 4707.218389886886,\n        \"height\": 3625.09540637542\n      },\n      \"video\": {\n        \"content_id\": \"string\",\n        \"duration\": 2735.152939248342,\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"meta\": {\n          \"hreflang\": {\n            \"en\": \"https://vHuc.qyqWaEVzfPAtl3PJk\",\n            \"de\": \"https://cuBViKfw.pkdOpeiHFJXknfgjcn1hCowk1kyPirM6h.d8YtAZWr-MVe5gJ\",\n            \"zh\": \"http://xmRQStyITdlQiKKkBmeNSoMqGgVtc.gpuuHVPdsoOo+Wen4oje5598ZM\"\n          },\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        \"type\": \"string\",\n        \"remote_id\": \"string\",\n        \"url\": \"http://rZJMTVoso.tpvgbLeN8xxR\",\n        \"recipe_url\": \"http://pNGJMofNtzXVEhlZxBvMJjFNOxvODPFkr.ynfv11M5ruFT8v+9oLPR1.XsJvlAuhab\",\n        \"width\": 4395.4448060804525,\n        \"height\": 2300.2084722524587,\n        \"image\": {\n          \"url\": \"http://EjqXFIY.vstQI5x3QodDT8O.--qEJ1poOrBXI37To46S5\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 6274.461257039413,\n          \"height\": 2154.004799930598\n        },\n        \"publishing\": {\n          \"created\": \"1999-09-19T12:58:28.075Z\",\n          \"updated\": \"1975-04-04T08:14:09.753Z\",\n          \"state\": \"string\",\n          \"playback-state\": \"not-playable\",\n          \"published\": \"1986-09-05T12:07:39.582Z\"\n        },\n        \"user_reactions\": {\n          \"view_count\": 3160.176431362277\n        }\n      },\n      \"utensils\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 9670.363257760753,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 9538.014867692726,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        }\n      ],\n      \"ingredients\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 4369.2664036925835,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 664.567915729839,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": true,\n          \"is_searcheable\": false,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 5185.494467898347,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 4990.10904678561,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"text\": \"string\",\n      \"headline\": \"string\",\n      \"tip\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"video\": {\n          \"content_id\": \"string\",\n          \"duration\": 5224.7331224933705,\n          \"title\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"meta\": {\n            \"hreflang\": {\n              \"en\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"de\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"zh\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"title\": \"string\",\n            \"description\": \"string\"\n          },\n          \"type\": \"string\",\n          \"remote_id\": \"string\",\n          \"url\": \"https://MfUQBNHbkSebIHNC.gowzyu2JizbTqymXAiJ\",\n          \"recipe_url\": \"https://ORsHPdOigFO.bcqoNsCStyLcgR+qIqUHyxOuENPCSfoJ.wvOO7p5pbbUzJQyVV\",\n          \"width\": 5272.504663918577,\n          \"height\": 740.2595170835081,\n          \"image\": {\n            \"url\": \"http://QKjYddVqzEPjyMg.smulMtB,vumkwhXbit1VfGAJLNpsYYLyrTNPuv4hEQZA\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 3289.4735702958233,\n            \"height\": 8381.578153584505\n          },\n          \"publishing\": {\n            \"created\": \"2009-03-19T18:10:39.666Z\",\n            \"updated\": \"2011-07-21T17:25:36.706Z\",\n            \"state\": \"string\",\n            \"playback-state\": \"processing\",\n            \"published\": \"1994-05-03T11:57:45.126Z\"\n          },\n          \"user_reactions\": {\n            \"view_count\": 6987.146502576043\n          }\n        }\n      },\n      \"image\": {\n        \"url\": \"http://UbLSOThFy.ting+UglXk7vsLqqbYrj\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 6396.515548351068,\n        \"height\": 9136.210092194033\n      },\n      \"video\": {\n        \"content_id\": \"string\",\n        \"duration\": 9722.619380465425,\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"slug\": \"string\",\n        \"meta\": {\n          \"hreflang\": {\n            \"en\": \"http://a.omyOLX,maYnYOl+.KnrzG3sMgLo-WGUt1oyg5DvfMr-C+1yMKYONWTlLqYDk1pHpI0o\",\n            \"de\": \"https://DTDpImmgYXpiTCctZFaBuLUgvfwrXleO.juU4EupQmWCO6JKdiX2\",\n            \"zh\": \"http://sjIAAkwqLBODlVrJMQH.ekwnD0RLb4PzdIyKyuE\"\n          },\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        \"type\": \"string\",\n        \"remote_id\": \"string\",\n        \"url\": \"https://gMEpxivfXIHCmzWQnCiKvT.veydO7H.2C.NDwTXQmRAOWhuq-,X.gwcf7Tw2NKkE5to,6zm\",\n        \"recipe_url\": \"http://IzDxrmfEhEZimuEXIH.lfuiuvE4h4wgyQR0RpSBMiSfWSSO.CgXwfBGxIO2aIYqbS\",\n        \"width\": 9990.831505016085,\n        \"height\": 9429.641217744947,\n        \"image\": {\n          \"url\": \"https://gAeRqfiNp.zysoXbZWE-JpPZFXgQ0X9Kl,iJbotqCG6mN,L\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 1756.7001628466428,\n          \"height\": 6179.685945988479\n        },\n        \"publishing\": {\n          \"created\": \"1964-06-05T20:05:08.617Z\",\n          \"updated\": \"1967-09-12T09:45:08.887Z\",\n          \"state\": \"string\",\n          \"playback-state\": \"ready\",\n          \"published\": \"1965-09-03T12:29:36.965Z\"\n        },\n        \"user_reactions\": {\n          \"view_count\": 9210.931474874336\n        }\n      },\n      \"utensils\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 3124.355348785417,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"amount\": 2838.9787732271943,\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"size\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"metric\": \"string\",\n            \"imperial\": \"string\"\n          }\n        }\n      ],\n      \"ingredients\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 1102.1959503121393,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 4125.309488833882,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 525.724724026555,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 7045.430164669488,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"slug\": \"string\",\n  \"url\": \"http://bTnyZizXSoMLABW.qdfWQIoxcKNS57k8rLVQcph.KeUG,x,jHNzMzS1PI\",\n  \"user_reactions\": {\n    \"comments_count\": 9348.158862460336,\n    \"images_count\": 8291.800095074963,\n    \"like_count\": 9668.26051187921,\n    \"quality\": 5093.488470090102,\n    \"rating\": 5796.989391675117,\n    \"rating_count\": 1850.0272173216104,\n    \"images\": [\n      {\n        \"author\": {\n          \"type\": \"contributor\",\n          \"new_type\": \"external\",\n          \"name\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"occupation\": \"string\",\n          \"description\": \"string\",\n          \"image\": {\n            \"url\": \"http://lnPLLFjQRU.mlbtupoRsTX,bl4opx38MZqIc3\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 6300.221853365981,\n            \"height\": 4175.7073500676415\n          },\n          \"banner_image\": {\n            \"url\": \"https://j.gfltFKQ2j72+alnIXUWGrNT4.PYpwJbhwnnUqSXTey\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 9994.588928544556,\n            \"height\": 9074.737466433167\n          },\n          \"wide_banner_image\": {\n            \"url\": \"http://fvHw.cqr2EH61nnH4efNgENPuTncXi9qEU1fv\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 35.41817337166408,\n            \"height\": 6993.797730780186\n          },\n          \"website\": \"https://bTLOTg.rgwc1c+8MIglHEm12AgmQB-wc8\",\n          \"is_premium\": true,\n          \"created\": \"1968-05-22T00:44:58.011Z\"\n        },\n        \"created\": \"1978-08-21T08:55:35.649Z\",\n        \"image\": {\n          \"url\": \"https://JIjStkJjLZyNsIbzIdiKQhIejVbcAbo.mtLFtHSwpCdt71Waf+qw5SYkFseXNZYoAx51ok\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 8494.727298559606,\n          \"height\": 9120.710049995592\n        },\n        \"original_location\": \"string\",\n        \"comment\": \"string\"\n      },\n      {\n        \"author\": {\n          \"type\": \"editor\",\n          \"new_type\": \"contributor\",\n          \"name\": \"string\",\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"occupation\": \"string\",\n          \"description\": \"string\",\n          \"image\": {\n            \"url\": \"http://nmkodszUAXPImTDJHzjrM.ohGJkQInmjlKh6-vPlT558aqghEnlSAVlvlDOryWwltTwg\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 6610.38167020674,\n            \"height\": 4878.558117786361\n          },\n          \"banner_image\": {\n            \"url\": \"https://gmnlwGUIYfphUkXtu.ikiFBlxUTJ.R3ZWjImEkNxBRCL\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 3686.866147054867,\n            \"height\": 6356.399245213124\n          },\n          \"wide_banner_image\": {\n            \"url\": \"http://VlpOrtlQnbkuxQANKlKRjwgyu.awwVBMaW5\",\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": \"string\",\n            \"source_link\": \"string\",\n            \"width\": 7724.73502570861,\n            \"height\": 4045.327409567525\n          },\n          \"website\": \"http://fY.qkvly5zituyfWc\",\n          \"is_premium\": false,\n          \"created\": \"2000-11-28T16:09:03.366Z\"\n        },\n        \"created\": \"1967-12-21T03:45:33.232Z\",\n        \"image\": {\n          \"url\": \"http://HDdUXCJleeyNCDmUEGFNXgLn.rfV6PZ7-uOba6PnkE1Wq1JR5ztMdp8f+pKQFvr6Lo3I8K.cSxlJkN5W\",\n          \"id\": \"string\",\n          \"source\": \"string\",\n          \"source_link\": \"string\",\n          \"width\": 7234.51654765752,\n          \"height\": 6981.58869309473\n        },\n        \"original_location\": \"string\",\n        \"comment\": \"string\"\n      }\n    ]\n  },\n  \"author\": {\n    \"type\": \"community\",\n    \"new_type\": \"community\",\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"occupation\": \"string\",\n    \"description\": \"string\",\n    \"image\": {\n      \"url\": \"https://RWhIHQSDfJaDEuwVvcJ.dton6kjNyRpHL4oW+3sT8ywkcCOUX2Qxso-dsgI.+2ROC-A\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 5183.109264372847,\n      \"height\": 3506.532617280307\n    },\n    \"banner_image\": {\n      \"url\": \"http://gFV.epryGULN+qSOS7EsbPL0ndiHBG\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 4142.7464134782995,\n      \"height\": 9915.050031302693\n    },\n    \"wide_banner_image\": {\n      \"url\": \"http://BmgqJfxNaEl.irybw\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 5484.310180947279,\n      \"height\": 4965.438576900505\n    },\n    \"website\": \"http://bjRVpdihATVzmNZXmO.dgrinOp1BHGMPaT49jX8miT0orNYYttO\",\n    \"is_premium\": false,\n    \"created\": \"2005-11-17T09:33:51.703Z\"\n  },\n  \"servings\": {\n    \"amount\": 5099.7775238240365,\n    \"type\": \"string\"\n  },\n  \"ingredients\": [\n    {\n      \"list\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 1621.2426134840885,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 4207.63215499174,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": false,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 2813.1645285970408,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 899.2571069260091,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": true,\n          \"is_partner\": true,\n          \"is_searcheable\": true,\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"list\": [\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 2869.8101893127314,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 6361.293131306025,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": true,\n          \"is_searcheable\": false,\n          \"url\": \"string\"\n        },\n        {\n          \"name\": {\n            \"rendered\": \"string\",\n            \"one\": \"string\",\n            \"many\": \"string\"\n          },\n          \"id\": \"string\",\n          \"measurement\": {\n            \"imperial\": {\n              \"amount\": 8695.536293930525,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metric\": {\n              \"amount\": 3538.8999634495167,\n              \"unit\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"characteristic\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"additional_information\": {\n            \"id\": \"string\",\n            \"name\": \"string\"\n          },\n          \"is_divided\": false,\n          \"is_partner\": true,\n          \"is_searcheable\": false,\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"id\": \"string\",\n  \"difficulty\": \"string\",\n  \"chefs_note\": \"string\",\n  \"image\": {\n    \"url\": \"https://bXMcRxOWNbJVSxZa.vuomwoLgEWcPryKyN4iRUCyr0ZGbpMjcu6AALdrzhF5zBa\",\n    \"id\": \"string\",\n    \"source\": \"string\",\n    \"source_link\": \"string\",\n    \"width\": 5808.444105477878,\n    \"height\": 5534.503936686674\n  },\n  \"duration\": {\n    \"preparation\": 4595.240194912147,\n    \"resting\": 3813.944120491276,\n    \"baking\": 2646.02607068942\n  },\n  \"nutrition\": {\n    \"protein\": 7994.997862202075,\n    \"fat\": 8615.475845431136,\n    \"calories\": 4282.781718229053,\n    \"carbohydrate\": 636.2703910962198\n  },\n  \"meta\": {\n    \"hreflang\": {\n      \"en\": \"https://BUNrW.vrbzWsZM4NkmoM3zl8yQ9cJq-mFfCM1p06,OvHrzHg\",\n      \"de\": \"https://HVIUcOGjdqkLOVGhpC.pzssCt1JAOi+VgjbKp9rJCnVN2ICd2z5J9fx13WNdj2\",\n      \"zh\": \"http://NcOdPIRkkHVjA.ufyjFl4VOa5LHmief4wC306PQOUD60l+MJwd-1v\"\n    },\n    \"title\": \"string\",\n    \"description\": \"string\"\n  },\n  \"tags\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": false\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"type\": \"string\",\n      \"is_hidden\": false\n    }\n  ],\n  \"content_meta\": [\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"http://EaHOtHZawlQl.dzrndnQSMxvKcnMJN8QIeJKFTIlO+gw.BigGEJzP6dLVs5gHi-17NGNxW6Ru6fpXJ7zBgTqKwDYIpm\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"key\": \"string\",\n      \"value\": {\n        \"url\": \"http://YXglzmpQDvauu.rcG3cOgPJfOwmwCD8Vv52SkfhsWWovzgZSl\"\n      },\n      \"campaign\": \"string\",\n      \"language\": \"string\"\n    }\n  ],\n  \"categories\": {\n    \"main\": {\n      \"slug\": \"string\",\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"path\": [\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"children\": [\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"string\",\n          \"slug\": \"string\",\n          \"title\": \"string\",\n          \"path\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"slug\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"additional\": [\n      {\n        \"slug\": \"string\",\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"path\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"children\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"slug\": \"string\",\n        \"title\": \"string\",\n        \"id\": \"string\",\n        \"path\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"children\": [\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"string\",\n            \"slug\": \"string\",\n            \"title\": \"string\",\n            \"path\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"children\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/child_item detected>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"video\": {\n    \"content_id\": \"string\",\n    \"duration\": 5537.309472237884,\n    \"title\": \"string\",\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"meta\": {\n      \"hreflang\": {\n        \"en\": \"http://WHZVlLeZftGpiPyUabJKeuGmqSF.jyC4.e.CzY7s,HbwYLJh,daTLy3\",\n        \"de\": \"https://PCYzHAy.kxjXqUPdL5CWhryBmUW,BfrzceF.Mr,KkCybEatoP7o332wzuMbrLD1SrWr.o47P3BdSIFOfT60N\",\n        \"zh\": \"https://SznXdfePoLLLHlLMTTWuyirz.yboLuisk7VsWbocBkouYY1GpK9mwEJ.cBE\"\n      },\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    \"type\": \"string\",\n    \"remote_id\": \"string\",\n    \"url\": \"https://SiMEeZJvOPjVtADEIhfe.awkbp7sIdi2,-bbxiMUA2zubqlSwERjV.mLQDENUXkVqG58RJZGrf7+vhwLK6Kw\",\n    \"recipe_url\": \"https://kVJ.ldodNjSFTLQSNwLh0AFmPILnudlNvTk771aq2OOkN\",\n    \"width\": 9596.594909959218,\n    \"height\": 7099.628771353385,\n    \"image\": {\n      \"url\": \"http://yusDfehbKXC.bbohPRfb2cvwh0mb4tIrhoocA6ZZnsPugD\",\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"source_link\": \"string\",\n      \"width\": 2242.4799302196784,\n      \"height\": 1641.5896197368374\n    },\n    \"publishing\": {\n      \"created\": \"1964-01-06T05:12:59.636Z\",\n      \"updated\": \"2001-05-05T05:45:50.390Z\",\n      \"state\": \"string\",\n      \"playback-state\": \"ready\",\n      \"published\": \"1947-04-19T20:05:35.448Z\"\n    },\n    \"user_reactions\": {\n      \"view_count\": 9529.526179808781\n    }\n  },\n  \"howto_videos\": [\n    {\n      \"content_id\": \"string\",\n      \"duration\": 9330.516560262722,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"http://AtiXccYmaawQmXSlrMyfZMULlVpiUmGd.yheyHkeq3e+RUpU3tA9Cf\",\n          \"de\": \"http://sbNLUDuBKLLiJSfykVBlEZImNCmZygK.dslITqUzns1ZqJegUkajp3dy.UZut5Ibn\",\n          \"zh\": \"https://IytawlTJFiCGdJvtyqkeRG.nzhcPkTnz6FG1vMJ7jWogFf0r9+SidU+kp1GDlyPsAt3MHqgEXekLM7ovhWw.\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"http://DIkgVARDIiwOWODMQNRD.vwvfwQMW\",\n      \"recipe_url\": \"https://e.senfe91oHmM6fhYQ+9qL5pfVQaaa9w\",\n      \"width\": 9700.119272771815,\n      \"height\": 1195.0980202090989,\n      \"image\": {\n        \"url\": \"https://ekswkaUMsxMsvsgiqJlqAoglyQILALP.zckMja,Q3gCgxYvycf\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 628.389206827652,\n        \"height\": 651.3125557844568\n      },\n      \"publishing\": {\n        \"created\": \"2018-09-10T11:39:37.410Z\",\n        \"updated\": \"1981-10-02T19:20:32.539Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"ready\",\n        \"published\": \"1985-10-01T06:22:58.729Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 3236.047054254474\n      }\n    },\n    {\n      \"content_id\": \"string\",\n      \"duration\": 6376.275755944396,\n      \"title\": \"string\",\n      \"id\": \"string\",\n      \"slug\": \"string\",\n      \"meta\": {\n        \"hreflang\": {\n          \"en\": \"https://ngquPJboL.famoBhirQdcxAD\",\n          \"de\": \"https://UQltJsLAuGypwHvSnrkTFIGWfywcbQYj.vcoppgxijrg-2p4XCJHElCV+ZZ.Uyl8YUT4zXHBhEL\",\n          \"zh\": \"http://uIJUjbIBmRT.ynxznn8vSdVRRuJFHmYm4nllmEAVnpahBJIVhAuZV6PkVhne3NX3W,xSWHX\"\n        },\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"type\": \"string\",\n      \"remote_id\": \"string\",\n      \"url\": \"https://jREbFrNpuLxiUUiBLyQBAj.vyckzsrALe-LOFdd3ymXQmfmz3qCuB6jIFrq,iPqiAUEVH9cCYIoyU\",\n      \"recipe_url\": \"https://BPyCGJImxRqElShCcBvBZaSzGHf.mdemrH6n-uWAPZzq\",\n      \"width\": 2970.0523589302143,\n      \"height\": 951.2435547493703,\n      \"image\": {\n        \"url\": \"https://iCM.papajofK0Qr4BOLI0CzoCliQQhwlmeZ\",\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"source_link\": \"string\",\n        \"width\": 2051.9307672183795,\n        \"height\": 1865.4107828103906\n      },\n      \"publishing\": {\n        \"created\": \"1956-01-05T23:42:13.894Z\",\n        \"updated\": \"1974-04-28T11:42:50.505Z\",\n        \"state\": \"string\",\n        \"playback-state\": \"not-playable\",\n        \"published\": \"2009-10-04T06:28:59.014Z\"\n      },\n      \"user_reactions\": {\n        \"view_count\": 5872.066157100141\n      }\n    }\n  ],\n  \"utensils\": [\n    {\n      \"name\": {\n        \"rendered\": \"string\",\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"id\": \"string\",\n      \"amount\": 5807.868029663022,\n      \"characteristic\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"additional_information\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"size\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"metric\": \"string\",\n        \"imperial\": \"string\"\n      }\n    },\n    {\n      \"name\": {\n        \"rendered\": \"string\",\n        \"one\": \"string\",\n        \"many\": \"string\"\n      },\n      \"id\": \"string\",\n      \"amount\": 3897.195762316612,\n      \"characteristic\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"additional_information\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"size\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"metric\": \"string\",\n        \"imperial\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f48a5966-e46e-4007-ada0-8b1aab437979",
+              "name": "User Recipe not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "simplified",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Private Recipe uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bf69689-8e05-4f3a-9faf-9b5d80006801",
+          "name": "Update the given Private Recipe",
+          "request": {
+            "name": "Update the given Private Recipe",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "recipes",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) Recipe uuid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08d930c9-e7c5-4ad8-a983-41fe6e72f9c2",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Recipe uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2dd94bc1-6819-4c39-8c20-22aa72bf371b",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Recipe uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f59bfa1-7999-416a-aa1e-0121477d2110",
+              "name": "NotFound. When User Recipe does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) Recipe uuid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"difficulty\": \"<string>\",\n  \"servings\": {\n    \"amount\": \"<number>\",\n    \"type\": \"<string>\"\n  },\n  \"title\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"preparation_time\": \"<number>\",\n  \"resting_time\": \"<number>\",\n  \"baking_time\": \"<number>\",\n  \"chefs_note\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"ingredient_id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"unit_id\": \"<string>\",\n      \"additional_information_id\": \"<string>\",\n      \"characteristic_id\": \"<string>\"\n    }\n  ],\n  \"steps\": [\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"description\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"video_id\": \"<string>\",\n      \"selected_ingredient_indices\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"utensils\": [\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"utensil_id\": \"<string>\",\n          \"amount\": \"<number>\",\n          \"utensil_size_id\": \"<string>\",\n          \"additional_information_id\": \"<string>\",\n          \"characteristic_id\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca6e90d6-4a2b-431a-90b9-9aa93ec8ffab",
+          "name": "Delete a Private Recipe",
+          "request": {
+            "name": "Delete a Private Recipe",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "recipes",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) id of the recipe"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7702f0e5-36cb-472f-b259-e129e55ac309",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) id of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fc76d40-f820-43ad-b17d-28f483cb7c22",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) id of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8391c2a8-8c47-47d4-a31a-ff910135a49c",
+              "name": "NotFound. When User Recipe does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) id of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "917f230e-ddab-4aa5-ae08-3966dc1dd4fe",
+          "name": "Submits the given Private Recipe to UGC review.",
+          "request": {
+            "name": "Submits the given Private Recipe to UGC review.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "recipes",
+                ":uuid",
+                "submit",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) id of the recipe"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56910242-e0dd-47d0-bfde-f4fc2269ca8b",
+              "name": "Operation successfull",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    "submit",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) id of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "125b24b9-edcb-45f2-bad2-58eab2644730",
+              "name": "Forbidden. When user is not logged in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    "submit",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) id of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99581a55-d6c8-4829-9961-4d3a1175d3c5",
+              "name": "NotFound. When User Recipe does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "recipes",
+                    ":uuid",
+                    "submit",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) id of the recipe"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7e0ca5f6-f889-4c91-8ea5-cd958d3bd7d9",
+    "name": "Kitchen Stories Internal Articles Admin User Private Recipes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

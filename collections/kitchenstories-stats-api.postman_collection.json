@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "5b5aec7a-893f-44e8-b494-8368f7847ce8",
+      "name": "Stats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eaee7bb1-d226-48f2-900a-459dc395a80c",
+          "name": "Get stats on current state of UGC Recipes",
+          "request": {
+            "name": "Get stats on current state of UGC Recipes",
+            "description": {},
+            "url": {
+              "path": [
+                "stats",
+                "community-recipes",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Filter by language (en, de, zh only)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ajns.kitchenstories+json; version=3"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "343421ac-ffa3-4892-b2cf-31eb0f4e66f4",
+              "name": "Get stats",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    "community-recipes",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ajns.kitchenstories+json; version=3"
+                }
+              ],
+              "body": "{\n  \"community-stats\": {\n    \"accepted-video-steps\": 3363.24966304556,\n    \"rejected\": 5903.880922153257,\n    \"accepted\": 1825.4921592039275,\n    \"submitted\": 4692.271664294491,\n    \"created\": 9812.043104217524,\n    \"accepted-quality\": {\n      \"high\": 5916.044940040043,\n      \"partner\": 1010.4626105376868,\n      \"low\": 7264.6322751247035\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kitchenstories.io/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a8599306-18f8-41db-ac4f-b3e774d4214c",
+    "name": "Kitchen Stories Internal Articles Admin Stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: hello@kitchenstories.com",
+      "type": "text/plain"
+    }
+  }
+}

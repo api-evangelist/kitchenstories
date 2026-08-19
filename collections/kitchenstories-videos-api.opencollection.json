@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Videos API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Videos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List published videos, ordered by `-published` for the current given language",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/videos/",
+            "params": [
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Get video by types eg. **'howto,recipe'**. Available types **['howto', 'recipe', 'article']**."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Get video by tags eg. **'partner,meal'**."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Get video by slug."
+              }
+            ]
+          },
+          "docs": "List published videos, ordered by `-published` for the current given language"
+        },
+        {
+          "info": {
+            "name": "Details for given Video uuid or slug (ignores publishing date)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/videos/:uuid-or-slug/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "Video uuid or slug"
+              },
+              {
+                "name": "draft",
+                "value": "",
+                "type": "query",
+                "description": "Get the latest draft version - for preview eg. **true** or **false**"
+              }
+            ]
+          },
+          "docs": "Details for given Video uuid or slug (ignores publishing date)"
+        },
+        {
+          "info": {
+            "name": "Save a video view for the given Video vimeo-remote-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/videos/view/vimeo/:remote-id/",
+            "params": [
+              {
+                "name": "remote-id",
+                "value": "",
+                "type": "path",
+                "description": "Vimeo remote-id"
+              }
+            ]
+          },
+          "docs": "Save a video view for the given Video vimeo-remote-id"
+        },
+        {
+          "info": {
+            "name": "Save a video view for the given Video uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/videos/view/:video-id/",
+            "params": [
+              {
+                "name": "video-id",
+                "value": "",
+                "type": "path",
+                "description": "Video uuid"
+              }
+            ]
+          },
+          "docs": "Save a video view for the given Video uuid"
+        },
+        {
+          "info": {
+            "name": "List Recommendations for given Video uuid or slug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/videos/:uuid-or-slug/recommendations/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "Video uuid or slug"
+              }
+            ]
+          },
+          "docs": "List Recommendations for given Video uuid or slug"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

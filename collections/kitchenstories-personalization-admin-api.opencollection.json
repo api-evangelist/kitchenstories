@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Personalization Admin API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Personalization Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Insert a new personalization option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/personalization/options/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Insert a new personalization option"
+        },
+        {
+          "info": {
+            "name": "Globally update an option information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Globally update an option information"
+        },
+        {
+          "info": {
+            "name": "Globally delete an option",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              }
+            ]
+          },
+          "docs": "Globally delete an option"
+        },
+        {
+          "info": {
+            "name": "Create a new value for an option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:uuid/values/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new value for an option"
+        },
+        {
+          "info": {
+            "name": "Globally update a value for an option",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:option-uuid/values/:value-uuid/",
+            "params": [
+              {
+                "name": "option-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              },
+              {
+                "name": "value-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for value"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Globally update a value for an option"
+        },
+        {
+          "info": {
+            "name": "Globally delete a value for an option",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:option-uuid/values/:value-uuid/",
+            "params": [
+              {
+                "name": "option-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              },
+              {
+                "name": "value-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for value"
+              }
+            ]
+          },
+          "docs": "Globally delete a value for an option"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

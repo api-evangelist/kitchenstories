@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Meal Plan API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Meal Plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all meal plan items for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/mealplan/",
+            "params": [
+              {
+                "name": "week",
+                "value": "",
+                "type": "query",
+                "description": "Calendar week number"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Year"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start date (YYYY-MM-DD)"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End date (YYYY-MM-DD)"
+              }
+            ]
+          },
+          "docs": "Get all meal plan items for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Create a meal plan item for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/mealplan/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a meal plan item for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Get the given meal plan item for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/mealplan/:mealplan-item-uuid/",
+            "params": [
+              {
+                "name": "mealplan-item-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Meal plan item uuid"
+              }
+            ]
+          },
+          "docs": "Get the given meal plan item for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Update a Meal Plan item for the currently authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/users/me/mealplan/:mealplan-item-uuid/",
+            "params": [
+              {
+                "name": "mealplan-item-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Meal plan item uuid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Meal Plan item for the currently authenticated User"
+        },
+        {
+          "info": {
+            "name": "Delete a Meal Plan item for the currently authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/users/me/mealplan/:mealplan-item-uuid/",
+            "params": [
+              {
+                "name": "mealplan-item-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Meal plan item uuid"
+              }
+            ]
+          },
+          "docs": "Delete a Meal Plan item for the currently authenticated User"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

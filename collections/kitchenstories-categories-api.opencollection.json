@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Categories API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/categories/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Category Slug"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified category schema"
+              },
+              {
+                "name": "children_of",
+                "value": "",
+                "type": "query",
+                "description": "Get all children of the category with this uuid. Use root for root category"
+              },
+              {
+                "name": "embed_children",
+                "value": "",
+                "type": "query",
+                "description": "When this is set to 1 the children (simplified) of each category is embedded"
+              }
+            ]
+          },
+          "docs": "List Categories"
+        },
+        {
+          "info": {
+            "name": "Details of given Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/categories/:uuid-or-slug/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "Category id or slug"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified category schema"
+              },
+              {
+                "name": "embed_children",
+                "value": "",
+                "type": "query",
+                "description": "When this is 1 the children (simplified) of the category is embedded"
+              }
+            ]
+          },
+          "docs": "Details of given Category"
+        },
+        {
+          "info": {
+            "name": "Content meta of given Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/categories/:uuid-or-slug/content-meta/",
+            "params": [
+              {
+                "name": "uuid-or-slug",
+                "value": "",
+                "type": "path",
+                "description": "id or slug of the category"
+              }
+            ]
+          },
+          "docs": "Content meta of given Category"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,315 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin Personalization API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Personalization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get personalization flags for user (or preferences set)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/",
+            "params": [
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "The uuid of a Preferences Set (for logged-out usage)"
+              }
+            ]
+          },
+          "docs": "Get personalization flags for user (or preferences set)"
+        },
+        {
+          "info": {
+            "name": "Obtain a preferences set (for logged out preferences usage)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/personalization/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Obtain a preferences set (for logged out preferences usage)"
+        },
+        {
+          "info": {
+            "name": "Update personalization flags for user (or preferences set)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/personalization/",
+            "params": [
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "The uuid of a Preferences Set (for logged-out usage)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update personalization flags for user (or preferences set)"
+        },
+        {
+          "info": {
+            "name": "Get a list of personalization preferences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/preferences/",
+            "params": [
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "The uuid of a Preferences Set (for logged-out usage)"
+              }
+            ]
+          },
+          "docs": "Get a list of personalization preferences"
+        },
+        {
+          "info": {
+            "name": "Insert a new personalization preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/personalization/preferences/",
+            "params": [
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "The uuid of a Preferences Set (for logged-out usage)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Insert a new personalization preference"
+        },
+        {
+          "info": {
+            "name": "Get a single personalization preference by uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/preferences/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for preference"
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "The uuid of a Preferences Set (for logged-out usage)"
+              }
+            ]
+          },
+          "docs": "Get a single personalization preference by uuid"
+        },
+        {
+          "info": {
+            "name": "Update a single preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/personalization/preferences/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for preference"
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "The uuid of a Preferences Set (for logged-out usage)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a single preference"
+        },
+        {
+          "info": {
+            "name": "Delete a single preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/personalization/preferences/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for preference"
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "The uuid of a Preferences Set (for logged-out usage)"
+              }
+            ]
+          },
+          "docs": "Delete a single preference"
+        },
+        {
+          "info": {
+            "name": "Get a list of available personalization options (and their values)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/options/",
+            "params": [
+              {
+                "name": "show_all",
+                "value": "",
+                "type": "query",
+                "description": "Show all options in the system (even those without values)"
+              }
+            ]
+          },
+          "docs": "Get a list of available personalization options (and their values)"
+        },
+        {
+          "info": {
+            "name": "Get a single option information by its uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              }
+            ]
+          },
+          "docs": "Get a single option information by its uuid"
+        },
+        {
+          "info": {
+            "name": "Get available values for a given option uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:uuid/values/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              }
+            ]
+          },
+          "docs": "Get available values for a given option uuid"
+        },
+        {
+          "info": {
+            "name": "Get a single value for an option by its uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/options/:option-uuid/values/:value-uuid/",
+            "params": [
+              {
+                "name": "option-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for option"
+              },
+              {
+                "name": "value-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for value"
+              }
+            ]
+          },
+          "docs": "Get a single value for an option by its uuid"
+        },
+        {
+          "info": {
+            "name": "Get the personalized feed for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/personalization/feed/",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query",
+                "description": "Indicate if you want a fresh feed"
+              },
+              {
+                "name": "deep_refresh",
+                "value": "",
+                "type": "query",
+                "description": "Get the current feed and issue a task to fully refresh it. Note that this feed response will not be the fully re-generated feed as it is asynchronously being generated. Please keep pooling this endpoint until all generated_at fields of the collections are updated."
+              },
+              {
+                "name": "exclude_liked_saved_content",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to exclude content liked and saved by user from personalized content. Defaults to True."
+              }
+            ]
+          },
+          "docs": "Get the personalized feed for the current user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

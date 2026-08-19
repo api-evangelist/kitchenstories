@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Public Recipes API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Public Recipes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all public recipes for the given user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/:user-id/recipes/",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "User uuid"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified recipe schema"
+              }
+            ]
+          },
+          "docs": "Get all public recipes for the given user"
+        },
+        {
+          "info": {
+            "name": "Public Recipe details for given user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/:user-id/recipes/:recipe-id/",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "User uuid"
+              },
+              {
+                "name": "recipe-id",
+                "value": "",
+                "type": "path",
+                "description": "Recipe uuid"
+              },
+              {
+                "name": "simplified",
+                "value": "",
+                "type": "query",
+                "description": "Get simplified recipe schema"
+              }
+            ]
+          },
+          "docs": "Public Recipe details for given user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

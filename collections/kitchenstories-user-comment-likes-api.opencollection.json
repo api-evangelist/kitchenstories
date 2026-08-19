@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Comment Likes API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Comment Likes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Comment Likes for currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/likes/comments/"
+          },
+          "docs": "List Comment Likes for currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Like a given comment for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/likes/comments/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Like a given comment for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Delete Like of given Comment for currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/users/me/likes/comments/:comment-uuid/",
+            "params": [
+              {
+                "name": "comment-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Comment uuid"
+              }
+            ]
+          },
+          "docs": "Delete Like of given Comment for currently authenticated user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

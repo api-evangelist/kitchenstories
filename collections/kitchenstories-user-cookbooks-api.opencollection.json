@@ -1,0 +1,250 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kitchen Stories Internal Articles Admin User Cookbooks API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Cookbooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all cookbooks for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/",
+            "params": [
+              {
+                "name": "feed_item",
+                "value": "",
+                "type": "query",
+                "description": "A feed item (article or recipe) uuid. If passed, will only return cookbooks whose item is saved in"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search through cookbooks by title"
+              }
+            ]
+          },
+          "docs": "Get all cookbooks for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Create a cookbook for the currently authenticated user User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Image is the image-uuid for cover-image"
+        },
+        {
+          "info": {
+            "name": "Get the given cookbook for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              }
+            ]
+          },
+          "docs": "Get the given cookbook for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "Update a Cookbook for the currently authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Image is the image-uuid for cover-image"
+        },
+        {
+          "info": {
+            "name": "Delete a Cookbook for the currently authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              }
+            ]
+          },
+          "docs": "Delete a Cookbook for the currently authenticated User"
+        },
+        {
+          "info": {
+            "name": "List all items for the given cookbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/items/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search through items of this cookbook by title"
+              }
+            ]
+          },
+          "docs": "List all items for the given cookbook"
+        },
+        {
+          "info": {
+            "name": "Add Internal Recipe, Article or saved-external-recipe to the given cookbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/items/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Internal Recipe, Article or saved-external-recipe to the given cookbook"
+        },
+        {
+          "info": {
+            "name": "Add an external recipe to the given cookbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/external-items/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an external recipe to the given cookbook"
+        },
+        {
+          "info": {
+            "name": "Move an item from the given cookbook to another",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/items/:item-uuid/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Origin Cookbook uuid"
+              },
+              {
+                "name": "item-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Item uuid (external recipe, internal recipe or article) - id can not already be in new cookbook"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move an item from the given cookbook to another"
+        },
+        {
+          "info": {
+            "name": "Delete an item from the given cookbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.kitchenstories.io/api/users/me/cookbooks/:cookbook-uuid/items/:item-uuid/",
+            "params": [
+              {
+                "name": "cookbook-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Cookbook uuid"
+              },
+              {
+                "name": "item-uuid",
+                "value": "",
+                "type": "path",
+                "description": "Item uuid (external recipe, internal recipe or article)"
+              }
+            ]
+          },
+          "docs": "Delete an item from the given cookbook"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
