@@ -292,7 +292,8 @@ apis:
   description: The Other API from Kitchen Stories — 5 operation(s) for other.
   humanURL: https://api.kitchenstories.io/api/
   baseURL: https://api.kitchenstories.io/api
-  tags:
+  tags: []
+  tags_raw:
   - Other
   properties:
   - type: OpenAPI
