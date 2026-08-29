@@ -1,0 +1,36 @@
+slug: kitchenstories
+provider: Kitchen Stories
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: QA
+  spec_file: kitchenstories-qa-api-openapi.yml
+  capability_id: BC-3780.40
+  capability_id_l1: BC-3780
+  capability_name: User-Generated Content Moderation
+  confidence: 0.85
+  evidence: POST /qa/ugc/recipe/{pk}/accept/ 'Accept / Approve given UGC recipe'; POST /qa/ugc/recipe/{pk}/reject/
+    'Reject given UGC recipe'
+  reason: Despite the generic 'QA' tag, the operations are human review decisions on user-generated recipe
+    submissions plus removal of offending users — user-generated content moderation, not software test
+    quality engineering.
+- tag: Content Collections Admin
+  spec_file: kitchenstories-content-collections-admin-api-openapi.yml
+  capability_id: BC-3730.30
+  capability_id_l1: BC-3730
+  capability_name: On-Demand Catalogue Curation
+  confidence: 0.7
+  evidence: POST /content-collections/ 'Add a new content collection'; POST /content-collections/{uuid}/items/
+    'Add a new content collection item'
+  reason: Editorial construction and maintenance of content collections and their member items — on-demand
+    catalogue curation for the platform's consumer surfaces.
