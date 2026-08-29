@@ -11,6 +11,18 @@ description: Kitchen Stories is a Berlin-based, video-first cooking and recipe p
   recipes, articles, videos, ingredients, utensils, categories, user cookbooks, meal plans, comments,
   ratings, and personalization.
 url: https://raw.githubusercontent.com/api-evangelist/kitchenstories/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
