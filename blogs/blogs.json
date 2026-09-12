@@ -3,12 +3,12 @@
   "feeds": [
     {
       "source": "https://www.kitchenstories.com/en/contact",
-      "feed_url": "https://www.kitchenstories.com/en/contact",
+      "feed_url": "https://www.kitchenstories.com/feed",
       "title": "",
-      "saved": 0,
-      "method": "none"
+      "saved": 22,
+      "method": "discovered"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-08-30T22:33:40Z"
+  "post_count": 22,
+  "fetched": "2026-09-06T19:17:18Z"
 }
