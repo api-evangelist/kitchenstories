@@ -941,6 +941,8 @@ apis:
   humanURL: https://api.kitchenstories.io/api/
   baseURL: https://api.kitchenstories.io/api
   tags:
+  - Video
+  tags_raw:
   - Videos
   properties:
   - type: OpenAPI
