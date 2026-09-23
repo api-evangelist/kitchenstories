@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: '3'
-  title: Kitchen Stories Internal Articles Admin User Private Favorite Ingredients API
+  title: Kitchen Stories Internal User Private Favorite Ingredients…
   description: ''
   contact:
     email: hello@kitchenstories.com
@@ -63,9 +63,7 @@ paths:
           description: NotFound. When Ingredient does not exists
     delete:
       summary: Delete Favorite Ingredients
-      description: 'Use DELETE `/api/users/me/favorite-ingrediets/all/` to delete every ingredient in the user''s favorite list.
-
-        '
+      description: Use DELETE `/api/users/me/favorite-ingrediets/all/` to delete every ingredient in the user's favorite list.
       operationId: user-favorite-ingredients-delete
       tags:
       - User Private Favorite Ingredients
@@ -90,6 +88,52 @@ paths:
           description: NotFound. When Ingredient does not exists
 components:
   schemas:
+    ingredient_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ingredient'
+      required:
+      - data
+      - links
+      - meta
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
     links:
       type: object
       properties:
@@ -118,59 +162,6 @@ components:
             type: string
       required:
       - errors
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    ingredient_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ingredient'
-      required:
-      - data
-      - links
-      - meta
-    ingredient_favorite_add_json:
-      type: object
-      properties:
-        ingredients:
-          type: array
-          items:
-            type: string
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
-      required:
-      - pagination
-      additionalProperties: false
     ingredient:
       type: object
       properties:
@@ -198,6 +189,13 @@ components:
       - id
       - name
       - is_partner
+    ingredient_favorite_add_json:
+      type: object
+      properties:
+        ingredients:
+          type: array
+          items:
+            type: string
   securitySchemes:
     bearerAuth:
       type: http

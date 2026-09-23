@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: '3'
-  title: Kitchen Stories Internal Articles Admin Ingredients API
+  title: Kitchen Stories Internal Ingredients API
   description: ''
   contact:
     email: hello@kitchenstories.com
@@ -157,68 +157,6 @@ paths:
                 $ref: '#/components/schemas/ingredient_promoted_list'
 components:
   schemas:
-    unit:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        featured_order:
-          type: number
-        ingredient_pluralizable:
-          type: boolean
-        name:
-          type: object
-          properties:
-            one:
-              type: string
-            many:
-              type: string
-            rendered:
-              type: string
-          required:
-          - rendered
-          additionalProperties: false
-      required:
-      - id
-      - name
-      - ingredient_pluralizable
-      - type
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
-    ingredient_additionalinformation_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/additional_information'
-      required:
-      - data
-      - links
-      - meta
     ingredient_promoted_list:
       type: object
       properties:
@@ -228,17 +166,6 @@ components:
             $ref: '#/components/schemas/ingredient_promoted'
       required:
       - data
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
     ingredient_pagination:
       type: object
       properties:
@@ -254,6 +181,56 @@ components:
       - data
       - links
       - meta
+    ingredient_additionalinformation_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/additional_information'
+      required:
+      - data
+      - links
+      - meta
+    ingredient_unit_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/unit'
+      required:
+      - data
+      - links
+      - meta
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
     ingredient_promoted:
       type: object
       properties:
@@ -292,41 +269,64 @@ components:
       - id
       - name
       additionalProperties: false
-    ingredient_unit_pagination:
+    characteristic:
       type: object
       properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/unit'
+        id:
+          type: string
+        name:
+          type: string
       required:
-      - data
-      - links
-      - meta
-    meta:
+      - id
+      - name
+      additionalProperties: false
+    links:
       type: object
       properties:
-        pagination:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    unit:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        featured_order:
+          type: number
+        ingredient_pluralizable:
+          type: boolean
+        name:
           type: object
           properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
+            one:
+              type: string
+            many:
+              type: string
+            rendered:
+              type: string
           required:
-          - page
-          - pages
-          - count
+          - rendered
           additionalProperties: false
       required:
-      - pagination
-      additionalProperties: false
+      - id
+      - name
+      - ingredient_pluralizable
+      - type
     ingredient:
       type: object
       properties:

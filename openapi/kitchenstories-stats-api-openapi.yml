@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: '3'
-  title: Kitchen Stories Internal Articles Admin Stats API
+  title: Kitchen Stories Internal Stats API
   description: ''
   contact:
     email: hello@kitchenstories.com

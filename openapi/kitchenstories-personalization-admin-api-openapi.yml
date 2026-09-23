@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: '3'
-  title: Kitchen Stories Internal Articles Admin Personalization Admin API
+  title: Kitchen Stories Internal Personalization Admin API
   description: ''
   contact:
     email: hello@kitchenstories.com
@@ -203,33 +203,6 @@ paths:
           description: NotAuthorized. When user does not have permission for this operation (only editor)
 components:
   schemas:
-    personalization_option_body:
-      type: object
-      properties:
-        key:
-          type: string
-        option_type:
-          type: string
-          enum:
-          - inclusive
-          - exclusive
-        value_type:
-          type: string
-          enum:
-          - single
-          - multi
-        title:
-          type: string
-        description:
-          type: string
-        translations:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_option_translation_body'
-      required:
-      - value_type
-      - key
-      - option_type
     personalization_option_translation_body:
       type: object
       properties:
@@ -247,49 +220,6 @@ components:
       - language
       - description
       - title
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
-    personalization_option_value_body:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        value:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        translation_status:
-          type: string
-          enum:
-          - original
-          - fully_translated
-          - partially_translated
-          - auto_translated
-          - not_translated
-        native_language:
-          type: string
-          enum:
-          - en
-          - de
-          - zh
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-      required:
-      - value
     personalization_option_value:
       type: object
       properties:
@@ -324,6 +254,76 @@ components:
           format: date-time
       required:
       - value
+    personalization_option_value_body:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        value:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        translation_status:
+          type: string
+          enum:
+          - original
+          - fully_translated
+          - partially_translated
+          - auto_translated
+          - not_translated
+        native_language:
+          type: string
+          enum:
+          - en
+          - de
+          - zh
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+      required:
+      - value
+    personalization_option_body:
+      type: object
+      properties:
+        key:
+          type: string
+        option_type:
+          type: string
+          enum:
+          - inclusive
+          - exclusive
+        value_type:
+          type: string
+          enum:
+          - single
+          - multi
+        title:
+          type: string
+        description:
+          type: string
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option_translation_body'
+      required:
+      - value_type
+      - key
+      - option_type
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
   securitySchemes:
     bearerAuth:
       type: http

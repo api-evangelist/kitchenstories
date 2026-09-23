@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: '3'
-  title: Kitchen Stories Internal Articles Admin UserCookbooksRecipes API
+  title: Kitchen Stories Internal User Cookbooks Recipes API
   description: ''
   contact:
     email: hello@kitchenstories.com
@@ -24,9 +24,7 @@ paths:
   /users/me/cookbooks/{cookbook-uuid}/recipes/:
     get:
       deprecated: true
-      summary: 'See `/users/me/cookbooks/cookbook-uuid/items/`. This endpoints return internal recipes and articles only)
-
-        '
+      summary: See `/users/me/cookbooks/cookbook-uuid/items/`.
       operationId: cookbook-get-recipes-list
       parameters:
       - name: cookbook-uuid
@@ -43,9 +41,7 @@ paths:
           description: See `/users/me/cookbooks/cookbook-uuid/items/`
     post:
       deprecated: true
-      summary: 'See `/users/me/cookbooks/{cookbook-uuid}/items/` this endpoint adds internal recipes and articles only
-
-        '
+      summary: See `/users/me/cookbooks/{cookbook-uuid}/items/` this endpoint adds internal…
       operationId: cookbook-create-ecipes-list
       parameters:
       - name: cookbook-uuid
@@ -63,9 +59,7 @@ paths:
   /users/me/cookbooks/{cookbook-uuid}/recipes/{feeditem-uuid}/:
     put:
       deprecated: true
-      summary: 'See `/users/me/cookbooks/cookbook-uuid/items/feeditem-uuid`. Move an internal recipe or article from one cookbook to another
-
-        '
+      summary: See `/users/me/cookbooks/cookbook-uuid/items/feeditem-uuid`.
       operationId: cookbook-recipe-move
       tags:
       - UserCookbooksRecipes
@@ -102,9 +96,7 @@ paths:
           description: Forbidden. When user is not logged in
     delete:
       deprecated: true
-      summary: 'See `/users/me/cookbooks/cookbook-uuid/items/feeditem-uuid`. Delete an internal recipe or article from a cookbook
-
-        '
+      summary: See `/users/me/cookbooks/cookbook-uuid/items/feeditem-uuid`.
       operationId: cookbook-recipe-delete
       tags:
       - UserCookbooksRecipes
@@ -136,6 +128,13 @@ paths:
           description: NotFound. When Cookbook does not exists
 components:
   schemas:
+    cookbook_update_json:
+      type: object
+      properties:
+        id:
+          type: string
+      required:
+      - id
     form_response:
       type: object
       properties:
@@ -145,13 +144,6 @@ components:
             type: string
       required:
       - errors
-    cookbook_update_json:
-      type: object
-      properties:
-        id:
-          type: string
-      required:
-      - id
   securitySchemes:
     bearerAuth:
       type: http
