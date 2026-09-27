@@ -142,209 +142,42 @@ paths:
           description: NotFound. When User Recipe does not exists
 components:
   schemas:
-    path_item:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-      required:
-      - id
-      - slug
-      - title
-    wagtail_meta:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        hreflang:
-          type: object
-          properties:
-            en:
-              type: string
-              format: uri
-            de:
-              type: string
-              format: uri
-            zh:
-              type: string
-              format: uri
-          required:
-          - en
-      required:
-      - hreflang
-      additionalProperties: false
-    size:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        metric:
-          type: string
-        imperial:
-          type: string
-      required:
-      - id
-      additionalProperties: false
-    additional_information:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    child_item:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        path:
-          type: array
-          items:
-            $ref: '#/components/schemas/path_item'
-        slug:
-          type: string
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/child_item'
-      required:
-      - id
-      - slug
-      - title
-    user_public:
+    unit:
       type: object
       properties:
         id:
           type: string
         type:
           type: string
-          enum:
-          - community
-          - contributor
-          - editor
-        new_type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-          - partner
-          - external
-        name:
-          type: string
-        slug:
-          type: string
-        occupation:
-          type: string
-        description:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
-        wide_banner_image:
-          $ref: '#/components/schemas/image'
-        website:
-          type: string
-          format: uri
-        is_premium:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-      required:
-      - type
-      - new_type
-      - name
-      - id
-    content_meta_markdown:
-      type: object
-      properties:
-        markdown:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - markdown
-    legacy_unit:
-      type: object
-      properties:
-        id:
-          type: string
+        featured_order:
+          type: number
         ingredient_pluralizable:
           type: boolean
         name:
           type: object
           properties:
-            rendered:
-              type: string
             one:
               type: string
             many:
+              type: string
+            rendered:
               type: string
           required:
           - rendered
           additionalProperties: false
       required:
-      - name
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
       - id
       - name
-      additionalProperties: false
-    content_meta_faq:
+      - ingredient_pluralizable
+      - type
+    content_meta_external_link:
       type: object
       properties:
-        question:
-          type: string
-          minLength: 1
-          maxLength: 500
-        answer:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - answer
-      - question
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
+        url:
           type: string
           format: uri
       required:
-      - last
-      - first
-      additionalProperties: false
+      - url
     video:
       type: object
       properties:
@@ -415,27 +248,107 @@ components:
       - id
       - slug
       - meta
-    image:
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
+    legacy_unit:
       type: object
       properties:
         id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
           type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
       required:
-      - url
+      - name
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
       additionalProperties: false
+    recipe_utensil:
+      type: object
+      properties:
+        id:
+          type: string
+        amount:
+          type: number
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        size:
+          $ref: '#/components/schemas/size'
+      required:
+      - name
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
     step:
       type: object
       properties:
@@ -469,62 +382,48 @@ components:
             $ref: '#/components/schemas/recipe_ingredient'
       required:
       - text
-    content_meta_external_product:
-      type: object
-      properties:
-        title:
-          type: string
-          minLength: 1
-          maxLength: 37
-        subtitle:
-          type: string
-          maxLength: 25
-        image:
-          type: string
-          format: uri
-        cta:
-          type: string
-          maxLength: 20
-        url:
-          type: string
-          format: uri
-      required:
-      - image
-      - url
-      - title
-    tag:
+    image:
       type: object
       properties:
         id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
           type: string
-        title:
+          format: uri
+        source:
           type: string
-        slug:
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    content_meta:
+      type: object
+      properties:
+        key:
           type: string
         type:
           type: string
-        is_hidden:
-          type: boolean
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
       required:
-      - pagination
-      additionalProperties: false
+      - type
+      - key
+      - uuid
     comment_image:
       type: object
       properties:
@@ -545,6 +444,41 @@ components:
       - image
       - original_location
       - comment
+    category_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - slug
+      - title
+      - id
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
     recipe:
       type: object
       properties:
@@ -718,6 +652,68 @@ components:
       - servings
       - ingredients
       - id
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    child_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        slug:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - id
+      - slug
+      - title
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
     recipe_ingredient:
       type: object
       properties:
@@ -773,27 +769,115 @@ components:
           type: string
       required:
       - name
-    content_meta:
+    user_public:
       type: object
       properties:
-        key:
+        id:
           type: string
         type:
           type: string
-        value:
-          oneOf:
-          - $ref: '#/components/schemas/content_meta_external_link'
-          - $ref: '#/components/schemas/content_meta_external_product'
-          - $ref: '#/components/schemas/content_meta_faq'
-          - $ref: '#/components/schemas/content_meta_markdown'
-        campaign:
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
           type: string
-        language:
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
           type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
       required:
       - type
-      - key
-      - uuid
+      - new_type
+      - name
+      - id
+    size:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        metric:
+          type: string
+        imperial:
+          type: string
+      required:
+      - id
+      additionalProperties: false
+    tag:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        is_hidden:
+          type: boolean
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
+    path_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+      required:
+      - id
+      - slug
+      - title
     recipe_pagination:
       type: object
       properties:
@@ -809,90 +893,13 @@ components:
       - data
       - links
       - meta
-    recipe_utensil:
+    cookbook_recipes_add_json:
       type: object
       properties:
         id:
           type: string
-        amount:
-          type: number
-        name:
-          type: object
-          properties:
-            rendered:
-              type: string
-            one:
-              type: string
-            many:
-              type: string
-          required:
-          - rendered
-          additionalProperties: false
-        characteristic:
-          $ref: '#/components/schemas/characteristic'
-        additional_information:
-          $ref: '#/components/schemas/additional_information'
-        size:
-          $ref: '#/components/schemas/size'
-      required:
-      - name
-    category_simplified:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-        path:
-          type: array
-          items:
-            $ref: '#/components/schemas/path_item'
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/child_item'
-      required:
-      - slug
-      - title
-      - id
-    unit:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        featured_order:
-          type: number
-        ingredient_pluralizable:
-          type: boolean
-        name:
-          type: object
-          properties:
-            one:
-              type: string
-            many:
-              type: string
-            rendered:
-              type: string
-          required:
-          - rendered
-          additionalProperties: false
       required:
       - id
-      - name
-      - ingredient_pluralizable
-      - type
-    content_meta_external_link:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-      required:
-      - url
     cookbook_externalrecipes_add_json:
       type: object
       properties:
@@ -901,13 +908,6 @@ components:
           format: uri
       required:
       - url
-    cookbook_recipes_add_json:
-      type: object
-      properties:
-        id:
-          type: string
-      required:
-      - id
   securitySchemes:
     bearerAuth:
       type: http

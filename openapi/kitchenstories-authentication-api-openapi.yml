@@ -275,6 +275,16 @@ paths:
                 - $ref: '#/components/schemas/installation'
 components:
   schemas:
+    user_token:
+      type: object
+      properties:
+        user_token:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - is_new
+      - user_token
     facebook_auth:
       type: object
       properties:
@@ -287,36 +297,6 @@ components:
       required:
       - facebook_token
       - installation_id
-    user_token:
-      type: object
-      properties:
-        user_token:
-          type: string
-        is_new:
-          type: boolean
-      required:
-      - is_new
-      - user_token
-    email_registration:
-      type: object
-      properties:
-        email:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-        installation_id:
-          type: string
-        device:
-          type: string
-        newsletter:
-          type: boolean
-      required:
-      - email
-      - username
-      - password
-      - installation_id
     errors:
       type: object
       properties:
@@ -326,69 +306,18 @@ components:
             type: string
       required:
       - errors
-    email_auth:
+    google_auth:
       type: object
       properties:
-        email:
-          type: string
-        password:
+        google_token:
           type: string
         installation_id:
           type: string
-        token_type:
-          type: string
-      required:
-      - email
-      - password
-    access_token:
-      type: object
-      properties:
-        access_token:
-          type: string
-      required:
-      - access_token
-    create_installation:
-      type: object
-      properties:
-        id:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        advertising_id:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        amplitude_id:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        app_version:
-          type: string
-        app_build:
-          type: number
-        device_type:
-          type: string
-        software_version:
-          type: string
-        hardware_version:
-          type: string
-        push_type:
-          type: string
-        push_token:
-          type: string
-        push_settings:
-          type: string
-        app_language:
-          type: string
-        device_language:
-          type: string
-        timezone:
-          type: string
-        push_settings_weekly_updates:
-          type: boolean
-        push_settings_replies_to_comments:
-          type: boolean
-        push_settings_replies_to_replies:
+        is_new:
           type: boolean
       required:
-      - id
+      - google_token
+      - installation_id
     apple_auth:
       type: object
       properties:
@@ -403,25 +332,6 @@ components:
       required:
       - name
       - apple_token
-      - installation_id
-    forgot_password:
-      type: object
-      properties:
-        email:
-          type: string
-      required:
-      - email
-    google_auth:
-      type: object
-      properties:
-        google_token:
-          type: string
-        installation_id:
-          type: string
-        is_new:
-          type: boolean
-      required:
-      - google_token
       - installation_id
     installation:
       type: object
@@ -465,6 +375,96 @@ components:
           type: boolean
       required:
       - id
+    email_registration:
+      type: object
+      properties:
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        installation_id:
+          type: string
+        device:
+          type: string
+        newsletter:
+          type: boolean
+      required:
+      - email
+      - username
+      - password
+      - installation_id
+    forgot_password:
+      type: object
+      properties:
+        email:
+          type: string
+      required:
+      - email
+    create_installation:
+      type: object
+      properties:
+        id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        advertising_id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        amplitude_id:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        app_version:
+          type: string
+        app_build:
+          type: number
+        device_type:
+          type: string
+        software_version:
+          type: string
+        hardware_version:
+          type: string
+        push_type:
+          type: string
+        push_token:
+          type: string
+        push_settings:
+          type: string
+        app_language:
+          type: string
+        device_language:
+          type: string
+        timezone:
+          type: string
+        push_settings_weekly_updates:
+          type: boolean
+        push_settings_replies_to_comments:
+          type: boolean
+        push_settings_replies_to_replies:
+          type: boolean
+      required:
+      - id
+    email_auth:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        installation_id:
+          type: string
+        token_type:
+          type: string
+      required:
+      - email
+      - password
+    access_token:
+      type: object
+      properties:
+        access_token:
+          type: string
+      required:
+      - access_token
   securitySchemes:
     bearerAuth:
       type: http

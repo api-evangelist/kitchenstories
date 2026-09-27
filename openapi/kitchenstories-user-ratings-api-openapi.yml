@@ -98,26 +98,6 @@ components:
           type: number
       required:
       - rating
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
-      required:
-      - pagination
-      additionalProperties: false
     rating_pagination:
       type: object
       properties:
@@ -133,20 +113,6 @@ components:
       - data
       - links
       - meta
-    rating:
-      type: object
-      properties:
-        id:
-          type: string
-        rating:
-          type: number
-          maximum: 1
-        feed_item:
-          type: string
-      required:
-      - id
-      - rating
-      - feed_item
     links:
       type: object
       properties:
@@ -175,6 +141,40 @@ components:
             type: string
       required:
       - errors
+    rating:
+      type: object
+      properties:
+        id:
+          type: string
+        rating:
+          type: number
+          maximum: 1
+        feed_item:
+          type: string
+      required:
+      - id
+      - rating
+      - feed_item
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

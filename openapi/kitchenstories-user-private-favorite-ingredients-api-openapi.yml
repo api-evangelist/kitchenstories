@@ -103,6 +103,52 @@ components:
       - data
       - links
       - meta
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    ingredient_favorite_add_json:
+      type: object
+      properties:
+        ingredients:
+          type: array
+          items:
+            type: string
     meta:
       type: object
       properties:
@@ -123,45 +169,6 @@ components:
       required:
       - pagination
       additionalProperties: false
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
     ingredient:
       type: object
       properties:
@@ -189,13 +196,6 @@ components:
       - id
       - name
       - is_partner
-    ingredient_favorite_add_json:
-      type: object
-      properties:
-        ingredients:
-          type: array
-          items:
-            type: string
   securitySchemes:
     bearerAuth:
       type: http

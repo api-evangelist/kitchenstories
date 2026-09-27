@@ -124,27 +124,41 @@ paths:
           description: NotFound. When Ugc recipe does not exists
 components:
   schemas:
-    image:
+    qa_user_update_json:
       type: object
       properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
+        username:
+          type: string
+        description:
+          type: string
+        website:
           type: string
           format: uri
-        source:
+        gender:
           type: string
-        source_link:
+        birthday:
           type: string
-        width:
+        newsletter:
+          type: string
+        type:
+          type: string
+        occupation:
           type: number
-        height:
+    qa_ugc_recipe_accept:
+      type: object
+      properties:
+        quality:
           type: number
-      required:
-      - url
-      additionalProperties: false
+        main_category:
+          type: number
+        additional_categories:
+          type: array
+          items:
+            type: number
+        tags:
+          type: array
+          items:
+            type: string
     qa_user_public_update_image:
       type: object
       properties:
@@ -152,15 +166,6 @@ components:
           $ref: '#/components/schemas/image'
         banner_image:
           $ref: '#/components/schemas/image'
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
     user:
       type: object
       properties:
@@ -224,41 +229,36 @@ components:
       - name
       - id
       - email
-    qa_user_update_json:
+    form_response:
       type: object
       properties:
-        username:
-          type: string
-        description:
-          type: string
-        website:
-          type: string
-          format: uri
-        gender:
-          type: string
-        birthday:
-          type: string
-        newsletter:
-          type: string
-        type:
-          type: string
-        occupation:
-          type: number
-    qa_ugc_recipe_accept:
-      type: object
-      properties:
-        quality:
-          type: number
-        main_category:
-          type: number
-        additional_categories:
-          type: array
-          items:
-            type: number
-        tags:
+        errors:
           type: array
           items:
             type: string
+      required:
+      - errors
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

@@ -65,50 +65,58 @@ paths:
           description: Category not found
 components:
   schemas:
-    image:
+    publishing:
       type: object
       properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        state:
+          type: string
+      required:
+      - created
+      - updated
+      - state
+      additionalProperties: false
+    search_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/search_category'
+      required:
+      - data
+      - links
+      - meta
+    links:
+      type: object
+      properties:
+        first:
           type: string
           format: uri
-        source:
+        last:
           type: string
-        source_link:
+          format: uri
+        next:
           type: string
-        width:
-          type: number
-        height:
-          type: number
+          format: uri
+        prev:
+          type: string
+          format: uri
       required:
-      - url
-      additionalProperties: false
-    wagtail_meta:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        hreflang:
-          type: object
-          properties:
-            en:
-              type: string
-              format: uri
-            de:
-              type: string
-              format: uri
-            zh:
-              type: string
-              format: uri
-          required:
-          - en
-      required:
-      - hreflang
+      - last
+      - first
       additionalProperties: false
     meta:
       type: object
@@ -174,58 +182,50 @@ components:
       - id
       - image
       - icon
-    links:
+    image:
       type: object
       properties:
-        first:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
           type: string
           format: uri
-        last:
+        source:
           type: string
-          format: uri
-        next:
+        source_link:
           type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
+        width:
+          type: number
+        height:
+          type: number
       required:
-      - last
-      - first
+      - url
       additionalProperties: false
-    search_pagination:
+    wagtail_meta:
       type: object
       properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/search_category'
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
       required:
-      - data
-      - links
-      - meta
-    publishing:
-      type: object
-      properties:
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        published:
-          type: string
-          format: date-time
-        state:
-          type: string
-      required:
-      - created
-      - updated
-      - state
+      - hreflang
       additionalProperties: false
   securitySchemes:
     bearerAuth:

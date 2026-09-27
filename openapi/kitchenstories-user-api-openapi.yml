@@ -98,48 +98,6 @@ paths:
           description: Forbidden. When user is KS user or not logged in
 components:
   schemas:
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
-    user_public_update_json:
-      type: object
-      properties:
-        username:
-          type: string
-        description:
-          type: string
-        website:
-          type: string
-          format: uri
-        gender:
-          type: string
-        birthday:
-          type: string
-        newsletter:
-          type: string
-    user_public_update_image:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/image'
     user_public:
       type: object
       properties:
@@ -186,15 +144,27 @@ components:
       - new_type
       - name
       - id
-    form_response:
+    user_public_update_image:
       type: object
       properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
+        image:
+          $ref: '#/components/schemas/image'
+    user_public_update_json:
+      type: object
+      properties:
+        username:
+          type: string
+        description:
+          type: string
+        website:
+          type: string
+          format: uri
+        gender:
+          type: string
+        birthday:
+          type: string
+        newsletter:
+          type: string
     user:
       type: object
       properties:
@@ -258,6 +228,36 @@ components:
       - name
       - id
       - email
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

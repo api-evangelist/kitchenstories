@@ -121,6 +121,14 @@ paths:
           description: Recipe or Content Meta key not found
 components:
   schemas:
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
     content_meta_markdown:
       type: object
       properties:
@@ -130,26 +138,20 @@ components:
           maxLength: 5000
       required:
       - markdown
-    content_meta_body:
+    content_meta_faq:
       type: object
       properties:
-        key:
+        question:
           type: string
-        type:
+          minLength: 1
+          maxLength: 500
+        answer:
           type: string
-        value:
-          oneOf:
-          - $ref: '#/components/schemas/content_meta_external_link'
-          - $ref: '#/components/schemas/content_meta_external_product'
-          - $ref: '#/components/schemas/content_meta_faq'
-          - $ref: '#/components/schemas/content_meta_markdown'
-        campaign:
-          type: string
-        language:
-          type: string
+          minLength: 1
+          maxLength: 5000
       required:
-      - type
-      - key
+      - answer
+      - question
     content_meta_external_product:
       type: object
       properties:
@@ -173,20 +175,26 @@ components:
       - image
       - url
       - title
-    content_meta_faq:
+    content_meta_body:
       type: object
       properties:
-        question:
+        key:
           type: string
-          minLength: 1
-          maxLength: 500
-        answer:
+        type:
           type: string
-          minLength: 1
-          maxLength: 5000
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
       required:
-      - answer
-      - question
+      - type
+      - key
     content_meta:
       type: object
       properties:
@@ -208,14 +216,6 @@ components:
       - type
       - key
       - uuid
-    content_meta_external_link:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-      required:
-      - url
   securitySchemes:
     bearerAuth:
       type: http

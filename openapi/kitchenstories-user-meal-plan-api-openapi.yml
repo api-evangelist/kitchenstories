@@ -156,314 +156,58 @@ paths:
           description: NotFound. When Meal Plan item does not exist
 components:
   schemas:
-    path_item:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-      required:
-      - id
-      - slug
-      - title
-    mealplan_update:
-      type: object
-      properties:
-        target_date:
-          type: string
-          format: date
-        year:
-          type: number
-        calendar_week:
-          type: number
-        day_of_week:
-          type: number
-        pinned:
-          type: boolean
-    wagtail_meta:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        hreflang:
-          type: object
-          properties:
-            en:
-              type: string
-              format: uri
-            de:
-              type: string
-              format: uri
-            zh:
-              type: string
-              format: uri
-          required:
-          - en
-      required:
-      - hreflang
-      additionalProperties: false
-    mealplan:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/mealplan_item'
-      required:
-      - data
-    recipe_simplified:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        content_id:
-          type: string
-        difficulty:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        author:
-          $ref: '#/components/schemas/user_public'
-        url:
-          type: string
-          format: uri
-        duration:
-          type:
-          - object
-          - 'null'
-          properties:
-            preparation:
-              type: number
-            baking:
-              type: number
-            resting:
-              type: number
-          required:
-          - preparation
-          - resting
-          - baking
-        user_reactions:
-          type: object
-          properties:
-            rating:
-              type: number
-            rating_count:
-              type: number
-            images:
-              type: array
-              items:
-                $ref: '#/components/schemas/comment_image'
-              maxItems: 4
-            comments_count:
-              type: number
-            images_count:
-              type: number
-            like_count:
-              type: number
-            quality:
-              type: number
-          required:
-          - comments_count
-          - images_count
-          - like_count
-          - quality
-        publishing:
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-            updated:
-              type: string
-              format: date-time
-            published:
-              type: string
-              format: date-time
-            state:
-              type: string
-              enum:
-              - draft
-              - submitted
-              - rejected
-              - live
-              - expired
-              - scheduled
-          required:
-          - created
-          - updated
-          - state
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/tag'
-      required:
-      - content_id
-      - type
-      - publishing
-      - title
-      - slug
-      - url
-      - user_reactions
-      - author
-      - id
-    size:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        metric:
-          type: string
-        imperial:
-          type: string
-      required:
-      - id
-      additionalProperties: false
-    additional_information:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    child_item:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        path:
-          type: array
-          items:
-            $ref: '#/components/schemas/path_item'
-        slug:
-          type: string
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/child_item'
-      required:
-      - id
-      - slug
-      - title
-    user_public:
+    unit:
       type: object
       properties:
         id:
           type: string
         type:
           type: string
-          enum:
-          - community
-          - contributor
-          - editor
-        new_type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-          - partner
-          - external
-        name:
-          type: string
-        slug:
-          type: string
-        occupation:
-          type: string
-        description:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
-        wide_banner_image:
-          $ref: '#/components/schemas/image'
-        website:
-          type: string
-          format: uri
-        is_premium:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-      required:
-      - type
-      - new_type
-      - name
-      - id
-    content_meta_markdown:
-      type: object
-      properties:
-        markdown:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - markdown
-    legacy_unit:
-      type: object
-      properties:
-        id:
-          type: string
+        featured_order:
+          type: number
         ingredient_pluralizable:
           type: boolean
         name:
           type: object
           properties:
-            rendered:
-              type: string
             one:
               type: string
             many:
+              type: string
+            rendered:
               type: string
           required:
           - rendered
           additionalProperties: false
       required:
-      - name
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
       - id
       - name
-      additionalProperties: false
-    content_meta_faq:
+      - ingredient_pluralizable
+      - type
+    feed_recipe:
       type: object
       properties:
-        question:
+        type:
           type: string
-          minLength: 1
-          maxLength: 500
-        answer:
-          type: string
-          minLength: 1
-          maxLength: 5000
+        recipe:
+          oneOf:
+          - $ref: '#/components/schemas/recipe_simplified'
+          - $ref: '#/components/schemas/recipe'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
       required:
-      - answer
-      - question
+      - type
+      - recipe
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
     video:
       type: object
       properties:
@@ -534,11 +278,30 @@ components:
       - id
       - slug
       - meta
-    mealplan_add_json:
+    legacy_unit:
       type: object
       properties:
-        feed_item:
+        id:
           type: string
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+      required:
+      - name
+    mealplan_update:
+      type: object
+      properties:
         target_date:
           type: string
           format: date
@@ -548,29 +311,44 @@ components:
           type: number
         day_of_week:
           type: number
-      required:
-      - feed_item
-    image:
+        pinned:
+          type: boolean
+    recipe_utensil:
       type: object
       properties:
         id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
           type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
+        amount:
           type: number
-        height:
-          type: number
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        size:
+          $ref: '#/components/schemas/size'
       required:
-      - url
-      additionalProperties: false
+      - name
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
     step:
       type: object
       properties:
@@ -604,42 +382,64 @@ components:
             $ref: '#/components/schemas/recipe_ingredient'
       required:
       - text
-    content_meta_external_product:
-      type: object
-      properties:
-        title:
-          type: string
-          minLength: 1
-          maxLength: 37
-        subtitle:
-          type: string
-          maxLength: 25
-        image:
-          type: string
-          format: uri
-        cta:
-          type: string
-          maxLength: 20
-        url:
-          type: string
-          format: uri
-      required:
-      - image
-      - url
-      - title
-    tag:
+    image:
       type: object
       properties:
         id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
           type: string
-        title:
+          format: uri
+        source:
           type: string
-        slug:
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    content_meta:
+      type: object
+      properties:
+        key:
           type: string
         type:
           type: string
-        is_hidden:
-          type: boolean
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
+    mealplan_add_json:
+      type: object
+      properties:
+        feed_item:
+          type: string
+        target_date:
+          type: string
+          format: date
+        year:
+          type: number
+        calendar_week:
+          type: number
+        day_of_week:
+          type: number
+      required:
+      - feed_item
     comment_image:
       type: object
       properties:
@@ -660,6 +460,41 @@ components:
       - image
       - original_location
       - comment
+    category_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - slug
+      - title
+      - id
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
     recipe:
       type: object
       properties:
@@ -833,6 +668,49 @@ components:
       - servings
       - ingredients
       - id
+    child_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        slug:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - id
+      - slug
+      - title
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
     recipe_ingredient:
       type: object
       properties:
@@ -888,43 +766,225 @@ components:
           type: string
       required:
       - name
-    content_meta:
+    user_public:
       type: object
       properties:
-        key:
+        id:
           type: string
         type:
           type: string
-        value:
-          oneOf:
-          - $ref: '#/components/schemas/content_meta_external_link'
-          - $ref: '#/components/schemas/content_meta_external_product'
-          - $ref: '#/components/schemas/content_meta_faq'
-          - $ref: '#/components/schemas/content_meta_markdown'
-        campaign:
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
           type: string
-        language:
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
           type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
       required:
       - type
-      - key
-      - uuid
-    feed_recipe:
+      - new_type
+      - name
+      - id
+    size:
       type: object
       properties:
+        id:
+          type: string
+        name:
+          type: string
+        metric:
+          type: string
+        imperial:
+          type: string
+      required:
+      - id
+      additionalProperties: false
+    tag:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
         type:
           type: string
-        recipe:
-          oneOf:
-          - $ref: '#/components/schemas/recipe_simplified'
-          - $ref: '#/components/schemas/recipe'
-        hide_for_web:
+        is_hidden:
           type: boolean
-        hide_for_app:
-          type: boolean
+    recipe_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        difficulty:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        duration:
+          type:
+          - object
+          - 'null'
+          properties:
+            preparation:
+              type: number
+            baking:
+              type: number
+            resting:
+              type: number
+          required:
+          - preparation
+          - resting
+          - baking
+        user_reactions:
+          type: object
+          properties:
+            rating:
+              type: number
+            rating_count:
+              type: number
+            images:
+              type: array
+              items:
+                $ref: '#/components/schemas/comment_image'
+              maxItems: 4
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+              enum:
+              - draft
+              - submitted
+              - rejected
+              - live
+              - expired
+              - scheduled
+          required:
+          - created
+          - updated
+          - state
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
       required:
+      - content_id
       - type
-      - recipe
+      - publishing
+      - title
+      - slug
+      - url
+      - user_reactions
+      - author
+      - id
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
+    path_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+      required:
+      - id
+      - slug
+      - title
+    mealplan:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/mealplan_item'
+      required:
+      - data
     mealplan_item:
       type: object
       properties:
@@ -948,90 +1008,30 @@ components:
       - id
       - feed_item
       - calendar_week
-    recipe_utensil:
+    wagtail_meta:
       type: object
       properties:
-        id:
-          type: string
-        amount:
-          type: number
-        name:
-          type: object
-          properties:
-            rendered:
-              type: string
-            one:
-              type: string
-            many:
-              type: string
-          required:
-          - rendered
-          additionalProperties: false
-        characteristic:
-          $ref: '#/components/schemas/characteristic'
-        additional_information:
-          $ref: '#/components/schemas/additional_information'
-        size:
-          $ref: '#/components/schemas/size'
-      required:
-      - name
-    category_simplified:
-      type: object
-      properties:
-        id:
-          type: string
         title:
           type: string
-        slug:
+        description:
           type: string
-        path:
-          type: array
-          items:
-            $ref: '#/components/schemas/path_item'
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/child_item'
-      required:
-      - slug
-      - title
-      - id
-    unit:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        featured_order:
-          type: number
-        ingredient_pluralizable:
-          type: boolean
-        name:
+        hreflang:
           type: object
           properties:
-            one:
+            en:
               type: string
-            many:
+              format: uri
+            de:
               type: string
-            rendered:
+              format: uri
+            zh:
               type: string
+              format: uri
           required:
-          - rendered
-          additionalProperties: false
+          - en
       required:
-      - id
-      - name
-      - ingredient_pluralizable
-      - type
-    content_meta_external_link:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-      required:
-      - url
+      - hreflang
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

@@ -71,56 +71,6 @@ paths:
           description: Forbidden. When user is not logged in
 components:
   schemas:
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
-    wagtail_meta:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        hreflang:
-          type: object
-          properties:
-            en:
-              type: string
-              format: uri
-            de:
-              type: string
-              format: uri
-            zh:
-              type: string
-              format: uri
-          required:
-          - en
-      required:
-      - hreflang
-      additionalProperties: false
-    user_public_upload_image:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/image'
     errors:
       type: object
       properties:
@@ -130,11 +80,11 @@ components:
             type: string
       required:
       - errors
-    user_public_upload_video:
+    user_public_upload_image:
       type: object
       properties:
-        video:
-          $ref: '#/components/schemas/video'
+        image:
+          $ref: '#/components/schemas/image'
     video:
       type: object
       properties:
@@ -205,6 +155,56 @@ components:
       - id
       - slug
       - meta
+    user_public_upload_video:
+      type: object
+      properties:
+        video:
+          $ref: '#/components/schemas/video'
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

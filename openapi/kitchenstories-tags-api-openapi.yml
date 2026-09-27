@@ -65,6 +65,25 @@ paths:
           description: Tag not found
 components:
   schemas:
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
     meta:
       type: object
       properties:
@@ -85,38 +104,6 @@ components:
       required:
       - pagination
       additionalProperties: false
-    tag:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        is_hidden:
-          type: boolean
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
     tag_pagination:
       type: object
       properties:
@@ -132,6 +119,19 @@ components:
       - data
       - links
       - meta
+    tag:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        is_hidden:
+          type: boolean
   securitySchemes:
     bearerAuth:
       type: http
