@@ -355,6 +355,21 @@ paths:
                 $ref: '#/components/schemas/personalization-feed'
 components:
   schemas:
+    personalization_option_value_paginated:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option_value'
+      required:
+      - data
+      - links
+      - meta
     personalized_feed_recipe:
       type: object
       properties:
@@ -406,6 +421,67 @@ components:
       required:
       - type
       - recipe
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    personalization-feed:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalized_feed_collection'
+      required:
+      - data
+    personalized_feed_collection:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - automated
+        automated:
+          type: object
+          properties:
+            title:
+              type: string
+            subtitle:
+              type: string
+            generated_at:
+              type: string
+              format: date-time
+            content_count:
+              type: number
+            content:
+              type: array
+              items:
+                oneOf:
+                - $ref: '#/components/schemas/personalized_feed_recipe'
+          required:
+          - title
+          - content
+          additionalProperties: false
+      required:
+      - automated
+      - type
     user_public:
       type: object
       properties:
@@ -452,6 +528,94 @@ components:
       - new_type
       - name
       - id
+    personalization_option_paginated:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option'
+      required:
+      - data
+      - links
+      - meta
+    personalization_body:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        onboarding_completed:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+    personalization:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        onboarding_completed:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+    personalization_preference:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        option:
+          $ref: '#/components/schemas/personalization_option'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option_value'
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+      required:
+      - option
+      - values
+    personalization_preference_paginated:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_preference'
+      required:
+      - data
+      - links
+      - meta
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
     personalization_option:
       type: object
       properties:
@@ -511,130 +675,6 @@ components:
           type: string
         is_hidden:
           type: boolean
-    personalization_body:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        onboarding_completed:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-    personalized_feed_collection:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - automated
-        automated:
-          type: object
-          properties:
-            title:
-              type: string
-            subtitle:
-              type: string
-            generated_at:
-              type: string
-              format: date-time
-            content_count:
-              type: number
-            content:
-              type: array
-              items:
-                oneOf:
-                - $ref: '#/components/schemas/personalized_feed_recipe'
-          required:
-          - title
-          - content
-          additionalProperties: false
-      required:
-      - automated
-      - type
-    personalization_option_value_paginated:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_option_value'
-      required:
-      - data
-      - links
-      - meta
-    personalization_option_paginated:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_option'
-      required:
-      - data
-      - links
-      - meta
-    personalization_preference_body:
-      type: object
-      properties:
-        option:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        values:
-          type: array
-          items:
-            type: string
-      required:
-      - option
-      - values
-    personalization_preference_paginated:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_preference'
-      required:
-      - data
-      - links
-      - meta
-    personalization_preference:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        option:
-          $ref: '#/components/schemas/personalization_option'
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_option_value'
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-      required:
-      - option
-      - values
     links:
       type: object
       properties:
@@ -654,15 +694,6 @@ components:
       - last
       - first
       additionalProperties: false
-    personalization-feed:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalized_feed_collection'
-      required:
-      - data
     personalization_option_value:
       type: object
       properties:
@@ -697,50 +728,6 @@ components:
           format: date-time
       required:
       - value
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
-    personalization:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        onboarding_completed:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
     meta:
       type: object
       properties:
@@ -761,6 +748,19 @@ components:
       required:
       - pagination
       additionalProperties: false
+    personalization_preference_body:
+      type: object
+      properties:
+        option:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        values:
+          type: array
+          items:
+            type: string
+      required:
+      - option
+      - values
   securitySchemes:
     bearerAuth:
       type: http

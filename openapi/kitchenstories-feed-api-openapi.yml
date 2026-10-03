@@ -75,444 +75,65 @@ paths:
                 $ref: '#/components/schemas/feed_reduced_pagination'
 components:
   schemas:
-    unit:
+    user_public_reduced:
       type: object
       properties:
         id:
           type: string
+        name:
+          type: string
+        slug:
+          type: string
         type:
           type: string
-        featured_order:
-          type: number
-        ingredient_pluralizable:
-          type: boolean
-        name:
-          type: object
-          properties:
-            one:
-              type: string
-            many:
-              type: string
-            rendered:
-              type: string
-          required:
-          - rendered
-          additionalProperties: false
+        new_type:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
       required:
       - id
       - name
-      - ingredient_pluralizable
-      - type
-    feed_recipe:
+      - slug
+    image:
       type: object
       properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    collection_shopping_tip:
+      type: object
+      properties:
+        title:
+          type: string
         type:
           type: string
-        recipe:
-          oneOf:
-          - $ref: '#/components/schemas/recipe_simplified'
-          - $ref: '#/components/schemas/recipe'
+        subtitle:
+          type: string
+        shopping_tip:
+          $ref: '#/components/schemas/article'
         hide_for_web:
           type: boolean
         hide_for_app:
           type: boolean
       required:
       - type
-      - recipe
-    publishing:
-      type: object
-      properties:
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        published:
-          type: string
-          format: date-time
-        state:
-          type: string
-      required:
-      - created
-      - updated
-      - state
-      additionalProperties: false
-    article:
-      type: object
-      properties:
-        id:
-          type: string
-        slug:
-          type: string
-        title:
-          type: string
-        subtitle:
-          type: string
-        type:
-          type: string
-        content_id:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        author:
-          $ref: '#/components/schemas/user_public'
-        url:
-          type: string
-          format: uri
-        publishing:
-          $ref: '#/components/schemas/publishing'
-        user_reactions:
-          type: object
-          properties:
-            comments_count:
-              type: number
-            images_count:
-              type: number
-            like_count:
-              type: number
-            quality:
-              type: number
-          required:
-          - comments_count
-          - images_count
-          - like_count
-          - quality
-        content:
-          type: array
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/article_headline'
-            - $ref: '#/components/schemas/article_quote'
-            - $ref: '#/components/schemas/article_text'
-            - $ref: '#/components/schemas/article_recipes'
-            - $ref: '#/components/schemas/article_shopping_tips'
-            - $ref: '#/components/schemas/article_image_gallery'
-            - $ref: '#/components/schemas/article_video'
-            - $ref: '#/components/schemas/content_meta_carousel'
-            - $ref: '#/components/schemas/article_proscons'
-            - $ref: '#/components/schemas/article_cta_button'
-        meta:
-          $ref: '#/components/schemas/wagtail_meta'
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/tag'
-        content_meta:
-          type: array
-          items:
-            $ref: '#/components/schemas/content_meta'
-        categories:
-          type: object
-          properties:
-            main:
-              $ref: '#/components/schemas/category_simplified'
-            additional:
-              type: array
-              items:
-                $ref: '#/components/schemas/category_simplified'
-      required:
-      - content_id
-      - type
-      - publishing
+      - shopping_tip
       - title
-      - content
-      - slug
-      - url
-      - subtitle
-      - meta
-      - user_reactions
-      - author
-      - id
-      - image
-    content_meta_carousel:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        content_meta_carousel:
-          type: array
-          items:
-            $ref: '#/components/schemas/content_meta'
-      required:
-      - type
-      - content_meta_carousel
-    content_meta_external_link:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-      required:
-      - url
-    author:
-      type: object
-      properties:
-        type:
-          type: string
-        author:
-          $ref: '#/components/schemas/user_public'
-      required:
-      - author
-      - type
-    feed_collection_reduced:
-      type: object
-      properties:
-        type:
-          type: string
-        collection:
-          type: object
-          properties:
-            title:
-              type: string
-            content:
-              type: array
-              items:
-                oneOf:
-                - $ref: '#/components/schemas/collection_article_reduced'
-                - $ref: '#/components/schemas/collection_recipe_reduced'
-                - $ref: '#/components/schemas/collection_shopping_tip_reduced'
-                - $ref: '#/components/schemas/collection_category'
-            hide_for_web:
-              type: boolean
-            hide_for_app:
-              type: boolean
-          required:
-          - title
-          - content
-          additionalProperties: false
-      required:
-      - type
-      - collection
-    youtube_player:
-      type: object
-      properties:
-        type:
-          type: string
-        youtube_video_player:
-          type: object
-          properties:
-            title:
-              type: string
-            subtitle:
-              type: string
-            remote_id:
-              type: string
-            remote_id_type:
-              type: string
-            hide_for_web:
-              type: boolean
-            hide_for_app:
-              type: boolean
-          required:
-          - remote_id_type
-          - title
-          - remote_id
-          additionalProperties: false
-      required:
-      - type
-      - youtube_video_player
-    feed_automated_reduced:
-      type: object
-      properties:
-        type:
-          type: string
-        automated:
-          type: object
-          properties:
-            title:
-              type: string
-            content:
-              type: array
-              items:
-                oneOf:
-                - $ref: '#/components/schemas/feed_article_reduced'
-                - $ref: '#/components/schemas/feed_recipe_reduced'
-            tabs:
-              type: array
-              items:
-                type: string
-            search:
-              type: object
-              properties:
-                filters:
-                  type: string
-                index:
-                  type: string
-                query:
-                  type: string
-              required:
-              - filters
-              - index
-              additionalProperties: false
-            hide_for_web:
-              type: boolean
-            hide_for_app:
-              type: boolean
-          required:
-          - title
-          - content
-          - search
-          additionalProperties: false
-      required:
-      - automated
-      - type
-    poll_vote:
-      type: object
-      properties:
-        id:
-          type: string
-        text:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        votes:
-          type: number
-      required:
-      - id
-      - votes
-      - text
-    video:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        content_id:
-          type: string
-        remote_id:
-          type: string
-        url:
-          type: string
-          format: uri
-        recipe_url:
-          type: string
-          format: uri
-        width:
-          type: number
-        height:
-          type: number
-        duration:
-          type: number
-        image:
-          $ref: '#/components/schemas/image'
-        meta:
-          $ref: '#/components/schemas/wagtail_meta'
-        publishing:
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-            updated:
-              type: string
-              format: date-time
-            published:
-              type: string
-              format: date-time
-            state:
-              type: string
-            playback-state:
-              type: string
-              enum:
-              - not-playable
-              - processing
-              - ready
-          required:
-          - created
-          - updated
-          - state
-          - playback-state
-        user_reactions:
-          type: object
-          properties:
-            view_count:
-              type: number
-          required:
-          - view_count
-      required:
-      - content_id
-      - duration
-      - title
-      - id
-      - slug
-      - meta
-    feed_author_carousel:
-      type: object
-      properties:
-        type:
-          type: string
-        author_carousel:
-          $ref: '#/components/schemas/author_carousel'
-      required:
-      - type
-      - author_carousel
-    article_recipes:
-      type: object
-      properties:
-        type:
-          type: string
-        recipes:
-          type: object
-          properties:
-            recipes:
-              type: array
-              items:
-                $ref: '#/components/schemas/recipe_simplified'
-          required:
-          - recipes
-      required:
-      - recipes
-      - type
-    legacy_unit:
-      type: object
-      properties:
-        id:
-          type: string
-        ingredient_pluralizable:
-          type: boolean
-        name:
-          type: object
-          properties:
-            rendered:
-              type: string
-            one:
-              type: string
-            many:
-              type: string
-          required:
-          - rendered
-          additionalProperties: false
-      required:
-      - name
-    poll:
-      type: object
-      properties:
-        id:
-          type: string
-        content_id:
-          type: string
-        question:
-          type: string
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/poll_vote'
-        total_votes:
-          type: number
-      required:
-      - total_votes
-      - content_id
-      - id
-      - options
-      - question
     feed_automated:
       type: object
       properties:
@@ -558,6 +179,651 @@ components:
       required:
       - automated
       - type
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
+    recipe_ingredient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        measurement:
+          type: object
+          properties:
+            imperial:
+              type: object
+              properties:
+                amount:
+                  type: number
+                unit:
+                  oneOf:
+                  - $ref: '#/components/schemas/legacy_unit'
+                  - $ref: '#/components/schemas/unit'
+              additionalProperties: false
+            metric:
+              type: object
+              properties:
+                amount:
+                  type: number
+                unit:
+                  oneOf:
+                  - $ref: '#/components/schemas/legacy_unit'
+                  - $ref: '#/components/schemas/unit'
+              additionalProperties: false
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        is_divided:
+          type: boolean
+        is_partner:
+          type: boolean
+        is_searcheable:
+          type: boolean
+        url:
+          type: string
+      required:
+      - name
+    user_public:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+      required:
+      - type
+      - new_type
+      - name
+      - id
+    author_reduced:
+      type: object
+      properties:
+        type:
+          type: string
+        author:
+          $ref: '#/components/schemas/user_public_reduced'
+      required:
+      - author
+      - type
+    feed_collection_reduced:
+      type: object
+      properties:
+        type:
+          type: string
+        collection:
+          type: object
+          properties:
+            title:
+              type: string
+            content:
+              type: array
+              items:
+                oneOf:
+                - $ref: '#/components/schemas/collection_article_reduced'
+                - $ref: '#/components/schemas/collection_recipe_reduced'
+                - $ref: '#/components/schemas/collection_shopping_tip_reduced'
+                - $ref: '#/components/schemas/collection_category'
+            hide_for_web:
+              type: boolean
+            hide_for_app:
+              type: boolean
+          required:
+          - title
+          - content
+          additionalProperties: false
+      required:
+      - type
+      - collection
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
+    tag:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        is_hidden:
+          type: boolean
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    feed_link:
+      type: object
+      properties:
+        type:
+          type: string
+        link_module:
+          type: object
+          properties:
+            title:
+              type: string
+            link:
+              type: string
+            image:
+              $ref: '#/components/schemas/image'
+            image_dark_mode:
+              $ref: '#/components/schemas/image'
+            hide_for_premium:
+              type: boolean
+            hide_for_web:
+              type: boolean
+            hide_for_app:
+              type: boolean
+          required:
+          - image
+          - link
+          - title
+          additionalProperties: false
+      required:
+      - type
+      - link_module
+    article_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        publishing:
+          $ref: '#/components/schemas/publishing'
+        user_reactions:
+          type: object
+          properties:
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+      required:
+      - content_id
+      - type
+      - publishing
+      - title
+      - slug
+      - url
+      - subtitle
+      - user_reactions
+      - author
+      - id
+      - image
+    search_category:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        content_id:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        icon:
+          $ref: '#/components/schemas/image'
+        description:
+          type: string
+        search:
+          type: object
+          properties:
+            query:
+              type: string
+            filters:
+              type: string
+            index:
+              type: string
+        url:
+          type: string
+          format: uri
+        publishing:
+          $ref: '#/components/schemas/publishing'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+      required:
+      - content_id
+      - publishing
+      - title
+      - url
+      - slug
+      - meta
+      - description
+      - id
+      - image
+      - icon
+    feed_player_reduced:
+      type: object
+      properties:
+        type:
+          type: string
+        player:
+          type: object
+          properties:
+            title:
+              type: string
+            video_title:
+              type: string
+            video:
+              $ref: '#/components/schemas/video'
+            recipe:
+              $ref: '#/components/schemas/recipe_reduced'
+            hide_for_web:
+              type: boolean
+            hide_for_app:
+              type: boolean
+          required:
+          - video_title
+          - video
+          - title
+          additionalProperties: false
+      required:
+      - player
+      - type
+    article_recipes:
+      type: object
+      properties:
+        type:
+          type: string
+        recipes:
+          type: object
+          properties:
+            recipes:
+              type: array
+              items:
+                $ref: '#/components/schemas/recipe_simplified'
+          required:
+          - recipes
+      required:
+      - recipes
+      - type
+    article_headline:
+      type: object
+      properties:
+        type:
+          type: string
+        headline:
+          type: object
+          properties:
+            level:
+              type: number
+            text:
+              type: string
+          required:
+          - level
+          - text
+      required:
+      - type
+      - headline
+      additionalProperties: false
+    article_cta_button:
+      type: object
+      properties:
+        type:
+          type: string
+        cta_button:
+          type: object
+          properties:
+            text:
+              type: string
+            link:
+              type: string
+          required:
+          - text
+          - link
+      required:
+      - cta_button
+      - type
+    path_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+      required:
+      - id
+      - slug
+      - title
+    article_video:
+      type: object
+      properties:
+        type:
+          type: string
+        video:
+          type: object
+          properties:
+            video:
+              $ref: '#/components/schemas/video'
+            subtitle:
+              type: string
+          required:
+          - video
+      required:
+      - type
+      - video
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
+    categories_collection:
+      type: object
+      properties:
+        type:
+          type: string
+        categories_collection:
+          type: object
+          properties:
+            title:
+              type: string
+            content:
+              type: array
+              items:
+                $ref: '#/components/schemas/collection_category'
+          required:
+          - title
+          - content
+          additionalProperties: false
+      required:
+      - categories_collection
+      - type
+    recipe_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        content_id:
+          type: string
+        difficulty:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        author:
+          $ref: '#/components/schemas/user_public'
+        url:
+          type: string
+          format: uri
+        duration:
+          type:
+          - object
+          - 'null'
+          properties:
+            preparation:
+              type: number
+            baking:
+              type: number
+            resting:
+              type: number
+          required:
+          - preparation
+          - resting
+          - baking
+        user_reactions:
+          type: object
+          properties:
+            rating:
+              type: number
+            rating_count:
+              type: number
+            images:
+              type: array
+              items:
+                $ref: '#/components/schemas/comment_image'
+              maxItems: 4
+            comments_count:
+              type: number
+            images_count:
+              type: number
+            like_count:
+              type: number
+            quality:
+              type: number
+          required:
+          - comments_count
+          - images_count
+          - like_count
+          - quality
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+              enum:
+              - draft
+              - submitted
+              - rejected
+              - live
+              - expired
+              - scheduled
+          required:
+          - created
+          - updated
+          - state
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
+      required:
+      - content_id
+      - type
+      - publishing
+      - title
+      - slug
+      - url
+      - user_reactions
+      - author
+      - id
+    poll_vote:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        votes:
+          type: number
+      required:
+      - id
+      - votes
+      - text
+    article_quote:
+      type: object
+      properties:
+        type:
+          type: string
+        quote:
+          type: object
+          properties:
+            text:
+              type: string
+            author:
+              type: string
+          required:
+          - text
+      required:
+      - type
+      - quote
+      additionalProperties: false
+    feed_author_carousel_reduced:
+      type: object
+      properties:
+        type:
+          type: string
+        author_carousel:
+          $ref: '#/components/schemas/author_carousel_reduced'
+      required:
+      - type
+      - author_carousel
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
     recipe_reduced:
       type: object
       properties:
@@ -638,6 +904,20 @@ components:
       - user_reactions
       - author
       - id
+    feed_article_reduced:
+      type: object
+      properties:
+        type:
+          type: string
+        article:
+          $ref: '#/components/schemas/article_reduced'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
+      required:
+      - type
+      - article
     meta:
       type: object
       properties:
@@ -658,80 +938,44 @@ components:
       required:
       - pagination
       additionalProperties: false
-    feed_reduced_pagination:
+    comment_image:
       type: object
       properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/feed_collection_reduced'
-            - $ref: '#/components/schemas/feed_automated_reduced'
-            - $ref: '#/components/schemas/feed_player_reduced'
-            - $ref: '#/components/schemas/feed_voting'
-            - $ref: '#/components/schemas/feed_author_carousel_reduced'
-            - $ref: '#/components/schemas/feed_link'
-            - $ref: '#/components/schemas/youtube_player'
-            - $ref: '#/components/schemas/categories_collection'
-            - $ref: '#/components/schemas/link_collection'
+        comment:
+          type: string
+        author:
+          $ref: '#/components/schemas/user_public'
+        original_location:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        created:
+          type: string
+          format: date-time
       required:
-      - data
-      - links
-      - meta
-    feed_recipe_reduced:
+      - author
+      - created
+      - image
+      - original_location
+      - comment
+    feed_voting:
       type: object
       properties:
         type:
           type: string
-        recipe:
-          $ref: '#/components/schemas/recipe_reduced'
-        hide_for_web:
-          type: boolean
-        hide_for_app:
-          type: boolean
-      required:
-      - type
-      - recipe
-    collection_category:
-      type: object
-      properties:
-        title:
-          type: string
-        type:
-          type: string
-        subtitle:
-          type: string
-        featured_search:
-          $ref: '#/components/schemas/search_category'
-      required:
-      - featured_search
-      - type
-      - title
-    categories_collection:
-      type: object
-      properties:
-        type:
-          type: string
-        categories_collection:
+        voting:
           type: object
           properties:
             title:
               type: string
-            content:
-              type: array
-              items:
-                $ref: '#/components/schemas/collection_category'
+            poll:
+              $ref: '#/components/schemas/poll'
           required:
-          - title
-          - content
+          - poll
           additionalProperties: false
       required:
-      - categories_collection
       - type
+      - voting
     feed_pagination:
       type: object
       properties:
@@ -756,320 +1000,6 @@ components:
       - data
       - links
       - meta
-    recipe_utensil:
-      type: object
-      properties:
-        id:
-          type: string
-        amount:
-          type: number
-        name:
-          type: object
-          properties:
-            rendered:
-              type: string
-            one:
-              type: string
-            many:
-              type: string
-          required:
-          - rendered
-          additionalProperties: false
-        characteristic:
-          $ref: '#/components/schemas/characteristic'
-        additional_information:
-          $ref: '#/components/schemas/additional_information'
-        size:
-          $ref: '#/components/schemas/size'
-      required:
-      - name
-    collection_article_reduced:
-      type: object
-      properties:
-        title:
-          type: string
-        type:
-          type: string
-        subtitle:
-          type: string
-        article:
-          $ref: '#/components/schemas/article_reduced'
-        hide_for_web:
-          type: boolean
-        hide_for_app:
-          type: boolean
-      required:
-      - type
-      - title
-      - article
-      - subtitle
-    content_meta_markdown:
-      type: object
-      properties:
-        markdown:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - markdown
-    step:
-      type: object
-      properties:
-        headline:
-          type: string
-        text:
-          type: string
-        tip:
-          type: object
-          properties:
-            title:
-              type: string
-            description:
-              type: string
-            video:
-              $ref: '#/components/schemas/video'
-          required:
-          - description
-          - title
-        image:
-          $ref: '#/components/schemas/image'
-        video:
-          $ref: '#/components/schemas/video'
-        utensils:
-          type: array
-          items:
-            $ref: '#/components/schemas/recipe_utensil'
-        ingredients:
-          type: array
-          items:
-            $ref: '#/components/schemas/recipe_ingredient'
-      required:
-      - text
-    feed_voting:
-      type: object
-      properties:
-        type:
-          type: string
-        voting:
-          type: object
-          properties:
-            title:
-              type: string
-            poll:
-              $ref: '#/components/schemas/poll'
-          required:
-          - poll
-          additionalProperties: false
-      required:
-      - type
-      - voting
-    article_text:
-      type: object
-      properties:
-        type:
-          type: string
-        text:
-          type: object
-          properties:
-            text:
-              type: string
-          required:
-          - text
-      required:
-      - text
-      - type
-      additionalProperties: false
-    collection_recipe_reduced:
-      type: object
-      properties:
-        title:
-          type: string
-        subtitle:
-          type: string
-        type:
-          type: string
-        recipe:
-          $ref: '#/components/schemas/recipe_reduced'
-        hide_for_web:
-          type: boolean
-        hide_for_app:
-          type: boolean
-      required:
-      - type
-      - title
-      - recipe
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
-    content_meta:
-      type: object
-      properties:
-        key:
-          type: string
-        type:
-          type: string
-        value:
-          oneOf:
-          - $ref: '#/components/schemas/content_meta_external_link'
-          - $ref: '#/components/schemas/content_meta_external_product'
-          - $ref: '#/components/schemas/content_meta_faq'
-          - $ref: '#/components/schemas/content_meta_markdown'
-        campaign:
-          type: string
-        language:
-          type: string
-      required:
-      - type
-      - key
-      - uuid
-    feed_collection:
-      type: object
-      properties:
-        type:
-          type: string
-        collection:
-          type: object
-          properties:
-            title:
-              type: string
-            content:
-              type: array
-              items:
-                oneOf:
-                - $ref: '#/components/schemas/collection_article'
-                - $ref: '#/components/schemas/collection_recipe'
-                - $ref: '#/components/schemas/collection_category'
-                - $ref: '#/components/schemas/collection_shopping_tip'
-            hide_for_web:
-              type: boolean
-            hide_for_app:
-              type: boolean
-          required:
-          - title
-          - content
-          additionalProperties: false
-      required:
-      - type
-      - collection
-    feed_player:
-      type: object
-      properties:
-        type:
-          type: string
-        player:
-          type: object
-          properties:
-            title:
-              type: string
-            video_title:
-              type: string
-            video:
-              $ref: '#/components/schemas/video'
-            recipe:
-              $ref: '#/components/schemas/recipe'
-            hide_for_web:
-              type: boolean
-            hide_for_app:
-              type: boolean
-          required:
-          - video_title
-          - video
-          - title
-          additionalProperties: false
-      required:
-      - player
-      - type
-    comment_image:
-      type: object
-      properties:
-        comment:
-          type: string
-        author:
-          $ref: '#/components/schemas/user_public'
-        original_location:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        created:
-          type: string
-          format: date-time
-      required:
-      - author
-      - created
-      - image
-      - original_location
-      - comment
-    article_cta_button:
-      type: object
-      properties:
-        type:
-          type: string
-        cta_button:
-          type: object
-          properties:
-            text:
-              type: string
-            link:
-              type: string
-          required:
-          - text
-          - link
-      required:
-      - cta_button
-      - type
-    feed_article:
-      type: object
-      properties:
-        type:
-          type: string
-        article:
-          oneOf:
-          - $ref: '#/components/schemas/article_simplified'
-          - $ref: '#/components/schemas/article'
-        hide_for_web:
-          type: boolean
-        hide_for_app:
-          type: boolean
-      required:
-      - type
-      - article
-    user_public_reduced:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        new_type:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-      required:
-      - id
-      - name
-      - slug
     article_image_gallery:
       type: object
       properties:
@@ -1096,28 +1026,23 @@ components:
       required:
       - type
       - image_collection
-    category_simplified:
+    article_text:
       type: object
       properties:
-        id:
+        type:
           type: string
-        title:
-          type: string
-        slug:
-          type: string
-        path:
-          type: array
-          items:
-            $ref: '#/components/schemas/path_item'
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/child_item'
+        text:
+          type: object
+          properties:
+            text:
+              type: string
+          required:
+          - text
       required:
-      - slug
-      - title
-      - id
-    collection_shopping_tip_reduced:
+      - text
+      - type
+      additionalProperties: false
+    collection_category:
       type: object
       properties:
         title:
@@ -1126,30 +1051,12 @@ components:
           type: string
         subtitle:
           type: string
-        shopping_tip:
-          $ref: '#/components/schemas/article_reduced'
-        hide_for_web:
-          type: boolean
-        hide_for_app:
-          type: boolean
+        featured_search:
+          $ref: '#/components/schemas/search_category'
       required:
+      - featured_search
       - type
-      - shopping_tip
       - title
-    content_meta_faq:
-      type: object
-      properties:
-        question:
-          type: string
-          minLength: 1
-          maxLength: 500
-        answer:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - answer
-      - question
     recipe:
       type: object
       properties:
@@ -1323,174 +1230,13 @@ components:
       - servings
       - ingredients
       - id
-    collection_shopping_tip:
+    legacy_unit:
       type: object
       properties:
-        title:
+        id:
           type: string
-        type:
-          type: string
-        subtitle:
-          type: string
-        shopping_tip:
-          $ref: '#/components/schemas/article'
-        hide_for_web:
+        ingredient_pluralizable:
           type: boolean
-        hide_for_app:
-          type: boolean
-      required:
-      - type
-      - shopping_tip
-      - title
-    article_proscons:
-      type: object
-      properties:
-        type:
-          type: string
-        proscons:
-          type: object
-          properties:
-            pros_title:
-              type: string
-            pros:
-              type: string
-            cons_title:
-              type: string
-            cons:
-              type: string
-          required:
-          - pros
-          - pros_title
-          - cons
-          - cons_title
-      required:
-      - type
-      - proscons
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
-    child_item:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        path:
-          type: array
-          items:
-            $ref: '#/components/schemas/path_item'
-        slug:
-          type: string
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/child_item'
-      required:
-      - id
-      - slug
-      - title
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    search_category:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-        content_id:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        icon:
-          $ref: '#/components/schemas/image'
-        description:
-          type: string
-        search:
-          type: object
-          properties:
-            query:
-              type: string
-            filters:
-              type: string
-            index:
-              type: string
-        url:
-          type: string
-          format: uri
-        publishing:
-          $ref: '#/components/schemas/publishing'
-        meta:
-          $ref: '#/components/schemas/wagtail_meta'
-      required:
-      - content_id
-      - publishing
-      - title
-      - url
-      - slug
-      - meta
-      - description
-      - id
-      - image
-      - icon
-    additional_information:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    feed_article_reduced:
-      type: object
-      properties:
-        type:
-          type: string
-        article:
-          $ref: '#/components/schemas/article_reduced'
-        hide_for_web:
-          type: boolean
-        hide_for_app:
-          type: boolean
-      required:
-      - type
-      - article
-    recipe_ingredient:
-      type: object
-      properties:
-        id:
-          type: string
         name:
           type: object
           properties:
@@ -1503,61 +1249,56 @@ components:
           required:
           - rendered
           additionalProperties: false
-        measurement:
-          type: object
-          properties:
-            imperial:
-              type: object
-              properties:
-                amount:
-                  type: number
-                unit:
-                  oneOf:
-                  - $ref: '#/components/schemas/legacy_unit'
-                  - $ref: '#/components/schemas/unit'
-              additionalProperties: false
-            metric:
-              type: object
-              properties:
-                amount:
-                  type: number
-                unit:
-                  oneOf:
-                  - $ref: '#/components/schemas/legacy_unit'
-                  - $ref: '#/components/schemas/unit'
-              additionalProperties: false
-          additionalProperties: false
-        characteristic:
-          $ref: '#/components/schemas/characteristic'
-        additional_information:
-          $ref: '#/components/schemas/additional_information'
-        is_divided:
-          type: boolean
-        is_partner:
-          type: boolean
-        is_searcheable:
-          type: boolean
-        url:
-          type: string
       required:
       - name
-    article_quote:
+    unit:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        featured_order:
+          type: number
+        ingredient_pluralizable:
+          type: boolean
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+            rendered:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+      required:
+      - id
+      - name
+      - ingredient_pluralizable
+      - type
+    feed_author_carousel:
       type: object
       properties:
         type:
           type: string
-        quote:
-          type: object
-          properties:
-            text:
-              type: string
-            author:
-              type: string
-          required:
-          - text
+        author_carousel:
+          $ref: '#/components/schemas/author_carousel'
       required:
       - type
-      - quote
+      - author_carousel
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
       additionalProperties: false
     article_reduced:
       type: object
@@ -1601,36 +1342,199 @@ components:
       - author
       - id
       - image
-    article_video:
+    recipe_utensil:
+      type: object
+      properties:
+        id:
+          type: string
+        amount:
+          type: number
+        name:
+          type: object
+          properties:
+            rendered:
+              type: string
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - rendered
+          additionalProperties: false
+        characteristic:
+          $ref: '#/components/schemas/characteristic'
+        additional_information:
+          $ref: '#/components/schemas/additional_information'
+        size:
+          $ref: '#/components/schemas/size'
+      required:
+      - name
+    feed_automated_reduced:
       type: object
       properties:
         type:
           type: string
-        video:
+        automated:
           type: object
           properties:
+            title:
+              type: string
+            content:
+              type: array
+              items:
+                oneOf:
+                - $ref: '#/components/schemas/feed_article_reduced'
+                - $ref: '#/components/schemas/feed_recipe_reduced'
+            tabs:
+              type: array
+              items:
+                type: string
+            search:
+              type: object
+              properties:
+                filters:
+                  type: string
+                index:
+                  type: string
+                query:
+                  type: string
+              required:
+              - filters
+              - index
+              additionalProperties: false
+            hide_for_web:
+              type: boolean
+            hide_for_app:
+              type: boolean
+          required:
+          - title
+          - content
+          - search
+          additionalProperties: false
+      required:
+      - automated
+      - type
+    feed_player:
+      type: object
+      properties:
+        type:
+          type: string
+        player:
+          type: object
+          properties:
+            title:
+              type: string
+            video_title:
+              type: string
             video:
               $ref: '#/components/schemas/video'
-            subtitle:
-              type: string
+            recipe:
+              $ref: '#/components/schemas/recipe'
+            hide_for_web:
+              type: boolean
+            hide_for_app:
+              type: boolean
           required:
+          - video_title
           - video
+          - title
+          additionalProperties: false
       required:
+      - player
       - type
-      - video
-    collection_article:
+    author_carousel:
       type: object
       properties:
         title:
           type: string
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/author'
+      required:
+      - title
+      - content
+    video:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
         type:
+          type: string
+        content_id:
+          type: string
+        remote_id:
+          type: string
+        url:
+          type: string
+          format: uri
+        recipe_url:
+          type: string
+          format: uri
+        width:
+          type: number
+        height:
+          type: number
+        duration:
+          type: number
+        image:
+          $ref: '#/components/schemas/image'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        publishing:
+          type: object
+          properties:
+            created:
+              type: string
+              format: date-time
+            updated:
+              type: string
+              format: date-time
+            published:
+              type: string
+              format: date-time
+            state:
+              type: string
+            playback-state:
+              type: string
+              enum:
+              - not-playable
+              - processing
+              - ready
+          required:
+          - created
+          - updated
+          - state
+          - playback-state
+        user_reactions:
+          type: object
+          properties:
+            view_count:
+              type: number
+          required:
+          - view_count
+      required:
+      - content_id
+      - duration
+      - title
+      - id
+      - slug
+      - meta
+    collection_recipe_reduced:
+      type: object
+      properties:
+        title:
           type: string
         subtitle:
           type: string
-        article:
-          oneOf:
-          - $ref: '#/components/schemas/article_simplified'
-          - $ref: '#/components/schemas/article'
+        type:
+          type: string
+        recipe:
+          $ref: '#/components/schemas/recipe_reduced'
         hide_for_web:
           type: boolean
         hide_for_app:
@@ -1638,82 +1542,45 @@ components:
       required:
       - type
       - title
-      - article
-      - subtitle
-    link_collection:
+      - recipe
+    content_meta:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
+    article_shopping_tips:
       type: object
       properties:
         type:
           type: string
-        link_collection:
+        shopping_tips:
           type: object
           properties:
-            title:
-              type: string
-            sponsored:
-              type: boolean
-            content:
+            shopping_tips:
               type: array
               items:
-                $ref: '#/components/schemas/feed_link'
-            hide_for_web:
-              type: boolean
-            hide_for_app:
-              type: boolean
+                $ref: '#/components/schemas/article_simplified'
           required:
-          - sponsored
-          - title
-          - content
-          additionalProperties: false
-      required:
-      - link_collection
-      - type
-    user_public:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-        new_type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-          - partner
-          - external
-        name:
-          type: string
-        slug:
-          type: string
-        occupation:
-          type: string
-        description:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
-        wide_banner_image:
-          $ref: '#/components/schemas/image'
-        website:
-          type: string
-          format: uri
-        is_premium:
-          type: boolean
-        created:
-          type: string
-          format: date-time
+          - shopping_tips
       required:
       - type
-      - new_type
-      - name
-      - id
+      - shopping_tips
     size:
       type: object
       properties:
@@ -1728,30 +1595,35 @@ components:
       required:
       - id
       additionalProperties: false
-    tag:
+    content_meta_carousel:
       type: object
       properties:
-        id:
+        type:
           type: string
         title:
           type: string
-        slug:
-          type: string
-        type:
-          type: string
-        is_hidden:
-          type: boolean
-    author_reduced:
+        content_meta_carousel:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+      required:
+      - type
+      - content_meta_carousel
+    feed_recipe_reduced:
       type: object
       properties:
         type:
           type: string
-        author:
-          $ref: '#/components/schemas/user_public_reduced'
+        recipe:
+          $ref: '#/components/schemas/recipe_reduced'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
       required:
-      - author
       - type
-    article_simplified:
+      - recipe
+    article:
       type: object
       properties:
         id:
@@ -1791,18 +1663,120 @@ components:
           - images_count
           - like_count
           - quality
+        content:
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/article_headline'
+            - $ref: '#/components/schemas/article_quote'
+            - $ref: '#/components/schemas/article_text'
+            - $ref: '#/components/schemas/article_recipes'
+            - $ref: '#/components/schemas/article_shopping_tips'
+            - $ref: '#/components/schemas/article_image_gallery'
+            - $ref: '#/components/schemas/article_video'
+            - $ref: '#/components/schemas/content_meta_carousel'
+            - $ref: '#/components/schemas/article_proscons'
+            - $ref: '#/components/schemas/article_cta_button'
+        meta:
+          $ref: '#/components/schemas/wagtail_meta'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/tag'
+        content_meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+        categories:
+          type: object
+          properties:
+            main:
+              $ref: '#/components/schemas/category_simplified'
+            additional:
+              type: array
+              items:
+                $ref: '#/components/schemas/category_simplified'
       required:
       - content_id
       - type
       - publishing
       - title
+      - content
       - slug
       - url
       - subtitle
+      - meta
       - user_reactions
       - author
       - id
       - image
+    feed_recipe:
+      type: object
+      properties:
+        type:
+          type: string
+        recipe:
+          oneOf:
+          - $ref: '#/components/schemas/recipe_simplified'
+          - $ref: '#/components/schemas/recipe'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
+      required:
+      - type
+      - recipe
+    poll:
+      type: object
+      properties:
+        id:
+          type: string
+        content_id:
+          type: string
+        question:
+          type: string
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/poll_vote'
+        total_votes:
+          type: number
+      required:
+      - total_votes
+      - content_id
+      - id
+      - options
+      - question
+    collection_article:
+      type: object
+      properties:
+        title:
+          type: string
+        type:
+          type: string
+        subtitle:
+          type: string
+        article:
+          oneOf:
+          - $ref: '#/components/schemas/article_simplified'
+          - $ref: '#/components/schemas/article'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
+      required:
+      - type
+      - title
+      - article
+      - subtitle
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
     collection_recipe:
       type: object
       properties:
@@ -1824,242 +1798,309 @@ components:
       - type
       - title
       - recipe
-    content_meta_external_product:
-      type: object
-      properties:
-        title:
-          type: string
-          minLength: 1
-          maxLength: 37
-        subtitle:
-          type: string
-          maxLength: 25
-        image:
-          type: string
-          format: uri
-        cta:
-          type: string
-          maxLength: 20
-        url:
-          type: string
-          format: uri
-      required:
-      - image
-      - url
-      - title
-    recipe_simplified:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        content_id:
-          type: string
-        difficulty:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        author:
-          $ref: '#/components/schemas/user_public'
-        url:
-          type: string
-          format: uri
-        duration:
-          type:
-          - object
-          - 'null'
-          properties:
-            preparation:
-              type: number
-            baking:
-              type: number
-            resting:
-              type: number
-          required:
-          - preparation
-          - resting
-          - baking
-        user_reactions:
-          type: object
-          properties:
-            rating:
-              type: number
-            rating_count:
-              type: number
-            images:
-              type: array
-              items:
-                $ref: '#/components/schemas/comment_image'
-              maxItems: 4
-            comments_count:
-              type: number
-            images_count:
-              type: number
-            like_count:
-              type: number
-            quality:
-              type: number
-          required:
-          - comments_count
-          - images_count
-          - like_count
-          - quality
-        publishing:
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-            updated:
-              type: string
-              format: date-time
-            published:
-              type: string
-              format: date-time
-            state:
-              type: string
-              enum:
-              - draft
-              - submitted
-              - rejected
-              - live
-              - expired
-              - scheduled
-          required:
-          - created
-          - updated
-          - state
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/tag'
-      required:
-      - content_id
-      - type
-      - publishing
-      - title
-      - slug
-      - url
-      - user_reactions
-      - author
-      - id
-    path_item:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-      required:
-      - id
-      - slug
-      - title
-    feed_player_reduced:
+    feed_collection:
       type: object
       properties:
         type:
           type: string
-        player:
+        collection:
           type: object
           properties:
             title:
               type: string
-            video_title:
+            content:
+              type: array
+              items:
+                oneOf:
+                - $ref: '#/components/schemas/collection_article'
+                - $ref: '#/components/schemas/collection_recipe'
+                - $ref: '#/components/schemas/collection_category'
+                - $ref: '#/components/schemas/collection_shopping_tip'
+            hide_for_web:
+              type: boolean
+            hide_for_app:
+              type: boolean
+          required:
+          - title
+          - content
+          additionalProperties: false
+      required:
+      - type
+      - collection
+    step:
+      type: object
+      properties:
+        headline:
+          type: string
+        text:
+          type: string
+        tip:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
               type: string
             video:
               $ref: '#/components/schemas/video'
-            recipe:
-              $ref: '#/components/schemas/recipe_reduced'
-            hide_for_web:
-              type: boolean
-            hide_for_app:
-              type: boolean
           required:
-          - video_title
-          - video
+          - description
           - title
-          additionalProperties: false
-      required:
-      - player
-      - type
-    author_carousel:
-      type: object
-      properties:
-        title:
-          type: string
-        content:
+        image:
+          $ref: '#/components/schemas/image'
+        video:
+          $ref: '#/components/schemas/video'
+        utensils:
           type: array
           items:
-            $ref: '#/components/schemas/author'
+            $ref: '#/components/schemas/recipe_utensil'
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipe_ingredient'
       required:
-      - title
-      - content
-    article_headline:
+      - text
+    author:
       type: object
       properties:
         type:
           type: string
-        headline:
-          type: object
-          properties:
-            level:
-              type: number
-            text:
-              type: string
-          required:
-          - level
-          - text
+        author:
+          $ref: '#/components/schemas/user_public'
       required:
+      - author
       - type
-      - headline
+    feed_reduced_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/feed_collection_reduced'
+            - $ref: '#/components/schemas/feed_automated_reduced'
+            - $ref: '#/components/schemas/feed_player_reduced'
+            - $ref: '#/components/schemas/feed_voting'
+            - $ref: '#/components/schemas/feed_author_carousel_reduced'
+            - $ref: '#/components/schemas/feed_link'
+            - $ref: '#/components/schemas/youtube_player'
+            - $ref: '#/components/schemas/categories_collection'
+            - $ref: '#/components/schemas/link_collection'
+      required:
+      - data
+      - links
+      - meta
+    publishing:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        state:
+          type: string
+      required:
+      - created
+      - updated
+      - state
       additionalProperties: false
-    feed_link:
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    link_collection:
       type: object
       properties:
         type:
           type: string
-        link_module:
+        link_collection:
           type: object
           properties:
             title:
               type: string
-            link:
-              type: string
-            image:
-              $ref: '#/components/schemas/image'
-            image_dark_mode:
-              $ref: '#/components/schemas/image'
-            hide_for_premium:
+            sponsored:
               type: boolean
+            content:
+              type: array
+              items:
+                $ref: '#/components/schemas/feed_link'
             hide_for_web:
               type: boolean
             hide_for_app:
               type: boolean
           required:
-          - image
-          - link
+          - sponsored
           - title
+          - content
           additionalProperties: false
       required:
+      - link_collection
       - type
-      - link_module
-    feed_author_carousel_reduced:
+    youtube_player:
       type: object
       properties:
         type:
           type: string
-        author_carousel:
-          $ref: '#/components/schemas/author_carousel_reduced'
+        youtube_video_player:
+          type: object
+          properties:
+            title:
+              type: string
+            subtitle:
+              type: string
+            remote_id:
+              type: string
+            remote_id_type:
+              type: string
+            hide_for_web:
+              type: boolean
+            hide_for_app:
+              type: boolean
+          required:
+          - remote_id_type
+          - title
+          - remote_id
+          additionalProperties: false
       required:
       - type
-      - author_carousel
+      - youtube_video_player
+    category_simplified:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - slug
+      - title
+      - id
+    feed_article:
+      type: object
+      properties:
+        type:
+          type: string
+        article:
+          oneOf:
+          - $ref: '#/components/schemas/article_simplified'
+          - $ref: '#/components/schemas/article'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
+      required:
+      - type
+      - article
+    collection_article_reduced:
+      type: object
+      properties:
+        title:
+          type: string
+        type:
+          type: string
+        subtitle:
+          type: string
+        article:
+          $ref: '#/components/schemas/article_reduced'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
+      required:
+      - type
+      - title
+      - article
+      - subtitle
+    collection_shopping_tip_reduced:
+      type: object
+      properties:
+        title:
+          type: string
+        type:
+          type: string
+        subtitle:
+          type: string
+        shopping_tip:
+          $ref: '#/components/schemas/article_reduced'
+        hide_for_web:
+          type: boolean
+        hide_for_app:
+          type: boolean
+      required:
+      - type
+      - shopping_tip
+      - title
+    child_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/path_item'
+        slug:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/child_item'
+      required:
+      - id
+      - slug
+      - title
+    article_proscons:
+      type: object
+      properties:
+        type:
+          type: string
+        proscons:
+          type: object
+          properties:
+            pros_title:
+              type: string
+            pros:
+              type: string
+            cons_title:
+              type: string
+            cons:
+              type: string
+          required:
+          - pros
+          - pros_title
+          - cons
+          - cons_title
+      required:
+      - type
+      - proscons
     author_carousel_reduced:
       type: object
       properties:
@@ -2072,47 +2113,6 @@ components:
       required:
       - title
       - content
-    wagtail_meta:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        hreflang:
-          type: object
-          properties:
-            en:
-              type: string
-              format: uri
-            de:
-              type: string
-              format: uri
-            zh:
-              type: string
-              format: uri
-          required:
-          - en
-      required:
-      - hreflang
-      additionalProperties: false
-    article_shopping_tips:
-      type: object
-      properties:
-        type:
-          type: string
-        shopping_tips:
-          type: object
-          properties:
-            shopping_tips:
-              type: array
-              items:
-                $ref: '#/components/schemas/article_simplified'
-          required:
-          - shopping_tips
-      required:
-      - type
-      - shopping_tips
   securitySchemes:
     bearerAuth:
       type: http

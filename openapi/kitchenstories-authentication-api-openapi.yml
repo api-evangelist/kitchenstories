@@ -275,49 +275,6 @@ paths:
                 - $ref: '#/components/schemas/installation'
 components:
   schemas:
-    user_token:
-      type: object
-      properties:
-        user_token:
-          type: string
-        is_new:
-          type: boolean
-      required:
-      - is_new
-      - user_token
-    facebook_auth:
-      type: object
-      properties:
-        facebook_token:
-          type: string
-        installation_id:
-          type: string
-        is_new:
-          type: boolean
-      required:
-      - facebook_token
-      - installation_id
-    errors:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
-    google_auth:
-      type: object
-      properties:
-        google_token:
-          type: string
-        installation_id:
-          type: string
-        is_new:
-          type: boolean
-      required:
-      - google_token
-      - installation_id
     apple_auth:
       type: object
       properties:
@@ -332,6 +289,18 @@ components:
       required:
       - name
       - apple_token
+      - installation_id
+    google_auth:
+      type: object
+      properties:
+        google_token:
+          type: string
+        installation_id:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - google_token
       - installation_id
     installation:
       type: object
@@ -375,6 +344,49 @@ components:
           type: boolean
       required:
       - id
+    facebook_auth:
+      type: object
+      properties:
+        facebook_token:
+          type: string
+        installation_id:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - facebook_token
+      - installation_id
+    email_auth:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        installation_id:
+          type: string
+        token_type:
+          type: string
+      required:
+      - email
+      - password
+    access_token:
+      type: object
+      properties:
+        access_token:
+          type: string
+      required:
+      - access_token
+    user_token:
+      type: object
+      properties:
+        user_token:
+          type: string
+        is_new:
+          type: boolean
+      required:
+      - is_new
+      - user_token
     email_registration:
       type: object
       properties:
@@ -402,6 +414,15 @@ components:
           type: string
       required:
       - email
+    errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
     create_installation:
       type: object
       properties:
@@ -444,27 +465,6 @@ components:
           type: boolean
       required:
       - id
-    email_auth:
-      type: object
-      properties:
-        email:
-          type: string
-        password:
-          type: string
-        installation_id:
-          type: string
-        token_type:
-          type: string
-      required:
-      - email
-      - password
-    access_token:
-      type: object
-      properties:
-        access_token:
-          type: string
-      required:
-      - access_token
   securitySchemes:
     bearerAuth:
       type: http

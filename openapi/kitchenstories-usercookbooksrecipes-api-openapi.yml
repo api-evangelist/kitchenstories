@@ -128,6 +128,13 @@ paths:
           description: NotFound. When Cookbook does not exists
 components:
   schemas:
+    cookbook_update_json:
+      type: object
+      properties:
+        id:
+          type: string
+      required:
+      - id
     form_response:
       type: object
       properties:
@@ -137,13 +144,6 @@ components:
             type: string
       required:
       - errors
-    cookbook_update_json:
-      type: object
-      properties:
-        id:
-          type: string
-      required:
-      - id
   securitySchemes:
     bearerAuth:
       type: http

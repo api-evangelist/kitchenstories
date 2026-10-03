@@ -152,6 +152,27 @@ components:
       - data
       - links
       - meta
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
     video:
       type: object
       properties:
@@ -222,25 +243,6 @@ components:
       - id
       - slug
       - meta
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
     wagtail_meta:
       type: object
       properties:
@@ -265,26 +267,24 @@ components:
       required:
       - hreflang
       additionalProperties: false
-    image:
+    links:
       type: object
       properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
+        first:
           type: string
           format: uri
-        source:
+        last:
           type: string
-        source_link:
+          format: uri
+        next:
           type: string
-        width:
-          type: number
-        height:
-          type: number
+          format: uri
+        prev:
+          type: string
+          format: uri
       required:
-      - url
+      - last
+      - first
       additionalProperties: false
     meta:
       type: object

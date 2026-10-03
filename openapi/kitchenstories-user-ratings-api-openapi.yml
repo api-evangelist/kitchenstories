@@ -91,13 +91,6 @@ paths:
           description: NotFound. When user feed-item does not exists
 components:
   schemas:
-    rating_add_json:
-      type: object
-      properties:
-        rating:
-          type: number
-      required:
-      - rating
     rating_pagination:
       type: object
       properties:
@@ -113,6 +106,22 @@ components:
       - data
       - links
       - meta
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    rating_add_json:
+      type: object
+      properties:
+        rating:
+          type: number
+      required:
+      - rating
     links:
       type: object
       properties:
@@ -132,29 +141,6 @@ components:
       - last
       - first
       additionalProperties: false
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
-    rating:
-      type: object
-      properties:
-        id:
-          type: string
-        rating:
-          type: number
-          maximum: 1
-        feed_item:
-          type: string
-      required:
-      - id
-      - rating
-      - feed_item
     meta:
       type: object
       properties:
@@ -175,6 +161,20 @@ components:
       required:
       - pagination
       additionalProperties: false
+    rating:
+      type: object
+      properties:
+        id:
+          type: string
+        rating:
+          type: number
+          maximum: 1
+        feed_item:
+          type: string
+      required:
+      - id
+      - rating
+      - feed_item
   securitySchemes:
     bearerAuth:
       type: http

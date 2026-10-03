@@ -98,6 +98,27 @@ paths:
           description: Forbidden. When user is KS user or not logged in
 components:
   schemas:
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
     user_public:
       type: object
       properties:
@@ -144,27 +165,6 @@ components:
       - new_type
       - name
       - id
-    user_public_update_image:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/image'
-    user_public_update_json:
-      type: object
-      properties:
-        username:
-          type: string
-        description:
-          type: string
-        website:
-          type: string
-          format: uri
-        gender:
-          type: string
-        birthday:
-          type: string
-        newsletter:
-          type: string
     user:
       type: object
       properties:
@@ -237,27 +237,27 @@ components:
             type: string
       required:
       - errors
-    image:
+    user_public_update_json:
       type: object
       properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
+        username:
+          type: string
+        description:
+          type: string
+        website:
           type: string
           format: uri
-        source:
+        gender:
           type: string
-        source_link:
+        birthday:
           type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
+        newsletter:
+          type: string
+    user_public_update_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
   securitySchemes:
     bearerAuth:
       type: http

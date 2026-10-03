@@ -124,26 +124,34 @@ paths:
           description: NotFound. When Ugc recipe does not exists
 components:
   schemas:
-    qa_user_update_json:
+    image:
       type: object
       properties:
-        username:
-          type: string
-        description:
-          type: string
-        website:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
           type: string
           format: uri
-        gender:
+        source:
           type: string
-        birthday:
+        source_link:
           type: string
-        newsletter:
-          type: string
-        type:
-          type: string
-        occupation:
+        width:
           type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
+    qa_user_public_update_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
     qa_ugc_recipe_accept:
       type: object
       properties:
@@ -159,13 +167,6 @@ components:
           type: array
           items:
             type: string
-    qa_user_public_update_image:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
     user:
       type: object
       properties:
@@ -229,6 +230,26 @@ components:
       - name
       - id
       - email
+    qa_user_update_json:
+      type: object
+      properties:
+        username:
+          type: string
+        description:
+          type: string
+        website:
+          type: string
+          format: uri
+        gender:
+          type: string
+        birthday:
+          type: string
+        newsletter:
+          type: string
+        type:
+          type: string
+        occupation:
+          type: number
     form_response:
       type: object
       properties:
@@ -238,27 +259,6 @@ components:
             type: string
       required:
       - errors
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

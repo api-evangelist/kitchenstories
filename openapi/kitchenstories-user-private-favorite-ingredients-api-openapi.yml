@@ -103,25 +103,13 @@ components:
       - data
       - links
       - meta
-    links:
+    ingredient_favorite_add_json:
       type: object
       properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
+        ingredients:
+          type: array
+          items:
+            type: string
     characteristic:
       type: object
       properties:
@@ -132,42 +120,6 @@ components:
       required:
       - id
       - name
-      additionalProperties: false
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
-    ingredient_favorite_add_json:
-      type: object
-      properties:
-        ingredients:
-          type: array
-          items:
-            type: string
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
-      required:
-      - pagination
       additionalProperties: false
     ingredient:
       type: object
@@ -196,6 +148,54 @@ components:
       - id
       - name
       - is_partner
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

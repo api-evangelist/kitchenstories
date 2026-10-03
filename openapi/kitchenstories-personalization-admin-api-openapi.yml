@@ -203,51 +203,7 @@ paths:
           description: NotAuthorized. When user does not have permission for this operation (only editor)
 components:
   schemas:
-    personalization_option_body:
-      type: object
-      properties:
-        key:
-          type: string
-        option_type:
-          type: string
-          enum:
-          - inclusive
-          - exclusive
-        value_type:
-          type: string
-          enum:
-          - single
-          - multi
-        title:
-          type: string
-        description:
-          type: string
-        translations:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_option_translation_body'
-      required:
-      - value_type
-      - key
-      - option_type
-    personalization_option_translation_body:
-      type: object
-      properties:
-        language:
-          type: string
-          enum:
-          - de
-          - en
-          - zh
-        title:
-          type: string
-        description:
-          type: string
-      required:
-      - language
-      - description
-      - title
-    personalization_option_value:
+    personalization_option_value_body:
       type: object
       properties:
         uuid:
@@ -290,7 +246,51 @@ components:
             type: string
       required:
       - errors
-    personalization_option_value_body:
+    personalization_option_translation_body:
+      type: object
+      properties:
+        language:
+          type: string
+          enum:
+          - de
+          - en
+          - zh
+        title:
+          type: string
+        description:
+          type: string
+      required:
+      - language
+      - description
+      - title
+    personalization_option_body:
+      type: object
+      properties:
+        key:
+          type: string
+        option_type:
+          type: string
+          enum:
+          - inclusive
+          - exclusive
+        value_type:
+          type: string
+          enum:
+          - single
+          - multi
+        title:
+          type: string
+        description:
+          type: string
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option_translation_body'
+      required:
+      - value_type
+      - key
+      - option_type
+    personalization_option_value:
       type: object
       properties:
         uuid:

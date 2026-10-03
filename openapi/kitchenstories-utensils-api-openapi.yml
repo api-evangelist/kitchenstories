@@ -95,20 +95,21 @@ paths:
           description: Utensil Additional Information not found
 components:
   schemas:
-    size:
+    utensil_additionalinformation_pagination:
       type: object
       properties:
-        id:
-          type: string
-        name:
-          type: string
-        metric:
-          type: string
-        imperial:
-          type: string
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/additional_information'
       required:
-      - id
-      additionalProperties: false
+      - data
+      - links
+      - meta
     utensil:
       type: object
       properties:
@@ -138,6 +139,28 @@ components:
       - id
       - name
       - is_partner
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
     utensil_pagination:
       type: object
       properties:
@@ -172,42 +195,19 @@ components:
       - last
       - first
       additionalProperties: false
-    characteristic:
+    size:
       type: object
       properties:
         id:
           type: string
         name:
           type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    utensil_additionalinformation_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/additional_information'
-      required:
-      - data
-      - links
-      - meta
-    additional_information:
-      type: object
-      properties:
-        id:
+        metric:
           type: string
-        name:
+        imperial:
           type: string
       required:
       - id
-      - name
       additionalProperties: false
     meta:
       type: object

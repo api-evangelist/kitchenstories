@@ -71,20 +71,32 @@ paths:
           description: Forbidden. When user is not logged in
 components:
   schemas:
-    errors:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
     user_public_upload_image:
       type: object
       properties:
         image:
           $ref: '#/components/schemas/image'
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
     video:
       type: object
       properties:
@@ -155,32 +167,6 @@ components:
       - id
       - slug
       - meta
-    user_public_upload_video:
-      type: object
-      properties:
-        video:
-          $ref: '#/components/schemas/video'
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
     wagtail_meta:
       type: object
       properties:
@@ -205,6 +191,20 @@ components:
       required:
       - hreflang
       additionalProperties: false
+    user_public_upload_video:
+      type: object
+      properties:
+        video:
+          $ref: '#/components/schemas/video'
+    errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
   securitySchemes:
     bearerAuth:
       type: http

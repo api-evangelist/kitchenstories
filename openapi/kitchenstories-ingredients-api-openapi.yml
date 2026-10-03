@@ -185,33 +185,36 @@ components:
       - name
       - ingredient_pluralizable
       - type
-    ingredient:
+    ingredient_pagination:
       type: object
       properties:
-        id:
-          type: string
-        name:
-          type: object
-          properties:
-            one:
-              type: string
-            many:
-              type: string
-          required:
-          - one
-          additionalProperties: false
-        characteristics:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
           type: array
           items:
-            $ref: '#/components/schemas/characteristic'
-        is_partner:
-          type: boolean
-        is_searcheable:
-          type: boolean
+            $ref: '#/components/schemas/ingredient'
       required:
-      - id
-      - name
-      - is_partner
+      - data
+      - links
+      - meta
+    ingredient_additionalinformation_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/additional_information'
+      required:
+      - data
+      - links
+      - meta
     ingredient_promoted:
       type: object
       properties:
@@ -239,21 +242,64 @@ components:
       - id
       - name
       - is_partner
-    ingredient_pagination:
+    additional_information:
       type: object
       properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    ingredient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: object
+          properties:
+            one:
+              type: string
+            many:
+              type: string
+          required:
+          - one
+          additionalProperties: false
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/characteristic'
+        is_partner:
+          type: boolean
+        is_searcheable:
+          type: boolean
+      required:
+      - id
+      - name
+      - is_partner
+    ingredient_promoted_list:
+      type: object
+      properties:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/ingredient'
+            $ref: '#/components/schemas/ingredient_promoted'
       required:
       - data
-      - links
-      - meta
     links:
       type: object
       properties:
@@ -273,6 +319,21 @@ components:
       - last
       - first
       additionalProperties: false
+    ingredient_unit_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/unit'
+      required:
+      - data
+      - links
+      - meta
     meta:
       type: object
       properties:
@@ -293,67 +354,6 @@ components:
       required:
       - pagination
       additionalProperties: false
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    additional_information:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    ingredient_promoted_list:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ingredient_promoted'
-      required:
-      - data
-    ingredient_additionalinformation_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/additional_information'
-      required:
-      - data
-      - links
-      - meta
-    ingredient_unit_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/unit'
-      required:
-      - data
-      - links
-      - meta
   securitySchemes:
     bearerAuth:
       type: http
