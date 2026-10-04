@@ -145,13 +145,6 @@ components:
       required:
       - url
       additionalProperties: false
-    qa_user_public_update_image:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
     qa_ugc_recipe_accept:
       type: object
       properties:
@@ -167,6 +160,22 @@ components:
           type: array
           items:
             type: string
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    qa_user_public_update_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
     user:
       type: object
       properties:
@@ -250,15 +259,6 @@ components:
           type: string
         occupation:
           type: number
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
   securitySchemes:
     bearerAuth:
       type: http

@@ -137,21 +137,26 @@ paths:
           description: Video not found
 components:
   schemas:
-    video_pagination:
+    meta:
       type: object
       properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/video'
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
       required:
-      - data
-      - links
-      - meta
+      - pagination
+      additionalProperties: false
     image:
       type: object
       properties:
@@ -243,6 +248,40 @@ components:
       - id
       - slug
       - meta
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    video_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/video'
+      required:
+      - data
+      - links
+      - meta
     wagtail_meta:
       type: object
       properties:
@@ -266,45 +305,6 @@ components:
           - en
       required:
       - hreflang
-      additionalProperties: false
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
-      required:
-      - pagination
       additionalProperties: false
   securitySchemes:
     bearerAuth:

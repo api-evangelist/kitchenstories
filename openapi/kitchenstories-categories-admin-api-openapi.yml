@@ -87,29 +87,6 @@ components:
           format: uri
       required:
       - url
-    content_meta_markdown:
-      type: object
-      properties:
-        markdown:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - markdown
-    content_meta_faq:
-      type: object
-      properties:
-        question:
-          type: string
-          minLength: 1
-          maxLength: 500
-        answer:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - answer
-      - question
     content_meta_external_product:
       type: object
       properties:
@@ -133,6 +110,15 @@ components:
       - image
       - url
       - title
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
     content_meta:
       type: object
       properties:
@@ -154,6 +140,20 @@ components:
       - type
       - key
       - uuid
+    content_meta_faq:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - answer
+      - question
     content_meta_body:
       type: object
       properties:

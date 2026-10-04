@@ -203,6 +203,15 @@ paths:
           description: NotAuthorized. When user does not have permission for this operation (only editor)
 components:
   schemas:
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
     personalization_option_value_body:
       type: object
       properties:
@@ -237,15 +246,6 @@ components:
           format: date-time
       required:
       - value
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
     personalization_option_translation_body:
       type: object
       properties:

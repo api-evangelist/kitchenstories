@@ -95,6 +95,41 @@ paths:
           description: Utensil Additional Information not found
 components:
   schemas:
+    utensil_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/utensil'
+      required:
+      - data
+      - links
+      - meta
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
     utensil_additionalinformation_pagination:
       type: object
       properties:
@@ -110,6 +145,61 @@ components:
       - data
       - links
       - meta
+    additional_information:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
+    characteristic:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
+      additionalProperties: false
+    size:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        metric:
+          type: string
+        imperial:
+          type: string
+      required:
+      - id
+      additionalProperties: false
     utensil:
       type: object
       properties:
@@ -139,96 +229,6 @@ components:
       - id
       - name
       - is_partner
-    additional_information:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    characteristic:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-      - id
-      - name
-      additionalProperties: false
-    utensil_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/utensil'
-      required:
-      - data
-      - links
-      - meta
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
-    size:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        metric:
-          type: string
-        imperial:
-          type: string
-      required:
-      - id
-      additionalProperties: false
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
-      required:
-      - pagination
-      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

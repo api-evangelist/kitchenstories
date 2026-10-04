@@ -98,6 +98,11 @@ paths:
           description: Forbidden. When user is KS user or not logged in
 components:
   schemas:
+    user_public_update_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
     image:
       type: object
       properties:
@@ -119,52 +124,15 @@ components:
       required:
       - url
       additionalProperties: false
-    user_public:
+    form_response:
       type: object
       properties:
-        id:
-          type: string
-        type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-        new_type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-          - partner
-          - external
-        name:
-          type: string
-        slug:
-          type: string
-        occupation:
-          type: string
-        description:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
-        wide_banner_image:
-          $ref: '#/components/schemas/image'
-        website:
-          type: string
-          format: uri
-        is_premium:
-          type: boolean
-        created:
-          type: string
-          format: date-time
+        errors:
+          type: array
+          items:
+            type: string
       required:
-      - type
-      - new_type
-      - name
-      - id
+      - errors
     user:
       type: object
       properties:
@@ -228,15 +196,52 @@ components:
       - name
       - id
       - email
-    form_response:
+    user_public:
       type: object
       properties:
-        errors:
-          type: array
-          items:
-            type: string
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
       required:
-      - errors
+      - type
+      - new_type
+      - name
+      - id
     user_public_update_json:
       type: object
       properties:
@@ -253,11 +258,6 @@ components:
           type: string
         newsletter:
           type: string
-    user_public_update_image:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/image'
   securitySchemes:
     bearerAuth:
       type: http
