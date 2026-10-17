@@ -112,14 +112,63 @@ paths:
           description: Category not found
 components:
   schemas:
-    content_meta_external_link:
+    content_meta_faq:
       type: object
       properties:
-        url:
+        question:
           type: string
-          format: uri
+          minLength: 1
+          maxLength: 500
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 5000
       required:
-      - url
+      - answer
+      - question
+    content_meta_list:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/content_meta'
+      required:
+      - data
+    path_item:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+      required:
+      - id
+      - slug
+      - title
+    content_meta:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
     meta:
       type: object
       properties:
@@ -140,87 +189,6 @@ components:
       required:
       - pagination
       additionalProperties: false
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
-    content_meta_external_product:
-      type: object
-      properties:
-        title:
-          type: string
-          minLength: 1
-          maxLength: 37
-        subtitle:
-          type: string
-          maxLength: 25
-        image:
-          type: string
-          format: uri
-        cta:
-          type: string
-          maxLength: 20
-        url:
-          type: string
-          format: uri
-      required:
-      - image
-      - url
-      - title
-    category_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/category'
-      required:
-      - data
-      - links
-      - meta
-    path_item:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-      required:
-      - id
-      - slug
-      - title
-    content_meta_list:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/content_meta'
-      required:
-      - data
     links:
       type: object
       properties:
@@ -249,6 +217,37 @@ components:
           maxLength: 5000
       required:
       - markdown
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
     child_item:
       type: object
       properties:
@@ -335,41 +334,6 @@ components:
       - id
       - url
       - meta
-    content_meta:
-      type: object
-      properties:
-        key:
-          type: string
-        type:
-          type: string
-        value:
-          oneOf:
-          - $ref: '#/components/schemas/content_meta_external_link'
-          - $ref: '#/components/schemas/content_meta_external_product'
-          - $ref: '#/components/schemas/content_meta_faq'
-          - $ref: '#/components/schemas/content_meta_markdown'
-        campaign:
-          type: string
-        language:
-          type: string
-      required:
-      - type
-      - key
-      - uuid
-    content_meta_faq:
-      type: object
-      properties:
-        question:
-          type: string
-          minLength: 1
-          maxLength: 500
-        answer:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - answer
-      - question
     wagtail_meta:
       type: object
       properties:
@@ -393,6 +357,42 @@ components:
           - en
       required:
       - hreflang
+      additionalProperties: false
+    category_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/category'
+      required:
+      - data
+      - links
+      - meta
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
       additionalProperties: false
   securitySchemes:
     bearerAuth:

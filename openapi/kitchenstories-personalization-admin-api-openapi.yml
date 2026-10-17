@@ -203,16 +203,34 @@ paths:
           description: NotAuthorized. When user does not have permission for this operation (only editor)
 components:
   schemas:
-    form_response:
+    personalization_option_body:
       type: object
       properties:
-        errors:
+        key:
+          type: string
+        option_type:
+          type: string
+          enum:
+          - inclusive
+          - exclusive
+        value_type:
+          type: string
+          enum:
+          - single
+          - multi
+        title:
+          type: string
+        description:
+          type: string
+        translations:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/personalization_option_translation_body'
       required:
-      - errors
-    personalization_option_value_body:
+      - value_type
+      - key
+      - option_type
+    personalization_option_value:
       type: object
       properties:
         uuid:
@@ -263,34 +281,16 @@ components:
       - language
       - description
       - title
-    personalization_option_body:
+    form_response:
       type: object
       properties:
-        key:
-          type: string
-        option_type:
-          type: string
-          enum:
-          - inclusive
-          - exclusive
-        value_type:
-          type: string
-          enum:
-          - single
-          - multi
-        title:
-          type: string
-        description:
-          type: string
-        translations:
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/personalization_option_translation_body'
+            type: string
       required:
-      - value_type
-      - key
-      - option_type
-    personalization_option_value:
+      - errors
+    personalization_option_value_body:
       type: object
       properties:
         uuid:

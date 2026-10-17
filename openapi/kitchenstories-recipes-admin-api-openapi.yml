@@ -121,67 +121,6 @@ paths:
           description: Recipe or Content Meta key not found
 components:
   schemas:
-    content_meta_external_link:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-      required:
-      - url
-    content_meta_external_product:
-      type: object
-      properties:
-        title:
-          type: string
-          minLength: 1
-          maxLength: 37
-        subtitle:
-          type: string
-          maxLength: 25
-        image:
-          type: string
-          format: uri
-        cta:
-          type: string
-          maxLength: 20
-        url:
-          type: string
-          format: uri
-      required:
-      - image
-      - url
-      - title
-    content_meta_markdown:
-      type: object
-      properties:
-        markdown:
-          type: string
-          minLength: 1
-          maxLength: 5000
-      required:
-      - markdown
-    content_meta:
-      type: object
-      properties:
-        key:
-          type: string
-        type:
-          type: string
-        value:
-          oneOf:
-          - $ref: '#/components/schemas/content_meta_external_link'
-          - $ref: '#/components/schemas/content_meta_external_product'
-          - $ref: '#/components/schemas/content_meta_faq'
-          - $ref: '#/components/schemas/content_meta_markdown'
-        campaign:
-          type: string
-        language:
-          type: string
-      required:
-      - type
-      - key
-      - uuid
     content_meta_faq:
       type: object
       properties:
@@ -216,6 +155,67 @@ components:
       required:
       - type
       - key
+    content_meta:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+        value:
+          oneOf:
+          - $ref: '#/components/schemas/content_meta_external_link'
+          - $ref: '#/components/schemas/content_meta_external_product'
+          - $ref: '#/components/schemas/content_meta_faq'
+          - $ref: '#/components/schemas/content_meta_markdown'
+        campaign:
+          type: string
+        language:
+          type: string
+      required:
+      - type
+      - key
+      - uuid
+    content_meta_markdown:
+      type: object
+      properties:
+        markdown:
+          type: string
+          minLength: 1
+          maxLength: 5000
+      required:
+      - markdown
+    content_meta_external_link:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+    content_meta_external_product:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 37
+        subtitle:
+          type: string
+          maxLength: 25
+        image:
+          type: string
+          format: uri
+        cta:
+          type: string
+          maxLength: 20
+        url:
+          type: string
+          format: uri
+      required:
+      - image
+      - url
+      - title
   securitySchemes:
     bearerAuth:
       type: http

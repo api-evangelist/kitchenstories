@@ -88,35 +88,6 @@ paths:
           description: NotFound. When Ingredient does not exists
 components:
   schemas:
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
-      required:
-      - pagination
-      additionalProperties: false
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
     ingredient_pagination:
       type: object
       properties:
@@ -151,6 +122,42 @@ components:
       - last
       - first
       additionalProperties: false
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
+    ingredient_favorite_add_json:
+      type: object
+      properties:
+        ingredients:
+          type: array
+          items:
+            type: string
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
     characteristic:
       type: object
       properties:
@@ -189,13 +196,6 @@ components:
       - id
       - name
       - is_partner
-    ingredient_favorite_add_json:
-      type: object
-      properties:
-        ingredients:
-          type: array
-          items:
-            type: string
   securitySchemes:
     bearerAuth:
       type: http

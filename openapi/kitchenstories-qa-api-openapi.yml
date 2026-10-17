@@ -124,27 +124,33 @@ paths:
           description: NotFound. When Ugc recipe does not exists
 components:
   schemas:
-    image:
+    qa_user_public_update_image:
       type: object
       properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
+    qa_user_update_json:
+      type: object
+      properties:
+        username:
+          type: string
+        description:
+          type: string
+        website:
           type: string
           format: uri
-        source:
+        gender:
           type: string
-        source_link:
+        birthday:
           type: string
-        width:
+        newsletter:
+          type: string
+        type:
+          type: string
+        occupation:
           type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
     qa_ugc_recipe_accept:
       type: object
       properties:
@@ -160,22 +166,6 @@ components:
           type: array
           items:
             type: string
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
-    qa_user_public_update_image:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
     user:
       type: object
       properties:
@@ -239,26 +229,36 @@ components:
       - name
       - id
       - email
-    qa_user_update_json:
+    form_response:
       type: object
       properties:
-        username:
-          type: string
-        description:
-          type: string
-        website:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
           type: string
           format: uri
-        gender:
+        source:
           type: string
-        birthday:
+        source_link:
           type: string
-        newsletter:
-          type: string
-        type:
-          type: string
-        occupation:
+        width:
           type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

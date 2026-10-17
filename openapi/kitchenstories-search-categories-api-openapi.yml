@@ -65,6 +65,44 @@ paths:
           description: Category not found
 components:
   schemas:
+    publishing:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        state:
+          type: string
+      required:
+      - created
+      - updated
+      - state
+      additionalProperties: false
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
     meta:
       type: object
       properties:
@@ -84,61 +122,6 @@ components:
           additionalProperties: false
       required:
       - pagination
-      additionalProperties: false
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
-    search_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/search_category'
-      required:
-      - data
-      - links
-      - meta
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
       additionalProperties: false
     search_category:
       type: object
@@ -184,25 +167,21 @@ components:
       - id
       - image
       - icon
-    publishing:
+    search_pagination:
       type: object
       properties:
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        published:
-          type: string
-          format: date-time
-        state:
-          type: string
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/search_category'
       required:
-      - created
-      - updated
-      - state
-      additionalProperties: false
+      - data
+      - links
+      - meta
     wagtail_meta:
       type: object
       properties:
@@ -226,6 +205,27 @@ components:
           - en
       required:
       - hreflang
+      additionalProperties: false
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
+          type: string
+          format: uri
+        source:
+          type: string
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
       additionalProperties: false
   securitySchemes:
     bearerAuth:

@@ -137,47 +137,6 @@ paths:
           description: Video not found
 components:
   schemas:
-    meta:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            pages:
-              type: number
-            count:
-              type: number
-            page:
-              type: number
-          required:
-          - page
-          - pages
-          - count
-          additionalProperties: false
-      required:
-      - pagination
-      additionalProperties: false
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
-          type: string
-          format: uri
-        source:
-          type: string
-        source_link:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
     video:
       type: object
       properties:
@@ -248,6 +207,50 @@ components:
       - id
       - slug
       - meta
+    wagtail_meta:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        hreflang:
+          type: object
+          properties:
+            en:
+              type: string
+              format: uri
+            de:
+              type: string
+              format: uri
+            zh:
+              type: string
+              format: uri
+          required:
+          - en
+      required:
+      - hreflang
+      additionalProperties: false
+    meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            pages:
+              type: number
+            count:
+              type: number
+            page:
+              type: number
+          required:
+          - page
+          - pages
+          - count
+          additionalProperties: false
+      required:
+      - pagination
+      additionalProperties: false
     links:
       type: object
       properties:
@@ -282,29 +285,26 @@ components:
       - data
       - links
       - meta
-    wagtail_meta:
+    image:
       type: object
       properties:
-        title:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
           type: string
-        description:
+          format: uri
+        source:
           type: string
-        hreflang:
-          type: object
-          properties:
-            en:
-              type: string
-              format: uri
-            de:
-              type: string
-              format: uri
-            zh:
-              type: string
-              format: uri
-          required:
-          - en
+        source_link:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
       required:
-      - hreflang
+      - url
       additionalProperties: false
   securitySchemes:
     bearerAuth:

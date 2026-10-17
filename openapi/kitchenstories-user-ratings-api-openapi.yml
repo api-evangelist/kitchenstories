@@ -98,6 +98,25 @@ components:
           type: number
       required:
       - rating
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
     meta:
       type: object
       properties:
@@ -118,6 +137,21 @@ components:
       required:
       - pagination
       additionalProperties: false
+    rating_pagination:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/rating'
+      required:
+      - data
+      - links
+      - meta
     form_response:
       type: object
       properties:
@@ -141,40 +175,6 @@ components:
       - id
       - rating
       - feed_item
-    rating_pagination:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/rating'
-      required:
-      - data
-      - links
-      - meta
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

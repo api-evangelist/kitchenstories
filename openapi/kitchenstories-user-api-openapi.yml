@@ -98,41 +98,22 @@ paths:
           description: Forbidden. When user is KS user or not logged in
 components:
   schemas:
-    user_public_update_image:
+    user_public_update_json:
       type: object
       properties:
-        image:
-          $ref: '#/components/schemas/image'
-    image:
-      type: object
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: number
-        url:
+        username:
+          type: string
+        description:
+          type: string
+        website:
           type: string
           format: uri
-        source:
+        gender:
           type: string
-        source_link:
+        birthday:
           type: string
-        width:
-          type: number
-        height:
-          type: number
-      required:
-      - url
-      additionalProperties: false
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
+        newsletter:
+          type: string
     user:
       type: object
       properties:
@@ -242,22 +223,41 @@ components:
       - new_type
       - name
       - id
-    user_public_update_json:
+    form_response:
       type: object
       properties:
-        username:
-          type: string
-        description:
-          type: string
-        website:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    user_public_update_image:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/image'
+    image:
+      type: object
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: number
+        url:
           type: string
           format: uri
-        gender:
+        source:
           type: string
-        birthday:
+        source_link:
           type: string
-        newsletter:
-          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+      - url
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

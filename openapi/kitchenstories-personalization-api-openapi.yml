@@ -370,6 +370,48 @@ components:
       - data
       - links
       - meta
+    personalization-feed:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalized_feed_collection'
+      required:
+      - data
+    personalization_body:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        onboarding_completed:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+    links:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uri
+        last:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+      required:
+      - last
+      - first
+      additionalProperties: false
     meta:
       type: object
       properties:
@@ -390,6 +432,159 @@ components:
       required:
       - pagination
       additionalProperties: false
+    personalization_preference_body:
+      type: object
+      properties:
+        option:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        values:
+          type: array
+          items:
+            type: string
+      required:
+      - option
+      - values
+    personalization_option_value:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        value:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        translation_status:
+          type: string
+          enum:
+          - original
+          - fully_translated
+          - partially_translated
+          - auto_translated
+          - not_translated
+        native_language:
+          type: string
+          enum:
+          - en
+          - de
+          - zh
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+      required:
+      - value
+    personalization_option:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        key:
+          type: string
+        option_type:
+          type: string
+          enum:
+          - inclusive
+          - exclusive
+        value_type:
+          type: string
+          enum:
+          - single
+          - multi
+        translation_status:
+          type: string
+          enum:
+          - original
+          - fully_translated
+          - partially_translated
+          - auto_translated
+          - not_translated
+        native_language:
+          type: string
+          enum:
+          - en
+          - de
+          - zh
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option_value'
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+      required:
+      - value_type
+      - key
+      - option_type
+    personalization:
+      type: object
+      properties:
+        uuid:
+          type: string
+          pattern: '[0-9a-f-]{36}'
+        onboarding_completed:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+    user_public:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+        new_type:
+          type: string
+          enum:
+          - community
+          - contributor
+          - editor
+          - partner
+          - external
+        name:
+          type: string
+        slug:
+          type: string
+        occupation:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/image'
+        banner_image:
+          $ref: '#/components/schemas/image'
+        wide_banner_image:
+          $ref: '#/components/schemas/image'
+        website:
+          type: string
+          format: uri
+        is_premium:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+      required:
+      - type
+      - new_type
+      - name
+      - id
     personalization_preference:
       type: object
       properties:
@@ -411,6 +606,109 @@ components:
       required:
       - option
       - values
+    form_response:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    personalization_preference_paginated:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_preference'
+      required:
+      - data
+      - links
+      - meta
+    personalized_feed_recipe:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - recipe
+        recipe:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+              enum:
+              - recipe
+              - community
+              - how-to
+            title:
+              type: string
+            image:
+              $ref: '#/components/schemas/image'
+            content_id:
+              type: string
+            user_reactions:
+              type: object
+              properties:
+                like_count:
+                  type: number
+              required:
+              - like_count
+              additionalProperties: false
+            total_time:
+              type: number
+            author:
+              $ref: '#/components/schemas/user_public'
+            tags:
+              type: array
+              items:
+                $ref: '#/components/schemas/tag'
+            n_inclusive_tag_matching:
+              type: number
+          required:
+          - image
+          - description
+          - url
+          - title
+          additionalProperties: false
+      required:
+      - type
+      - recipe
+    tag:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        type:
+          type: string
+        is_hidden:
+          type: boolean
+    personalization_option_paginated:
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/personalization_option'
+      required:
+      - data
+      - links
+      - meta
     personalized_feed_collection:
       type: object
       properties:
@@ -463,304 +761,6 @@ components:
       required:
       - url
       additionalProperties: false
-    form_response:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-      required:
-      - errors
-    personalization_preference_body:
-      type: object
-      properties:
-        option:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        values:
-          type: array
-          items:
-            type: string
-      required:
-      - option
-      - values
-    personalization_option:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        key:
-          type: string
-        option_type:
-          type: string
-          enum:
-          - inclusive
-          - exclusive
-        value_type:
-          type: string
-          enum:
-          - single
-          - multi
-        translation_status:
-          type: string
-          enum:
-          - original
-          - fully_translated
-          - partially_translated
-          - auto_translated
-          - not_translated
-        native_language:
-          type: string
-          enum:
-          - en
-          - de
-          - zh
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_option_value'
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-      required:
-      - value_type
-      - key
-      - option_type
-    tag:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        slug:
-          type: string
-        type:
-          type: string
-        is_hidden:
-          type: boolean
-    personalized_feed_recipe:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - recipe
-        recipe:
-          type: object
-          properties:
-            id:
-              type: string
-            type:
-              type: string
-              enum:
-              - recipe
-              - community
-              - how-to
-            title:
-              type: string
-            image:
-              $ref: '#/components/schemas/image'
-            content_id:
-              type: string
-            user_reactions:
-              type: object
-              properties:
-                like_count:
-                  type: number
-              required:
-              - like_count
-              additionalProperties: false
-            total_time:
-              type: number
-            author:
-              $ref: '#/components/schemas/user_public'
-            tags:
-              type: array
-              items:
-                $ref: '#/components/schemas/tag'
-            n_inclusive_tag_matching:
-              type: number
-          required:
-          - image
-          - description
-          - url
-          - title
-          additionalProperties: false
-      required:
-      - type
-      - recipe
-    links:
-      type: object
-      properties:
-        first:
-          type: string
-          format: uri
-        last:
-          type: string
-          format: uri
-        next:
-          type: string
-          format: uri
-        prev:
-          type: string
-          format: uri
-      required:
-      - last
-      - first
-      additionalProperties: false
-    personalization-feed:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalized_feed_collection'
-      required:
-      - data
-    personalization_option_value:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        value:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        translation_status:
-          type: string
-          enum:
-          - original
-          - fully_translated
-          - partially_translated
-          - auto_translated
-          - not_translated
-        native_language:
-          type: string
-          enum:
-          - en
-          - de
-          - zh
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-      required:
-      - value
-    personalization:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        onboarding_completed:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-    personalization_option_paginated:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_option'
-      required:
-      - data
-      - links
-      - meta
-    personalization_preference_paginated:
-      type: object
-      properties:
-        links:
-          $ref: '#/components/schemas/links'
-        meta:
-          $ref: '#/components/schemas/meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/personalization_preference'
-      required:
-      - data
-      - links
-      - meta
-    user_public:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-        new_type:
-          type: string
-          enum:
-          - community
-          - contributor
-          - editor
-          - partner
-          - external
-        name:
-          type: string
-        slug:
-          type: string
-        occupation:
-          type: string
-        description:
-          type: string
-        image:
-          $ref: '#/components/schemas/image'
-        banner_image:
-          $ref: '#/components/schemas/image'
-        wide_banner_image:
-          $ref: '#/components/schemas/image'
-        website:
-          type: string
-          format: uri
-        is_premium:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-      required:
-      - type
-      - new_type
-      - name
-      - id
-    personalization_body:
-      type: object
-      properties:
-        uuid:
-          type: string
-          pattern: '[0-9a-f-]{36}'
-        onboarding_completed:
-          type: boolean
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
   securitySchemes:
     bearerAuth:
       type: http
